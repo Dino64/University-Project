@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TeacherMenu implements Initializable {
-    @FXML Button studentMenu;
+    @FXML Button studentMenu , roomMenu , backButton;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
