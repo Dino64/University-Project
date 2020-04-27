@@ -5,10 +5,10 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherStudentMenu implements Initializable {
-
+public class TeacherRoomMenu implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }
