@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -15,13 +16,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherStudentMenu implements Initializable {
+public class TeacherRoomMenu implements Initializable {
     @FXML
-    Button backTeach, addGrade;
+    Button backTeacher;
     @FXML
-    TextField searchStudent , setGrade;
+    TextField bookRoom;
     @FXML
-
+    TextArea roomArea;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -40,5 +41,7 @@ public class TeacherStudentMenu implements Initializable {
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
+
     }
+
 }
