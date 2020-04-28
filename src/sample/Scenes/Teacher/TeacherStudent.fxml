@@ -8,11 +8,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.TeacherStudentMenu">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
    <children>
       <ImageView fitHeight="357.0" fitWidth="606.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Assets/Images/studentTeachers.jpg" />
+            <Image url="@../../Assets/Images/studentTeachers.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="searchStudent" layoutX="14.0" layoutY="303.0" promptText="Search for Student" />

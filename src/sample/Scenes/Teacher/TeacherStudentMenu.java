@@ -1,4 +1,4 @@
-package sample;
+package sample.Scenes.Teacher;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -31,7 +31,7 @@ public class TeacherStudentMenu implements Initializable {
         Node node = (Node) be.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherMenu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/TeacherMenu.fxml"));
         Parent root = null;
         try {
             root = loader.load();
