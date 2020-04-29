@@ -1,6 +1,7 @@
-package src.sample.Model;
+package sample.Model;
 
 public class Teacher extends User {
+<<<<<<< HEAD
     private String subject;
 
     public Teacher(String firstName, String lastName, String email, String ssn, String email1, String password, String phoneNumber, String subject) {
@@ -17,4 +18,9 @@ public class Teacher extends User {
     }
 
 
+=======
+    public Teacher(String name, String lastName, String email, String ssn) {
+        super(name, lastName, email, ssn);
+    }
+>>>>>>> 0e419b715693bde950796ddad4068028bf271355
 }

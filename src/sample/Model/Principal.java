@@ -1,6 +1,7 @@
-package src.sample.Model;
+package sample.Model;
 
 public class Principal extends User {
+<<<<<<< HEAD
 
     private String Department;
 
@@ -22,5 +23,9 @@ public class Principal extends User {
         return "Principal{" +
                 "Department='" + Department + '\'' +
                 '}';
+=======
+    public Principal(String name, String lastName, String email, String ssn) {
+        super(name, lastName, email, ssn);
+>>>>>>> 0e419b715693bde950796ddad4068028bf271355
     }
 }
