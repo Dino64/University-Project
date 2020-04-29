@@ -43,10 +43,6 @@
                 <TextField fx:id="txtFldConfirmPassword" layoutX="192.0" layoutY="158.0" onAction="#registerUser" prefHeight="27.0" prefWidth="159.0" promptText="Confirm password" />
                 <TextField fx:id="txtFldSsn" layoutX="25.0" layoutY="87.0" onAction="#registerUser" prefHeight="26.0" prefWidth="159.0" promptText="Social security number" />
                 <TextField fx:id="txtFldPhone" layoutX="25.0" layoutY="192.0" onAction="#registerUser" prefHeight="26.0" prefWidth="159.0" promptText="Phone number" />
-                <TextField fx:id="txtFldStreet" layoutX="24.0" layoutY="227.0" onAction="#registerUser" prefHeight="27.0" prefWidth="326.0" promptText="Address" />
-                <TextField fx:id="txtFldState" layoutX="24.0" layoutY="262.0" onAction="#registerUser" prefHeight="28.0" prefWidth="159.0" promptText="State" />
-                <TextField fx:id="txtFldZip" layoutX="192.0" layoutY="262.0" onAction="#registerUser" prefHeight="28.0" prefWidth="159.0" promptText="Zip" />
-                <TextField fx:id="txtFldPhoneHome" layoutX="192.0" layoutY="192.0" onAction="#registerUser" prefHeight="27.0" prefWidth="159.0" promptText="Phone number Home" />
                 <Button fx:id="btnJoin" layoutX="266.0" layoutY="309.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="27.0" prefWidth="84.0" styleClass="highlighted-button" text="Join" />
                 <Label layoutX="27.0" layoutY="36.0" prefHeight="23.0" prefWidth="268.0" text="Fill in your information below:">
                     <font>
