@@ -1,4 +1,4 @@
-package src.sample.Scenes.Student;
+package sample.Scenes.Student;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
