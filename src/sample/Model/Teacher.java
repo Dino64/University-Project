@@ -4,8 +4,8 @@ public class Teacher extends User {
 
     private String subject;
 
-    public Teacher(String firstName, String lastName, String email, String ssn, String email1, String password, String phoneNumber, String subject) {
-        super(firstName, lastName, email, ssn, email1, password, phoneNumber);
+    public Teacher(String firstName, String lastName, String ssn, String email1, String password, String phoneNumber, String subject) {
+        super(firstName, lastName, ssn, email1, password, phoneNumber);
         this.subject = subject;
     }
 

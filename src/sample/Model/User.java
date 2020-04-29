@@ -1,18 +1,16 @@
 package src.sample.Model;
 
-public class User {
+public abstract class User {
     private String firstName;
     private String lastName;
-    private String email;
     private String ssn;
     private String Email;
     private String Password;
     private String phoneNumber;
 
-    public User(String firstName, String lastName, String email, String ssn, String email1, String password, String phoneNumber) {
+    public User(String firstName, String lastName, String ssn, String email1, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.ssn = ssn;
         Email = email1;
         Password = password;
@@ -35,13 +33,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public String getPassword() {
         return Password;
@@ -72,7 +63,6 @@ public class User {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
                 ", ssn='" + ssn + '\'' +
                 ", Email='" + Email + '\'' +
                 ", Password='" + Password + '\'' +
