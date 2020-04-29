@@ -1,4 +1,4 @@
-package sample;
+package src.sample.Model;
 
 abstract class User {
     private String name;
