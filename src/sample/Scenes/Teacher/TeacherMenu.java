@@ -17,9 +17,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TeacherMenu implements Initializable {
-    public static void main(String[] args) {
 
-    }
     @FXML Button studentMenu , roomMenu , backButton;
 
     @Override
