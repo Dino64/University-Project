@@ -1,4 +1,4 @@
-package sample.DataBaseConsole;
+package src.sample.DataBaseConsole;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
