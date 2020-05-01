@@ -13,9 +13,10 @@ public class DatabaseConnection implements Database {
 
     private final String USERNAME = "UNIVERSITY";
     private final String PASSWORD = "GROUP4";
-    private final String IP ="";
-    private final String DATABASE = "";
-    private final String ADDRESS = "";
+    private final String IP ="den1.mysql2.gear.host";
+    private final String DATABASE = "RealUniversity";
+    private final String ADDRESS = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC",
+            IP, DATABASE, USERNAME, PASSWORD);
 
 
     private Queue<Connection> connections;
@@ -46,7 +47,7 @@ public class DatabaseConnection implements Database {
         return null;
     }
 
-    private static DatabaseConnection getInstance(){
+    public static DatabaseConnection getInstance(){
         if (instance == null){
             instance = new DatabaseConnection();
         }
