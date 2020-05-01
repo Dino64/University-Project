@@ -1,4 +1,4 @@
-package sample.Model;
+package src.sample.Model;
 
 public class Teacher extends User {
 
