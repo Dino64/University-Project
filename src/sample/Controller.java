@@ -20,8 +20,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
-//    private String userName;
-//    private String password;
+    String userName;
+    String password;
     Student studentUlf = new Student("Ulf","Ulfson","231674539021","Ulf.Ulffson@myspace.net"
             ,"Ulf_Likes_BIGwomen","555 567 389","1");
 
@@ -48,9 +48,17 @@ public class Controller implements Initializable {
 
     @FXML
     public void LoginButton (ActionEvent event) throws IOException {
+        try {
+            userName = UsernameTextField.getText();
+             password = PasswordTextField.getText();
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Something went Wrong");
+            alert.setContentText("Make sure you follow the instructions");
+            alert.showAndWait();
+        }
 
-          String  userName = UsernameTextField.getText();
-            String password = PasswordTextField.getText();
 
 
             if (userName.equals(principalMagnus.getFirstName())&& password.equals(principalMagnus.getPassword())){
