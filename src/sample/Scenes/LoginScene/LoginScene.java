@@ -1,4 +1,4 @@
-package sample.Scenes.LoginScene;
+package src.sample.Scenes.LoginScene;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
