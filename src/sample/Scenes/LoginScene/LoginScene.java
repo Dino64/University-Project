@@ -1,23 +1,18 @@
-package src.sample.Scenes.LoginScene;
+package sample.Scenes.LoginScene;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
+
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
 import sample.Model.Principal;
 import sample.Model.Student;
 import sample.Model.Teacher;
-import sample.Model.User;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 

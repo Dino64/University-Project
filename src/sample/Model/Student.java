@@ -1,4 +1,5 @@
-package src.sample.Model;
+package sample.Model;
+
 
 public class Student extends User {
 

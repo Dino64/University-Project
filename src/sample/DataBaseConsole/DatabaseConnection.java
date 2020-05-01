@@ -1,4 +1,4 @@
-package src.sample.DataBaseConsole;
+package sample.DataBaseConsole;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,10 +11,10 @@ public class DatabaseConnection implements Database {
 
     private static DatabaseConnection instance;
 
-    private final String USERNAME = "UNIVERSITY";
-    private final String PASSWORD = "GROUP4";
-    private final String IP ="den1.mysql2.gear.host";
-    private final String DATABASE = "RealUniversity";
+    private final String USERNAME = "dbuni13";
+    private final String PASSWORD = "Se84r8E~!s66";
+    private final String IP ="den1.mysql3.gear.host";
+    private final String DATABASE = "dbuni13";
     private final String ADDRESS = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC",
             IP, DATABASE, USERNAME, PASSWORD);
 

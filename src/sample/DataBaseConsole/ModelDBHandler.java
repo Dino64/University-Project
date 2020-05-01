@@ -1,6 +1,6 @@
-package src.sample.DataBaseConsole;
+package sample.DataBaseConsole;
 
-import src.sample.Model.Model;
+import sample.Model.Model;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-public abstract class ModelDBHandler<T extends Model> implements Database {
+public abstract class ModelDBHandler <T extends Model> implements Database {
 
     protected Connection connection;
 

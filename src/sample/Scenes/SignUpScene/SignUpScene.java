@@ -1,4 +1,4 @@
-package src.sample.Scenes.SignUpScene;
+package sample.Scenes.SignUpScene;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

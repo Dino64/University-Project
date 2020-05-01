@@ -1,6 +1,6 @@
-package src.sample.UserDB;
+package sample.UserDB;
 
-import src.sample.Model.User;
+import sample.Model.User;
 
 public abstract class UserDBHandler <T extends User>
 {
