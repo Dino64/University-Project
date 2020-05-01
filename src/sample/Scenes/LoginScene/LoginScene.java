@@ -48,44 +48,6 @@ public class LoginScene implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
-    @FXML
-    private void LoginButton (ActionEvent event) throws IOException {
-        try {
-            userName = UsernameTextField.getText();
-            password = PasswordTextField.getText();
-        }catch (Exception ex){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("BAD INPUT");
-            alert.setContentText("Please Follow instructions");
-            alert.showAndWait();
-        }
-        if (userName.equals(principalMagnus.getFirstName())&& password.equals(principalMagnus.getPassword())){
-            Node node = (Node) event.getSource();
-            Stage stage1 = (Stage) node.getScene().getWindow();
-
-            Parent root = FXMLLoader.load(getClass().getResource("PrincipalMenu.fxml"));
-            Scene scene1 = new Scene(root);
-            stage1.setTitle("Principal Scene");
-            stage1.setScene(scene1);
-        }else if (userName.equals(teacherBerdyl.getFirstName())&& password.equals(teacherBerdyl.getPassword())){
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-
-            Parent root = FXMLLoader.load(getClass().getResource("TeacherMenu.fxml"));
-            Scene scene = new Scene(root);
-            stage.setTitle("Teacher menu");
-            stage.setScene(scene);
-
-        }else if (userName.equals(studentUlf.getFirstName())&& password.equals(studentUlf.getPassword())){
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("Student.fxml"));
-            Scene scene = new Scene(root);
-            stage.setTitle("Student menu");
-            stage.setScene(scene);
-        }
-
     }
-}
+
+

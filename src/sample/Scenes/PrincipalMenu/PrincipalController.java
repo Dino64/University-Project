@@ -22,11 +22,11 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void PrincipalRoomMenuButton (ActionEvent event) throws IOException {
+    public void PrincipalRoomMenuButton (ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage1 = (Stage) node.getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("ClassRoom.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/ClassRooms/ClassRoom.fxml"));
         Scene scene1 = new Scene(root);
         stage1.setTitle("Class Rooms");
         stage1.setScene(scene1);

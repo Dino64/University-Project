@@ -25,7 +25,7 @@ public class ClassRoomController implements Initializable {
         Node node = (Node) event.getSource();
         Stage stage1 = (Stage) node.getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("PrincipalMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml"));
         Scene scene1 = new Scene(root);
         stage1.setTitle("Principal Scene");
         stage1.setScene(scene1);

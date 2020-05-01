@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.LoginScene.LoginScene">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
     <children>
         <ImageView fitHeight="407.0" fitWidth="615.0">
             <image>
@@ -29,7 +29,7 @@
       <TextField fx:id="UsernameTextField" layoutX="97.0" layoutY="177.0" prefHeight="27.0" prefWidth="242.0" promptText="Username" />
       <TextField fx:id="PasswordTextField" layoutX="97.0" layoutY="216.0" prefHeight="27.0" prefWidth="242.0" promptText="Password" />
       <Button fx:id="SignUpButton" layoutX="191.0" layoutY="267.0" mnemonicParsing="false" text="Sign Up" />
-      <Button fx:id="LoginButton" layoutX="270.0" layoutY="267.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="62.0" text="Log in" />
+      <Button fx:id="LoginButton" layoutX="270.0" layoutY="267.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="27.0" prefWidth="62.0" text="Log in" />
       <Button fx:id="ForgotPasswordButton" layoutX="195.0" layoutY="319.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="138.0" text="Forgot password" />
     </children>
 </AnchorPane>
