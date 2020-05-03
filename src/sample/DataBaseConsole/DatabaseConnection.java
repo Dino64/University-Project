@@ -12,7 +12,7 @@ public class DatabaseConnection implements Database {
     private static DatabaseConnection instance;
 
     private final String USERNAME = "dbuni13";
-    private final String PASSWORD = "Se84r8E~!s66";
+    private final String PASSWORD = "Lt7v_kSL?f7x";
     private final String IP ="den1.mysql3.gear.host";
     private final String DATABASE = "dbuni13";
     private final String ADDRESS = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC",
