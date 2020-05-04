@@ -12,7 +12,7 @@ public class DatabaseConnection implements Database {
     private static DatabaseConnection instance;
 
     private final String USERNAME = "dbuni13";
-    private final String PASSWORD = "Lt7v_kSL?f7x";
+    private final String PASSWORD = "Si8K!1Y?xMID";
     private final String IP ="den1.mysql3.gear.host";
     private final String DATABASE = "dbuni13";
     private final String ADDRESS = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC",
@@ -61,6 +61,7 @@ public class DatabaseConnection implements Database {
             if (connections.isEmpty()) {
                 try {
                     connection = DriverManager.getConnection(ADDRESS);
+                    System.out.println("Success");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

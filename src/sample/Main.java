@@ -5,6 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.DataBaseConsole.DBConnect;
+import sample.DataBaseConsole.ModelDBHandler;
+import sample.Model.Teacher;
 
 public class Main extends Application {
 
@@ -14,6 +17,8 @@ public class Main extends Application {
         primaryStage.setTitle("The Real University");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        DBConnect test = new DBConnect();
+        test.connect();
     }
 
 
