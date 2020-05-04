@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <TextField fx:id="searchStudent" layoutX="14.0" layoutY="303.0" promptText="Search for Student" />
-      <TableView layoutX="423.0" prefHeight="303.0" prefWidth="172.0">
+      <TableView layoutX="430.0" prefHeight="303.0" prefWidth="172.0">
         <columns>
           <TableColumn prefWidth="97.60003662109375" text="Student Name" />
           <TableColumn prefWidth="69.60003662109375" text="Grade" />

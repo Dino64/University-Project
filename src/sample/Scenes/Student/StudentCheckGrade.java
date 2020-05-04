@@ -1,4 +1,4 @@
-package src.sample.Scenes.Student;
+package sample.Scenes.Student;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
