@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <TextField fx:id="searchStudent" layoutX="14.0" layoutY="303.0" promptText="Search for Student" />
-      <TableView layoutX="430.0" prefHeight="303.0" prefWidth="172.0">
+      <TableView fx:id="StudentTableView" layoutX="430.0" prefHeight="303.0" prefWidth="172.0">
         <columns>
           <TableColumn prefWidth="97.60003662109375" text="Student Name" />
           <TableColumn prefWidth="69.60003662109375" text="Grade" />
@@ -25,5 +25,6 @@
       <TextField fx:id="setGrade" layoutX="423.0" layoutY="303.0" promptText="set grade" />
       <Button fx:id="addGrade" layoutX="497.0" layoutY="329.0" mnemonicParsing="false" text="add Grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
+      <Button fx:id="LoadStudentButton" layoutX="338.0" layoutY="277.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Load Students" />
    </children>
 </AnchorPane>

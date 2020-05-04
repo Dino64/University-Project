@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import sample.Model.Principal;
 import sample.Model.Student;
 import sample.Model.Teacher;
+import sample.Scenes.Teacher.TeacherStudentMenu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,10 +20,13 @@ import java.util.ResourceBundle;
 
 
 public class LoginScene implements Initializable {
+LoginScene login = new LoginScene();
+TeacherStudentMenu stuMenu = new TeacherStudentMenu();
+
     String userName;
     String password;
     Student studentUlf = new Student("Ulf","Ulfson","231674539021","Ulf.Ulffson@myspace.net"
-    ,"Ulf_Likes_BIGwomen","555 567 389","1");
+    ,"Ulf_Likes_BIGwomen","555 567 389","1","Biologi");
 
     Principal principalMagnus = new Principal("Magnus","Rot","435908671243","Magnus.jehova@yahoo.RU",
             "SloopyJoe","555 673 196","Head office");
@@ -41,6 +45,7 @@ public class LoginScene implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
 
     }
     }
