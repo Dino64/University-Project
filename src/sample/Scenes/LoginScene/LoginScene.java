@@ -20,8 +20,7 @@ import java.util.ResourceBundle;
 
 
 public class LoginScene implements Initializable {
-LoginScene login = new LoginScene();
-TeacherStudentMenu stuMenu = new TeacherStudentMenu();
+
 
     String userName;
     String password;

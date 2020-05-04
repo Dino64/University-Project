@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,15 +15,10 @@
          </image>
       </ImageView>
       <TextField fx:id="searchStudent" layoutX="14.0" layoutY="303.0" promptText="Search for Student" />
-      <TableView fx:id="StudentTableView" layoutX="430.0" prefHeight="303.0" prefWidth="172.0">
-        <columns>
-          <TableColumn prefWidth="97.60003662109375" text="Student Name" />
-          <TableColumn prefWidth="69.60003662109375" text="Grade" />
-        </columns>
-      </TableView>
       <TextField fx:id="setGrade" layoutX="423.0" layoutY="303.0" promptText="set grade" />
       <Button fx:id="addGrade" layoutX="497.0" layoutY="329.0" mnemonicParsing="false" text="add Grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
-      <Button fx:id="LoadStudentButton" layoutX="338.0" layoutY="277.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Load Students" />
+      <Button fx:id="LoadStudentButton" layoutX="497.0" layoutY="277.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Load Students" />
+      <TextArea fx:id="StudentTableView" layoutX="397.0" layoutY="2.0" prefHeight="272.0" prefWidth="200.0" promptText="Student" />
    </children>
 </AnchorPane>
