@@ -28,7 +28,7 @@ import java.util.ResourceBundle;
 public class TeacherStudentMenu implements Initializable {
 
     @FXML
-    Button backTeach, addGrade;
+    Button backTeach, addGrade, cancel;
     @FXML
     TextField searchStudent , setGrade;
     @FXML
@@ -62,5 +62,10 @@ public class TeacherStudentMenu implements Initializable {
         }
         Scene scene = new Scene(root);
         stage.setScene(scene);
+    }
+    @FXML
+    private void cancelButton(ActionEvent event){
+        StudentTableView.clear();
+        DBConnect.getInstance().disconnect();
     }
 }

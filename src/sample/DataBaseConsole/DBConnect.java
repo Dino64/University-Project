@@ -4,6 +4,8 @@ import sample.Model.Student;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public  class DBConnect {
     public static Student p;
@@ -47,6 +49,17 @@ public  class DBConnect {
         System.out.println("DEBUG: Connected to db");
         return true;
     }
+    public void disconnect() {
+        if (connection != null) {
+            try {
+                System.out.println("DEBUG: Closing db connection");
+                stmt.close();
+                connection.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
 
     public  ArrayList<String> getPassword() {
         ArrayList result = new ArrayList();
@@ -68,12 +81,14 @@ public  class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * from student");
+            resultSet = statement.executeQuery("select student.StudentName, student.StudentLastName,Course_CourseName, grade from student\n" +
+                    "join course_has_student");
             while (resultSet.next()) {
-               p.add(resultSet.getString(1));
-                p.add(resultSet.getString(2));
-               p.add(resultSet.getString(3)) ;
-                p.add(resultSet.getString(4));
+               p.add("Name\n" + resultSet.getString(1));
+                p.add("\nLastName\n" + resultSet.getString(2));
+               p.add("\nCourse\n" + resultSet.getString(3)) ;
+               p.add("\nGrade\n" + resultSet.getString(4));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -20,5 +20,7 @@
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
       <Button fx:id="LoadStudentButton" layoutX="497.0" layoutY="277.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Load Students" />
       <TextArea fx:id="StudentTableView" layoutX="397.0" layoutY="2.0" prefHeight="272.0" prefWidth="200.0" promptText="Student" />
+      <Button layoutX="14.0" layoutY="329.0" mnemonicParsing="false" text="searchNoWork" />
+      <Button fx:id="cancel" layoutX="130.0" layoutY="329.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
    </children>
 </AnchorPane>
