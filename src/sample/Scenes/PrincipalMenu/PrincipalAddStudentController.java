@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -14,10 +15,24 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PrincipalAddStudentController implements Initializable {
+    @FXML
+    TextField NameTextField;
+    @FXML TextField LastNameTextField;
+    @FXML TextField SSNTextField;
+    @FXML TextField EmailTextField;
+    @FXML TextField PasswordTextField;
+    @FXML TextField PhoneNumberTextField;
+    @FXML TextField IdTextField;
+    @FXML TextField CourseTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    @FXML
+    public void AddStudentButton(){
+        
     }
 
     @FXML
