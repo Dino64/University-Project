@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.DataBaseConsole.DBConnect;
 import sample.Model.Student;
 
 import java.io.IOException;
@@ -36,6 +37,7 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void AddStudentButton(){
+        DBConnect.getInstance().connect();
         String name, lastName, SSN, email, passWord, phoneNumber, course;
 
         name = NameTextField.getText();
