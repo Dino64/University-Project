@@ -25,7 +25,7 @@ public class LoginScene implements Initializable {
     String userName;
     String password;
     Student studentUlf = new Student("Ulf","Ulfson","231674539021","Ulf.Ulffson@myspace.net"
-    ,"Ulf_Likes_BIGwomen","555 567 389","1","Biologi");
+    ,"Ulf_Likes_BIGwomen","555 567 389",15,"Biologi");
 
     Principal principalMagnus = new Principal("Magnus","Rot","435908671243","Magnus.jehova@yahoo.RU",
             "SloopyJoe","555 673 196","Head office");

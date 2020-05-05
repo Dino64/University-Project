@@ -22,7 +22,6 @@
       <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="193.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
       <TextField fx:id="PasswordTextField" layoutX="223.0" layoutY="28.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
       <TextField fx:id="PhoneNumberTextField" layoutX="223.0" layoutY="82.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PhoneNumber" />
-      <TextField fx:id="IdTextField" layoutX="223.0" layoutY="131.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students ID" />
       <TextField fx:id="CourseTextField" layoutX="223.0" layoutY="193.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Course" />
    </children>
 </AnchorPane>

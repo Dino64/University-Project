@@ -7,14 +7,19 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Model.Student;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrincipalAddStudentController implements Initializable {
+    private int idCounter;
+    private ArrayList<Student> listOfStudents = new ArrayList<>();
     @FXML
     TextField NameTextField;
     @FXML TextField LastNameTextField;
@@ -22,7 +27,6 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField EmailTextField;
     @FXML TextField PasswordTextField;
     @FXML TextField PhoneNumberTextField;
-    @FXML TextField IdTextField;
     @FXML TextField CourseTextField;
 
     @Override
@@ -32,7 +36,37 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void AddStudentButton(){
-        
+        String name, lastName, SSN, email, passWord, phoneNumber, course;
+
+        name = NameTextField.getText();
+
+        lastName = LastNameTextField.getText();
+
+        SSN = SSNTextField.getText();
+
+        email = EmailTextField.getText();
+
+        passWord = PasswordTextField.getText();
+
+        phoneNumber = PhoneNumberTextField.getText();
+
+        course = CourseTextField.getText();
+
+        Student newStudent = new Student(name,lastName,SSN,email,passWord,phoneNumber,idCounter++,course);
+        listOfStudents.add(newStudent);
+//        Alert alert = new Alert(Alert.AlertType.WARNING);
+//        alert.setTitle("Yay!");
+//        alert.setHeaderText("Success");
+//        alert.setContentText("New Student added");
+//        alert.showAndWait();
+        for (int i = 0; i < listOfStudents.size(); i++ ){
+            System.out.println(listOfStudents.get(i).getStudentID());
+            System.out.println(listOfStudents.get(i).getFirstName());
+            System.out.println(listOfStudents.get(i).getLastName());
+            System.out.println(listOfStudents.get(i).getPhoneNumber());
+            System.out.println(listOfStudents.get(i).getRegisteredCourse());
+        }
+
     }
 
     @FXML
