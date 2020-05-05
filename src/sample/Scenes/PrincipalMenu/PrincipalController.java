@@ -30,6 +30,28 @@ public class PrincipalController implements Initializable {
         Scene scene1 = new Scene(root);
         stage1.setTitle("Class Rooms");
         stage1.setScene(scene1);
+    }
+
+    @FXML
+    public void ViewStudentButton(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage1 = (Stage) node.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/ClassRooms/ClassRoom.fxml"));
+        Scene scene1 = new Scene(root);
+        stage1.setTitle("ClassRoom Page");
+        stage1.setScene(scene1);
+    }
+
+    @FXML
+    public void StudentDatabase(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage1 = (Stage) node.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("PrincipalViewStudents.fxml"));
+        Scene scene1 = new Scene(root);
+        stage1.setTitle("View Student database");
+        stage1.setScene(scene1);
 
     }
 }

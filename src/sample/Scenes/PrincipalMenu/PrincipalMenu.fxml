@@ -13,7 +13,8 @@
          </image>
       </ImageView>
       <Button fx:id="PrincipalRoomMenuButton" layoutX="85.0" layoutY="71.0" mnemonicParsing="false" onAction="#PrincipalRoomMenuButton" prefHeight="61.0" prefWidth="114.0" text="Room Menu" />
-      <Button layoutX="254.0" layoutY="297.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="121.0" text="View Students" />
+      <Button fx:id="ViewStudentButton" layoutX="405.0" layoutY="285.0" mnemonicParsing="false" onAction="#ViewStudentButton" prefHeight="62.0" prefWidth="170.0" text="Check/Book ClassRooms" />
       <Button layoutX="409.0" layoutY="71.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="114.0" text="View Teachers" />
+      <Button fx:id="StudentDatabase" layoutX="74.0" layoutY="280.0" mnemonicParsing="false" onAction="#StudentDatabase" prefHeight="62.0" prefWidth="146.0" text="View Student Database" />
    </children>
 </AnchorPane>
