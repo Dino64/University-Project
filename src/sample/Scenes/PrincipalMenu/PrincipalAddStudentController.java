@@ -41,32 +41,71 @@ public class PrincipalAddStudentController implements Initializable {
         String name, lastName, SSN, email, passWord, phoneNumber, course;
 
         name = NameTextField.getText();
-
         lastName = LastNameTextField.getText();
-
         SSN = SSNTextField.getText();
-
         email = EmailTextField.getText();
-
         passWord = PasswordTextField.getText();
-
         phoneNumber = PhoneNumberTextField.getText();
-
         course = CourseTextField.getText();
+        if (NameTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a NAME!!!!");
+            alert.showAndWait();
+        }else if (LastNameTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a LAST NAME!!!!");
+            alert.showAndWait();
+        }else if (SSNTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a SSN!!!!");
+            alert.showAndWait();
+        }else if (EmailTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter an EMAIL ADRESS!!!!");
+            alert.showAndWait();
+        }else if (PasswordTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a PASSWORD MATE!!!!");
+            alert.showAndWait();
+        }else if (PhoneNumberTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a PHONE NUMBER!!!!");
+            alert.showAndWait();
+        }else if (CourseTextField.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a COURSE!!!!");
+            alert.showAndWait();
+        }else {
 
-        Student newStudent = new Student(name,lastName,SSN,email,passWord,phoneNumber,idCounter++,course);
-        listOfStudents.add(newStudent);
+
+            Student newStudent = new Student(name, lastName, SSN, email, passWord, phoneNumber, idCounter++, course);
+            listOfStudents.add(newStudent);
 //        Alert alert = new Alert(Alert.AlertType.WARNING);
 //        alert.setTitle("Yay!");
 //        alert.setHeaderText("Success");
 //        alert.setContentText("New Student added");
 //        alert.showAndWait();
-        for (int i = 0; i < listOfStudents.size(); i++ ){
-            System.out.println(listOfStudents.get(i).getStudentID());
-            System.out.println(listOfStudents.get(i).getFirstName());
-            System.out.println(listOfStudents.get(i).getLastName());
-            System.out.println(listOfStudents.get(i).getPhoneNumber());
-            System.out.println(listOfStudents.get(i).getRegisteredCourse());
+            for (int i = 0; i < listOfStudents.size(); i++) {
+                System.out.println(listOfStudents.get(i).getStudentID());
+                System.out.println(listOfStudents.get(i).getFirstName());
+                System.out.println(listOfStudents.get(i).getLastName());
+                System.out.println(listOfStudents.get(i).getPhoneNumber());
+                System.out.println(listOfStudents.get(i).getRegisteredCourse());
+            }
         }
 
     }
