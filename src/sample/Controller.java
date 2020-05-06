@@ -45,46 +45,59 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+    @FXML
+    private void signUpButton(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/SignUpScene/SignUpScene.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("SignUp");
+        stage.setScene(scene);
+
+
+
+    }
 
     @FXML
     public void LoginButton(ActionEvent event) throws IOException {
 
-            userName = UsernameTextField.getText();
-            password = PasswordTextField.getText();
+        userName = UsernameTextField.getText();
+        password = PasswordTextField.getText();
 
-            if (UsernameTextField.getText().isEmpty()){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning");
-                alert.setHeaderText("Not good");
-                alert.setContentText("Please enter a USERNAME MATE!!!!");
-                alert.showAndWait();
-            }else if (PasswordTextField.getText().isEmpty()){
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Warning");
-                alert.setHeaderText("Not good");
-                alert.setContentText("Please enter a PASSWORD!!!!");
-                alert.showAndWait();
-            }else {
+        if (UsernameTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a USERNAME MATE!!!!");
+            alert.showAndWait();
+        } else if (PasswordTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("Please enter a PASSWORD!!!!");
+            alert.showAndWait();
+        } else {
 
 
-                if (userName.equals(principalMagnus.getFirstName()) && password.equals(principalMagnus.getPassword())) {
-                    Node node = (Node) event.getSource();
-                    Stage stage1 = (Stage) node.getScene().getWindow();
+            if (userName.equals(principalMagnus.getFirstName()) && password.equals(principalMagnus.getPassword())) {
+                Node node = (Node) event.getSource();
+                Stage stage1 = (Stage) node.getScene().getWindow();
 
-                    Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml"));
-                    Scene scene1 = new Scene(root);
-                    stage1.setTitle("Principal Scene");
-                    stage1.setScene(scene1);
-                } else if (userName.equals(teacherBerdyl.getFirstName()) && password.equals(teacherBerdyl.getPassword())) {
-                    Node node = (Node) event.getSource();
-                    Stage stage = (Stage) node.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml"));
+                Scene scene1 = new Scene(root);
+                stage1.setTitle("Principal Scene");
+                stage1.setScene(scene1);
+            } else if (userName.equals(teacherBerdyl.getFirstName()) && password.equals(teacherBerdyl.getPassword())) {
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
 
-                    Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Teacher/TeacherMenu.fxml"));
-                    Scene scene = new Scene(root);
-                    stage.setTitle("Teacher menu");
-                    stage.setScene(scene);
+                Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Teacher/TeacherMenu.fxml"));
+                Scene scene = new Scene(root);
+                stage.setTitle("Teacher menu");
+                stage.setScene(scene);
 
-                }/*else if (password.equals(DBConnect.getPassword())){
+            }/*else if (password.equals(DBConnect.getPassword())){
                 Node node = (Node) event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
                 Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Student/Student.fxml"));
@@ -94,8 +107,10 @@ public class Controller implements Initializable {
             }
             */
 
-            }
+        }
+
     }
+
 }
 
 

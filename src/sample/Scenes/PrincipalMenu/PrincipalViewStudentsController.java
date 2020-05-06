@@ -41,5 +41,9 @@ public class PrincipalViewStudentsController implements Initializable {
         stage1.setTitle("Add Student page");
         stage1.setScene(scene1);
     }
+    @FXML public void viewAllUsers(){
+        DBConnect.getInstance().connect();
+        StudentTextArea.setText(String.valueOf(DBConnect.getInstance().seeAllUsers()));
+    }
 
 }

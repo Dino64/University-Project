@@ -1,6 +1,7 @@
 package sample.DataBaseConsole;
 
 import sample.Model.Student;
+import sample.Model.User;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -8,8 +9,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public  class DBConnect {
-    public static Student p;
+    private static User use;
+
+    private static Student p;
+
     private static ResultSet resultSet;
+    private static PreparedStatement prep = null;
     private static Statement statement = null;
     private final String USERNAME = "dbuni13";
     private final String PASSWORD = "Si8K!1Y?xMID";
@@ -20,10 +25,16 @@ public  class DBConnect {
     private static Connection connection = null;
     private static DBConnect single_instance = null;
 
-    Statement stmt = null;
-
     public DBConnect() {
 
+    }
+
+    public static User getUse() {
+        return use;
+    }
+
+    public static void setUse(User use) {
+        DBConnect.use = use;
     }
 
     public static DBConnect getInstance() {
@@ -42,18 +53,19 @@ public  class DBConnect {
             ex.printStackTrace();
         }
         try {
-            stmt = connection.createStatement();
+            statement = connection.createStatement();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         System.out.println("DEBUG: Connected to db");
         return true;
     }
+
     public void disconnect() {
         if (connection != null) {
             try {
                 System.out.println("DEBUG: Closing db connection");
-                stmt.close();
+                statement.close();
                 connection.close();
             } catch (SQLException ex) {
                 Logger.getLogger(DBConnect.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,7 +73,7 @@ public  class DBConnect {
         }
     }
 
-    public  ArrayList<String> getPassword() {
+    public ArrayList<String> getPassword() {
         ArrayList result = new ArrayList();
 
         try {
@@ -84,10 +96,10 @@ public  class DBConnect {
             resultSet = statement.executeQuery("select student.StudentName, student.StudentLastName,Course_CourseName, grade from student\n" +
                     "join course_has_student");
             while (resultSet.next()) {
-               p.add("Name\n" + resultSet.getString(1));
+                p.add("Name\n" + resultSet.getString(1));
                 p.add("\nLastName\n" + resultSet.getString(2));
-               p.add("\nCourse\n" + resultSet.getString(3)) ;
-               p.add("\nGrade\n" + resultSet.getString(4));
+                p.add("\nCourse\n" + resultSet.getString(3));
+                p.add("\nGrade\n" + resultSet.getString(4));
 
             }
         } catch (SQLException e) {
@@ -95,5 +107,46 @@ public  class DBConnect {
         }
         return p;
     }
-}
+
+    public void saveAccount() {
+        try {
+            String query = "INSERT INTO User (idUser,Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?, ?)";
+            prep = connection.prepareStatement(query);
+            prep.setInt(1,23);
+            prep.setString(2,use.getFirstName());
+            prep.setString(3, use.getLastName());
+            prep.setString(4, use.getEmail());
+            prep.setString(5, use.getSsn());
+            prep.setString(6,use.getPassword());
+            prep.execute();
+            prep.close();
+            System.out.println("DEBUG: Sign up successful, saved in remote DB");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+    }
+    public ArrayList<String> seeAllUsers(){
+        ArrayList<String> allUsers = new ArrayList<>();
+
+        try {
+             statement = connection.createStatement();
+            String queryUsers = "SELECT * FROM User";
+            resultSet = statement.executeQuery(queryUsers);
+            while(resultSet.next()) {
+                allUsers.add("Firstname\n " + resultSet.getString(2));
+                allUsers.add("\nLastName\n" + resultSet.getString(3));
+                allUsers.add("\nEmail\n" + resultSet.getString(4));
+                allUsers.add("\nSSN\n" + resultSet.getString(5));
+                allUsers.add("\nPassword\n"+ resultSet.getString(6));
+
+            }
+
+            } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return allUsers;
+    }
+
+    }
 

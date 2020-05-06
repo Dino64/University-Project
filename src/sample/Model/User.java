@@ -1,19 +1,20 @@
 package sample.Model;
 
-public abstract class User {
+public class User {
+    private int Iduser;
     private String firstName;
     private String lastName;
     private String ssn;
-    private String Email;
-    private String Password;
+    private String email;
+    private String password;
     private String phoneNumber;
 
-    public User(String firstName, String lastName, String ssn, String email1, String password, String phoneNumber) {
+    public User(int iduser,String firstName, String lastName, String ssn, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
-        Email = email1;
-        Password = password;
+        this.email = email;
+        this.password = password;
         this.phoneNumber = phoneNumber;
     }
 
@@ -35,11 +36,11 @@ public abstract class User {
 
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        password = password;
     }
 
     public String getPhoneNumber() {
@@ -58,14 +59,22 @@ public abstract class User {
         this.ssn = ssn;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", ssn='" + ssn + '\'' +
-                ", Email='" + Email + '\'' +
-                ", Password='" + Password + '\'' +
+                ", Email='" + email + '\'' +
+                ", Password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }

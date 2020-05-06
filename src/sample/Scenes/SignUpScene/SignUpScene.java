@@ -1,23 +1,27 @@
 package sample.Scenes.SignUpScene;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import sample.DataBaseConsole.DBConnect;
+import sample.Model.User;
 
 public class SignUpScene {
 
-    @FXML private TextField
+    @FXML
+    private TextField
             txtFldFirstName,
             txtFldLastName,
             txtFldSsn,
-            txtFldStreet,
-            txtFldZip,
             txtFldEmail,
             txtFldPassword,
-            txtFldConfirmPassword,
-            txtFldPhone,
-            txtFldState,
-            txtFldPhoneHome;
+            txtFieldPhoneNr;
 
 
-
+    @FXML
+    private void SignUp() {
+        DBConnect.getInstance().connect();
+        DBConnect.getInstance().setUse(new User(0,txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
+        DBConnect.getInstance().saveAccount();
+    }
 }
