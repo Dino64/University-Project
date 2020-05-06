@@ -1,6 +1,8 @@
 package sample.Model;
 
-public class User {
+import sample.Model.Model;
+
+public  abstract class User implements Model {
     private int Iduser;
     private String firstName;
     private String lastName;
@@ -67,15 +69,25 @@ public class User {
         this.email = email;
     }
 
+
     @Override
-    public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", ssn='" + ssn + '\'' +
-                ", Email='" + email + '\'' +
-                ", Password='" + password + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                '}';
+    public boolean matches(String key) {
+        if (ssn.matches(key)) {
+            return true;
+        } else if (firstName.matches(".*"+key+".*") || firstName.toLowerCase().matches(".*"+key+".*")) {
+            return true;
+        } else if (lastName.matches(".*"+key+".*") || lastName.toLowerCase().matches(".*"+key+".*")) {
+            return true;
+        } else if (email.matches(".*"+key+".*") || email.toLowerCase().matches(".*"+key+".*")) {
+            return true;
+        } else if (phoneNumber.matches(".*"+key+".*")) {
+            return true;
+        } else if (String.format("%s %s", firstName, lastName).matches(".*"+key+".*") || String.format("%s %s", firstName, lastName).toLowerCase().matches(".*"+key+".*")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+
+
