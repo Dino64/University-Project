@@ -5,14 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.sample.Scenes.Student.MyPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Student.MyPageController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/Library.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="CheckGradeButton" layoutX="26.0" layoutY="161.0" mnemonicParsing="false" onAction="#CheckGradeButton" prefHeight="46.0" prefWidth="140.0" text="Check your grade" />
+      <Button fx:id="CheckGrade" layoutX="26.0" layoutY="161.0" mnemonicParsing="false" onAction="#checkGrade" prefHeight="46.0" prefWidth="140.0" text="Check your grade" />
       <Button fx:id="RegisterNewCourse" layoutX="217.0" layoutY="161.0" mnemonicParsing="false" onAction="#RegisterNewCourse" prefHeight="46.0" prefWidth="166.0" text="Register on new course" />
       <Button fx:id="RegisterExam" layoutX="437.0" layoutY="160.0" mnemonicParsing="false" onAction="#RegisterExam" prefHeight="46.0" prefWidth="140.0" text="Register exam" />
       <Button fx:id="backButton" layoutX="254.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
