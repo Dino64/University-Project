@@ -15,7 +15,7 @@
       </ImageView>
       <Button fx:id="LoadButton" layoutX="279.0" layoutY="100.0" mnemonicParsing="false" onAction="#LoadButton" text="Load Students" />
       <TextArea fx:id="StudentTextArea" layoutX="398.0" prefHeight="282.0" prefWidth="200.0" promptText="Students" />
-      <Button fx:id="AddStudentButton" layoutX="-2.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="134.0" prefWidth="180.0" text="Add Students into school" />
+      <Button fx:id="AddStudentButton" layoutX="-2.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="134.0" prefWidth="180.0" text="Add/Remove Students " />
       <Button layoutX="279.0" layoutY="129.0" mnemonicParsing="false" onAction="#viewAllUsers" prefHeight="26.0" prefWidth="92.0" text="View all users" />
    </children>
 </AnchorPane>

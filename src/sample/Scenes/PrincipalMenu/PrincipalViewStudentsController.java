@@ -46,4 +46,16 @@ public class PrincipalViewStudentsController implements Initializable {
         StudentTextArea.setText(String.valueOf(DBConnect.getInstance().seeAllUsers()));
     }
 
+    @FXML
+    public void RemoveButton(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage1 = (Stage) node.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("PrincipalRemoveStudent.fxml"));
+        Scene scene1 = new Scene(root);
+        stage1.setTitle("Remove Student page");
+        stage1.setScene(scene1);
+
+    }
+
 }

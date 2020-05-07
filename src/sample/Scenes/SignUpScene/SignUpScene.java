@@ -21,7 +21,7 @@ public class SignUpScene {
     @FXML
     private void SignUp() {
         DBConnect.getInstance().connect();
-        DBConnect.getInstance().setUse(new User(0,txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
+//        DBConnect.getInstance().setUse(new User(0,txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
         DBConnect.getInstance().saveAccount();
     }
 }

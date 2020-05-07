@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
@@ -29,6 +30,9 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField PasswordTextField;
     @FXML TextField PhoneNumberTextField;
     @FXML TextField CourseTextField;
+    @FXML
+    TextArea StudentsTextArea;
+    @FXML TextField RemoveStudentTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -108,6 +112,38 @@ public class PrincipalAddStudentController implements Initializable {
             }
         }
 
+    }
+
+    @FXML
+    public void LoadButton(){
+        DBConnect.getInstance().connect();
+        StudentsTextArea.setText(String.valueOf(DBConnect.getStudent()));
+    }
+
+    @FXML
+    public void RemoveButton(){
+        int customerID;
+        boolean foundID = false;
+        String select;
+
+
+        customerID = Integer.parseInt(RemoveStudentTextField.getText());
+
+
+        for (int i = 0; i < listOfStudents.size(); i++) {
+            if (customerID == listOfStudents.get(i).getStudentID()) {
+                foundID = true;
+                listOfStudents.remove(i);
+
+            }
+        }
+        if (!foundID) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Not good");
+            alert.setContentText("No Student found with that ID");
+            alert.showAndWait();
+        }
     }
 
     @FXML

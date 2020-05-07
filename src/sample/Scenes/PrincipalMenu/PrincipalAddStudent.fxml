@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.shape.Line?>
 
 <AnchorPane prefHeight="409.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalAddStudentController">
    <children>
@@ -15,13 +16,18 @@
          </image>
       </ImageView>
       <Button fx:id="BackButton" layoutX="409.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="81.0" prefWidth="184.0" text="Back" />
-      <Button fx:id="AddStudentButton" layoutX="406.0" layoutY="82.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="328.0" prefWidth="184.0" text="Add Student" />
-      <TextField fx:id="NameTextField" layoutX="14.0" layoutY="28.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Name" />
-      <TextField fx:id="LastNameTextField" layoutX="14.0" layoutY="82.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students LastName" />
-      <TextField fx:id="SSNTextField" layoutX="14.0" layoutY="131.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students SSN" />
-      <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="193.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
-      <TextField fx:id="PasswordTextField" layoutX="223.0" layoutY="28.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
-      <TextField fx:id="PhoneNumberTextField" layoutX="223.0" layoutY="82.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PhoneNumber" />
-      <TextField fx:id="CourseTextField" layoutX="223.0" layoutY="193.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Course" />
+      <Button fx:id="AddStudentButton" layoutX="406.0" layoutY="82.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="66.0" prefWidth="184.0" text="Add Student" />
+      <TextField fx:id="NameTextField" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Name" />
+      <TextField fx:id="LastNameTextField" layoutX="14.0" layoutY="55.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students LastName" />
+      <TextField fx:id="SSNTextField" layoutX="14.0" layoutY="95.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students SSN" />
+      <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="134.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
+      <TextField fx:id="PasswordTextField" layoutX="223.0" layoutY="15.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
+      <TextField fx:id="PhoneNumberTextField" layoutX="223.0" layoutY="55.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PhoneNumber" />
+      <TextField fx:id="CourseTextField" layoutX="223.0" layoutY="95.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Course" />
+      <Line endX="488.89288330078125" layoutX="103.0" layoutY="170.0" startX="-100.0" />
+      <Button fx:id="RemoveButton" layoutX="425.0" layoutY="350.0" mnemonicParsing="false" onAction="#RemoveButton" prefHeight="50.0" prefWidth="167.0" text="Remove" />
+      <TextField fx:id="RemoveStudentTextField" layoutX="32.0" layoutY="223.0" promptText="Please enter a Student ID" />
+      <TextArea fx:id="StudentsTextArea" layoutX="392.0" layoutY="172.0" prefHeight="177.0" prefWidth="198.0" promptText="Students" />
+      <Button fx:id="LoadButton" layoutX="315.0" layoutY="248.0" mnemonicParsing="false" onAction="#LoadButton" text="Load" />
    </children>
 </AnchorPane>
