@@ -3,7 +3,7 @@ package sample.Model;
 import sample.Model.Model;
 
 public  abstract class User implements Model {
-    private int Iduser;
+
     private String firstName;
     private String lastName;
     private String ssn;
@@ -11,7 +11,7 @@ public  abstract class User implements Model {
     private String password;
     private String phoneNumber;
 
-    public User(int iduser,String firstName, String lastName, String ssn, String email, String password, String phoneNumber) {
+    public User(String firstName, String lastName, String ssn, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;

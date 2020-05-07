@@ -5,8 +5,8 @@ public class Member extends User {
     private boolean verificationCode;
     private String verified;
 
-    public Member(int iduser, String firstName, String lastName, String ssn, String email, String password, String phoneNumber, String memberID, boolean verificationCode, String verified) {
-        super(iduser, firstName, lastName, ssn, email, password, phoneNumber);
+    public Member( String firstName, String lastName, String ssn, String email, String password, String phoneNumber) {
+        super(firstName, lastName, ssn, email, password, phoneNumber);
         this.memberID = memberID;
         this.verificationCode = verificationCode;
         this.verified = verified;

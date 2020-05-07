@@ -17,7 +17,7 @@ public  class DBConnect {
     private static PreparedStatement prep = null;
     private static Statement statement = null;
     private final String USERNAME = "dbuni13";
-    private final String PASSWORD = "Si8K!1Y?xMID";
+    private final String PASSWORD = "Ej0w7QIc21_!";
     private final String IP = "den1.mysql3.gear.host";
     private final String DATABASE = "dbuni13";
     private final String URL = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false",
@@ -110,14 +110,13 @@ public  class DBConnect {
 
     public void saveAccount() {
         try {
-            String query = "INSERT INTO User (idUser,Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO User (Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?)";
             prep = connection.prepareStatement(query);
-            prep.setInt(1,23);
-            prep.setString(2,use.getFirstName());
-            prep.setString(3, use.getLastName());
-            prep.setString(4, use.getEmail());
-            prep.setString(5, use.getSsn());
-            prep.setString(6,use.getPassword());
+            prep.setString(1,use.getFirstName());
+            prep.setString(2, use.getLastName());
+            prep.setString(3, use.getEmail());
+            prep.setString(4, use.getSsn());
+            prep.setString(5,use.getPassword());
             prep.execute();
             prep.close();
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
