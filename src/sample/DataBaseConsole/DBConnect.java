@@ -17,8 +17,8 @@ public  class DBConnect {
     private static PreparedStatement prep = null;
     private static Statement statement = null;
     private final String USERNAME = "dbuni13";
-    private final String PASSWORD = "Ej0w7QIc21_!";
-    private final String IP = "den1.mysql3.gear.host";
+    private final String PASSWORD = "Gb4ESje~2BZ~";
+    private final String IP = "den1.mysql2.gear.host";
     private final String DATABASE = "dbuni13";
     private final String URL = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false",
             IP, DATABASE, USERNAME, PASSWORD);
@@ -29,9 +29,7 @@ public  class DBConnect {
 
     }
 
-    public static User getUse() {
-        return use;
-    }
+
 
     public static void setUse(User use) {
         DBConnect.use = use;
@@ -111,6 +109,7 @@ public  class DBConnect {
     public void saveAccount() {
         try {
             String query = "INSERT INTO User (Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?)";
+
             prep = connection.prepareStatement(query);
             prep.setString(1,use.getFirstName());
             prep.setString(2, use.getLastName());
@@ -122,6 +121,17 @@ public  class DBConnect {
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
         } catch (Exception ex) {
             ex.printStackTrace();
+        }String que = "INSERT INTO student(SSN, University_UniversityName,Principal_PrincipalLastName)VALUES(?,?,?)";
+        try {
+            prep = connection.prepareStatement(que);
+            prep.setString(1,use.getSsn());
+            prep.setString(2, "Real");
+            prep.setString(3, "Rot");
+            prep.execute();
+            prep.close();
+            System.out.println("DEBUG: Student added");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }
