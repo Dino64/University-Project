@@ -28,4 +28,36 @@ public class MyPageController implements Initializable {
         stage.setTitle("Student menu");
         stage.setScene(scene);
     }
+
+    @FXML
+    public void CheckGradeButton(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("CheckGrade.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Student menu");
+        stage.setScene(scene);
+
+    }
+
+    @FXML
+    public void RegisterExam(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RegisterExam.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Student menu");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    public void RegisterNewCourse(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("RegisterNewCourse.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Student menu");
+        stage.setScene(scene);
+
+    }
 }

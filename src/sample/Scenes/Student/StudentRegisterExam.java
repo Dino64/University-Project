@@ -30,15 +30,8 @@ public class StudentRegisterExam implements Initializable {
 
     }
 
-    @FXML
-    public void RegisterExam(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("RegisterExam.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Student menu");
-        stage.setScene(scene);
+
 
     }
-}
+
 
