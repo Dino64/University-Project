@@ -97,15 +97,16 @@ public class Controller implements Initializable {
                 stage.setTitle("Teacher menu");
                 stage.setScene(scene);
 
-            }/*else if (password.equals(DBConnect.getPassword())){
+            }else if (userName.equals(studentUlf.getFirstName()) && password.equals(studentUlf.getPassword())) {
                 Node node = (Node) event.getSource();
                 Stage stage = (Stage) node.getScene().getWindow();
+
                 Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Student/Student.fxml"));
                 Scene scene = new Scene(root);
-                stage.setTitle("Student menu");
+                stage.setTitle("Teacher menu");
                 stage.setScene(scene);
             }
-            */
+
 
         }
 

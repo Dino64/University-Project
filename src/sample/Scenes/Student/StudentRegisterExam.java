@@ -1,4 +1,4 @@
-package src.sample.Scenes.Student;
+package sample.Scenes.Student;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +22,7 @@ public class StudentRegisterExam implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("sample/Scenes/Student/StudentMyPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Student/StudentMyPage.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Student menu");
         stage.setScene(scene);

@@ -22,7 +22,7 @@ public class StudentCheckGrade implements Initializable {
     public void backButton(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("StudentMyPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Student/StudentMyPage.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("Student menu");
         stage.setScene(scene);

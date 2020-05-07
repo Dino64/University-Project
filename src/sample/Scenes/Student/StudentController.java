@@ -23,7 +23,7 @@ public class StudentController implements Initializable {
     public void studentPageButton(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("sample/Scenes/Student/StudentMyPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("StudentMyPage.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("My page");
         stage.setScene(scene);
