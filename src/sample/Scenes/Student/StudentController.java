@@ -29,4 +29,5 @@ public class StudentController implements Initializable {
         stage.setScene(scene);
 
     }
+
 }

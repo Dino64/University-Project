@@ -18,6 +18,7 @@ public class StudentCheckGrade implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
     @FXML
     public void backButton(ActionEvent event) throws IOException {
         Node node = (Node) event.getSource();
@@ -26,6 +27,16 @@ public class StudentCheckGrade implements Initializable {
         Scene scene = new Scene(root);
         stage.setTitle("Student menu");
         stage.setScene(scene);
+    }
+    @FXML
+    public void CheckGradeButton(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("CheckGrade.fxml"));
+        Scene scene = new Scene(root);
+        stage.setTitle("Student menu");
+        stage.setScene(scene);
+
     }
 }
 
