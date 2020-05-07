@@ -91,13 +91,15 @@ public  class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select student.StudentName, student.StudentLastName,Course_CourseName, grade from student\n" +
-                    "join course_has_student");
+            resultSet = statement.executeQuery("select Firstname, LastName, user.SSN,Course_CourseName,grade from user\n" +
+                    "Inner Join course_has_student on Student_StudenID = idUser\n" +
+                    "Left Join student on user.SSN = student.SSN;");
             while (resultSet.next()) {
                 p.add("Name\n" + resultSet.getString(1));
                 p.add("\nLastName\n" + resultSet.getString(2));
-                p.add("\nCourse\n" + resultSet.getString(3));
-                p.add("\nGrade\n" + resultSet.getString(4));
+                p.add("\nSSN\n"+resultSet.getString(3));
+                p.add("\nCourse\n" + resultSet.getString(4));
+                p.add("\nGrade\n" + resultSet.getString(5));
 
             }
         } catch (SQLException e) {
