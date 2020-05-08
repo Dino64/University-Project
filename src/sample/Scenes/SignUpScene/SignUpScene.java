@@ -1,14 +1,20 @@
 package sample.Scenes.SignUpScene;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
-import sample.Assets.HashUtils;
+import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
-import sample.Model.Address;
 import sample.Model.Member;
-import sample.UserDB.MemberDBH;
+
+import java.io.IOException;
 
 
 public class SignUpScene {
@@ -21,6 +27,12 @@ public class SignUpScene {
             txtFldEmail,
             txtFldPassword,
             txtFieldPhoneNr;
+
+    @FXML
+    MenuItem backMenuItem,
+            aboutMenuItem,
+            contactMenuItem;
+
 
 
     @FXML
@@ -67,5 +79,35 @@ public class SignUpScene {
         DBConnect.getInstance().saveAccount();
     }
 
+    @FXML
+    void menuItemAboutPressed(ActionEvent event) throws IOException {
+        Node node = (Node) event.getSource();
+        Stage stage1 = (Stage) node.getScene().getWindow();
 
+        Parent root = FXMLLoader.load(getClass().getResource("sample.Scenes.CompanyInformation.CompanyInformation.fxml"));
+        Scene scene1 = new Scene(root);
+        stage1.setTitle("About Us");
+        stage1.setScene(scene1);
+
+
+    }
+
+    @FXML
+    void menuItemContactPressed(ActionEvent event) throws IOException{
+
+        Node node = (Node) event.getSource();
+        Stage stage1 = (Stage) node.getScene().getWindow();
+
+        Parent root = FXMLLoader.load(getClass().getResource("sample.Scenes.CustomerService.CustomerService.fxml"));
+        Scene scene1 = new Scene(root);
+        stage1.setTitle("Customer Service");
+        stage1.setScene(scene1);
+    }
+
+    @FXML
+    void goBack(){
+
+    }
 }
+
+

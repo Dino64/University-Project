@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="sample.Scenes.CompanyInformation.CompanyInformation"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.CompanyInformation.CompanyInformationController">
+    <children>
+        <ImageView fitHeight="400.0" fitWidth="432.0">
+            <image>
+                <Image url="@../../Assets/Images/executive-office-desk1-2.jpg" />
+            </image>
+        </ImageView>
+        <MenuBar prefHeight="29.0" prefWidth="600.0" style="-fx-background-color: #ddd;">
+            <menus>
+                <Menu mnemonicParsing="false" text="Navigator">
+                    <items>
+                        <MenuItem fx:id="menuItemBack" mnemonicParsing="false" onAction="#goBack" text="Back" />
+                        <MenuItem fx:id="menuItemLogOut" mnemonicParsing="false" onAction="#logOut" text="LogOut" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem fx:id="menuItemContact" mnemonicParsing="false" onAction="#contactUs" text="Contact" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Polygon fill="WHITE" layoutX="383.0" layoutY="177.0" points="-109.0, 223.0, -109.0, -177.0, -251.0, -177.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="drop-shadow" />
+        <Polygon fill="WHITE" layoutX="310.0" layoutY="60.0" points="-36.0, 340.0, 318.0, -60.0, -50.0, -60.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+        <AnchorPane layoutX="433.0" layoutY="29.0" prefHeight="371.0" prefWidth="167.0" style="-fx-background-color: #FFFF;" />
+        <Label fx:id="lblAreaInfo" layoutX="260.0" layoutY="73.0" text="Info" textAlignment="CENTER">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>
