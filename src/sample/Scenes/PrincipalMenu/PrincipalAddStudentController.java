@@ -55,43 +55,43 @@ public class PrincipalAddStudentController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a NAME!!!!");
+            alert.setContentText("Please enter student first name");
             alert.showAndWait();
         }else if (LastNameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a LAST NAME!!!!");
+            alert.setContentText("Please enter student last name");
             alert.showAndWait();
         }else if (SSNTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a SSN!!!!");
+            alert.setContentText("Please enter student ssn");
             alert.showAndWait();
         }else if (EmailTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter an EMAIL ADRESS!!!!");
+            alert.setContentText("Please enter student email-adress");
             alert.showAndWait();
         }else if (PasswordTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a PASSWORD MATE!!!!");
+            alert.setContentText("Please enter a password");
             alert.showAndWait();
         }else if (PhoneNumberTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a PHONE NUMBER!!!!");
+            alert.setContentText("Please enter a phone number");
             alert.showAndWait();
         }else if (CourseTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a COURSE!!!!");
+            alert.setContentText("Please enter a course");
             alert.showAndWait();
         }else {
 
