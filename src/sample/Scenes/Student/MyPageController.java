@@ -29,19 +29,14 @@ public class MyPageController implements Initializable {
         stage.setScene(scene);
     }
     @FXML
-    public void checkGrade(ActionEvent event){
+    public void checkGrade(ActionEvent event) throws IOException {
 
-            Node node = (Node) event.getSource();
-            Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("CheckGrade.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("CheckGrade.fxml"));
         Scene scene = new Scene(root);
-            stage.setTitle("Student menu");
-            stage.setScene(scene);
+        stage.setTitle("Student menu");
+        stage.setScene(scene);
 
     }
 

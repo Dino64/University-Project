@@ -91,11 +91,10 @@ public  class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select Firstname, LastName, user.SSN,Course_CourseName,grade from user\n" +
-                    "Inner Join course_has_student on Student_StudenID = idUser\n" +
-                    "Left Join student on user.SSN = student.SSN;");
+            resultSet = statement.executeQuery("select Firstname, Lastname, SSN, Course_CourseName as Course, grade\n from course_has_student\n" +
+                    "join user on user.idUser = Student_StudenID");
             while (resultSet.next()) {
-                p.add("Name: " + resultSet.getString(1));
+                p.add("\nName: " + resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
                 p.add("\nSSN: "+resultSet.getString(3));
                 p.add("\nCourse: " + resultSet.getString(4));
@@ -123,12 +122,10 @@ public  class DBConnect {
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
         } catch (Exception ex) {
             ex.printStackTrace();
-        }String que = "INSERT INTO student(SSN, University_UniversityName,Principal_PrincipalLastName)VALUES(?,?,?)";
+        }String que = "INSERT INTO student (SSN) VALUES (?) ";
         try {
             prep = connection.prepareStatement(que);
             prep.setString(1,use.getSsn());
-            prep.setString(2, "Real");
-            prep.setString(3, "Rot");
             prep.execute();
             prep.close();
             System.out.println("DEBUG: Student added");
@@ -150,7 +147,7 @@ public  class DBConnect {
                 allUsers.add("\nEmail: " + resultSet.getString(4));
                 allUsers.add("\nSSN: " + resultSet.getString(5));
                 allUsers.add("\nPassword: "+ resultSet.getString(6));
-                
+
             }
 
             } catch (SQLException e) {
