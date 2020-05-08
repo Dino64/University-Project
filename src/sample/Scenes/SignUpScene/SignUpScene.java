@@ -97,7 +97,7 @@ public class SignUpScene {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample/Scenes/CustomerService/CustomerService.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/CustomerService/CustomerService.fxml"));
         Scene scene1 = new Scene(root);
         stage.setTitle("Customer Service");
         stage.setScene(scene1);
@@ -108,7 +108,7 @@ public class SignUpScene {
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
 
-        Parent root = FXMLLoader.load(getClass().getResource("sample/LoginScene.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/sample/LoginScene.fxml"));
         Scene scene1 = new Scene(root);
         stage.setTitle("LoginScene");
         stage.setScene(scene1);
