@@ -21,7 +21,7 @@ public class CompanyInformationController implements Initializable {
             menuItemContact;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblAreaInfo.setText("This is a student project developed by\n four students at Kristianstad Univsersity.\n\nDino\nJens\nMartin\nHassan\n\nContact us at afgsuna@yahoo.com");
+        lblAreaInfo.setText("This is a student project developed by\n four students at HKR.\n\nDino\nJens\nMartin\nHassan\n\nContact us at afgsuna@yahoo.com");
     }
 
 }

@@ -2,14 +2,10 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="308.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.SignUpScene.SignUpScene">
@@ -19,22 +15,6 @@
                 <Image url="@../../Assets/Images/Library.jpg" />
             </image>
         </ImageView>
-        <MenuBar prefHeight="29.0" prefWidth="600.0">
-            <menus>
-                <Menu mnemonicParsing="false" text="Navigate">
-                    <items>
-                        <MenuItem fx:id="backMenuItem" mnemonicParsing="false" onAction="#goBack" text="Back" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                        <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#menuItemAboutPressed" text="About" />
-                        <MenuItem fx:id="contactMenuItem" mnemonicParsing="false" onAction="#menuItemContactPressed" text="Contact" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-        <Polygon fill="WHITE" layoutX="131.0" layoutY="144.0" points="40.0, -144.0, 79.17724609375, 256.0, 79.17724609375, -144.0" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="drop-shadow" />
         <AnchorPane layoutX="210.0" layoutY="-1.0" prefHeight="400.0" prefWidth="390.0" style="-fx-background-color: #fff;">
             <children>
                 <TextField fx:id="txtFldFirstName" layoutX="25.0" layoutY="122.0" prefHeight="26.0" prefWidth="159.0" promptText="First name" />
@@ -51,5 +31,8 @@
             <TextField fx:id="txtFieldPhoneNr" layoutX="192.0" layoutY="159.0" promptText="Phone Number" />
             </children>
         </AnchorPane>
+      <Button fx:id="back" layoutY="1.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="27.0" prefWidth="72.0" text="Back" />
+      <Button fx:id="aboutUs" layoutX="72.0" layoutY="1.0" mnemonicParsing="false" onAction="#pressAboutUs" prefHeight="27.0" prefWidth="72.0" text="AboutUs" />
+      <Button fx:id="help" layoutX="144.0" layoutY="1.0" mnemonicParsing="false" onAction="#pressHelp" prefHeight="27.0" prefWidth="66.0" text="Help" />
     </children>
 </AnchorPane>
