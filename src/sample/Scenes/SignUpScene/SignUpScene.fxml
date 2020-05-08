@@ -23,13 +23,13 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Navigate">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Back" />
+                        <MenuItem mnemonicParsing="false" onAction="#back" text="Back" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="About" />
-                        <MenuItem mnemonicParsing="false" text="Contact" />
+                        <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#contact" text="Contact" />
                     </items>
                 </Menu>
             </menus>

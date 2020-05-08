@@ -4,8 +4,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 
 import javafx.scene.control.TextField;
+import sample.Assets.HashUtils;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.Address;
 import sample.Model.Member;
+import sample.UserDB.MemberDBH;
 
 
 public class SignUpScene {
@@ -22,37 +25,37 @@ public class SignUpScene {
 
     @FXML
     private void SignUp() {
-        if (txtFldFirstName.getText().isEmpty()){
+        if (txtFldFirstName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Wrong Input");
             alert.setContentText("Please enter your first name");
             alert.showAndWait();
-        }else if (txtFldLastName.getText().isEmpty()){
+        } else if (txtFldLastName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Wrong input");
             alert.setContentText("Please enter your last name");
             alert.showAndWait();
-        }else if (txtFldSsn.getText().isEmpty()){
+        } else if (txtFldSsn.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
             alert.setContentText("Please enter your ssn");
             alert.showAndWait();
-        }else if (txtFldEmail.getText().isEmpty()){
+        } else if (txtFldEmail.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
             alert.setContentText("Please enter your email-adress");
             alert.showAndWait();
-        }else if (txtFldPassword.getText().isEmpty()){
+        } else if (txtFldPassword.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("wrong input");
             alert.setContentText("Please enter a password");
             alert.showAndWait();
-        }else if (txtFieldPhoneNr.getText().isEmpty()){
+        } else if (txtFieldPhoneNr.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
             alert.setHeaderText("Not good");
@@ -63,4 +66,6 @@ public class SignUpScene {
         DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
         DBConnect.getInstance().saveAccount();
     }
+
+
 }
