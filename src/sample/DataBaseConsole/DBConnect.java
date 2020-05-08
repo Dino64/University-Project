@@ -95,11 +95,11 @@ public  class DBConnect {
                     "Inner Join course_has_student on Student_StudenID = idUser\n" +
                     "Left Join student on user.SSN = student.SSN;");
             while (resultSet.next()) {
-                p.add("Name\n" + resultSet.getString(1));
-                p.add("\nLastName\n" + resultSet.getString(2));
-                p.add("\nSSN\n"+resultSet.getString(3));
-                p.add("\nCourse\n" + resultSet.getString(4));
-                p.add("\nGrade\n" + resultSet.getString(5));
+                p.add("Name: " + resultSet.getString(1));
+                p.add("\nLastName: " + resultSet.getString(2));
+                p.add("\nSSN: "+resultSet.getString(3));
+                p.add("\nCourse: " + resultSet.getString(4));
+                p.add("\nGrade: " + resultSet.getString(5));
 
             }
         } catch (SQLException e) {
@@ -145,12 +145,12 @@ public  class DBConnect {
             String queryUsers = "SELECT * FROM User";
             resultSet = statement.executeQuery(queryUsers);
             while(resultSet.next()) {
-                allUsers.add("Firstname\n " + resultSet.getString(2));
-                allUsers.add("\nLastName\n" + resultSet.getString(3));
-                allUsers.add("\nEmail\n" + resultSet.getString(4));
-                allUsers.add("\nSSN\n" + resultSet.getString(5));
-                allUsers.add("\nPassword\n"+ resultSet.getString(6));
-
+                allUsers.add("Firstname: " + resultSet.getString(2));
+                allUsers.add("\nLastName: " + resultSet.getString(3));
+                allUsers.add("\nEmail: " + resultSet.getString(4));
+                allUsers.add("\nSSN: " + resultSet.getString(5));
+                allUsers.add("\nPassword: "+ resultSet.getString(6));
+                
             }
 
             } catch (SQLException e) {
