@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,12 +22,8 @@ public class StudentRegisterNewCourse implements Initializable {
 
     @FXML
     public void backButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("StudentMyPage.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("Student menu");
-        stage.setScene(scene);
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/StudentMyPage.fxml");
+
 
     }
 

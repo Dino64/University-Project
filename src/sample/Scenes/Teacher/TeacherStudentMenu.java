@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.SceneChanger;
 import sample.Model.Student;
 import sample.Model.Teacher;
 import sample.Model.User;
@@ -49,23 +50,13 @@ public class TeacherStudentMenu implements Initializable {
     }
 
     @FXML
-    private void backButton(ActionEvent be){
-        Node node = (Node) be.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+    private void backButton(ActionEvent be) throws IOException {
+        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherMenu.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
     }
     @FXML
-    private void cancelButton(ActionEvent event){
+    private void cancelButton(){
         StudentTableView.clear();
-        DBConnect.getInstance().disconnect();
+
     }
 }

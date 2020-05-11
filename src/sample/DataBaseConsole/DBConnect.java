@@ -42,11 +42,11 @@ public  class DBConnect {
         return single_instance;
     }
 
-    public boolean connect() {
+    public void connect() {
         try {
             connection = DriverManager.getConnection(URL);
             Statement statement = connection.createStatement();
-            Statement st = connection.createStatement();
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -56,7 +56,6 @@ public  class DBConnect {
             ex.printStackTrace();
         }
         System.out.println("DEBUG: Connected to db");
-        return true;
     }
 
     public void disconnect() {

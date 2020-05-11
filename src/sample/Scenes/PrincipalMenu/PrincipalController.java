@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,35 +24,20 @@ public class PrincipalController implements Initializable {
 
     @FXML
     public void PrincipalRoomMenuButton (ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage1 = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/ClassRooms/ClassRoom.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/ClassRooms/ClassRoom.fxml"));
-        Scene scene1 = new Scene(root);
-        stage1.setTitle("Class Rooms");
-        stage1.setScene(scene1);
     }
 
     @FXML
     public void ViewStudentButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage1 = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/ClassRooms/ClassRoom.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/ClassRooms/ClassRoom.fxml"));
-        Scene scene1 = new Scene(root);
-        stage1.setTitle("ClassRoom Page");
-        stage1.setScene(scene1);
     }
 
     @FXML
     public void StudentDatabase(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage1 = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewStudents.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("PrincipalViewStudents.fxml"));
-        Scene scene1 = new Scene(root);
-        stage1.setTitle("View Student database");
-        stage1.setScene(scene1);
 
     }
 }

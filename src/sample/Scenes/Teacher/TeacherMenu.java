@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 //import sample.DataBaseConsole.DBConnect;
 
 
@@ -25,35 +26,14 @@ public class TeacherMenu implements Initializable {
 
     }
     @FXML
-    private void showStudentMenu(ActionEvent be){
-        Node node = (Node) be.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+    private void showStudentMenu(ActionEvent be) throws IOException {
+        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherStudent.fxml");
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherStudent.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
 
     }
     @FXML
-    private void showRoomMenu(ActionEvent be){
-        Node node = (Node) be.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("TeacherRoomMenu.fxml"));
-        Parent root = null;
-        try {
-            root = loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-
+    private void showRoomMenu(ActionEvent be) throws IOException {
+        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherRoomMenu.fxml");
+        
     }
 }

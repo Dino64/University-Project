@@ -20,7 +20,7 @@ public abstract class UserDBH <U extends User> extends ModelDBHandler<U> {
         }
     }
 
-    public static User authenticate(String email, String password) throws SQLException {
+    public static Object authenticate(String email, String password) throws SQLException {
         String hashedPassword = HashUtils.hashPassword(password);
         try (MemberDBH memberDBH = new MemberDBH();
              StudentDBH studentDBH = new StudentDBH()) {
@@ -32,11 +32,11 @@ public abstract class UserDBH <U extends User> extends ModelDBHandler<U> {
         } catch (Exception e) {
             throw new SQLException(e);
         }
-        return null;
+        return Boolean.parseBoolean(null);
     }
 
     public boolean userExists(String socialSecurityNo) throws SQLException {
-        String query = "SELECT * FROM user WHERE ssn=?";
+        String query = "SELECT * FROM User WHERE ssn=?";
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, socialSecurityNo);
             ResultSet set = statement.executeQuery();

@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,13 +23,8 @@ public class ClassRoomController implements Initializable {
 
     @FXML
     private void ClassRoomBackButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage1 = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml"));
-        Scene scene1 = new Scene(root);
-        stage1.setTitle("Principal Scene");
-        stage1.setScene(scene1);
 
 
     }

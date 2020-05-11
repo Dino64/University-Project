@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Principal;
+import sample.Model.SceneChanger;
 import sample.Model.Student;
 import sample.Model.Teacher;
 
@@ -47,14 +48,7 @@ public class Controller implements Initializable {
     }
     @FXML
     private void signUpButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/SignUpScene/SignUpScene.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("SignUp");
-        stage.setScene(scene);
-
+        SceneChanger.changeScene(event, "/sample/Scenes/SignUpScene/SignUpScene.fxml");
 
 
     }
@@ -81,30 +75,15 @@ public class Controller implements Initializable {
 
 
             if (userName.equals(principalMagnus.getFirstName()) && password.equals(principalMagnus.getPassword())) {
-                Node node = (Node) event.getSource();
-                Stage stage1 = (Stage) node.getScene().getWindow();
+                SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
 
-                Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml"));
-                Scene scene1 = new Scene(root);
-                stage1.setTitle("Principal Scene");
-                stage1.setScene(scene1);
             } else if (userName.equals(teacherBerdyl.getFirstName()) && password.equals(teacherBerdyl.getPassword())) {
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-
-                Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Teacher/TeacherMenu.fxml"));
-                Scene scene = new Scene(root);
-                stage.setTitle("Teacher menu");
-                stage.setScene(scene);
+                SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
             }else if (userName.equals(studentUlf.getFirstName()) && password.equals(studentUlf.getPassword())) {
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
 
-                Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/Student/Student.fxml"));
-                Scene scene = new Scene(root);
-                stage.setTitle("Teacher menu");
-                stage.setScene(scene);
+                SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
+
             }
 
 

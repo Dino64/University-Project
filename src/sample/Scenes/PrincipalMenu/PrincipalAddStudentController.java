@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.SceneChanger;
 import sample.Model.Student;
 
 import java.io.IOException;
@@ -148,13 +149,8 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void BackButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage1 = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewStudents.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("PrincipalViewStudents.fxml"));
-        Scene scene1 = new Scene(root);
-        stage1.setTitle("View Student database");
-        stage1.setScene(scene1);
 
     }
 }

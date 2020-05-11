@@ -10,8 +10,8 @@ public class Student extends User {
         return registeredCourse;
     }
 
-    public Student(String firstName, String lastName, String ssn, String email1, String password, String phoneNumber, int studentID, String registeredCourse) {
-        super(firstName, lastName, ssn, email1, password, phoneNumber);
+    public Student(String firstName, String lastName, String ssn, String email, String password, String phoneNumber, int studentID, String registeredCourse) {
+        super(firstName, lastName, ssn, email, password, phoneNumber);
         this.studentID = studentID;
         this.registeredCourse = registeredCourse;
     }

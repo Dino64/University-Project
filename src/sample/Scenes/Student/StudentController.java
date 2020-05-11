@@ -8,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -21,12 +22,7 @@ public class StudentController implements Initializable {
     }
     @FXML
     public void studentPageButton(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("StudentMyPage.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("My page");
-        stage.setScene(scene);
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/StudentMyPage.fxml");
 
     }
 

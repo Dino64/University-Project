@@ -8,12 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Member;
+import sample.Model.SceneChanger;
+
 
 import java.io.IOException;
+
+import static sample.DataBaseConsole.DBConnect.setUse;
 
 
 public class SignUpScene {
@@ -72,46 +75,33 @@ public class SignUpScene {
             alert.setHeaderText("Not good");
             alert.setContentText("Please enter a phone number");
             alert.showAndWait();
+        }else
+                DBConnect.getInstance().connect();
+                setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
+                DBConnect.getInstance().saveAccount();
+
+
         }
-        DBConnect.getInstance().connect();
-        DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
-        DBConnect.getInstance().saveAccount();
-    }
+
 
     @FXML
     private void pressAboutUs(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/Scenes/CompanyInformation/CompanyInformation.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/CompanyInformation/CompanyInformation.fxml"));
-        Scene scene = new Scene(root);
-        stage.setTitle("About Us");
-        stage.setScene(scene);
 
 
 
     }
 
     @FXML
-    private void pressHelp(ActionEvent event) throws IOException{
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/Scenes/CustomerService/CustomerService.fxml"));
-        Scene scene1 = new Scene(root);
-        stage.setTitle("Customer Service");
-        stage.setScene(scene1);
+    private void pressHelp(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/CustomerService/CustomerService.fxml");
     }
 
     @FXML
     private void pressBack(ActionEvent event) throws IOException{
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/LoginScene.fxml"));
-        Scene scene1 = new Scene(root);
-        stage.setTitle("LoginScene");
-        stage.setScene(scene1);
 
     }
 }

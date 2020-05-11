@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,13 +32,8 @@ public class CompanyInformationController implements Initializable {
 
     @FXML
     private void pressMainMenu(ActionEvent event) throws IOException{
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/LoginScene.fxml"));
-        Scene scene1 = new Scene(root);
-        stage.setTitle("LoginScene");
-        stage.setScene(scene1);
     }
 
 

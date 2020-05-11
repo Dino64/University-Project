@@ -1,7 +1,7 @@
 package sample.UserDB;
 
-import sample.Model.Member;
-import java.util.ArrayList;
+import sample.Model.Student;
+
 import java.util.List;
 
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MemberDBH extends UserDBH<Member> {
+public class MemberDBH extends UserDBH<Student> {
 
 
     @Override
@@ -18,37 +18,37 @@ public class MemberDBH extends UserDBH<Member> {
     }
 
     @Override
-    public Member readByEmail(String email) throws SQLException {
+    public Student readByEmail(String email) throws SQLException {
         return null;
     }
 
     @Override
-    public void insert(Member model) throws SQLException {
+    public void insert(Student model) throws SQLException {
 
     }
 
     @Override
-    public void update(Member model) throws SQLException {
+    public void update(Student model) throws SQLException {
 
     }
 
     @Override
-    public void delete(Member model) throws SQLException {
+    public void delete(Student model) throws SQLException {
 
     }
 
     @Override
-    public List<Member> readAll() throws SQLException {
+    public List<Student> readAll() throws SQLException {
         return null;
     }
 
     @Override
-    public Member readByPrimaryKey(String key) throws SQLException {
+    public Student readByPrimaryKey(String key) throws SQLException {
         return null;
     }
 
     @Override
-    public List<Member> buildModels(ResultSet set) throws SQLException {
+    public List<Student> buildModels(ResultSet set) throws SQLException {
         return null;
     }
 }

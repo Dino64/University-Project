@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,24 +44,14 @@ public class CustomerService implements Initializable {
 
     @FXML
     private void pressMainMenu(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/LoginScene.fxml"));
-        Scene scene1 = new Scene(root);
-        stage.setTitle("LoginScene");
-        stage.setScene(scene1);
     }
 
     @FXML
     private void issueMessage(ActionEvent event) throws IOException {
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
 
-        Parent root = FXMLLoader.load(getClass().getResource("/sample/LoginScene.fxml"));
-        Scene scene1 = new Scene(root);
-        stage.setTitle("LoginScene");
-        stage.setScene(scene1);
     }
 
 
