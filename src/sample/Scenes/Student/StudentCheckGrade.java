@@ -25,6 +25,11 @@ public class StudentCheckGrade implements Initializable {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/StudentMyPage.fxml");
 
     }
+    @FXML
+    public void tableCheckGrade (ActionEvent event) throws IOException {
+
+    }
+
 
     }
 
