@@ -1,72 +1,41 @@
 package sample.Model;
 
-public class Classroom implements Model {
-    private int id;
-    private String whiteboard;
-    private String projector;
-    private int numOfSeats;
-    private String isBooked;
-    private String hasSpeaker;
+import sample.Model.*;
 
-    public Classroom(int id, String whiteboard, String projector, int numOfSeats, String isBooked, String hasSpeaker) {
-        this.id = id;
-        this.whiteboard = whiteboard;
-        this.projector = projector;
-        this.numOfSeats = numOfSeats;
-        this.isBooked = isBooked;
-        this.hasSpeaker = hasSpeaker;
+public class Classroom extends Room {
+
+    private String isForSeminar;
+    private String isForGroupWork;
+    private String isForTeaching;
+
+    public Classroom(int id, String whiteboard, String projector, int numOfSeats, String isBooked, String hasSpeaker, String isForSeminar, String isForGroupWork, String isForTeaching) {
+        super(id, whiteboard, projector, numOfSeats, isBooked, hasSpeaker);
+        this.isForSeminar = isForSeminar;
+        this.isForGroupWork = isForGroupWork;
+        this.isForTeaching = isForTeaching;
     }
 
-    public int getId() {
-        return id;
+    public String getIsForSeminar() {
+        return isForSeminar;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIsForSeminar(String isForSeminar) {
+        this.isForSeminar = isForSeminar;
     }
 
-    public String getWhiteboard() {
-        return whiteboard;
+    public String getIsForGroupWork() {
+        return isForGroupWork;
     }
 
-    public void setWhiteboard(String whiteboard) {
-        this.whiteboard = whiteboard;
+    public void setIsForGroupWork(String isForGroupWork) {
+        this.isForGroupWork = isForGroupWork;
     }
 
-    public String getProjector() {
-        return projector;
+    public String getIsForTeaching() {
+        return isForTeaching;
     }
 
-    public void setProjector(String projector) {
-        this.projector = projector;
-    }
-
-    public int getNumOfSeats() {
-        return numOfSeats;
-    }
-
-    public void setNumOfSeats(int numOfSeats) {
-        this.numOfSeats = numOfSeats;
-    }
-
-    public String getIsBooked() {
-        return isBooked;
-    }
-
-    public void setIsBooked(String isBooked) {
-        this.isBooked = isBooked;
-    }
-
-    public String getHasSpeaker() {
-        return hasSpeaker;
-    }
-
-    public void setHasSpeaker(String hasSpeaker) {
-        this.hasSpeaker = hasSpeaker;
-    }
-
-    @Override
-    public boolean matches(String key) {
-        return false;
+    public void setIsForTeaching(String isForTeaching) {
+        this.isForTeaching = isForTeaching;
     }
 }
