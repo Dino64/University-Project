@@ -2,9 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
@@ -21,17 +18,6 @@
             <Image url="@../../Assets/Images/ClassRoom.jpg" />
          </image>
       </ImageView>
-      <MenuBar prefHeight="25.0" prefWidth="610.0" style="-fx-background-color: #ddd;">
-         <menus>
-            <Menu mnemonicParsing="false" text="Navigate">
-               <items>
-                  <MenuItem fx:id="menuItemBack" mnemonicParsing="false" text="Back" />
-                  <MenuItem fx:id="menuItemCancel" mnemonicParsing="false" text="Cancel" />
-                  <MenuItem fx:id="menuItemQuit" mnemonicParsing="false" text="Quit" />
-               </items>
-            </Menu>
-         </menus>
-      </MenuBar>
       <TextField fx:id="txtFldID" layoutX="14.0" layoutY="46.0" prefHeight="27.0" prefWidth="148.0" promptText="Id" />
       <TextField fx:id="txtFldProjector" layoutX="14.0" layoutY="120.0" prefHeight="27.0" prefWidth="148.0" promptText="projector" />
       <TextField fx:id="txtFldBooked" layoutX="14.0" layoutY="196.0" prefHeight="27.0" prefWidth="148.0" promptText="Booked" />
@@ -42,7 +28,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="buttonSave" layoutX="372.0" layoutY="390.0" mnemonicParsing="false" prefHeight="13.0" prefWidth="73.0" styleClass="drop-shadow" text="Save" />
+            <Button fx:id="buttonSave" layoutX="372.0" layoutY="390.0" mnemonicParsing="false" onAction="#buttonSavePressed" prefHeight="13.0" prefWidth="73.0" styleClass="drop-shadow" text="Save" />
             <TextArea fx:id="textDescription" layoutX="47.0" layoutY="36.0" prefHeight="110.0" prefWidth="397.0" promptText="Description" />
             <TableView fx:id="tableViewChoose" layoutX="47.0" layoutY="154.0" prefHeight="192.0" prefWidth="200.0">
                <columns>
@@ -56,7 +42,7 @@
                   <TableColumn fx:id="colName" prefWidth="168.0" text="Name" />
                </columns>
             </TableView>
-            <Button fx:id="buttonRemove" layoutX="47.0" layoutY="355.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="127.0" text="Remove option" />
+            <Button fx:id="buttonRemove" layoutX="47.0" layoutY="355.0" mnemonicParsing="false" onAction="#buttonRemovePressed" prefHeight="28.0" prefWidth="127.0" text="Remove option" />
             <Button fx:id="buttonAdd" layoutX="354.0" layoutY="355.0" mnemonicParsing="false" text="Add option" />
          </children>
       </AnchorPane>
@@ -66,5 +52,6 @@
       <TextField fx:id="txtFldGroupWork" layoutX="14.0" layoutY="304.0" prefHeight="27.0" prefWidth="148.0" promptText="GroupWork" />
       <TextField fx:id="txtFldSeminar" layoutX="14.0" layoutY="268.0" prefHeight="27.0" prefWidth="148.0" promptText="Seminar" />
       <TextField fx:id="txtFldTeaching" layoutX="14.0" layoutY="347.0" prefHeight="27.0" prefWidth="148.0" promptText="Teaching" />
+      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutY="1.0" mnemonicParsing="false" onAction="#ClassRoomBackButton" prefHeight="27.0" prefWidth="179.0" text="Back" />
    </children>
 </AnchorPane>
