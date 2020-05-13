@@ -60,7 +60,7 @@
             <Button fx:id="buttonAdd" layoutX="354.0" layoutY="355.0" mnemonicParsing="false" text="Add option" />
          </children>
       </AnchorPane>
-      <TextField fx:id="txtFldWhiteBorad" layoutX="14.0" layoutY="84.0" prefHeight="27.0" prefWidth="148.0" promptText="whitebord" />
+      <TextField fx:id="txtFldWhiteBoard" layoutX="14.0" layoutY="84.0" prefHeight="27.0" prefWidth="148.0" promptText="whitebord" />
       <TextField fx:id="txtFldNumberOfSeats" layoutX="14.0" layoutY="159.0" prefHeight="27.0" prefWidth="148.0" promptText="Number Of Seats" />
       <TextField fx:id="txtFldSpeaker" layoutX="14.0" layoutY="231.0" prefHeight="27.0" prefWidth="148.0" promptText="Speaker" />
       <TextField fx:id="txtFldGroupWork" layoutX="14.0" layoutY="304.0" prefHeight="27.0" prefWidth="148.0" promptText="GroupWork" />

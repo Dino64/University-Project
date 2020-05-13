@@ -4,11 +4,9 @@ import sample.Model.Booking;
 import sample.Model.Classroom;
 import sample.Model.Room;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Time;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,17 +33,44 @@ public class ClassroomDBH extends RoomDBH <Classroom> {
 
     @Override
     public List<Classroom> readForBookingSpecific(Booking booking) throws SQLException {
-        return null;
+        String query = "SELECT AllClassrooms.* FROM AllClassrooms JOIN bookinghasroom ON id=bookinghasroom.vehicleId WHERE bookinghasroom.bookingId=?";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, booking.getId());
+            ResultSet set = statement.executeQuery();
+            return buildModels(set);
+        } catch (Exception e) {
+            throw new SQLException("Could not get room for booking.", e);
+        }
     }
 
     @Override
     public void insert(Classroom model) throws SQLException {
-
+        super.insert(model);
+        String insert = "INSERT INTO classroom VALUES (?, ?,)";
+        try (PreparedStatement insertStatement = connection.prepareStatement(insert)) {
+            insertStatement.setInt(1, model.getId());
+            insertStatement.setInt(2, model.getNumOfSeats());
+            insertStatement.execute();
+        } catch (Exception e) {
+            throw new SQLException(e);
+        }
     }
+
+
 
     @Override
     public void update(Classroom model) throws SQLException {
+            try {
+                super.update(model);
+                // do eventual update here, nothing to do for now though
+            } catch (Exception e) {
+                throw new SQLException("Could not update classroom table", e);
+            }
+        }
 
+    @Override
+    public void inactivate(Classroom model) throws SQLException {
+        super.inactivate(model);
     }
 
     @Override
@@ -55,8 +80,29 @@ public class ClassroomDBH extends RoomDBH <Classroom> {
 
     @Override
     public List<Classroom> readAll() throws SQLException {
-        return null;
+        List<Classroom> classrooms = new ArrayList<>();
+        String query = "SELECT * FROM AllClassrooms WHERE inBooking=1";
+        try (Statement statement = connection.createStatement()) {
+            ResultSet set = statement.executeQuery(query);
+           classrooms = buildModels(set);
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+        return classrooms;
     }
+
+    public List<Classroom> readAllIncludingInactive() throws SQLException {
+        List<Classroom> classrooms = new ArrayList<>();
+        String query = "SELECT * FROM AllClassrooms";
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            classrooms.addAll(buildModels(statement.executeQuery()));
+        } catch (Exception e) {
+            throw new SQLException("Could not fetch cars", e);
+        }
+        return classrooms;
+    }
+
 
     @Override
     public Classroom readByPrimaryKey(String key) throws SQLException {
