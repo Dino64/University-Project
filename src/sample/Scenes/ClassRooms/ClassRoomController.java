@@ -42,6 +42,8 @@ public class ClassRoomController implements Initializable {
 
     private ObservableList<Classroom> allClassroom;
     private ObservableList<Classroom> chooseClassroom;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -92,30 +94,40 @@ public class ClassRoomController implements Initializable {
     private boolean validate(){
         if(txtFldID.getText().isEmpty()){
             Dialogue.alert("Please Specify An ID");
+            return false;
         }
         if(txtFldWhiteBoard.getText().isEmpty()){
             Dialogue.alert("Please Specify The WhiteBoard");
+            return false;
         }
         if(txtFldProjector.getText().isEmpty()){
             Dialogue.alert("Please Specify The Projector");
+            return false;
         }
         if(txtFldNumberOfSeats.getText().isEmpty()){
             Dialogue.alert("Please Specify The Number Of Seats");
+            return false;
+
         }
         if(txtFldBooked.getText().isEmpty()){
             Dialogue.alert("Please Specify The Booking");
+            return false;
         }
         if(txtFldSpeaker.getText().isEmpty()){
             Dialogue.alert("Please Specify The Speaker");
+            return false;
         }
         if(txtFldSeminar.getText().isEmpty()){
             Dialogue.alert("Please Specify The Seminar");
+            return false;
         }
         if(txtFldGroupWork.getText().isEmpty()){
             Dialogue.alert("Please Specify The Group Work");
+            return false;
         }
         if(txtFldTeaching.getText().isEmpty()){
             Dialogue.alert("Please Specify For Teaching");
+            return false;
         }
         return true;
     }
