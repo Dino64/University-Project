@@ -76,6 +76,19 @@ public class ClassRoomController implements Initializable {
             Dialogue.alert("No item to remove");
         }
     }
+
+    @FXML
+    private void buttonAddPressed(ActionEvent ae) {
+        Classroom classroom = tableViewPick.getSelectionModel().getSelectedItem();
+        if (classroom != null) {
+            chooseClassroom.add(classroom);
+            allClassroom.remove(classroom);
+        } else {
+            Dialogue.alert("please choose a classroom option");
+        }
+    }
+
+
     private boolean validate(){
         if(txtFldID.getText().isEmpty()){
             Dialogue.alert("Please Specify An ID");

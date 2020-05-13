@@ -52,6 +52,6 @@
       <TextField fx:id="txtFldGroupWork" layoutX="14.0" layoutY="304.0" prefHeight="27.0" prefWidth="148.0" promptText="GroupWork" />
       <TextField fx:id="txtFldSeminar" layoutX="14.0" layoutY="268.0" prefHeight="27.0" prefWidth="148.0" promptText="Seminar" />
       <TextField fx:id="txtFldTeaching" layoutX="14.0" layoutY="347.0" prefHeight="27.0" prefWidth="148.0" promptText="Teaching" />
-      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutY="1.0" mnemonicParsing="false" onAction="#ClassRoomBackButton" prefHeight="27.0" prefWidth="179.0" text="Back" />
+      <Button fx:id="backButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#ClassRoomBackButton" prefHeight="27.0" prefWidth="181.0" text="Back" />
    </children>
 </AnchorPane>
