@@ -105,9 +105,6 @@ public class ClassRoomController implements Initializable {
         if(txtFldBooked.getText().isEmpty()){
             Dialogue.alert("Please Specify The Booking");
         }
-        if(txtFldID.getText().isEmpty()){
-            Dialogue.alert("Please Specify An ID");
-        }
         if(txtFldSpeaker.getText().isEmpty()){
             Dialogue.alert("Please Specify The Speaker");
         }

@@ -43,7 +43,7 @@
                </columns>
             </TableView>
             <Button fx:id="buttonRemove" layoutX="47.0" layoutY="355.0" mnemonicParsing="false" onAction="#buttonRemovePressed" prefHeight="28.0" prefWidth="127.0" text="Remove option" />
-            <Button fx:id="buttonAdd" layoutX="354.0" layoutY="355.0" mnemonicParsing="false" text="Add option" />
+            <Button fx:id="buttonAdd" layoutX="354.0" layoutY="355.0" mnemonicParsing="false" onAction="#buttonAddPressed" text="Add option" />
          </children>
       </AnchorPane>
       <TextField fx:id="txtFldWhiteBoard" layoutX="14.0" layoutY="84.0" prefHeight="27.0" prefWidth="148.0" promptText="whitebord" />
