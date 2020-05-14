@@ -11,7 +11,7 @@ public abstract class ModelDBHandler <T extends Model> implements Database {
 
     protected Connection connection;
 
-    public ModelDBHandler() {
+    public ModelDBHandler() throws Exception {
         try {
             connect();
         } catch (SQLException e) {
@@ -31,13 +31,4 @@ public abstract class ModelDBHandler <T extends Model> implements Database {
 
     public abstract List<T> buildModels(ResultSet set) throws SQLException;
 
-    @Override
-    public void connect() throws SQLException {
-        connection = DatabaseConnection.getInstance().getConnection();
-    }
-
-    @Override
-    public void close() throws Exception {
-        DatabaseConnection.getInstance().releaseConnection(connection);
-    }
 }
