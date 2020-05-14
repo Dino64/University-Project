@@ -1,5 +1,6 @@
 package sample.DataBaseConsole;
 
+import sample.Model.Classroom;
 import sample.Model.Student;
 import sample.Model.User;
 
@@ -145,6 +146,22 @@ public  class DBConnect {
         }
         return allUsers;
     }
+
+    public void addClassRoom(Classroom classRoom) throws SQLException {
+        statement = connection.createStatement();
+        statement.executeQuery("use classroom");
+        statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
