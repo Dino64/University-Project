@@ -1,6 +1,6 @@
 package sample.Model;
 
-public  abstract class User implements Model {
+public  abstract class User {
 
     private String firstName;
     private String lastName;
@@ -68,7 +68,6 @@ public  abstract class User implements Model {
     }
 
 
-    @Override
     public boolean matches(String key) {
         if (ssn.matches(key)) {
             return true;
