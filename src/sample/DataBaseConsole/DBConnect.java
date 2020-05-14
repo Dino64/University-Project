@@ -30,7 +30,9 @@ public  class DBConnect {
 
     }
 
-
+    public static void setRoom(Classroom room){
+        DBConnect.room = room;
+    }
 
     public static void setUse(User use) {
         DBConnect.use = use;
@@ -148,12 +150,14 @@ public  class DBConnect {
     }
 
     public void addClassRoom() throws SQLException {
-        String query = "INSERT INTO Classroom(RoomNumber,NumberOfSeats) VALUES(?,?)";
+        String query = "INSERT INTO Classroom(RoomNumber,NumberOfSeats, isBooked) VALUES(?,?,?)";
         prep = connection.prepareStatement(query);
         prep.setInt(1,room.getRoomNumber());
-        prep.setInt(2, room.getNumberOfSeats());
+        prep.setInt(2, Integer.parseInt(room.getNumberOfSeats()));
+        prep.setBoolean(3, false);
         prep.execute();
         prep.close();
+        disconnect();
         System.out.println("Debug: room Added");
        // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
     }

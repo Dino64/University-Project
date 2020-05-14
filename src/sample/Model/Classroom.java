@@ -1,20 +1,20 @@
 package sample.Model;
 
 
-public class Classroom {
-
+public class Classroom extends Course {
+    private Course course;
     private int NumberOfSeats;
     private int RoomNumber;
     private boolean isBooked;
 
-    public Classroom(int numberOfSeats, int roomNumber, boolean isBooked) {
-        NumberOfSeats = numberOfSeats;
-        RoomNumber = roomNumber;
+    public Classroom(String numberOfSeats, String roomNumber, boolean isBooked) {
+        NumberOfSeats = Integer.parseInt(numberOfSeats);
+        RoomNumber = Integer.parseInt(roomNumber);
         this.isBooked = isBooked;
     }
 
-    public int getNumberOfSeats() {
-        return NumberOfSeats;
+    public String getNumberOfSeats() {
+        return String.valueOf(NumberOfSeats);
     }
 
     public void setNumberOfSeats(int numberOfSeats) {
@@ -22,7 +22,7 @@ public class Classroom {
     }
 
     public int getRoomNumber() {
-        return RoomNumber;
+        return Integer.parseInt(String.valueOf(RoomNumber));
     }
 
     public void setRoomNumber(int roomNumber) {
@@ -37,8 +37,8 @@ public class Classroom {
         isBooked = booked;
     }
 
-    Classroom classroom1 = new Classroom(20, 001, false);
-    Classroom classroom2 = new Classroom(30, 002, false);
-    Classroom classroom3 = new Classroom(40,003, true);
+    //Classroom classroom1 = new Classroom(20, 001, false);
+    //Classroom classroom2 = new Classroom(30, 002, false);
+    //Classroom classroom3 = new Classroom(40,003, true);
 }
 

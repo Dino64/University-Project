@@ -3,7 +3,7 @@ package sample.Model;
 public class Course {
     private String courseName;
     private String subject;
-    private double grade;
+    private int grade;
 
     public String getCourseName() {
         return courseName;
@@ -25,13 +25,14 @@ public class Course {
         return grade;
     }
 
-    public void setGrade(double grade) {
+    public void setGrade(int grade) {
         this.grade = grade;
     }
+    
 
-    public Course(String courseName, String subject, double grade) {
+    public Course() {
         this.courseName = courseName;
         this.subject = subject;
-        this.grade = grade;
+
     }
 }
