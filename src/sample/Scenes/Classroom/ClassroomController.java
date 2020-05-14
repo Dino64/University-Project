@@ -7,10 +7,11 @@ import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class ClassroomController implements Initializable {
-    Classroom hej = new Classroom();
+
 
     DBConnect db = new DBConnect();
     @FXML
@@ -23,6 +24,10 @@ public class ClassroomController implements Initializable {
 
     @FXML
     public void addButton(){
-        db.addClassRoom();
+        try {
+            DBConnect.getInstance().addClassRoom();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
