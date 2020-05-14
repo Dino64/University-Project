@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public  class DBConnect {
+public class DBConnect {
     private static User use;
 
     private static Student p;
@@ -30,7 +30,7 @@ public  class DBConnect {
 
     }
 
-    public static void setRoom(Classroom room){
+    public static void setRoom(Classroom room) {
         DBConnect.room = room;
     }
 
@@ -72,7 +72,8 @@ public  class DBConnect {
             }
         }
     }
-// Denna är ej i bruk än!
+
+    // Denna är ej i bruk än!
     public ArrayList<String> getPassword() {
         ArrayList result = new ArrayList();
 
@@ -98,7 +99,7 @@ public  class DBConnect {
             while (resultSet.next()) {
                 p.add("\nName: " + resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
-                p.add("\nSSN: "+resultSet.getString(3));
+                p.add("\nSSN: " + resultSet.getString(3));
                 p.add("\nCourse: " + resultSet.getString(4));
                 p.add("\nGrade: " + resultSet.getString(5));
 
@@ -114,11 +115,11 @@ public  class DBConnect {
             String query = "INSERT INTO User (Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?)";
 
             prep = connection.prepareStatement(query);
-            prep.setString(1,use.getFirstName());
+            prep.setString(1, use.getFirstName());
             prep.setString(2, use.getLastName());
             prep.setString(3, use.getEmail());
             prep.setString(4, use.getSsn());
-            prep.setString(5,use.getPassword());
+            prep.setString(5, use.getPassword());
             prep.execute();
             prep.close();
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
@@ -127,23 +128,24 @@ public  class DBConnect {
         }
 
     }
-    public ArrayList<String> seeAllUsers(){
+
+    public ArrayList<String> seeAllUsers() {
         ArrayList<String> allUsers = new ArrayList<>();
 
         try {
-             statement = connection.createStatement();
+            statement = connection.createStatement();
             String queryUsers = "SELECT * FROM User";
             resultSet = statement.executeQuery(queryUsers);
-            while(resultSet.next()) {
+            while (resultSet.next()) {
                 allUsers.add("Firstname: " + resultSet.getString(2));
                 allUsers.add("\nLastName: " + resultSet.getString(3));
                 allUsers.add("\nEmail: " + resultSet.getString(4));
                 allUsers.add("\nSSN: " + resultSet.getString(5));
-                allUsers.add("\nPassword: "+ resultSet.getString(6));
+                allUsers.add("\nPassword: " + resultSet.getString(6));
 
             }
 
-            } catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return allUsers;
@@ -152,29 +154,60 @@ public  class DBConnect {
     public void addClassRoom() throws SQLException {
         String query = "INSERT INTO Classroom(RoomNumber,NumberOfSeats, isBooked) VALUES(?,?,?)";
         prep = connection.prepareStatement(query);
-        prep.setInt(1,room.getRoomNumber());
+        prep.setInt(1, room.getRoomNumber());
         prep.setInt(2, Integer.parseInt(room.getNumberOfSeats()));
         prep.setBoolean(3, false);
         prep.execute();
         prep.close();
         disconnect();
         System.out.println("Debug: room Added");
-       // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
+        // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
     }
 
+    public boolean verify(String email, String pass) {
+        String dbmail = "";
+        String dbpass = "";
+        String que = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = teacher_TeacherID";
+        String kud = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = student_StudentID";
+        String prip = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = principal_PrincipalLastName";
+        try {
+            if (email.matches(email) && pass.matches(pass)) {
+                prep = connection.prepareStatement(que);
+                prep.setString(1, use.getEmail());
+                prep.setString(2, use.getPassword());
+                prep.execute();
+                prep.close();
+                disconnect();
+            }else if(email.matches(email)&&pass.matches(pass)) {
+                prep = connection.prepareStatement(kud);
+                prep.setString(1, use.getEmail());
+                prep.setString(2, use.getEmail());
+                prep.execute();
+                prep.close();
+                disconnect();
+            }else if(email.matches(email)&&pass.matches(pass)) {
+                prep = connection.prepareStatement(prip);
+                prep.setString(1, use.getEmail());
+                prep.setString(2, use.getPassword());
+                prep.execute();
+                prep.close();
+                disconnect();
+            }
 
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (dbmail.matches(que) && dbpass.matches(que)) {
+            System.out.println("DEBUG: Teacher loged in");
+        } else if (dbmail.matches(kud) && dbpass.matches(kud)) {
+            System.out.println("Debug: Student loged in");
+        } else if
+        (dbmail.matches(prip) && dbpass.matches(prip)) {
 
-
-
-
-
-
-
-
-
-
-
-
-
+            System.out.println("Debug: Principal loged in");
+        } else {
+            System.out.println("error");
+        }
+        return false;
+    }
 }
-

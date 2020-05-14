@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import sample.DataBaseConsole.DBConnect;
@@ -21,22 +22,23 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static sample.Model.Verification.verifyAccount;
+
 public class Controller implements Initializable {
-    String userName;
-    String password;
-    Student studentUlf = new Student("Ulf", "Ulfson", "231674539021", "Ulf.Ulffson@myspace.net"
+
+    Student studentUlf = new Student("Ulf", "Ulfson", "199612214285", "Ulf.Ulffson@myspace.net"
             , "Ulf_Likes_BIGwomen", "555 567 389", 15, "Biologi");
 
-    Principal principalMagnus = new Principal("Magnus", "Rot", "435908671243", "Magnus.jehova@yahoo.RU",
+    Principal principalMagnus = new Principal("Magnus", "Rot", "198606027892", "Magnus.jehova@yahoo.RU",
             "SloppyJoe", "555 673 196", "Head office");
 
-    Teacher teacherBerdyl = new Teacher("Berdyl", "Ingvarsson", "378912058342", "Berdyl.kol@bing.se",
+    Teacher teacherBerdyl = new Teacher("Berdyl", "Ingvarsson", "198303024072", "Berdyl.kol@bing.se",
             "JansonsFrestelse", "555 673 124", "Biologi");
 
 
     @FXML
     private TextField UsernameTextField, PasswordTextField;
-
+@FXML private Label labelStatus;
 
     @FXML
     private Button SignUpButton, LoginButton, ForgotPasswordButton;
@@ -56,8 +58,9 @@ public class Controller implements Initializable {
     @FXML
     public void LoginButton(ActionEvent event) throws IOException {
 
-        userName = UsernameTextField.getText();
-        password = PasswordTextField.getText();
+
+       String userName = UsernameTextField.getText();
+        String password = PasswordTextField.getText();
 
         if (UsernameTextField.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -88,6 +91,7 @@ public class Controller implements Initializable {
 
 
         }
+
 
     }
 
