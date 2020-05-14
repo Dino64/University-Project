@@ -36,5 +36,9 @@ public class Classroom {
     public void setBooked(boolean booked) {
         isBooked = booked;
     }
+
+    Classroom classroom1 = new Classroom(20, 001, false);
+    Classroom classroom2 = new Classroom(30, 002, false);
+    Classroom classroom3 = new Classroom(40,003, true);
 }
 
