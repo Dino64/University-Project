@@ -33,7 +33,7 @@ public class TeacherMenu implements Initializable {
     }
     @FXML
     private void showRoomMenu(ActionEvent be) throws IOException {
-        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherRoomMenu.fxml");
+        SceneChanger.changeScene(be, "/sample/Scenes/Classroom/Classroom.fxml");
         
     }
 }

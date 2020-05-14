@@ -13,7 +13,7 @@ public  class DBConnect {
     private static User use;
 
     private static Student p;
-
+    private static Classroom room;
     private static ResultSet resultSet;
     private static PreparedStatement prep = null;
     private static Statement statement = null;
@@ -147,10 +147,15 @@ public  class DBConnect {
         return allUsers;
     }
 
-    public void addClassRoom(Classroom classRoom) throws SQLException {
-        statement = connection.createStatement();
-        statement.executeQuery("use classroom");
-        statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
+    public void addClassRoom() throws SQLException {
+        String query = "INSERT INTO Classroom(RoomNumber,NumberOfSeats) VALUES(?,?)";
+        prep = connection.prepareStatement(query);
+        prep.setInt(1,room.getRoomNumber());
+        prep.setInt(2, room.getNumberOfSeats());
+        prep.execute();
+        prep.close();
+        System.out.println("Debug: room Added");
+       // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
     }
 
 
