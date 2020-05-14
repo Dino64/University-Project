@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Classroom.ClassroomController">
    <children>
-      <Button fx:id="addButton" layoutX="332.0" layoutY="187.0" mnemonicParsing="false" onAction="#addButton" text="add to database" />
-      <Label fx:id="labelLabel" layoutX="73.0" layoutY="81.0" text="Label" />
-      <TextField fx:id="roomNr" layoutX="326.0" layoutY="77.0" promptText="roomNr" />
-      <TextField fx:id="numberOfSeats" layoutX="326.0" layoutY="112.0" promptText="nrOfSeats" />
+      <Button fx:id="addButton" layoutX="209.0" layoutY="306.0" mnemonicParsing="false" onAction="#addButton" prefHeight="27.0" prefWidth="106.0" text="Add Room" />
+      <TextField fx:id="roomNr" layoutX="389.0" layoutY="266.0" prefHeight="27.0" prefWidth="165.0" promptText="Room Number" />
+      <TextField fx:id="numberOfSeats" layoutX="209.0" layoutY="266.0" prefHeight="27.0" prefWidth="165.0" promptText="Number Of Seats" />
+      <Button fx:id="addButton1" layoutX="331.0" layoutY="306.0" mnemonicParsing="false" onAction="#addButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />
+      <Button fx:id="addButton2" layoutX="448.0" layoutY="306.0" mnemonicParsing="false" onAction="#addButton" prefHeight="27.0" prefWidth="106.0" text="Edit Room" />
+      <TextArea layoutX="207.0" layoutY="37.0" prefHeight="200.0" prefWidth="353.0" />
+      <Button alignment="BOTTOM_LEFT" layoutY="-5.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="600.0" text="Back" />
    </children>
 </AnchorPane>

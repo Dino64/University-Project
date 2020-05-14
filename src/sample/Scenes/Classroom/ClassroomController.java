@@ -13,12 +13,16 @@ import java.util.ResourceBundle;
 
 public class ClassroomController implements Initializable {
 
-
     DBConnect db = new DBConnect();
+
     @FXML
     Label labelLabel;
+
     @FXML
-    TextField roomNr,numberOfSeats,courseField,buildingText;
+    TextField roomNr,
+            numberOfSeats,
+            courseField,
+            buildingText;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
