@@ -69,7 +69,7 @@ public  class DBConnect {
             }
         }
     }
-
+// Denna är ej i bruk än!
     public ArrayList<String> getPassword() {
         ArrayList result = new ArrayList();
 
@@ -121,15 +121,6 @@ public  class DBConnect {
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
         } catch (Exception ex) {
             ex.printStackTrace();
-        }String que = "INSERT INTO student (SSN) VALUES (?) ";
-        try {
-            prep = connection.prepareStatement(que);
-            prep.setString(1,use.getSsn());
-            prep.execute();
-            prep.close();
-            System.out.println("DEBUG: Student added");
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
 
     }
