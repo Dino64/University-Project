@@ -1,5 +1,6 @@
 package sample.Scenes.Classroom;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,7 +9,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
+import sample.Model.SceneChanger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -19,7 +22,7 @@ public class ClassroomController implements Initializable {
 
     @FXML
     Button addRoomButton,
-    removeRoomButton, editRoomButton, BackButton;
+            removeRoomButton, editRoomButton, BackButton;
 
     @FXML
     TextArea listOfRooms;
@@ -38,25 +41,28 @@ public class ClassroomController implements Initializable {
     }
 
     @FXML
-    public void addRoomButton(){
-       db.getInstance().connect();
+    public void addRoomButton() {
+        db.getInstance().connect();
         try {
-            DBConnect.setRoom(new Classroom(roomNumber.getText(),numberOfSeats.getText(),false));
+            DBConnect.setRoom(new Classroom(roomNumber.getText(), numberOfSeats.getText(), false));
             DBConnect.getInstance().addClassRoom();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void removeRoomButton(){
+    @FXML
+    private void removeRoomButton() {
 
     }
 
-    public void editRoomButton(){
+    @FXML
+   private void editRoomButton() {
 
     }
 
-    public void BackButton(){
-
+    @FXML
+    private void backButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
     }
 }
