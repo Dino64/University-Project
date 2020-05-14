@@ -42,7 +42,7 @@ public class ClassroomController implements Initializable {
 
     @FXML
     public void addRoomButton() {
-        db.getInstance().connect();
+        DBConnect.getInstance().connect();
         try {
             DBConnect.setRoom(new Classroom(roomNumber.getText(), numberOfSeats.getText(), false));
             DBConnect.getInstance().addClassRoom();

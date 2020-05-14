@@ -1,5 +1,6 @@
 package sample.DataBaseConsole;
 
+import sample.Controller;
 import sample.Model.Classroom;
 import sample.Model.Student;
 import sample.Model.User;
@@ -20,11 +21,11 @@ public class DBConnect {
     private static ResultSet resultSet;
     private static PreparedStatement prep = null;
     private static Statement statement = null;
-    private final String USERNAME = "dbuni13";
-    private final String PASSWORD = "Gb4ESje~2BZ~";
-    private final String IP = "den1.mysql2.gear.host";
-    private final String DATABASE = "dbuni13";
-    private final String URL = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false",
+    private static final String USERNAME = "dbuni13";
+    private static final String PASSWORD = "Gb4ESje~2BZ~";
+    private static final String IP = "den1.mysql2.gear.host";
+    private static final String DATABASE = "dbuni13";
+    private static final String URL = String.format("jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false",
             IP, DATABASE, USERNAME, PASSWORD);
     private static Connection connection = null;
     private static DBConnect single_instance = null;
@@ -48,7 +49,7 @@ public class DBConnect {
         return single_instance;
     }
 
-    public void connect() {
+    public static void connect() {
         try {
             connection = DriverManager.getConnection(URL);
             Statement statement = connection.createStatement();
@@ -76,12 +77,13 @@ public class DBConnect {
         }
     }
 
-    // Denna är ej i bruk än!
-    public ArrayList<String> getPassword() {
+
+
+    public static ArrayList<String> getPassword() {
         ArrayList result = new ArrayList();
 
         try {
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM User WHERE Firstname = '' AND password = '' ");
+            ResultSet resultSet = statement.executeQuery("SELECT password FROM User");
 
             while (resultSet.next()) {
                 result.add(resultSet.getString(1));
@@ -105,7 +107,7 @@ public class DBConnect {
                 p.add("\nSSN: " + resultSet.getString(3));
                 p.add("\nCourse: " + resultSet.getString(4));
                 p.add("\nGrade: " + resultSet.getString(5));
-
+                connection.close();
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -126,6 +128,7 @@ public class DBConnect {
             prep.execute();
             prep.close();
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
+            connection.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -148,6 +151,7 @@ public class DBConnect {
 
             }
 
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -164,53 +168,110 @@ public class DBConnect {
         prep.close();
         disconnect();
         System.out.println("Debug: room Added");
+        connection.close();
         // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
     }
 
-    public boolean verify(String email, String pass) {
-        String dbmail = "";
-        String dbpass = "";
-        String que = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = teacher_TeacherID";
-        String kud = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = student_StudentID";
-        String prip = "Select email = '" + email + " AND password ='" + pass + "from User Where idUser = principal_PrincipalLastName";
+    public static ArrayList<String> getEmail() {
+        ArrayList result = new ArrayList();
+
         try {
-            if (email.matches(email) && pass.matches(pass)) {
-                prep = connection.prepareStatement(que);
-                prep.setString(1, use.getEmail());
-                prep.setString(2, use.getPassword());
-                prep.execute();
-                prep.close();
-                disconnect();
-            }else if(email.matches(email)&&pass.matches(pass)) {
-                prep = connection.prepareStatement(kud);
-                prep.setString(1, use.getEmail());
-                prep.setString(2, use.getEmail());
-                prep.execute();
-                prep.close();
-                disconnect();
-            }else if(email.matches(email)&&pass.matches(pass)) {
-                prep = connection.prepareStatement(prip);
-                prep.setString(1, use.getEmail());
-                prep.setString(2, use.getPassword());
-                prep.execute();
-                prep.close();
-                disconnect();
+            ResultSet resultSet = statement.executeQuery("SELECT email FROM User");
+
+            while (resultSet.next()) {
+                result.add(resultSet.getString(1));
             }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException var2) {
+            var2.printStackTrace();
         }
-        if (dbmail.matches(que) && dbpass.matches(que)) {
-            System.out.println("DEBUG: Teacher loged in");
-        } else if (dbmail.matches(kud) && dbpass.matches(kud)) {
-            System.out.println("Debug: Student loged in");
-        } else if
-        (dbmail.matches(prip) && dbpass.matches(prip)) {
 
-            System.out.println("Debug: Principal loged in");
-        } else {
-            System.out.println("error");
+        return result;
+    }
+
+    public static ArrayList<String> getSSN() {
+        ArrayList result = new ArrayList();
+
+        try {
+            ResultSet resultSet = statement.executeQuery("SELECT SSN FROM User");
+
+            while (resultSet.next()) {
+                result.add(resultSet.getString(1));
+            }
+        } catch (SQLException var2) {
+            var2.printStackTrace();
         }
+
+        return result;
+    }
+
+    public static boolean isStudent(String email) {
+        boolean result = true;
+
+        try {
+            for (ResultSet resultSet = statement.executeQuery("SELECT student_StudentID FROM user WHERE  idUser = student_StudentID AND email = '" + email + "'"); resultSet.next(); result = false);{
+
+            }
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+
+        return result;
+
+    }
+
+    public static boolean isTeacher(String email) {
+        boolean result = true;
+
+        try {
+           for (ResultSet resultSet = statement.executeQuery("SELECT teacher_TeacherID FROM user WHERE idUser = teacher_TeacherID AND email = '" + email + "'");resultSet.next(); result = false); {
+
+            }
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+
+        return result;
+    }
+
+    public static boolean isPrincipal(String email) {
+        boolean result = true;
+
+        try {
+           for (ResultSet resultSet = statement.executeQuery("SELECT principal_PrincipalLastName FROM user WHERE idUser = principal_PrincipalLastName AND email = '" + email+ "'"); resultSet.next(); result = false) {
+
+            }
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+
+        return result;
+    }
+    boolean verifyUsernameAndPassword(String username,String email){
+        try{
+            String query = "SELECT * FROM user WHERE USERNAME = '"+username+"' OR EMAIL = '"+email+"'";
+            resultSet = statement.executeQuery(query);
+            return !resultSet.next();
+        }catch(Exception ex){ex.printStackTrace();}
         return false;
     }
+    public static boolean verifyAccount(String email, String password){
+        try{
+            String query = "SELECT * FROM User WHERE email = '"+email+"'" + "AND password = '"+password+"'";
+            resultSet = statement.executeQuery(query);
+            if(!resultSet.next()){
+                return false;
+            }
+            else
+            {
+                Controller.idAccount_Current = resultSet.getInt(1);
+                return true;
+            }
+        }catch (Exception ex){ ex.printStackTrace(); }
+
+        return false;
+    }
+
+
+
+
 }

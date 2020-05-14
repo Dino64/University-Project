@@ -7,6 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import sample.DataBaseConsole.DBConnect;
 import sample.Model.Principal;
 import sample.Model.SceneChanger;
 import sample.Model.Student;
@@ -14,11 +15,14 @@ import sample.Model.Teacher;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static sample.Model.Verification.verifyAccount;
+
 
 public class Controller implements Initializable {
+    public static int idAccount_Current;
+
 
     Student studentUlf = new Student("Ulf", "Ulfson", "199612214285", "Ulf.Ulffson@myspace.net"
             , "Ulf_Likes_BIGwomen", "555 567 389", 15, "Biologi");
@@ -32,7 +36,8 @@ public class Controller implements Initializable {
 
     @FXML
     private TextField UsernameTextField, PasswordTextField;
-@FXML private Label labelStatus;
+    @FXML
+    private Label labelStatus;
 
     @FXML
     private Button SignUpButton, LoginButton, ForgotPasswordButton;
@@ -42,6 +47,7 @@ public class Controller implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
     @FXML
     private void signUpButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/SignUpScene/SignUpScene.fxml");
@@ -51,9 +57,19 @@ public class Controller implements Initializable {
 
     @FXML
     public void LoginButton(ActionEvent event) throws IOException {
+        if (event.getSource() == LoginButton || event.getSource() == UsernameTextField || event.getSource() == PasswordTextField) {
+            DBConnect connect = new DBConnect();
+            if (DBConnect.verifyAccount(UsernameTextField.getText(), PasswordTextField.getText())) {
+                if(DBConnect.isTeacher(UsernameTextField.getText())){
+                SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
+            } else {
+                    if (DBConnect.isStudent(UsernameTextField.getText())){
+                        SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
+                    }
+                }
+            }
 
-
-       String userName = UsernameTextField.getText();
+      /* String userName = UsernameTextField.getText();
         String password = PasswordTextField.getText();
 
         if (UsernameTextField.getText().isEmpty()) {
@@ -84,11 +100,10 @@ public class Controller implements Initializable {
             }
 
 
+        }*/
+
+
         }
-
-
-    }
-
-}
+        }}
 
 

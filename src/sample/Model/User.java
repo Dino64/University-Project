@@ -79,11 +79,7 @@ public  abstract class User implements Model  {
             return true;
         } else if (phoneNumber.matches(".*"+key+".*")) {
             return true;
-        } else if (String.format("%s %s", firstName, lastName).matches(".*"+key+".*") || String.format("%s %s", firstName, lastName).toLowerCase().matches(".*"+key+".*")) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return String.format("%s %s", firstName, lastName).matches(".*" + key + ".*") || String.format("%s %s", firstName, lastName).toLowerCase().matches(".*" + key + ".*");
     }
 }
 
