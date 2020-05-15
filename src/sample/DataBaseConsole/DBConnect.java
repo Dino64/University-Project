@@ -1,4 +1,4 @@
-package sample.DataBaseConsole;
+package src.sample.DataBaseConsole;
 
 import sample.Controller;
 import sample.Model.Classroom;
@@ -63,6 +63,10 @@ public class DBConnect {
             ex.printStackTrace();
         }
         System.out.println("DEBUG: Connected to db");
+    }
+
+    public static Connection getConnection() {
+        return null;
     }
 
     public void disconnect() {
