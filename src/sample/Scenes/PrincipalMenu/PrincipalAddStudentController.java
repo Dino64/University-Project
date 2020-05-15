@@ -111,7 +111,7 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML
     public void LoadButton(){
         DBConnect.getInstance().connect();
-        StudentsTextArea.setText(String.valueOf(DBConnect.getStudent()));
+        StudentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
     }
 
     @FXML

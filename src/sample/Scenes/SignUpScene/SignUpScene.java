@@ -11,7 +11,7 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 
-import static sample.DataBaseConsole.DBConnect.setUse;
+
 
 
 public class SignUpScene {
@@ -72,7 +72,7 @@ public class SignUpScene {
             alert.showAndWait();
         }else
                 DBConnect.getInstance().connect();
-                setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(),3));
+                DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(),3));
                 DBConnect.getInstance().saveAccount();
 
 

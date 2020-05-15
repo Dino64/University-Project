@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 public class ClassroomController implements Initializable {
 
-    DBConnect db = new DBConnect();
+
 
     @FXML
     Button addRoomButton,
@@ -44,7 +44,7 @@ public class ClassroomController implements Initializable {
     public void addRoomButton() {
         DBConnect.getInstance().connect();
         try {
-            DBConnect.setRoom(new Classroom(roomNumber.getText(), numberOfSeats.getText(), false));
+            DBConnect.getInstance().setRoom(new Classroom(roomNumber.getText(), numberOfSeats.getText(), false));
             DBConnect.getInstance().addClassRoom();
         } catch (SQLException e) {
             e.printStackTrace();

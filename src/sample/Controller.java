@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
+import sample.Model.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,13 +29,17 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private TextField UsernameTextField, PasswordTextField;
+    private TextField UsernameTextField;
+    @FXML
+    private TextField PasswordTextField;
     @FXML
     private Label labelStatus;
 
     @FXML
     private Button SignUpButton, LoginButton, ForgotPasswordButton;
 
+    User user;
+    public static boolean isLoggedIn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -50,52 +55,38 @@ public class Controller implements Initializable {
 
     @FXML
     public void LoginButton(ActionEvent event) throws IOException {
-        if(DBConnect.verifyAccount((UsernameTextField.getText()), String.valueOf((PasswordTextField.getText())), null)){
-            SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
 
-            System.out.println("DEBUG: is PRINCIPAL");
-        }
-        if (DBConnect.verifyAccount(UsernameTextField.getText(), PasswordTextField.getText(), null)) {
-            SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
-        } else {
-            System.out.println("DEBUG: is Teacha");
-
-      /* String userName = UsernameTextField.getText();
+        String email = UsernameTextField.getText();
         String password = PasswordTextField.getText();
-
-        if (UsernameTextField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a USERNAME MATE!!!!");
-            alert.showAndWait();
-        } else if (PasswordTextField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a PASSWORD!!!!");
-            alert.showAndWait();
-        } else {
+         DBConnect.getInstance().verifyAccount(email,password) ;
 
 
-            if (userName.equals(principalMagnus.getFirstName()) && password.equals(principalMagnus.getPassword())) {
-                SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
 
-            } else if (userName.equals(teacherBerdyl.getFirstName()) && password.equals(teacherBerdyl.getPassword())) {
-                SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
-
-            }else if (userName.equals(studentUlf.getFirstName()) && password.equals(studentUlf.getPassword())) {
-
-                SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
-
-            }
+            faak(event);
 
 
-        }*/
+        }
 
 
+    public  void  faak(ActionEvent event) throws IOException {
+
+
+        if (DBConnect.getInstance().getUse().getAccesID() == 1) {
+            SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
+        }
+        if (DBConnect.getInstance().getUse().getAccesID() == 2) {
+            SceneChanger.changeScene(event, "/sample/Scenes/Teacher/TeacherMenu.fxml");
+        }
+        if (DBConnect.getInstance().getUse().getAccesID() == 3) {
+            SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
         }
     }
 }
+
+
+
+
+
+
 
 

@@ -1,6 +1,6 @@
 package sample.Model;
 
-public  abstract class User implements Model  {
+public  class User implements Model  {
 
     private String firstName;
     private String lastName;
@@ -41,6 +41,18 @@ public  abstract class User implements Model  {
 
     public void setPassword(String password) {
         password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", ssn='" + ssn + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", accesID=" + accesID +
+                '}';
     }
 
     public int getAccesID() {
