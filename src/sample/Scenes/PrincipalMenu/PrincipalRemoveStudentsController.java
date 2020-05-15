@@ -1,21 +1,14 @@
-package src.sample.Scenes.PrincipalMenu;
+package sample.Scenes.PrincipalMenu;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import src.sample.DataBaseConsole.DBConnect;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrincipalRemoveStudentsController implements Initializable {
-
 
 
     @FXML
@@ -29,8 +22,8 @@ public class PrincipalRemoveStudentsController implements Initializable {
     }
 
     @FXML
-    public void showButton(){
-        try(Connection connection = DBConnect.getConnection()){
+    public void showButton() {
+        /*try {{
             String query = ("SELECT * " +
                     "FROM Person");
 
@@ -53,4 +46,6 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
     }
 
+}*/
+    }
 }

@@ -2,17 +2,12 @@ package sample.Scenes.SignUpScene;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-
-import javafx.stage.Stage;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Member;
 import sample.Model.SceneChanger;
-
 
 import java.io.IOException;
 
@@ -77,7 +72,7 @@ public class SignUpScene {
             alert.showAndWait();
         }else
                 DBConnect.getInstance().connect();
-                setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(), txtFieldPhoneNr.getText()));
+                setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(),3));
                 DBConnect.getInstance().saveAccount();
 
 

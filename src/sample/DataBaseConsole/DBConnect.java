@@ -1,7 +1,7 @@
-package src.sample.DataBaseConsole;
+package sample.DataBaseConsole;
 
-import sample.Controller;
 import sample.Model.Classroom;
+import sample.Model.Member;
 import sample.Model.Student;
 import sample.Model.User;
 
@@ -9,9 +9,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class DBConnect {
     private static User use;
@@ -30,9 +27,7 @@ public class DBConnect {
     private static Connection connection = null;
     private static DBConnect single_instance = null;
 
-    public DBConnect() {
 
-    }
 
     public static void setRoom(Classroom room) {
         DBConnect.room = room;
@@ -63,10 +58,6 @@ public class DBConnect {
             ex.printStackTrace();
         }
         System.out.println("DEBUG: Connected to db");
-    }
-
-    public static Connection getConnection() {
-        return null;
     }
 
     public void disconnect() {
@@ -258,26 +249,61 @@ public class DBConnect {
         }catch(Exception ex){ex.printStackTrace();}
         return false;
     }
-    public static boolean verifyAccount(String email, String password){
-        try{
-            String query = "SELECT * FROM User WHERE email = '"+email+"'" + "AND password = '"+password+"'";
-            resultSet = statement.executeQuery(query);
-            if(!resultSet.next()){
-                return false;
-            }
-            else
-            {
-                Controller.idAccount_Current = resultSet.getInt(1);
-                return true;
-            }
-        }catch (Exception ex){ ex.printStackTrace(); }
+    public static boolean verifyAccount(String email, String pass,String SSN){
 
-        return false;
+        boolean statusLogin = false;
+        boolean statusSignUp;
+        boolean status = false;
+        String dbmail = "";
+        String dbpass = "";
+        String dbname = "";
+        String dblast = "";
+        String dbssn = "";
+        //boolean dbLoginStatus = false;
+       // int accessType = -1;
+        int dbAccID = -1;
+
+        String queryLogin = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + pass + "'";
+        //String querySignup = "SELECT * FROM User WHERE email = '" + email + "' OR SSN = '" + SSN + "'";
+        try {
+            statement = connection.createStatement();
+           /* if (SSN != null) {
+                System.out.println("DEBUG: Sign up process initiated");
+                ResultSet rsSignup = statement.executeQuery(querySignup);
+
+                if (!rsSignup.next()) {
+                    statusSignUp = true;
+                } else {
+                    statusSignUp = false;
+                    System.out.println("DEBUG: Sign up failed");
+                }
+                rsSignup.close();
+                status = statusSignUp;
+            }*/  if (SSN == null) {
+                System.out.println("DEBUG: Log in process initiated");
+                ResultSet rsLogin = statement.executeQuery(queryLogin);
+
+                if (rsLogin.next()) {
+                    dbAccID = rsLogin.getInt(9);
+                    dbmail = rsLogin.getString(4);
+                    dbpass = rsLogin.getString(5);
+                    dbname = rsLogin.getString(2);
+                    dblast = rsLogin.getString(3);
+                    dbssn = rsLogin.getString(5);
+                }
+                if (dbmail.matches(email) && dbpass.matches(pass)) {
+                        setUse(new Member(dbname, dblast, dbssn, dbmail, dbpass,dbAccID));
+                    }else{
+                    System.out.println("DEBUG: Log in failed");
+                    }
+                rsLogin.close();
+                status = statusLogin;
+            }
+            statement.close();
+        } catch (Exception ex) {
+            System.out.println("ERROR; " + ex.getMessage());
+        }
+        return status;
     }
-
-
-
-
-
-
 }
+
