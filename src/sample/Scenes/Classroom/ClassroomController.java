@@ -14,9 +14,12 @@ import sample.Model.SceneChanger;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ClassroomController implements Initializable {
+
+    private ArrayList<Classroom> classrooms;
 
 
 
@@ -38,7 +41,16 @@ public class ClassroomController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        try {
+            classrooms = DBConnect.getInstance().readClassroom();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        for (Classroom p: classrooms) {
+            listOfRooms.appendText(" Number Of Seats" + p.getNumberOfSeats() +" Booked "+ p.isBooked()+" RoomNumber " + p.getRoomNumber());
+        }
     }
+
 
     @FXML
     public void addRoomButton() {
