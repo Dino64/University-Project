@@ -31,8 +31,8 @@
             <TextField fx:id="txtFieldPhoneNr" layoutX="192.0" layoutY="159.0" promptText="Phone Number" />
             </children>
         </AnchorPane>
-      <Button fx:id="back" layoutY="1.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="27.0" prefWidth="72.0" text="Back" />
-      <Button fx:id="aboutUs" layoutX="72.0" layoutY="1.0" mnemonicParsing="false" onAction="#pressAboutUs" prefHeight="27.0" prefWidth="72.0" text="AboutUs" />
-      <Button fx:id="help" layoutX="144.0" layoutY="1.0" mnemonicParsing="false" onAction="#pressHelp" prefHeight="27.0" prefWidth="66.0" text="Help" />
+      <Button fx:id="back" layoutY="-5.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="33.0" prefWidth="72.0" text="Back" />
+      <Button fx:id="aboutUs" layoutX="72.0" layoutY="-5.0" mnemonicParsing="false" onAction="#pressAboutUs" prefHeight="33.0" prefWidth="72.0" text="AboutUs" />
+      <Button fx:id="help" layoutX="144.0" layoutY="-5.0" mnemonicParsing="false" onAction="#pressHelp" prefHeight="33.0" prefWidth="66.0" text="Help" />
     </children>
 </AnchorPane>

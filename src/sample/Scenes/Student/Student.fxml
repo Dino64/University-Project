@@ -12,6 +12,7 @@
             <Image url="@../../Assets/Images/Library.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="studentPageButton" layoutX="130.0" layoutY="152.0" mnemonicParsing="false" onAction="#studentPageButton" prefHeight="42.0" prefWidth="88.0" text="My page" />
+      <Button fx:id="studentPageButton" layoutX="255.0" layoutY="302.0" mnemonicParsing="false" onAction="#studentPageButton" prefHeight="22.0" prefWidth="88.0" text="My page" />
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-4.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="32.0" prefWidth="600.0" text="Back" />
    </children>
 </AnchorPane>

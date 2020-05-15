@@ -14,12 +14,12 @@
             <Image url="@../../Assets/Images/Library.jpg" />
          </image>
       </ImageView>
-      <TableView layoutX="200.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+      <TableView layoutX="217.0" layoutY="48.0" prefHeight="252.0" prefWidth="355.0">
         <columns>
           <TableColumn prefWidth="75.0" text="C1" />
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
-      <Button layoutX="254.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-3.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
    </children>
 </AnchorPane>

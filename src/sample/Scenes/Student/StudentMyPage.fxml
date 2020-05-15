@@ -12,9 +12,9 @@
             <Image url="@../../Assets/Images/Library.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="CheckGrade" layoutX="26.0" layoutY="161.0" mnemonicParsing="false" onAction="#checkGrade" prefHeight="46.0" prefWidth="140.0" text="Check your grade" />
-      <Button fx:id="RegisterNewCourse" layoutX="217.0" layoutY="161.0" mnemonicParsing="false" onAction="#RegisterNewCourse" prefHeight="46.0" prefWidth="166.0" text="Register on new course" />
-      <Button fx:id="RegisterExam" layoutX="437.0" layoutY="160.0" mnemonicParsing="false" onAction="#RegisterExam" prefHeight="46.0" prefWidth="140.0" text="Register exam" />
-      <Button fx:id="backButton" layoutX="254.0" layoutY="346.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
+      <Button fx:id="CheckGrade" layoutX="14.0" layoutY="146.0" mnemonicParsing="false" onAction="#checkGrade" prefHeight="27.0" prefWidth="150.0" text="Check your grade" />
+      <Button fx:id="RegisterNewCourse" layoutX="14.0" layoutY="187.0" mnemonicParsing="false" onAction="#RegisterNewCourse" prefHeight="27.0" prefWidth="150.0" text="Register on new course" />
+      <Button fx:id="RegisterExam" layoutX="14.0" layoutY="230.0" mnemonicParsing="false" onAction="#RegisterExam" prefHeight="27.0" prefWidth="150.0" text="Register exam" />
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-5.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="33.0" prefWidth="600.0" text="Back " />
    </children>
 </AnchorPane>

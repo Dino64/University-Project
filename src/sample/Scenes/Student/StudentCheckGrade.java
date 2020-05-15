@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import sample.Model.SceneChanger;
 
@@ -15,13 +16,17 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentCheckGrade implements Initializable {
+
+    @FXML
+    Button backButton;
     @Override
+
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
     @FXML
-    public void backButton(ActionEvent event) throws IOException {
+    public void pressBackButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/StudentMyPage.fxml");
 
     }

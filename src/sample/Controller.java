@@ -59,17 +59,11 @@ public class Controller implements Initializable {
         String email = UsernameTextField.getText();
         String password = PasswordTextField.getText();
          DBConnect.getInstance().verifyAccount(email,password) ;
-
-
-
-            faak(event);
-
-
-        }
+         faak(event);
+    }
 
 
     public  void  faak(ActionEvent event) throws IOException {
-
 
         if (DBConnect.getInstance().getUse().getAccesID() == 1) {
             SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
