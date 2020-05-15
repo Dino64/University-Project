@@ -7,15 +7,15 @@ public  abstract class User implements Model  {
     private String ssn;
     private String email;
     private String password;
-    private String phoneNumber;
+    private int accesID;
 
-    public User(String firstName, String lastName, String ssn, String email, String password, String phoneNumber) {
+    public User(String firstName, String lastName, String ssn, String email, String password, int accesID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
         this.email = email;
         this.password = password;
-        this.phoneNumber = phoneNumber;
+        this.accesID = accesID;
     }
 
     public String getFirstName() {
@@ -43,12 +43,12 @@ public  abstract class User implements Model  {
         password = password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public int getAccesID() {
+        return accesID;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setAccesID(int accesID) {
+        this.accesID = accesID;
     }
 
     public String getSsn() {
@@ -77,8 +77,7 @@ public  abstract class User implements Model  {
             return true;
         } else if (email.matches(".*"+key+".*") || email.toLowerCase().matches(".*"+key+".*")) {
             return true;
-        } else if (phoneNumber.matches(".*"+key+".*")) {
-            return true;
+
         } else return String.format("%s %s", firstName, lastName).matches(".*" + key + ".*") || String.format("%s %s", firstName, lastName).toLowerCase().matches(".*" + key + ".*");
     }
 }

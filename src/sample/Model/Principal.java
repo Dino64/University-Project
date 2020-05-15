@@ -4,8 +4,8 @@ public class Principal extends User {
 
     private String department;
 
-    public Principal(String firstName, String lastName, String ssn, String email1, String password, String phoneNumber, String department) {
-        super(firstName, lastName, ssn, email1, password, phoneNumber);
+    public Principal(String firstName, String lastName, String ssn, String email1, String password, int accessID, String department) {
+        super(firstName, lastName, ssn, email1, password, accessID);
         this.department = department;
     }
 
