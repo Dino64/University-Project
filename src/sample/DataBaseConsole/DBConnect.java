@@ -2,7 +2,7 @@ package sample.DataBaseConsole;
 
 
 import sample.Model.Classroom;
-import sample.Model.Student;
+import src.sample.Model.Student;
 import sample.Model.User;
 
 import java.sql.*;

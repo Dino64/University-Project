@@ -1,4 +1,4 @@
-package sample.Scenes.PrincipalMenu;
+package src.sample.Scenes.PrincipalMenu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
-import sample.Model.Student;
+import src.sample.Model.Student;
 
 import java.io.IOException;
 import java.net.URL;
