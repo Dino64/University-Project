@@ -16,6 +16,11 @@ public  class User implements Model  {
         this.email = email;
         this.password = password;
         this.accesID = accesID;
+    }public User(String firstName,String lastName,String ssn,String email){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.ssn = ssn;
+        this.email = email;
     }
 
     public String getFirstName() {
