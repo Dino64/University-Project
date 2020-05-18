@@ -179,10 +179,10 @@ public class DBConnect {
     }
 
     public ArrayList<Classroom> readClassroom() throws SQLException {
+        ArrayList<Classroom> classList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         stmt.executeQuery("use Classroom");
         ResultSet rs = stmt.executeQuery("select * from Classroom");
-        ArrayList<Classroom> classList = new ArrayList<>();
         while (rs.next()) {
             Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getBoolean(3));
             classList.add(classroom);

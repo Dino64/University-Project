@@ -2,12 +2,7 @@ package sample.Scenes.PrincipalMenu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 import sample.Model.SceneChanger;
 
 import java.io.IOException;
@@ -24,13 +19,13 @@ public class PrincipalController implements Initializable {
 
     @FXML
     public void PrincipalRoomMenuButton (ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/ClassRooms/ClassRoom.fxml");
+        SceneChanger.changeScene(event,"/sample/Scenes/Classroom/Classroom.fxml");
 
     }
 
     @FXML
     public void ViewStudentButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/ClassRooms/ClassRoom.fxml");
+        SceneChanger.changeScene(event, "/sample/Scenes/Classroom/Classroom.fxml");
 
     }
 
