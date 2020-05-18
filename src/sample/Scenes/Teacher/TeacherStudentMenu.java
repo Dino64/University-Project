@@ -18,11 +18,12 @@ import java.util.ResourceBundle;
 public class TeacherStudentMenu implements Initializable {
 
     @FXML
-    Button backTeach, addGrade, cancel;
+    Button backTeach, addGrade, cancel, searchStudentBtn;
     @FXML
-    TextField searchStudent , setGrade;
+    TextField firstNametxt, lastNametxt, setGrade;
     @FXML
     TextArea StudentTableView;
+
     @FXML
 
     @Override
@@ -31,7 +32,7 @@ public class TeacherStudentMenu implements Initializable {
     }
 
     @FXML
-    private void LoadStudentButton(){
+    private void LoadStudentButton() {
 
         StudentTableView.setText(String.valueOf(DBConnect.getInstance().getStudent()));
 
@@ -43,9 +44,18 @@ public class TeacherStudentMenu implements Initializable {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
     }
+
     @FXML
-    private void cancelButton(){
+    private void cancelButton() {
         StudentTableView.clear();
 
+    }
+
+
+    @FXML
+    private void searchStudent(ActionEvent be){
+        String firstName = firstNametxt.getText();
+        String lastName = lastNametxt.getText();
+        StudentTableView.setText(String.valueOf(DBConnect.getInstance().searcStudent(firstName,lastName)));
     }
 }
