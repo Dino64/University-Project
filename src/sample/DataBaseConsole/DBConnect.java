@@ -50,7 +50,7 @@ public class DBConnect {
     public void connect() {
         try {
             connection = DriverManager.getConnection(URL);
-            Statement statement = connection.createStatement();
+
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -96,16 +96,22 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("Firstname, Lastname, SSN, Course_CourseName as Course, grade\n from course_has_student\n" +
-                    "join user on user.idUser = Student_StudenID");
+            resultSet = statement.executeQuery("select Firstname, Lastname, SSN, CourseName as Course, Subject, grade from Course\n" +
+                    "join user where accesID = 3");
+
             while (resultSet.next()) {
+                
+
                 p.add("\nName: " + resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
                 p.add("\nSSN: " + resultSet.getString(3));
                 p.add("\nCourse: " + resultSet.getString(4));
-                p.add("\nGrade: " + resultSet.getString(5));
-                connection.close();
+                p.add("\nSubject: " + resultSet.getString(5));
+                p.add("Grade: " +resultSet.getString(6));
+                System.out.println("DEBUG:"+ p);
             }
+            resultSet.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -114,19 +120,21 @@ public class DBConnect {
 
     public void saveAccount() {
         try {
-            String query = "INSERT INTO User (Firstname, Lastname, email, SSN, password) VALUES (?, ?, ?, ?, ?)";
-
+            String query = "INSERT INTO User (Firstname, Lastname, email, SSN, password,accesID) VALUES (?, ?, ?, ?, ?,?)";
             prep = connection.prepareStatement(query);
             prep.setString(1, use.getFirstName());
             prep.setString(2, use.getLastName());
             prep.setString(3, use.getEmail());
             prep.setString(4, use.getSsn());
             prep.setString(5, use.getPassword());
-            prep.setString(10, String.valueOf(3));
+            prep.setString(6, String.valueOf(3));
             prep.execute();
             prep.close();
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
             connection.close();
+            String stu = "INSERT INTO student";
+            prep.executeQuery(stu);
+            prep.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -149,7 +157,7 @@ public class DBConnect {
 
             }
 
-            connection.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -189,7 +197,6 @@ public class DBConnect {
 
     public boolean verifyAccount(String email, String pass) {
         boolean isVerified = false;
-        String sql = "SELECT email, password FROM user WHERE email = '?  AND password = ?'";
         String queryLogin = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + pass + "'";
         try {
             connect();
@@ -198,7 +205,7 @@ public class DBConnect {
 
 
             if (resultSet.next()) {
-                User user = new User((resultSet.getString(2)), resultSet.getString(3), resultSet.getString(5), resultSet.getString(4), resultSet.getString(6), resultSet.getInt(10));
+                User user = new User((resultSet.getString(2)), resultSet.getString(3), resultSet.getString(5), resultSet.getString(4), resultSet.getString(6), resultSet.getInt(9));
                 System.out.println(user);
                 setUse(user);
                 isVerified = true;
@@ -212,7 +219,31 @@ public class DBConnect {
         }
 
         return isVerified;
+
     }
-}
+
+    public ArrayList<User> searcStudent(String firstName, String lastName){
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            ResultSet resultSet = statement.executeQuery("select FirstName,LastName,SSN,email " +
+                    "from User where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'");
+            while (resultSet.next()) {
+                use.setFirstName(resultSet.getString(1));
+                use.setFirstName(resultSet.getString(2));
+                use.setSsn(resultSet.getString(3));
+                use.setEmail(resultSet.getString(4));
+                list.add(use);
+            }
+            resultSet.close();
+
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+        System.out.println("Debug: "+list);
+        return list;
+    }
+
+    }
+
 
 

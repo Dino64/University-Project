@@ -3,13 +3,9 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
-import sample.Model.Principal;
 import sample.Model.SceneChanger;
-import sample.Model.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,14 +29,7 @@ public class Controller implements Initializable {
     private TextField UsernameTextField;
     @FXML
     private TextField PasswordTextField;
-    @FXML
-    private Label labelStatus;
 
-    @FXML
-    private Button SignUpButton, LoginButton, ForgotPasswordButton;
-
-    User user;
-    public static boolean isLoggedIn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -60,11 +49,11 @@ public class Controller implements Initializable {
         String email = UsernameTextField.getText();
         String password = PasswordTextField.getText();
          DBConnect.getInstance().verifyAccount(email,password) ;
-         faak(event);
+         logedin(event);
     }
 
 
-    public  void  faak(ActionEvent event) throws IOException {
+    public  void  logedin(ActionEvent event) throws IOException {
 
         if (DBConnect.getInstance().getUse().getAccesID() == 1) {
             SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
