@@ -11,16 +11,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CheckGradeController implements Initializable {
+public class BookClassController implements Initializable {
 
     @FXML
     Button backButton;
 
     @FXML
-    TextArea ShowGradesTextArea;
+    TextArea ShowClassTextArea;
 
     @Override
-
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
@@ -28,14 +27,6 @@ public class CheckGradeController implements Initializable {
     @FXML
     public void pressBackButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
-
-    }
-    @FXML
-    public void tableCheckGrade (ActionEvent event) throws IOException {
-
     }
 
-
-    }
-
-
+}
