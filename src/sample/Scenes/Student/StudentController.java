@@ -14,7 +14,7 @@ public class StudentController implements Initializable {
 
 
     @FXML
-    Button backButton, CheckGradeButton, RegisterNewCourse, RegisterExam;
+    Button backButton, CheckGradeButton, RegisterNewCourse, RegisterExam, bookClassroomButton;
 
 
     @Override
@@ -39,5 +39,10 @@ public class StudentController implements Initializable {
     @FXML
     public void pressRegisterExam(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/RegisterExam.fxml");
+    }
+
+    @FXML
+    public void pressBookClassroom(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/BookClass.fxml");
     }
 }
