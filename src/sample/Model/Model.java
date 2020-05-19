@@ -1,5 +1,7 @@
 package sample.Model;
 
-public interface Model {
+import java.io.Serializable;
+
+public interface Model extends Serializable {
     boolean matches(String key);
 }
