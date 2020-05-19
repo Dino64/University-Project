@@ -15,7 +15,7 @@ public class DBConnect {
     private static DBConnect single_instance;
     private User use;
     private Member member;
-    private Student p;
+    private sample.Model.Student p;
     private Classroom room;
     private ResultSet resultSet;
     private PreparedStatement prep = null;

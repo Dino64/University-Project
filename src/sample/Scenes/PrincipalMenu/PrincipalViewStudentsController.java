@@ -37,10 +37,13 @@ public class PrincipalViewStudentsController implements Initializable {
     }
 
     @FXML
-    public void RemoveButton(ActionEvent event) throws IOException {
+    public void RemovePageButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalRemoveStudent.fxml");
+    }
 
-
+    @FXML
+    public void BackButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
     }
 
 }

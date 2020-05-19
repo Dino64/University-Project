@@ -29,7 +29,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
     @FXML
     public void showButton() {
-       studentsTextArea = DBConnect.getInstance().getStudent();
+     studentsTextArea = DBConnect.getInstance().getStudent();
 
 //        try (Connection connection =DBConnect.getInstance()()) {
 //            String query = ("SELECT * " +
