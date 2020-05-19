@@ -22,10 +22,9 @@ public class StudentController implements Initializable {
 
     }
     @FXML
-    public void studentPageButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/Student/MyPage.fxml");
+    public void pressBackButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/LoginScene.fxml");
     }
-
 
     @FXML
     public void pressCheckGrade(ActionEvent event) throws IOException {
@@ -41,7 +40,4 @@ public class StudentController implements Initializable {
     public void pressRegisterExam(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/RegisterExam.fxml");
     }
-
-
-
 }
