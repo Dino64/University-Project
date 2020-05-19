@@ -12,7 +12,9 @@
             <Image url="@../../Assets/Images/Library.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="studentPageButton" layoutX="255.0" layoutY="302.0" mnemonicParsing="false" onAction="#studentPageButton" prefHeight="22.0" prefWidth="88.0" text="My page" />
       <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-4.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="600.0" text="Back" />
+      <Button fx:id="CheckGradeButton" layoutX="28.0" layoutY="111.0" mnemonicParsing="false" onAction="#pressCheckGrade" prefHeight="27.0" prefWidth="160.0" text="Check My Grade" />
+      <Button fx:id="RegisterNewCourse" layoutX="28.0" layoutY="173.0" mnemonicParsing="false" onAction="#pressRegisterNewCourse" prefHeight="27.0" prefWidth="160.0" text="Register New Course" />
+      <Button fx:id="RegisterExam" layoutX="28.0" layoutY="235.0" mnemonicParsing="false" onAction="#pressRegisterExam" prefHeight="27.0" prefWidth="160.0" text="Register Exam" />
    </children>
 </AnchorPane>
