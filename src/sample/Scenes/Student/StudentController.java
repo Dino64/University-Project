@@ -2,28 +2,42 @@ package sample.Scenes.Student;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
 import sample.Model.SceneChanger;
 
-import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
+
+
+    @FXML
+    Button backButton, CheckGradeButton, RegisterNewCourse, RegisterExam;
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
     @FXML
-    public void studentPageButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/Student/StudentMyPage.fxml");
-
+    public void pressBackButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
     }
 
+    @FXML
+    public void pressCheckGrade(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/CheckGrade.fxml");
+    }
+
+    @FXML
+    public void pressRegisterNewCourse(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/RegisterNewCourse.fxml");
+    }
+
+    @FXML
+    public void pressRegisterExam(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/RegisterExam.fxml");
+    }
 }

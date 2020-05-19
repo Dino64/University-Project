@@ -1,7 +1,7 @@
 package sample.Model;
 
 
-public class Student extends User {
+public class Student extends sample.Model.User {
 
     private int studentID;
     private String registeredCourse;
