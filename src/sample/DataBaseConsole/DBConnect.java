@@ -2,7 +2,8 @@ package sample.DataBaseConsole;
 
 
 import sample.Model.Classroom;
-import src.sample.Model.Student;
+import sample.Model.Member;
+import sample.Model.Student;
 import sample.Model.User;
 
 import java.sql.*;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
 public class DBConnect {
     private static DBConnect single_instance;
     private User use;
-
+    private Member member;
     private Student p;
     private Classroom room;
     private ResultSet resultSet;
@@ -96,8 +97,9 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select Firstname, Lastname, SSN, CourseName as Course, Subject, grade from Course\n" +
-                    "join user where accesID = 3");
+            resultSet = statement.executeQuery("select firstname, lastname,ssn, email, subject, grade\n" +
+                    "from course\n" +
+                    "JOIN user on user_idUser;");
 
             while (resultSet.next()) {
                 
@@ -105,12 +107,12 @@ public class DBConnect {
                 p.add("\nName: " + resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
                 p.add("\nSSN: " + resultSet.getString(3));
-                p.add("\nCourse: " + resultSet.getString(4));
-                p.add("\nSubject: " + resultSet.getString(5));
+                p.add("\n Email: " + resultSet.getString(4));
+                p.add("\nCourse: " + resultSet.getString(5));
                 p.add("Grade: " +resultSet.getString(6));
                 System.out.println("DEBUG:"+ p);
             }
-            resultSet.close();
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -179,10 +181,10 @@ public class DBConnect {
     }
 
     public ArrayList<Classroom> readClassroom() throws SQLException {
+        ArrayList<Classroom> classList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         stmt.executeQuery("use Classroom");
         ResultSet rs = stmt.executeQuery("select * from Classroom");
-        ArrayList<Classroom> classList = new ArrayList<>();
         while (rs.next()) {
             Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getBoolean(3));
             classList.add(classroom);
@@ -209,8 +211,9 @@ public class DBConnect {
                 System.out.println(user);
                 setUse(user);
                 isVerified = true;
+                resultSet.close();
             } else {
-                System.out.println("konto finns inte");
+                System.out.println("kontot finns inte");
             }
 
             disconnect();
@@ -222,19 +225,23 @@ public class DBConnect {
 
     }
 
-    public ArrayList<User> searcStudent(String firstName, String lastName){
-        ArrayList<User> list = new ArrayList<>();
+    public ArrayList<String> searcStudent(String firstName, String lastName){
+
+        ArrayList<String> list = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("select FirstName,LastName,SSN,email " +
+            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email " +
                     "from User where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'");
             while (resultSet.next()) {
-                use.setFirstName(resultSet.getString(1));
-                use.setFirstName(resultSet.getString(2));
-                use.setSsn(resultSet.getString(3));
-                use.setEmail(resultSet.getString(4));
-                list.add(use);
+                User user = new User(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
+                /*user.setFirstName(resultSet.getString(1));
+                user.setLastName(resultSet.getString(2));
+                user.setSsn(resultSet.getString(3));
+                user.setEmail(resultSet.getString(4));*/
+                list.add(String.valueOf(user));
             }
             resultSet.close();
+            
+
 
         } catch (SQLException var3) {
             var3.printStackTrace();

@@ -5,10 +5,10 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherRoomMenu">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherRoomMenu">
    <children>
-      <TextArea fx:id="roomArea" layoutX="319.0" prefHeight="400.0" prefWidth="281.0" />
-      <TextField fx:id="bookRoom" layoutX="14.0" layoutY="348.0" prefHeight="26.0" prefWidth="186.0" promptText="enter the room you want to book" />
+      <TextArea fx:id="roomArea" layoutX="319.0" />
+      <TextField fx:id="bookRoom" layoutX="14.0" layoutY="348.0" promptText="enter the room you want to book" />
       <Button fx:id="backTeacher" layoutY="1.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
       <Button layoutX="210.0" layoutY="349.0" mnemonicParsing="false" text="Book" />
    </children>

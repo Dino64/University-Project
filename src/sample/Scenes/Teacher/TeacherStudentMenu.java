@@ -57,5 +57,6 @@ public class TeacherStudentMenu implements Initializable {
         String firstName = firstNametxt.getText();
         String lastName = lastNametxt.getText();
         StudentTableView.setText(String.valueOf(DBConnect.getInstance().searcStudent(firstName,lastName)));
+
     }
 }
