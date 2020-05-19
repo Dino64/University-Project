@@ -97,9 +97,8 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select firstname, lastname,ssn, email, subject, grade\n" +
-                    "from course\n" +
-                    "JOIN user on user_idUser;");
+            resultSet = statement.executeQuery("select * from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName");
+
 
             while (resultSet.next()) {
                 
