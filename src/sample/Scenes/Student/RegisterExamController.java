@@ -22,7 +22,7 @@ public class RegisterExamController implements Initializable {
 
     @FXML
     public void pressBackButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/Student/MyPage.fxml");
+        SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
     }
 }
 
