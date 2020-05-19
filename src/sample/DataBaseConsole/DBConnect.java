@@ -97,18 +97,18 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select * from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName");
+            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName;");
 
 
             while (resultSet.next()) {
                 
-
-                p.add("\nName: " + resultSet.getString(1));
+                p.add("FirstName: "+ resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
                 p.add("\nSSN: " + resultSet.getString(3));
                 p.add("\n Email: " + resultSet.getString(4));
-                p.add("\nCourse: " + resultSet.getString(5));
-                p.add("Grade: " +resultSet.getString(6));
+                p.add("\n CourseName: " + resultSet.getString(5));
+                p.add("\nSubject: " + resultSet.getString(6));
+                p.add("Grade: " +resultSet.getString(7));
                 System.out.println("DEBUG:"+ p);
             }
 
@@ -133,9 +133,6 @@ public class DBConnect {
             prep.close();
             System.out.println("DEBUG: Sign up successful, saved in remote DB");
             connection.close();
-            String stu = "INSERT INTO student";
-            prep.executeQuery(stu);
-            prep.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -145,16 +142,17 @@ public class DBConnect {
     public ArrayList<String> seeAllUsers() {
         ArrayList<String> allUsers = new ArrayList<>();
 
-        String queryUsers = "SELECT * FROM User";
+        String queryUsers = "select idUser,Firstname,Lastname,email,SSN from user";
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(queryUsers);
             while (resultSet.next()) {
+                allUsers.add("idUser: "+resultSet.getString(1));
                 allUsers.add("Firstname: " + resultSet.getString(2));
                 allUsers.add("\nLastName: " + resultSet.getString(3));
+                allUsers.add("\nSSN: "+ resultSet.getString(5));
                 allUsers.add("\nEmail: " + resultSet.getString(4));
-                allUsers.add("\nSSN: " + resultSet.getString(5));
-                allUsers.add("\nPassword: " + resultSet.getString(6));
+                System.out.println(allUsers);
 
             }
 
@@ -212,7 +210,7 @@ public class DBConnect {
                 isVerified = true;
                 resultSet.close();
             } else {
-                System.out.println("kontot finns inte");
+                System.out.println("No user excist please sign Up");
             }
 
             disconnect();
