@@ -18,10 +18,11 @@
       <TextField fx:id="setGrade" layoutX="453.0" layoutY="303.0" promptText="set grade" />
       <Button fx:id="addGrade" layoutX="530.0" layoutY="329.0" mnemonicParsing="false" text="add Grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
-      <Button fx:id="LoadStudentButton" layoutX="783.0" layoutY="273.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View All Studebnts" />
+      <Button fx:id="LoadStudentButton" layoutX="783.0" layoutY="273.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View All Students" />
       <TextArea fx:id="StudentTableView" layoutX="397.0" layoutY="2.0" prefHeight="271.0" prefWidth="478.0" promptText="Student" />
       <Button fx:id="searchStudentBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#searchStudent" text="search" />
-      <Button fx:id="cancel" layoutX="86.0" layoutY="329.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
+      <Button fx:id="cancel" layoutX="310.0" layoutY="329.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
       <TextField fx:id="lastNametxt" layoutX="142.0" layoutY="303.0" prefHeight="26.0" prefWidth="122.0" promptText="LastName" />
+      <TextField fx:id="subjectTxt" layoutX="264.0" layoutY="303.0" promptText="Subject" />
    </children>
 </AnchorPane>

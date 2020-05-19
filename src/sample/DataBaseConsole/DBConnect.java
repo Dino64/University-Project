@@ -3,7 +3,6 @@ package sample.DataBaseConsole;
 
 import sample.Model.Classroom;
 import sample.Model.Member;
-import sample.Model.Student;
 import sample.Model.User;
 
 import java.sql.*;
@@ -222,19 +221,26 @@ public class DBConnect {
 
     }
 
-    public ArrayList<String> searcStudent(String firstName, String lastName){
+    public ArrayList<String> searchStudent(String firstName, String lastName,String subject){
 
         ArrayList<String> list = new ArrayList<>();
         try {
-            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email " +
-                    "from User where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'");
+
+            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email, subject, grade " +
+                    "from course_has_user,course,user where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'"+"AND Subject LIKE '"+subject+"%'" +" limit 1");
             while (resultSet.next()) {
-                User user = new User(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
+               // User user = new User(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
+                list.add("\nFirstName: "+resultSet.getString(1));
+                list.add("\nLastName: "+resultSet.getString(2));
+                list.add("\nSSN: "+resultSet.getString(3));
+                list.add("\nEmail: "+resultSet.getString(4));
+                list.add("\nSubject: "+resultSet.getString(5));
+                list.add("\nGrade"+resultSet.getString(6));
                 /*user.setFirstName(resultSet.getString(1));
                 user.setLastName(resultSet.getString(2));
                 user.setSsn(resultSet.getString(3));
                 user.setEmail(resultSet.getString(4));*/
-                list.add(String.valueOf(user));
+                //list.add(String.valueOf(user));
             }
             resultSet.close();
             

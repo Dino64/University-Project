@@ -20,7 +20,7 @@ public class TeacherStudentMenu implements Initializable {
     @FXML
     Button backTeach, addGrade, cancel, searchStudentBtn;
     @FXML
-    TextField firstNametxt, lastNametxt, setGrade;
+    TextField firstNametxt, lastNametxt, subjectTxt, setGrade;
     @FXML
     TextArea StudentTableView;
 
@@ -53,10 +53,11 @@ public class TeacherStudentMenu implements Initializable {
 
 
     @FXML
-    private void searchStudent(ActionEvent be){
+    private void searchStudent(){
         String firstName = firstNametxt.getText();
         String lastName = lastNametxt.getText();
-        StudentTableView.setText(String.valueOf(DBConnect.getInstance().searcStudent(firstName,lastName)));
+        String subject = subjectTxt.getText();
+        StudentTableView.setText(String.valueOf(DBConnect.getInstance().searchStudent(firstName,lastName,subject)));
 
     }
 }
