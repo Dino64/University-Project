@@ -26,7 +26,7 @@ public class LoginScene implements Initializable {
             "SloopyJoe",1,"Head office");
 
     Teacher teacherBerdyl = new Teacher("Berdyl","Ingvarsson","378912058342","Berdyl.kol@bing.se",
-            "JansonsFrestelse",2,"Biologi");
+            "JansonsFrestelse",2,"Biologi","Null" );
 
 
     @FXML private TextField UsernameTextField, PasswordTextField;
