@@ -23,7 +23,7 @@ public class StudentController implements Initializable {
     }
     @FXML
     public void pressBackButton(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/LoginScene.fxml");
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
     }
 
     @FXML
