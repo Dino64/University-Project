@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anc" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
+<AnchorPane fx:id="anc" prefHeight="553.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
    <children>
       <ImageView fitHeight="357.0" fitWidth="606.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -15,10 +15,10 @@
          </image>
       </ImageView>
       <TextField fx:id="firstNametxt" layoutX="14.0" layoutY="303.0" promptText="FirstName" />
-      <TextField fx:id="setGrade" layoutX="423.0" layoutY="303.0" promptText="set grade" />
-      <Button fx:id="addGrade" layoutX="497.0" layoutY="329.0" mnemonicParsing="false" text="add Grade" />
+      <TextField fx:id="setGrade" layoutX="453.0" layoutY="303.0" promptText="set grade" />
+      <Button fx:id="addGrade" layoutX="530.0" layoutY="329.0" mnemonicParsing="false" text="add Grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
-      <Button fx:id="LoadStudentButton" layoutX="497.0" layoutY="277.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Load Students" />
+      <Button fx:id="LoadStudentButton" layoutX="783.0" layoutY="273.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View All Studebnts" />
       <TextArea fx:id="StudentTableView" layoutX="397.0" layoutY="2.0" prefHeight="271.0" prefWidth="478.0" promptText="Student" />
       <Button fx:id="searchStudentBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#searchStudent" text="search" />
       <Button fx:id="cancel" layoutX="86.0" layoutY="329.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />

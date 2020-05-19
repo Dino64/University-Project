@@ -14,6 +14,6 @@
       </ImageView>
       <Button fx:id="roomMenu" layoutX="521.0" layoutY="27.0" mnemonicParsing="false" onAction="#showRoomMenu" text="room menu" />
       <Button fx:id="studentMenu" layoutX="514.0" layoutY="62.0" mnemonicParsing="false" onAction="#showStudentMenu" text="Student menu" />
-      <Button fx:id="backButton" layoutY="1.0" mnemonicParsing="false" text="&lt;&lt;back" />
+      <Button fx:id="logOut" layoutY="1.0" mnemonicParsing="false" onAction="#logOut" text="Logout" textFill="#1a24dd" />
    </children>
 </AnchorPane>
