@@ -50,14 +50,14 @@ public class PrincipalRemoveStudentsController implements Initializable {
     public void removeButton(){
         DBConnect.getInstance().connect();
         String textFiled = removeTextField.getText();
-        String sql = "delete from employee where emp_id=" + textFiled;
+        String sql = "delete from  where =" + textFiled;
 
 
         try (Connection conn = DriverManager.getConnection(sql);//not finnish :)
              Statement stmt = conn.createStatement()) {
 
             stmt.executeUpdate(sql);
-            System.out.println("Record deleted successfully");
+            System.out.println("Student deleted successfully");
         } catch (SQLException e) {
             e.printStackTrace();
         }
