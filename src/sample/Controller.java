@@ -17,7 +17,6 @@ public class Controller implements Initializable {
 
     // Student studentUlf = new Student("Ulf", "Ulfson", "199612214285", "Ulf.Ulffson@myspace.net"
     // , "Ulf_Likes_BIGwomen", "555 567 389", 15, "Biologi");
-
     //Principal principalMagnus = new Principal("Magnus", "Rot", "198606027892", "Magnus.jehova@yahoo.RU",
           //"SloppyJoe", 1, "Head office");
 
