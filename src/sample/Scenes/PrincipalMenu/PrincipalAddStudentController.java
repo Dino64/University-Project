@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 
 public class PrincipalAddStudentController implements Initializable {
     private int idCounter;
-    private ArrayList<Student> listOfStudents = new ArrayList<>();
+//    private ArrayList<Student> listOfStudents = new ArrayList<>();
     @FXML
     TextField NameTextField;
     @FXML TextField LastNameTextField;
@@ -91,19 +91,19 @@ public class PrincipalAddStudentController implements Initializable {
         }else {
 
 
-           // Student newStudent = new Student(name, lastName, SSN, email, passWord, accessID, idCounter++, course);
-         //   listOfStudents.add(newStudent);
+//            Student newStudent = new Student(name, lastName, SSN, email, passWord, accessID, idCounter++, course);
+//            listOfStudents.add(newStudent);
 //        Alert alert = new Alert(Alert.AlertType.WARNING);
 //        alert.setTitle("Yay!");
 //        alert.setHeaderText("Success");
 //        alert.setContentText("New Student added");
 //        alert.showAndWait();
-            for (int i = 0; i < listOfStudents.size(); i++) {
-                System.out.println(listOfStudents.get(i).getStudentID());
-                System.out.println(listOfStudents.get(i).getFirstName());
-                System.out.println(listOfStudents.get(i).getLastName());
-                System.out.println(listOfStudents.get(i).getRegisteredCourse());
-            }
+//            for (int i = 0; i < listOfStudents.size(); i++) {
+//                System.out.println(listOfStudents.get(i).getStudentID());
+//                System.out.println(listOfStudents.get(i).getFirstName());
+//                System.out.println(listOfStudents.get(i).getLastName());
+//                System.out.println(listOfStudents.get(i).getRegisteredCourse());
+//            }
         }
 
     }
@@ -116,29 +116,11 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void RemoveButton(){
-        int customerID;
-        boolean foundID = false;
-        String select;
 
 
-        customerID = Integer.parseInt(RemoveStudentTextField.getText());
 
-
-        for (int i = 0; i < listOfStudents.size(); i++) {
-            if (customerID == listOfStudents.get(i).getStudentID()) {
-                foundID = true;
-                listOfStudents.remove(i);
-
-            }
         }
-        if (!foundID) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("No Student found with that ID");
-            alert.showAndWait();
-        }
-    }
+
 
     @FXML
     public void BackButton(ActionEvent event) throws IOException {
