@@ -7,10 +7,7 @@ import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -51,8 +48,22 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
     @FXML
     public void removeButton(){
+        DBConnect.getInstance().connect();
+        String textFiled = removeTextField.getText();
+        String sql = "delete from employee where emp_id=" + textFiled;
+
+
+        try (Connection conn = DriverManager.getConnection(sql);//not finnish :)
+             Statement stmt = conn.createStatement()) {
+
+            stmt.executeUpdate(sql);
+            System.out.println("Record deleted successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     }
 
-}
+
 
