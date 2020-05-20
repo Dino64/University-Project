@@ -29,7 +29,6 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField EmailTextField;
     @FXML TextField PasswordTextField;
     @FXML TextField PhoneNumberTextField;
-    @FXML TextField CourseTextField;
     @FXML
     ArrayList<String> StudentsTextArea;
     @FXML TextField RemoveStudentTextField;
@@ -42,14 +41,13 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML
     public void AddStudentButton(){
         DBConnect.getInstance().connect();
-        String name, lastName, SSN, email, passWord, course;
+        String name, lastName, SSN, email, passWord;
 
         name = NameTextField.getText();
         lastName = LastNameTextField.getText();
         SSN = SSNTextField.getText();
         email = EmailTextField.getText();
         passWord = PasswordTextField.getText();
-        course = CourseTextField.getText();
         if (NameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
@@ -86,17 +84,11 @@ public class PrincipalAddStudentController implements Initializable {
             alert.setHeaderText("Not good");
             alert.setContentText("Please enter a phone number");
             alert.showAndWait();
-        }else if (CourseTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a course");
-            alert.showAndWait();
         }else {
             String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
             String username = "dbuni13";
             String password = "Gb4ESje~2BZ~";
-            String sql = "insert into user values('"+name+"','"+lastName+"','"+SSN+"','"+email+"', '"+passWord+"','"+course+"')";
+            String sql = "insert into user values('"+name+"','"+lastName+"','"+SSN+"','"+email+"', '"+passWord+"')";
 
 
             try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
