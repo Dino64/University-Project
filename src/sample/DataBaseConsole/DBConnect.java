@@ -268,6 +268,33 @@ public class DBConnect {
         System.out.println("Debug: "+list);
         return list;
     }
+
+    public void addStudent(String name, String lastName, String SSN, String email, String passWord) throws SQLException {
+        connect();
+        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password) VALUES (?, ?, ?, ?, ?)";
+        prep = connection.prepareStatement(sql);
+        prep.setString(1,name);
+        prep.setString(2,lastName);
+        prep.setString(3,SSN);
+        prep.setString(4,email);
+        prep.setString(5,passWord);
+        prep.execute();
+        prep.close();
+        System.out.println("Debug: Student has been added");
+        connection.close();
+    }
+
+//    public void removeStudent(String textField){
+//
+//        String sql = "DELETE FROM user where SSN=";
+//
+//
+//
+//
+//            stmt.executeUpdate(sql);
+//            System.out.println("Student deleted successfully");
+//
+//    }
 }
 
 

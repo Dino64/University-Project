@@ -20,8 +20,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class PrincipalAddStudentController implements Initializable {
-    private int idCounter;
-//    private ArrayList<Student> listOfStudents = new ArrayList<>();
+
     @FXML
     TextField NameTextField;
     @FXML TextField LastNameTextField;
@@ -30,8 +29,8 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField PasswordTextField;
     @FXML TextField PhoneNumberTextField;
     @FXML
-    ArrayList<String> StudentsTextArea;
-    @FXML TextField RemoveStudentTextField;
+    TextArea StudentsTextArea;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -39,7 +38,7 @@ public class PrincipalAddStudentController implements Initializable {
     }
 
     @FXML
-    public void AddStudentButton(){
+    public void AddStudentButton() throws SQLException {
         DBConnect.getInstance().connect();
         String name, lastName, SSN, email, passWord;
 
@@ -85,21 +84,7 @@ public class PrincipalAddStudentController implements Initializable {
             alert.setContentText("Please enter a phone number");
             alert.showAndWait();
         }else {
-            String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
-            String username = "dbuni13";
-            String password = "Gb4ESje~2BZ~";
-            String sql = "insert into user values('"+name+"','"+lastName+"','"+SSN+"','"+email+"', '"+passWord+"')";
-
-
-            try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
-                 Statement stmt = conn.createStatement()) {
-
-                stmt.executeUpdate(sql);
-                System.out.println("Student added successfully");
-                StudentsTextArea = DBConnect.getInstance().getStudent();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
         }
 
 
@@ -117,7 +102,7 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void ShowButton(){
-        StudentsTextArea = DBConnect.getInstance().getStudent();
+//        StudentsTextArea = DBConnect.getInstance().getStudent();
     }
 
 
