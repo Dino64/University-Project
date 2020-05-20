@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class RegisterNewCourseController implements Initializable {
 
     @FXML
-    Button backButton;
+    Button backButton, ShowCourseButton, registerCourseButton, UnregisterCourseButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,6 +27,22 @@ public class RegisterNewCourseController implements Initializable {
 
     }
 
+    @FXML
+    public void pressShowCourse(){
+
     }
+
+    @FXML
+    public void pressRegisterCourse(){
+
+    }
+
+    @FXML
+    public void pressUnregisterCourse(){
+
+    }
+
+
+}
 
 
