@@ -48,16 +48,19 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
     @FXML
     public void removeButton(){
-        DBConnect.getInstance().connect();
+        String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
+        String username = "dbuni13";
+        String password = "Gb4ESje~2BZ~";
         String textFiled = removeTextField.getText();
-        String sql = "delete from  where =" + textFiled;
+        String sql = "delete from user where SSN=" + textFiled;
 
 
-        try (Connection conn = DriverManager.getConnection(sql);//not finnish :)
+        try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
              Statement stmt = conn.createStatement()) {
 
             stmt.executeUpdate(sql);
             System.out.println("Student deleted successfully");
+            studentsTextArea = DBConnect.getInstance().getStudent();
         } catch (SQLException e) {
             e.printStackTrace();
         }
