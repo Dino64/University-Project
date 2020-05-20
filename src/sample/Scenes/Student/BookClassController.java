@@ -30,6 +30,7 @@ public class BookClassController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
     }
 
     @FXML
@@ -38,15 +39,15 @@ public class BookClassController implements Initializable {
     }
 
     @FXML
-    public void pressBookButton(){
+    public void pressBookButton() {
     }
 
     @FXML
-    public void pressUnbookButton(){
+    public void pressUnbookButton() {
     }
 
     @FXML
-    public void pressShowClassroom() {
+    public void pressShowClassroom() throws SQLException {
         DBConnect.getInstance().connect();
         ShowClassTextArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
     }

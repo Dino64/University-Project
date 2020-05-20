@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class RegisterExamController implements Initializable {
 
     @FXML
-    Button backButton;
+    Button backButton, showExamButton, registerExamButton, UnregisterExamButton;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -24,6 +24,25 @@ public class RegisterExamController implements Initializable {
     public void pressBackButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
     }
+
+    @FXML
+    public void pressShowExam(){
+
+    }
+
+    @FXML
+    public void pressRegisterExam(){
+
+    }
+
+    @FXML
+    public void pressUnregisterExam(){
+
+    }
+
+
+
+
 }
 
 

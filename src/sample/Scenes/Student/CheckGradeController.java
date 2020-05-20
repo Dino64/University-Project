@@ -14,7 +14,7 @@ import java.util.ResourceBundle;
 public class CheckGradeController implements Initializable {
 
     @FXML
-    Button backButton;
+    Button backButton, checkMyGrade;
 
     @FXML
     TextArea ShowGradesTextArea;
@@ -30,12 +30,11 @@ public class CheckGradeController implements Initializable {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
 
     }
+
     @FXML
-    public void tableCheckGrade (ActionEvent event) throws IOException {
+    public void pressCheckGrade(){
 
     }
-
-
-    }
+}
 
 
