@@ -12,6 +12,10 @@ import sample.Model.Student;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -27,7 +31,7 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField PhoneNumberTextField;
     @FXML TextField CourseTextField;
     @FXML
-    TextArea StudentsTextArea;
+    ArrayList<String> StudentsTextArea;
     @FXML TextField RemoveStudentTextField;
 
     @Override
@@ -89,6 +93,22 @@ public class PrincipalAddStudentController implements Initializable {
             alert.setContentText("Please enter a course");
             alert.showAndWait();
         }else {
+            String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
+            String username = "dbuni13";
+            String password = "Gb4ESje~2BZ~";
+            String sql = "insert into user values('"+name+"','"+lastName+"','"+SSN+"','"+email+"', '"+passWord+"','"+course+"')";
+
+
+            try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+                 Statement stmt = conn.createStatement()) {
+
+                stmt.executeUpdate(sql);
+                System.out.println("Student added successfully");
+                StudentsTextArea = DBConnect.getInstance().getStudent();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
 
 
 //            Student newStudent = new Student(name, lastName, SSN, email, passWord, accessID, idCounter++, course);
@@ -98,34 +118,21 @@ public class PrincipalAddStudentController implements Initializable {
 //        alert.setHeaderText("Success");
 //        alert.setContentText("New Student added");
 //        alert.showAndWait();
-//            for (int i = 0; i < listOfStudents.size(); i++) {
-//                System.out.println(listOfStudents.get(i).getStudentID());
-//                System.out.println(listOfStudents.get(i).getFirstName());
-//                System.out.println(listOfStudents.get(i).getLastName());
-//                System.out.println(listOfStudents.get(i).getRegisteredCourse());
-//            }
+//
         }
 
-    }
+
 
     @FXML
-    public void LoadButton(){
-        DBConnect.getInstance().connect();
-        StudentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
+    public void ShowButton(){
+        StudentsTextArea = DBConnect.getInstance().getStudent();
     }
 
-    @FXML
-    public void RemoveButton(){
-
-
-
-        }
 
 
     @FXML
     public void BackButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewStudents.fxml");
-
 
     }
 }

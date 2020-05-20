@@ -52,7 +52,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
         String username = "dbuni13";
         String password = "Gb4ESje~2BZ~";
         String textFiled = removeTextField.getText();
-        String sql = "delete from user where SSN=" + textFiled;
+        String sql = "delete from user where SSN=" + "\""+textFiled+"\"";
 
 
         try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
