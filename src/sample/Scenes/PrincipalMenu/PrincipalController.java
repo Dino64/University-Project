@@ -24,8 +24,8 @@ public class PrincipalController implements Initializable {
 
 
     @FXML
-    public void pressViewTeacher(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/Classroom/Classroom.fxml");
+    public void pressViewStudent(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewStudents.fxml");
     }
 
 
