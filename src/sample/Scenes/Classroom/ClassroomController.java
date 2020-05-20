@@ -3,10 +3,7 @@ package sample.Scenes.Classroom;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
 import sample.Model.SceneChanger;
@@ -20,7 +17,6 @@ import java.util.ResourceBundle;
 public class ClassroomController implements Initializable {
 
     private ArrayList<Classroom> classrooms;
-
 
 
     @FXML
@@ -39,9 +35,40 @@ public class ClassroomController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
+
+    public void pressAddRoom() throws Exception {
+        DBConnect.getInstance().connect();
+        int NumberOfSeats, RoomNumber;
+        String isBooked;
+
+        NumberOfSeats = Integer.parseInt(numberOfSeats.getText());
+        RoomNumber = Integer.parseInt(roomNumber.getText());
+        isBooked = isBookedTextField.getText();
+        if (numberOfSeats.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please enter the number of seats");
+            alert.showAndWait();
+        } else if (roomNumber.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please enter the room number");
+            alert.showAndWait();
+        } else if (isBookedTextField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please enter the room is booked or not");
+            alert.showAndWait();
+
+        } else {
+                DBConnect.getInstance().addClassRoom(NumberOfSeats, RoomNumber, isBooked);
+          }
+        }
 
 
 
@@ -51,7 +78,7 @@ public class ClassroomController implements Initializable {
     }
 
     @FXML
-   private void editRoomButton() {
+    private void editRoomButton() {
 
     }
 
@@ -60,3 +87,4 @@ public class ClassroomController implements Initializable {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
     }
 }
+

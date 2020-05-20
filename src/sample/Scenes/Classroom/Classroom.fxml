@@ -7,7 +7,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Classroom.ClassroomController">
    <children>
-      <Button fx:id="addRoomButton" layoutX="209.0" layoutY="333.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="106.0" text="Add Room" />
+      <Button fx:id="addRoomButton" layoutX="209.0" layoutY="333.0" mnemonicParsing="false" onAction="#pressAddRoom" prefHeight="27.0" prefWidth="106.0" text="Add Room" />
       <TextField fx:id="roomNumber" layoutX="331.0" layoutY="280.0" prefHeight="27.0" prefWidth="106.0" promptText="Room Number" />
       <TextField fx:id="numberOfSeats" layoutX="209.0" layoutY="280.0" prefHeight="27.0" prefWidth="106.0" promptText="Number Of Seats" />
       <Button fx:id="removeRoomButton" layoutX="331.0" layoutY="333.0" mnemonicParsing="false" onAction="#removeRoomButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />

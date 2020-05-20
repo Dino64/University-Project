@@ -161,15 +161,15 @@ public class DBConnect {
         return allUsers;
     }
 
-    public void addClassRoom() throws SQLException {
-        String query = "INSERT INTO Classroom(RoomNumber,NumberOfSeats, isBooked) VALUES(?,?,?)";
+    public void addClassRoom(int NumberOfSeats,int RoomNumber, String isBooked) throws SQLException {
+        connect();
+        String query = "INSERT INTO Classroom (NumberOfSeats, RoomNumber, isBooked) VALUES(?,?,?)";
         prep = connection.prepareStatement(query);
-        prep.setInt(1, room.getRoomNumber());
-        prep.setInt(2, Integer.parseInt(room.getNumberOfSeats()));
-        prep.setBoolean(3, false);
+        prep.setInt(1, NumberOfSeats);
+        prep.setInt(2, RoomNumber);
+        prep.setString(3, isBooked);
         prep.execute();
         prep.close();
-        disconnect();
         System.out.println("Debug: room Added");
         connection.close();
         // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
@@ -198,7 +198,7 @@ public class DBConnect {
         stmt.executeQuery("use Classroom");
         ResultSet rs = stmt.executeQuery("select * from Classroom");
         while (rs.next()) {
-            Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getBoolean(3));
+            Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getString(3));
             classList.add(classroom);
         }
         return classList;

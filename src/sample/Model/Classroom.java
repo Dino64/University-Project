@@ -1,20 +1,30 @@
 package sample.Model;
 
 
+import src.sample.Model.Course;
+
 public class Classroom extends src.sample.Model.Course {
     private src.sample.Model.Course course;
     private int NumberOfSeats;
     private int RoomNumber;
-    private boolean isBooked;
+    private String isBooked;
 
-    public Classroom(String numberOfSeats, String roomNumber, boolean isBooked) {
+    public Classroom(String numberOfSeats, String roomNumber, String isBooked) {
         NumberOfSeats = Integer.parseInt(numberOfSeats);
         RoomNumber = Integer.parseInt(roomNumber);
         this.isBooked = isBooked;
     }
 
-    public String getNumberOfSeats() {
-        return String.valueOf(NumberOfSeats);
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public int getNumberOfSeats() {
+        return NumberOfSeats;
     }
 
     public void setNumberOfSeats(int numberOfSeats) {
@@ -22,19 +32,19 @@ public class Classroom extends src.sample.Model.Course {
     }
 
     public int getRoomNumber() {
-        return Integer.parseInt(String.valueOf(RoomNumber));
+        return RoomNumber;
     }
 
     public void setRoomNumber(int roomNumber) {
         RoomNumber = roomNumber;
     }
 
-    public boolean isBooked() {
+    public String getIsBooked() {
         return isBooked;
     }
 
-    public void setBooked(boolean booked) {
-        isBooked = booked;
+    public void setIsBooked(String isBooked) {
+        this.isBooked = isBooked;
     }
 
     @Override
@@ -50,8 +60,8 @@ public class Classroom extends src.sample.Model.Course {
                 '}';
     }
 
-    Classroom classroom01 = new Classroom("20", "01", false);
-    Classroom classroom02 = new Classroom("15", "02", false);
-    Classroom classroom03 = new Classroom("25","03", false);
+    Classroom classroom01 = new Classroom("20", "01", "false");
+    Classroom classroom02 = new Classroom("15", "02", "false");
+    Classroom classroom03 = new Classroom("25","03", "false");
 }
 
