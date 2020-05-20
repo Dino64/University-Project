@@ -1,6 +1,7 @@
 package sample.DataBaseConsole;
 
 
+import sample.Assets.HashUtils;
 import sample.Model.Classroom;
 import sample.Model.Member;
 import sample.Model.User;
@@ -97,8 +98,6 @@ public class DBConnect {
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName;");
-
-
             while (resultSet.next()) {
                 
                 p.add("FirstName: "+ resultSet.getString(1));
@@ -176,6 +175,23 @@ public class DBConnect {
         // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
     }
 
+    public ArrayList<String> ReadClassroom() {
+        ArrayList<String> Class = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber,isBooked from Classroom ");
+            while (resultSet.next()) {
+                Class.add("NumberOfSeats "+ resultSet.getString(1));
+                Class.add("\nRoomNumber: " + resultSet.getString(2));
+                Class.add("\nisBooked" + resultSet.getBoolean(3));
+                System.out.println("DEBUG:"+ Class);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Class;
+    }
+
     public ArrayList<Classroom> readClassroom() throws SQLException {
         ArrayList<Classroom> classList = new ArrayList<>();
         Statement stmt = connection.createStatement();
@@ -243,17 +259,14 @@ public class DBConnect {
                 //list.add(String.valueOf(user));
             }
             resultSet.close();
-            
 
-
-        } catch (SQLException var3) {
+            } catch (SQLException var3) {
             var3.printStackTrace();
         }
         System.out.println("Debug: "+list);
         return list;
     }
-
-    }
+}
 
 
 

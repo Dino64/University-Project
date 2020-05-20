@@ -37,8 +37,21 @@ public class Classroom extends src.sample.Model.Course {
         isBooked = booked;
     }
 
-    //Classroom classroom1 = new Classroom(20, 001, false);
-    //Classroom classroom2 = new Classroom(30, 002, false);
-    //Classroom classroom3 = new Classroom(40,003, true);
+    @Override
+    public String toString() {
+        return "Classroom{" +
+                "course=" + course +
+                ", NumberOfSeats=" + NumberOfSeats +
+                ", RoomNumber=" + RoomNumber +
+                ", isBooked=" + isBooked +
+                ", classroom01=" + classroom01 +
+                ", classroom02=" + classroom02 +
+                ", classroom03=" + classroom03 +
+                '}';
+    }
+
+    Classroom classroom01 = new Classroom("20", "01", false);
+    Classroom classroom02 = new Classroom("15", "02", false);
+    Classroom classroom03 = new Classroom("25","03", false);
 }
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Student.BookClassController">
     <children>
@@ -14,6 +16,20 @@
             </image>
         </ImageView>
         <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-3.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
-        <TextArea fx:id="ShowClassTextArea" layoutX="142.0" layoutY="54.0" prefHeight="249.0" prefWidth="416.0" />
+        <TextArea fx:id="ShowClassTextArea" layoutX="155.0" layoutY="76.0" prefHeight="249.0" prefWidth="416.0" />
+      <Label fx:id="Label1" layoutX="254.0" layoutY="37.0" text="List Of Classrooms" textFill="#fbfcf8">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="bookButton" layoutX="297.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressBookButton" prefHeight="27.0" prefWidth="132.0" text="Book Classroom">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="unBookButton" layoutX="443.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressUnbookButton" prefHeight="27.0" prefWidth="132.0" text="Unbook Classroom" />
+      <Button fx:id="showClassRoom" layoutX="155.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressShowClassroom" prefHeight="27.0" prefWidth="132.0" text="Show Classroom">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
     </children>
 </AnchorPane>
