@@ -34,34 +34,16 @@ public class ClassroomController implements Initializable {
     Label labelLabel;
 
     @FXML
-    TextField numberOfSeats,
-            roomNumber;
+    TextField numberOfSeats, roomNumber, isBookedTextField;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
-        try {
-            classrooms = DBConnect.getInstance().readClassroom();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        for (Classroom p: classrooms) {
-            listOfRooms.appendText(" Number Of Seats" + p.getNumberOfSeats() +" Booked "+ p.isBooked()+" RoomNumber " + p.getRoomNumber());
-        }
+        
     }
 
 
-    @FXML
-    public void addRoomButton() {
-        DBConnect.getInstance().connect();
-        try {
-            DBConnect.getInstance().setRoom(new Classroom(roomNumber.getText(), numberOfSeats.getText(), false));
-            DBConnect.getInstance().addClassRoom();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+
 
     @FXML
     private void removeRoomButton() {

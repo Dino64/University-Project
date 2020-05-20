@@ -7,12 +7,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Classroom.ClassroomController">
    <children>
-      <Button fx:id="addRoomButton" layoutX="209.0" layoutY="306.0" mnemonicParsing="false" onAction="#addRoomButton" prefHeight="27.0" prefWidth="106.0" text="Add Room" />
-      <TextField fx:id="roomNumber" layoutX="389.0" layoutY="266.0" prefHeight="27.0" prefWidth="165.0" promptText="Room Number" />
-      <TextField fx:id="numberOfSeats" layoutX="209.0" layoutY="266.0" prefHeight="27.0" prefWidth="165.0" promptText="Number Of Seats" />
-      <Button fx:id="removeRoomButton" layoutX="331.0" layoutY="306.0" mnemonicParsing="false" onAction="#removeRoomButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />
-      <Button fx:id="editRoomButton" layoutX="448.0" layoutY="306.0" mnemonicParsing="false" onAction="#editRoomButton" prefHeight="27.0" prefWidth="106.0" text="Edit Room" />
-      <TextArea fx:id="listOfRooms" layoutX="207.0" layoutY="37.0" prefHeight="200.0" prefWidth="353.0" />
+      <Button fx:id="addRoomButton" layoutX="209.0" layoutY="333.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="106.0" text="Add Room" />
+      <TextField fx:id="roomNumber" layoutX="331.0" layoutY="280.0" prefHeight="27.0" prefWidth="106.0" promptText="Room Number" />
+      <TextField fx:id="numberOfSeats" layoutX="209.0" layoutY="280.0" prefHeight="27.0" prefWidth="106.0" promptText="Number Of Seats" />
+      <Button fx:id="removeRoomButton" layoutX="331.0" layoutY="333.0" mnemonicParsing="false" onAction="#removeRoomButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />
+      <Button fx:id="editRoomButton" layoutX="448.0" layoutY="333.0" mnemonicParsing="false" onAction="#editRoomButton" prefHeight="27.0" prefWidth="106.0" text="Edit Room" />
+      <TextArea fx:id="listOfRooms" layoutX="208.0" layoutY="51.0" prefHeight="200.0" prefWidth="353.0" />
       <Button fx:id="BackButton" alignment="BOTTOM_LEFT" layoutY="-5.0" mnemonicParsing="false" onAction="#backButton" prefHeight="33.0" prefWidth="600.0" text="Back" />
+      <TextField fx:id="isBookedTextField" layoutX="448.0" layoutY="280.0" prefHeight="27.0" prefWidth="106.0" promptText="Is Booked" />
    </children>
 </AnchorPane>
