@@ -164,7 +164,7 @@ public class DBConnect {
 
     public void addClassRoom(int NumberOfSeats,int RoomNumber, String isBooked) throws SQLException {
         connect();
-        String query = "INSERT INTO Classroom (NumberOfSeats, RoomNumber, isBooked) VALUES(?,?,?)";
+        String query = "INSERT INTO Classroom (NumberOfSeats, \n RoomNumber,\n isBooked) VALUES(?,?,?)";
         prep = connection.prepareStatement(query);
         prep.setInt(1, NumberOfSeats);
         prep.setInt(2, RoomNumber);
@@ -180,11 +180,11 @@ public class DBConnect {
         ArrayList<String> Class = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber,isBooked from Classroom ");
+            resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber, isBooked from Classroom ");
             while (resultSet.next()) {
-                Class.add("NumberOfSeats "+ resultSet.getString(1));
+                Class.add("\nNumberOfSeats "+ resultSet.getString(1));
                 Class.add("\nRoomNumber: " + resultSet.getString(2));
-                Class.add("\nisBooked" + resultSet.getBoolean(3));
+                Class.add("\nisBooked" + resultSet.getString(3));
                 System.out.println("DEBUG:"+ Class);
             }
         } catch (SQLException e) {

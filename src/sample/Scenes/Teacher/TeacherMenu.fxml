@@ -12,8 +12,8 @@
             <Image url="@../../Assets/Images/teacher.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="roomMenu" layoutX="521.0" layoutY="27.0" mnemonicParsing="false" onAction="#showRoomMenu" text="room menu" />
-      <Button fx:id="studentMenu" layoutX="514.0" layoutY="62.0" mnemonicParsing="false" onAction="#showStudentMenu" text="Student menu" />
-      <Button fx:id="logOut" layoutY="1.0" mnemonicParsing="false" onAction="#logOut" text="Logout" textFill="#1a24dd" />
+      <Button fx:id="roomMenu" layoutX="178.0" layoutY="139.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room Menu" />
+      <Button fx:id="studentMenu" layoutX="178.0" layoutY="197.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student Menu" />
+      <Button fx:id="logOut" layoutX="178.0" layoutY="247.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Logout" textFill="#1a24dd" />
    </children>
 </AnchorPane>

@@ -10,7 +10,10 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -21,7 +24,7 @@ public class ClassroomController implements Initializable {
 
     @FXML
     Button addRoomButton,
-            removeRoomButton, editRoomButton, BackButton;
+            removeRoomButton, editRoomButton, BackButton, showroomButton;
 
     @FXML
     TextArea listOfRooms;
@@ -74,6 +77,22 @@ public class ClassroomController implements Initializable {
 
     @FXML
     private void removeRoomButton() {
+        String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
+        String username = "dbuni13";
+        String password = "Gb4ESje~2BZ~";
+        String textFiled = roomNumber.getText();
+        String sql = "DELETE FROM Classroom Where RoomNumber =" + "\""+textFiled+"\"";
+
+
+        try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
+             Statement stmt = conn.createStatement()) {
+
+            stmt.executeUpdate(sql);
+            System.out.println("Room updated successfully");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -85,6 +104,13 @@ public class ClassroomController implements Initializable {
     @FXML
     private void backButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
+    }
+
+    @FXML
+    public void pressShowroom(ActionEvent event) throws IOException{
+        DBConnect.getInstance().connect();
+        listOfRooms.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
+
     }
 }
 
