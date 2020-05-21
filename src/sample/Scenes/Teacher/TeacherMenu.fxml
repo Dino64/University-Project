@@ -5,21 +5,16 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="382.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherMenu">
+<AnchorPane prefHeight="386.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherMenu">
    <children>
-      <ImageView fitHeight="394.0" fitWidth="691.0" layoutX="-2.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="394.0" fitWidth="542.0" layoutX="-2.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/teacher.jpg" />
          </image>
       </ImageView>
-<<<<<<< HEAD
+
       <Button fx:id="roomMenu" layoutX="178.0" layoutY="139.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room Menu" />
       <Button fx:id="studentMenu" layoutX="178.0" layoutY="197.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student Menu" />
       <Button fx:id="logOut" layoutX="178.0" layoutY="247.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Logout" textFill="#1a24dd" />
-=======
-      <Button fx:id="roomMenu" layoutX="523.0" layoutY="14.0" mnemonicParsing="false" onAction="#showRoomMenu" text="room menu" />
-      <Button fx:id="studentMenu" layoutX="523.0" layoutY="46.0" mnemonicParsing="false" onAction="#showStudentMenu" text="Student menu" />
-      <Button fx:id="logOut" layoutY="1.0" mnemonicParsing="false" onAction="#logOut" text="Logout" textFill="#1a24dd" />
->>>>>>> f8d20554b9bb06d8615aff844f2616ad6a18cf3f
    </children>
 </AnchorPane>
