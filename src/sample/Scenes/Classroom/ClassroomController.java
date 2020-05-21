@@ -10,12 +10,15 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+
+
 
 public class ClassroomController implements Initializable {
 
@@ -76,23 +79,29 @@ public class ClassroomController implements Initializable {
 
 
     @FXML
-    private void removeRoomButton() {
-        String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
-        String username = "dbuni13";
-        String password = "Gb4ESje~2BZ~";
-        String textFiled = roomNumber.getText();
-        String sql = "DELETE FROM Classroom Where RoomNumber =" + "\""+textFiled+"\"";
+    private void removeRoomButton() throws Exception{
+        try
+        {
+
+            String myDriver = "den1.mysql2.gear.host";
+            String myUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
+            Class.forName(myDriver);
+            Connection conn = DriverManager.getConnection(myUrl, "dbuni13", "Gb4ESje~2BZ~");
 
 
-        try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
-             Statement stmt = conn.createStatement()) {
+            String textFiled = roomNumber.getText();
+            String query = "delete from Classroom where RoomNumber =" + "\""+textFiled+"\"";
+            PreparedStatement preparedStmt = conn.prepareStatement(query);
+            preparedStmt.setString(1, "1");
 
-            stmt.executeUpdate(sql);
-            System.out.println("Room updated successfully");
-        } catch (SQLException e) {
-            e.printStackTrace();
+            preparedStmt.execute();
+            conn.close();
         }
-
+        catch (Exception e)
+        {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
 
     }
 

@@ -100,15 +100,15 @@ public class DBConnect {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName;");
             while (resultSet.next()) {
-                
-                p.add("FirstName: "+ resultSet.getString(1));
+
+                p.add("FirstName: " + resultSet.getString(1));
                 p.add("\nLastName: " + resultSet.getString(2));
                 p.add("\nSSN: " + resultSet.getString(3));
                 p.add("\n Email: " + resultSet.getString(4));
                 p.add("\n CourseName: " + resultSet.getString(5));
                 p.add("\nSubject: " + resultSet.getString(6));
-                p.add("Grade: " +resultSet.getString(7));
-                System.out.println("DEBUG:"+ p);
+                p.add("Grade: " + resultSet.getString(7));
+                System.out.println("DEBUG:" + p);
             }
 
 
@@ -146,10 +146,10 @@ public class DBConnect {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(queryUsers);
             while (resultSet.next()) {
-                allUsers.add("idUser: "+resultSet.getString(1));
+                allUsers.add("idUser: " + resultSet.getString(1));
                 allUsers.add("Firstname: " + resultSet.getString(2));
                 allUsers.add("\nLastName: " + resultSet.getString(3));
-                allUsers.add("\nSSN: "+ resultSet.getString(5));
+                allUsers.add("\nSSN: " + resultSet.getString(5));
                 allUsers.add("\nEmail: " + resultSet.getString(4));
                 System.out.println(allUsers);
 
@@ -162,7 +162,7 @@ public class DBConnect {
         return allUsers;
     }
 
-    public void addClassRoom(int NumberOfSeats,int RoomNumber, String isBooked) throws SQLException {
+    public void addClassRoom(int NumberOfSeats, int RoomNumber, String isBooked) throws SQLException {
         connect();
         String query = "INSERT INTO Classroom (NumberOfSeats, \n RoomNumber,\n isBooked) VALUES(?,?,?)";
         prep = connection.prepareStatement(query);
@@ -182,10 +182,10 @@ public class DBConnect {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber, isBooked from Classroom ");
             while (resultSet.next()) {
-                Class.add("\nNumberOfSeats "+ resultSet.getString(1));
+                Class.add("\n------------\nNumberOfSeats: " + resultSet.getString(1));
                 Class.add("\nRoomNumber: " + resultSet.getString(2));
-                Class.add("\nisBooked" + resultSet.getString(3));
-                System.out.println("DEBUG:"+ Class);
+                Class.add("\nisBooked:" + resultSet.getString(3));
+                System.out.println("DEBUG:" + Class);
             }
 
         } catch (SQLException e) {
@@ -193,6 +193,24 @@ public class DBConnect {
         }
         return Class;
     }
+    public ArrayList<String> ReadGrade() {
+        ArrayList<String> Grade = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select course_CourseName, user_idUser, grade from course_has_user ");
+            while (resultSet.next()) {
+                Grade.add("\n------------\nCourse " + resultSet.getString(1));
+                Grade.add("\nID" + resultSet.getInt(2));
+                Grade.add("\n------------\ngrade " + resultSet.getString(3));
+                System.out.println("DEBUG:" + Grade);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return Grade;
+    }
+
+
 
     public ArrayList<Classroom> readClassroom() throws SQLException {
         ArrayList<Classroom> classList = new ArrayList<>();
@@ -205,9 +223,6 @@ public class DBConnect {
         }
         return classList;
     }
-
-
-
 
     public User getUse() {
         return use;
@@ -241,32 +256,33 @@ public class DBConnect {
 
     }
 
-    public ArrayList<String> searchStudent(String firstName, String lastName,String subject){
+    public ArrayList<String> searchStudent(String firstName, String lastName, String subject) {
 
         ArrayList<String> list = new ArrayList<>();
         try {
 
             ResultSet resultSet = statement.executeQuery("Select idUser,FirstName,LastName,SSN,email, subject, grade " +
-                    "from course_has_user,course,user where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'"+"AND Subject LIKE '"+subject+"%'" +" limit 1");
+                    "from course_has_user,course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + subject + "%'" + " limit 1");
             while (resultSet.next()) {
-                list.add("\nUserID: "+ resultSet.getString(1));
-                list.add("\nFirstName: "+resultSet.getString(2));
-                list.add("\nLastName: "+resultSet.getString(3));
-                list.add("\nSSN: "+resultSet.getString(4));
-                list.add("\nEmail: "+resultSet.getString(5));
-                list.add("\nSubject: "+resultSet.getString(6));
-                list.add("\nGrade: "+resultSet.getString(7));
+                list.add("\nUserID: " + resultSet.getString(1));
+                list.add("\nFirstName: " + resultSet.getString(2));
+                list.add("\nLastName: " + resultSet.getString(3));
+                list.add("\nSSN: " + resultSet.getString(4));
+                list.add("\nEmail: " + resultSet.getString(5));
+                list.add("\nSubject: " + resultSet.getString(6));
+                list.add("\nGrade: " + resultSet.getString(7));
             }
             resultSet.close();
 
-            } catch (SQLException var3) {
+        } catch (SQLException var3) {
             var3.printStackTrace();
         }
-        System.out.println("Debug: "+list);
+        System.out.println("Debug: " + list);
         return list;
     }
+
     public String addGrade(String grade, String nrId) {
-        String sqlGrade = "Update course_has_user Set grade = '" +grade+ "' WHERE user_IdUser = '" +nrId+ "'";
+        String sqlGrade = "Update course_has_user Set grade = '" + grade + "' WHERE user_IdUser = '" + nrId + "'";
         try {
             prep = connection.prepareStatement(sqlGrade);
             prep.executeUpdate();
@@ -279,15 +295,15 @@ public class DBConnect {
         return sqlGrade;
     }
 
-    public void addStudent(String name,String lastName,String SSN,String email,String password) throws SQLException {
+    public void addStudent(String name, String lastName, String SSN, String email, String password) throws SQLException {
         connect();
         String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password, accesID) VALUES (?, ?, ?, ?, ?, ?)";
         prep = connection.prepareStatement(sql);
-        prep.setString(1,name);
-        prep.setString(2,lastName);
-        prep.setString(3,SSN);
-        prep.setString(4,email);
-        prep.setString(5,password);
+        prep.setString(1, name);
+        prep.setString(2, lastName);
+        prep.setString(3, SSN);
+        prep.setString(4, email);
+        prep.setString(5, password);
         prep.setString(6, String.valueOf(3));
         prep.execute();
         prep.close();
@@ -299,10 +315,10 @@ public class DBConnect {
         connect();
         String statement = "INSERT INTO course_has_user (course_CourseName, grade, user_idUser ) VALUES (?, ?, ?)";
         prep = connection.prepareStatement(statement);
-        prep.setString(1,courseName);
+        prep.setString(1, courseName);
 //        prep.setString(2,courseSubject);
-        prep.setString(2,grade);
-        prep.setString(3,String.valueOf(3));
+        prep.setString(2, grade);
+        prep.setString(3, String.valueOf(3));
         prep.execute();
         prep.close();
         System.out.println("Debug : course has been added");
@@ -320,7 +336,12 @@ public class DBConnect {
 //            System.out.println("Student deleted successfully");
 //
 //    }
+
+
+
+
 }
+
 
 
 

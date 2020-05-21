@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
 
 import java.io.IOException;
@@ -32,7 +33,9 @@ public class CheckGradeController implements Initializable {
     }
 
     @FXML
-    public void pressCheckGrade(){
+    public void pressCheckGrade(ActionEvent event) throws IOException{
+        DBConnect.getInstance().connect();
+        ShowGradesTextArea.setText(String.valueOf(DBConnect.getInstance().ReadGrade()));
 
     }
 }
