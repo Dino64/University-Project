@@ -265,7 +265,7 @@ public class DBConnect {
         return list;
     }
     public String addGrade(String grade, String nrId) {
-        String sqlGrade = "Update course_has_user Set grade = '" + grade +" WHERE user_IdUser = "+nrId+"'";
+        String sqlGrade = "Update course_has_user Set grade = '" +grade+ "' WHERE user_IdUser = '" +nrId+ "'";
         try {
             prep = connection.prepareStatement(sqlGrade);
             prep.executeUpdate();
