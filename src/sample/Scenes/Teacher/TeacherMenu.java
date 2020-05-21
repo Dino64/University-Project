@@ -10,11 +10,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-//import sample.DataBaseConsole.DBConnect;
-
 public class TeacherMenu implements Initializable {
 
-    @FXML Button studentMenu , roomMenu , backButton;
+    @FXML Button studentMenu , roomMenu ;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -28,7 +26,7 @@ public class TeacherMenu implements Initializable {
     }
     @FXML
     private void showRoomMenu(ActionEvent be) throws IOException {
-        SceneChanger.changeScene(be, "/sample/Scenes/Classroom/Classroom.fxml");
+        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherRoomMenu.fxml");
         
     }
     @FXML private void logOut(ActionEvent be) throws IOException {

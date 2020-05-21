@@ -182,11 +182,13 @@ public class DBConnect {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber,isBooked from Classroom ");
             while (resultSet.next()) {
-                Class.add("NumberOfSeats "+ resultSet.getString(1));
+
+                Class.add("\nNumberOfSeats "+ resultSet.getString(1));
                 Class.add("\nRoomNumber: " + resultSet.getString(2));
                 Class.add("\nisBooked" + resultSet.getBoolean(3));
                 System.out.println("DEBUG:"+ Class);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

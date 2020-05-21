@@ -5,15 +5,15 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherMenu">
+<AnchorPane prefHeight="382.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherMenu">
    <children>
-      <ImageView fitHeight="425.0" fitWidth="525.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="394.0" fitWidth="691.0" layoutX="-2.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/teacher.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="roomMenu" layoutX="521.0" layoutY="27.0" mnemonicParsing="false" onAction="#showRoomMenu" text="room menu" />
-      <Button fx:id="studentMenu" layoutX="514.0" layoutY="62.0" mnemonicParsing="false" onAction="#showStudentMenu" text="Student menu" />
+      <Button fx:id="roomMenu" layoutX="523.0" layoutY="14.0" mnemonicParsing="false" onAction="#showRoomMenu" text="room menu" />
+      <Button fx:id="studentMenu" layoutX="523.0" layoutY="46.0" mnemonicParsing="false" onAction="#showStudentMenu" text="Student menu" />
       <Button fx:id="logOut" layoutY="1.0" mnemonicParsing="false" onAction="#logOut" text="Logout" textFill="#1a24dd" />
    </children>
 </AnchorPane>
