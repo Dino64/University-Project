@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.Member;
 import sample.Model.SceneChanger;
 import sample.Model.Student;
 
@@ -30,6 +32,7 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField PhoneNumberTextField;
     @FXML
     TextArea StudentsTextArea;
+    @FXML TextField CourseTextField;
 
 
     @Override
@@ -40,13 +43,15 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML
     public void AddStudentButton() throws SQLException {
         DBConnect.getInstance().connect();
-        String name, lastName, SSN, email, passWord;
+        String name, lastName, SSN, email, passWord, course;
 
         name = NameTextField.getText();
         lastName = LastNameTextField.getText();
         SSN = SSNTextField.getText();
         email = EmailTextField.getText();
         passWord = PasswordTextField.getText();
+        course = CourseTextField.getText();
+
         if (NameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
@@ -77,14 +82,9 @@ public class PrincipalAddStudentController implements Initializable {
             alert.setHeaderText("Not good");
             alert.setContentText("Please enter a password");
             alert.showAndWait();
-        }else if (PhoneNumberTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a phone number");
-            alert.showAndWait();
         }else {
-           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
+//            DBConnect.getInstance().setUse(new Member(name,lastName,SSN,email,passWord ,3));
+           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord,3);
         }
 
 
@@ -102,7 +102,8 @@ public class PrincipalAddStudentController implements Initializable {
 
     @FXML
     public void ShowButton(){
-//        StudentsTextArea = DBConnect.getInstance().getStudent();
+        DBConnect.getInstance().connect();
+       StudentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
     }
 
 

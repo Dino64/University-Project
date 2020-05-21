@@ -7,6 +7,16 @@ public  class User implements Model  {
     private String ssn;
     private String email;
     private String password;
+    private String course;
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
     private int accesID;
 
     public User(String firstName, String lastName, String ssn, String email, String password, int accesID) {

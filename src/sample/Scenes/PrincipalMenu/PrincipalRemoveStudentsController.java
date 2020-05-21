@@ -17,7 +17,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
     @FXML
     TextField removeTextField;
     @FXML
-    ArrayList<String> studentsTextArea;
+    TextArea studentsTextArea;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -26,7 +26,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
     @FXML
     public void showButton() {
-     studentsTextArea = DBConnect.getInstance().getStudent();
+     studentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
 
 //        try (Connection connection =DBConnect.getInstance()()) {
 //            String query = ("SELECT * " +
@@ -60,7 +60,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
 
             stmt.executeUpdate(sql);
             System.out.println("Student deleted successfully");
-            studentsTextArea = DBConnect.getInstance().getStudent();
+            studentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
         } catch (SQLException e) {
             e.printStackTrace();
         }

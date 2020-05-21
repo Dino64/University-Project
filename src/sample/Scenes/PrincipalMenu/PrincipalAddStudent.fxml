@@ -22,9 +22,9 @@
       <TextField fx:id="SSNTextField" layoutX="14.0" layoutY="95.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students SSN" />
       <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="134.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
       <TextField fx:id="PasswordTextField" layoutX="223.0" layoutY="15.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
-      <TextField fx:id="PhoneNumberTextField" layoutX="223.0" layoutY="55.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PhoneNumber" />
       <Line endX="488.89288330078125" layoutX="103.0" layoutY="170.0" startX="-100.0" />
       <TextArea fx:id="StudentsTextArea" layoutX="392.0" layoutY="172.0" prefHeight="177.0" prefWidth="198.0" promptText="Students" />
       <Button fx:id="ShowButton" layoutX="392.0" layoutY="349.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="60.0" prefWidth="198.0" text="Show Students" />
+      <TextField fx:id="CourseTextField" layoutX="226.0" layoutY="56.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course" />
    </children>
 </AnchorPane>
