@@ -187,6 +187,7 @@ public class DBConnect {
                 Class.add("\nisBooked" + resultSet.getString(3));
                 System.out.println("DEBUG:"+ Class);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
