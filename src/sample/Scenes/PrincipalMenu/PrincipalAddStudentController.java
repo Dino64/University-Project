@@ -29,10 +29,11 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML TextField SSNTextField;
     @FXML TextField EmailTextField;
     @FXML TextField PasswordTextField;
-    @FXML TextField PhoneNumberTextField;
+    @FXML TextField gradeTextField;
     @FXML
     TextArea StudentsTextArea;
     @FXML TextField CourseTextField;
+    @FXML TextField SubjectTextField;
 
 
     @Override
@@ -43,7 +44,7 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML
     public void AddStudentButton() throws SQLException {
         DBConnect.getInstance().connect();
-        String name, lastName, SSN, email, passWord, course;
+        String name, lastName, SSN, email, passWord, course, subject,grade;
 
         name = NameTextField.getText();
         lastName = LastNameTextField.getText();
@@ -51,6 +52,8 @@ public class PrincipalAddStudentController implements Initializable {
         email = EmailTextField.getText();
         passWord = PasswordTextField.getText();
         course = CourseTextField.getText();
+        subject = SubjectTextField.getText();
+        grade = gradeTextField.getText();
 
         if (NameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -84,7 +87,8 @@ public class PrincipalAddStudentController implements Initializable {
             alert.showAndWait();
         }else {
 //            DBConnect.getInstance().setUse(new Member(name,lastName,SSN,email,passWord ,3));
-           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord,3);
+           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
+           DBConnect.getInstance().addCourse(course,subject,grade);
         }
 
 

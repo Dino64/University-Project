@@ -278,19 +278,33 @@ public class DBConnect {
         return sqlGrade;
     }
 
-    public void addStudent(String name,String lastName,String SSN,String email,String password, int accesID) throws SQLException {
+    public void addStudent(String name,String lastName,String SSN,String email,String password) throws SQLException {
         connect();
-        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password, course ,accesID) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password, accesID) VALUES (?, ?, ?, ?, ?, ?)";
         prep = connection.prepareStatement(sql);
         prep.setString(1,name);
         prep.setString(2,lastName);
         prep.setString(3,SSN);
         prep.setString(4,email);
         prep.setString(5,password);
-        prep.setString(6, String.valueOf(accesID));
+        prep.setString(6, String.valueOf(3));
         prep.execute();
         prep.close();
         System.out.println("Debug: Student has been added");
+        connection.close();
+    }
+
+    public void addCourse(String courseName, String courseSubject, String grade) throws SQLException {
+        connect();
+        String statement = "INSERT INTO course (CourseName, Subject, grade, user_idUser ) VALUES (?, ?, ?, ?)";
+        prep = connection.prepareStatement(statement);
+        prep.setString(1,courseName);
+        prep.setString(2,courseSubject);
+        prep.setString(3,grade);
+        prep.setString(4,String.valueOf(3));
+        prep.execute();
+        prep.close();
+        System.out.println("Debug : course has been added");
         connection.close();
     }
 
