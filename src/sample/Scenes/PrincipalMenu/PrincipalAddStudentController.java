@@ -88,7 +88,7 @@ public class PrincipalAddStudentController implements Initializable {
         }else {
 //            DBConnect.getInstance().setUse(new Member(name,lastName,SSN,email,passWord ,3));
            DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
-           DBConnect.getInstance().addCourse(course,subject,grade);
+           DBConnect.getInstance().addCourse(course,grade);
         }
 
 
