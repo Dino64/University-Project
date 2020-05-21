@@ -1,9 +1,9 @@
 package sample.DataBaseConsole;
 
 
-import sample.Assets.HashUtils;
 import sample.Model.Classroom;
 import sample.Model.Member;
+import sample.Model.Teacher;
 import sample.Model.User;
 
 import java.sql.*;
@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 public class DBConnect {
     private static DBConnect single_instance;
     private User use;
+    private Teacher t;
     private Member member;
     private sample.Model.Student p;
     private Classroom room;
@@ -244,21 +245,16 @@ public class DBConnect {
         ArrayList<String> list = new ArrayList<>();
         try {
 
-            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email, subject, grade " +
+            ResultSet resultSet = statement.executeQuery("Select idUser,FirstName,LastName,SSN,email, subject, grade " +
                     "from course_has_user,course,user where FirstName LIKE '"+firstName+"%'" + "AND LastName LIKE '"+lastName+"%'"+"AND Subject LIKE '"+subject+"%'" +" limit 1");
             while (resultSet.next()) {
-               // User user = new User(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4));
-                list.add("\nFirstName: "+resultSet.getString(1));
-                list.add("\nLastName: "+resultSet.getString(2));
-                list.add("\nSSN: "+resultSet.getString(3));
-                list.add("\nEmail: "+resultSet.getString(4));
-                list.add("\nSubject: "+resultSet.getString(5));
-                list.add("\nGrade"+resultSet.getString(6));
-                /*user.setFirstName(resultSet.getString(1));
-                user.setLastName(resultSet.getString(2));
-                user.setSsn(resultSet.getString(3));
-                user.setEmail(resultSet.getString(4));*/
-                //list.add(String.valueOf(user));
+                list.add("\nUserID: "+ resultSet.getString(1));
+                list.add("\nFirstName: "+resultSet.getString(2));
+                list.add("\nLastName: "+resultSet.getString(3));
+                list.add("\nSSN: "+resultSet.getString(4));
+                list.add("\nEmail: "+resultSet.getString(5));
+                list.add("\nSubject: "+resultSet.getString(6));
+                list.add("\nGrade: "+resultSet.getString(7));
             }
             resultSet.close();
 
@@ -268,19 +264,47 @@ public class DBConnect {
         System.out.println("Debug: "+list);
         return list;
     }
+    public String addGrade(String grade, String nrId) {
+        String sqlGrade = "Update course_has_user Set grade = '" +grade+ "' WHERE user_IdUser = '" +nrId+ "'";
+        try {
+            prep = connection.prepareStatement(sqlGrade);
+            prep.executeUpdate();
+            prep.close();
+            System.out.println("DEBUG: Grade Updated");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
-    public void addStudent(String name, String lastName, String SSN, String email, String passWord) throws SQLException {
+        return sqlGrade;
+    }
+
+    public void addStudent(String name,String lastName,String SSN,String email,String password) throws SQLException {
         connect();
-        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password) VALUES (?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password, accesID) VALUES (?, ?, ?, ?, ?, ?)";
         prep = connection.prepareStatement(sql);
         prep.setString(1,name);
         prep.setString(2,lastName);
         prep.setString(3,SSN);
         prep.setString(4,email);
-        prep.setString(5,passWord);
+        prep.setString(5,password);
+        prep.setString(6, String.valueOf(3));
         prep.execute();
         prep.close();
         System.out.println("Debug: Student has been added");
+        connection.close();
+    }
+
+    public void addCourse(String courseName, String grade) throws SQLException {
+        connect();
+        String statement = "INSERT INTO course_has_user (course_CourseName, grade, user_idUser ) VALUES (?, ?, ?)";
+        prep = connection.prepareStatement(statement);
+        prep.setString(1,courseName);
+//        prep.setString(2,courseSubject);
+        prep.setString(2,grade);
+        prep.setString(3,String.valueOf(3));
+        prep.execute();
+        prep.close();
+        System.out.println("Debug : course has been added");
         connection.close();
     }
 

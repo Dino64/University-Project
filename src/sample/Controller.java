@@ -70,7 +70,7 @@ public class Controller implements Initializable {
                 }
                 out.close();
                 fileOut.close();
-                System.out.println("DEBUG: Saved Remember Me Data");
+                System.out.println("DEBUG: Remember Me Data is Saved");
             } catch (IOException i) {
                 i.printStackTrace();
             }
@@ -98,9 +98,9 @@ public class Controller implements Initializable {
     @FXML
     private void rememberMe() {
         if (rememberMe.isSelected()){
-            labelStatus.setText("Email & pw will be saved for next session");
+            labelStatus.setText("Email & pw will be saved for l8er ");
         } else{
-            labelStatus.setText("Saved Email & pw will be deleted for next session");
+            labelStatus.setText("Saved Email & pw will be deleted");
         }
     }
     private void checkRememberMe(){
@@ -115,7 +115,7 @@ public class Controller implements Initializable {
             UsernameTextField.setText(tempUser.getEmail());
             PasswordTextField.setText(tempUser.getPassword());
             rememberMe.setSelected(true);
-            System.out.println("DEBUG: Remember me info loaded");
+            System.out.println("DEBUG: Remember me is lock and loaded");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());

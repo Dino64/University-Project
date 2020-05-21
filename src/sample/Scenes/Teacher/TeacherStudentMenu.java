@@ -3,6 +3,7 @@ package sample.Scenes.Teacher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -20,7 +21,7 @@ public class TeacherStudentMenu implements Initializable {
     @FXML
     Button backTeach, addGrade, cancel, searchStudentBtn;
     @FXML
-    TextField firstNametxt, lastNametxt, subjectTxt, setGrade;
+    TextField firstNametxt, lastNametxt, subjectTxt, setGrade, idNr;
     @FXML
     TextArea StudentTableView;
 
@@ -60,4 +61,37 @@ public class TeacherStudentMenu implements Initializable {
         StudentTableView.setText(String.valueOf(DBConnect.getInstance().searchStudent(firstName,lastName,subject)));
 
     }
-}
+    @FXML private void addGrade(){
+
+        String grade = setGrade.getText();
+        String nrId = idNr.getText();
+
+        if (setGrade.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Miss match in Grade");
+            alert.setHeaderText("input correct value f,3,4 or 5");
+            alert.setContentText("Try again Champ");
+            alert.showAndWait();
+        }if (idNr.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Empty field");
+            alert.setHeaderText("input correct idNr");
+            alert.setContentText("Try again champ");
+            alert.showAndWait();
+        }
+        if (!setGrade.getText().matches("[3-5]|[f]?|d")){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Miss match in Grade");
+            alert.setHeaderText("input correct value f,3,4 or 5");
+            alert.setHeaderText("Try again Champ");
+            alert.showAndWait();
+        }else{
+
+           DBConnect.getInstance().addGrade(grade, nrId);
+            System.out.println("DEBUG:Grade added!!");
+
+        }
+
+    }
+    }
+

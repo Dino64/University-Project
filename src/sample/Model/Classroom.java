@@ -1,10 +1,8 @@
 package sample.Model;
 
 
-import src.sample.Model.Course;
-
-public class Classroom extends src.sample.Model.Course {
-    private src.sample.Model.Course course;
+public class Classroom extends Course {
+    private Course course;
     private int NumberOfSeats;
     private int RoomNumber;
     private String isBooked;
