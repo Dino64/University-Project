@@ -98,7 +98,7 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course_has_user, course where user.idUser = course_has_user.user_idUser and course_CourseName = CourseName;");
+            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course where user.idUser = course.user_idUser ");
             while (resultSet.next()) {
 
                 p.add("FirstName: " + resultSet.getString(1));
@@ -197,7 +197,7 @@ public class DBConnect {
         ArrayList<String> Grade = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select course_CourseName, user_idUser, grade from course_has_user ");
+            resultSet = statement.executeQuery("select courseName, user_idUser, subject, grade from course ");
             while (resultSet.next()) {
                 Grade.add("\n------------\nCourse " + resultSet.getString(1));
                 Grade.add("\nID" + resultSet.getInt(2));
@@ -262,7 +262,7 @@ public class DBConnect {
         try {
 
             ResultSet resultSet = statement.executeQuery("Select idUser,FirstName,LastName,SSN,email, subject, grade " +
-                    "from course_has_user,course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + subject + "%'" + " limit 1");
+                    "from course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + subject + "%'" + " limit 1");
             while (resultSet.next()) {
                 list.add("\nUserID: " + resultSet.getString(1));
                 list.add("\nFirstName: " + resultSet.getString(2));
@@ -282,7 +282,7 @@ public class DBConnect {
     }
 
     public String addGrade(String grade, String nrId) {
-        String sqlGrade = "Update course_has_user Set grade = '" + grade + "' WHERE user_IdUser = '" + nrId + "'";
+        String sqlGrade = "Update course Set grade = '" + grade + "' WHERE user_IdUser = '" + nrId + "'";
         try {
             prep = connection.prepareStatement(sqlGrade);
             prep.executeUpdate();
