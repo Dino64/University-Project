@@ -351,6 +351,27 @@ public class DBConnect {
 
     }
 
+    public ArrayList<String> findCourse() {
+
+        ArrayList<String> list = new ArrayList<>();
+        try {
+
+            ResultSet resultSet = statement.executeQuery("select * from Classroom");
+            while (resultSet.next()) {
+                list.add("\nCourseName " + resultSet.getString(1));
+                list.add("\nsubject " + resultSet.getString(2));
+                list.add("\nUser ID" + resultSet.getInt(3));
+
+            }
+            resultSet.close();
+
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+        System.out.println("Debug: " + list);
+        return list;
+    }
+
 
 
 

@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-3.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
-      <TextArea layoutX="181.0" layoutY="60.0" prefHeight="228.0" prefWidth="385.0" />
+      <TextArea fx:id="showCourse" layoutX="181.0" layoutY="60.0" prefHeight="228.0" prefWidth="385.0" />
       <Button fx:id="ShowCourseButton" layoutX="181.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressShowCourse" prefHeight="27.0" prefWidth="116.0" text="Show Course" />
       <Button fx:id="registerCourseButton" layoutX="316.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressRegisterCourse" prefHeight="27.0" prefWidth="116.0" text="Register Course" />
       <Button fx:id="UnregisterCourseButton" layoutX="448.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressUnregisterCourse" prefHeight="27.0" prefWidth="126.0" text="Unregister Course" />
