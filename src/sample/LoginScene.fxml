@@ -18,7 +18,7 @@
                 <Image url="@Assets/Images/1925188_658528300870060_605326070_n.jpg" />
             </image>
         </ImageView>
-        <MenuBar prefHeight="29.0" prefWidth="615.0">
+        <MenuBar layoutX="188.0" layoutY="365.0" prefHeight="29.0" prefWidth="68.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Help">
                     <items>
@@ -32,12 +32,12 @@
       <TextField fx:id="PasswordTextField" layoutX="187.0" layoutY="216.0" prefHeight="27.0" prefWidth="242.0" promptText="Password" />
       <Button fx:id="SignUpButton" layoutX="187.0" layoutY="302.0" mnemonicParsing="false" onAction="#signUpButton" text="Sign Up" />
       <Button fx:id="LoginButton" layoutX="367.0" layoutY="302.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="27.0" prefWidth="62.0" text="Log in" />
-      <Button fx:id="ForgotPasswordButton" layoutX="239.0" layoutY="366.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="138.0" text="Forgot password" />
+      <Button fx:id="ForgotPasswordButton" layoutX="291.0" layoutY="366.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="138.0" text="Forgot password" />
       <CheckBox fx:id="rememberMe" layoutX="188.0" layoutY="256.0" mnemonicParsing="false" onAction="#rememberMe" text="Remember me" textFill="#e50404" />
       <Label fx:id="labelStatus" layoutX="97.0" layoutY="151.0" prefHeight="18.0" prefWidth="158.0" textFill="#ff0404" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="208.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../Desktop/KaosUniversity.png" />
+            <Image url="@Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
     </children>

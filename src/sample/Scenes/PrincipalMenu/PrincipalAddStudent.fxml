@@ -28,7 +28,7 @@
       <TextField fx:id="gradeTextField" layoutX="17.0" layoutY="349.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter grade" />
       <ImageView fitHeight="82.0" fitWidth="161.0" layoutX="447.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
    </children>

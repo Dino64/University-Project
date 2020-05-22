@@ -15,10 +15,10 @@
 
       <Button fx:id="roomMenu" layoutX="347.0" layoutY="223.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room menu" />
       <Button fx:id="studentMenu" layoutX="93.0" layoutY="223.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student menu" />
-      <Button fx:id="logOut" layoutX="442.0" layoutY="350.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Log out" />
+      <Button fx:id="logOut" layoutX="225.0" layoutY="304.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Log out" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
    </children>

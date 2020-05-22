@@ -27,7 +27,7 @@
       <TextField fx:id="idNr" layoutX="687.0" layoutY="301.0" prefHeight="26.0" prefWidth="50.0" promptText="IdNr" />
       <ImageView fitHeight="195.0" fitWidth="368.0" layoutX="496.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
    </children>

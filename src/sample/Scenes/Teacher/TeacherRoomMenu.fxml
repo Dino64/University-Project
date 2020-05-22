@@ -22,7 +22,7 @@
       </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="395.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
    </children>

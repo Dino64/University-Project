@@ -36,7 +36,7 @@
       <Button fx:id="help" layoutX="144.0" layoutY="-5.0" mnemonicParsing="false" onAction="#pressHelp" prefHeight="33.0" prefWidth="66.0" text="Help" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="9.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
     </children>

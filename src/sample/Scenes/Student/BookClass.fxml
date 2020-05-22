@@ -13,26 +13,31 @@
     <children>
         <ImageView fitHeight="401.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Assets/Images/Library.jpg" />
+                <Image url="@../../Assets/Images/campus.sommar.jpg" />
             </image>
         </ImageView>
-        <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-3.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
-        <TextArea fx:id="ShowClassTextArea" layoutX="155.0" layoutY="76.0" prefHeight="249.0" prefWidth="416.0" />
-      <Label fx:id="Label1" layoutX="254.0" layoutY="37.0" text="List Of Classrooms" textFill="#fbfcf8">
+        <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutX="487.0" layoutY="6.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="98.0" text="Back to menu" />
+        <TextArea fx:id="ShowClassTextArea" layoutX="169.0" layoutY="82.0" prefHeight="249.0" prefWidth="416.0" />
+      <Label fx:id="Label1" layoutX="274.0" layoutY="82.0" text="List Of Classrooms" textFill="#212220">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <Button fx:id="bookButton" layoutX="14.0" layoutY="121.0" mnemonicParsing="false" onAction="#pressBookButton" prefHeight="27.0" prefWidth="132.0" text="Book Classroom">
+      <Button fx:id="bookButton" layoutX="14.0" layoutY="193.0" mnemonicParsing="false" onAction="#pressBookButton" prefHeight="27.0" prefWidth="132.0" text="Book Classroom">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <Button fx:id="unBookButton" layoutX="14.0" layoutY="298.0" mnemonicParsing="false" onAction="#pressUnBookButton" prefHeight="27.0" prefWidth="132.0" text="Unbook Classroom" />
-      <Button fx:id="showClassRoom" layoutX="155.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressShowClassroom" prefHeight="27.0" prefWidth="416.0" text="Show Classroom">
+      <Button fx:id="unBookButton" layoutX="14.0" layoutY="312.0" mnemonicParsing="false" onAction="#pressUnBookButton" prefHeight="27.0" prefWidth="132.0" text="Unbook Classroom" />
+      <Button fx:id="showClassRoom" layoutX="170.0" layoutY="347.0" mnemonicParsing="false" onAction="#pressShowClassroom" prefHeight="27.0" prefWidth="416.0" text="Show Classroom">
          <font>
             <Font name="System Bold" size="13.0" />
          </font></Button>
-      <TextField fx:id="bookTextField" layoutX="14.0" layoutY="76.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
-      <TextField fx:id="unBookTextField" layoutX="14.0" layoutY="254.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
+      <TextField fx:id="bookTextField" layoutX="14.0" layoutY="143.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
+      <TextField fx:id="unBookTextField" layoutX="14.0" layoutY="268.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
+      <ImageView fitHeight="101.0" fitWidth="151.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

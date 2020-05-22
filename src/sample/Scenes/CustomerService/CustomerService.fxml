@@ -39,7 +39,7 @@
               </Label>
             <ImageView fitHeight="89.0" fitWidth="193.0" layoutX="197.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+                  <Image url="@../../Assets/Images/KaosUniversity.png" />
                </image>
             </ImageView>
             <Button fx:id="MainMenu" alignment="BOTTOM_LEFT" layoutX="73.0" layoutY="319.0" mnemonicParsing="false" onAction="#pressMainMenu" prefHeight="30.0" prefWidth="81.0" text="Main Menu" />

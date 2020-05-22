@@ -20,7 +20,7 @@
       <Button fx:id="showButton" layoutX="234.0" layoutY="340.0" mnemonicParsing="false" onAction="#showButton" prefHeight="27.0" prefWidth="341.0" text="Show users" />
       <ImageView fitHeight="114.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
          </image>
       </ImageView>
    </children>
