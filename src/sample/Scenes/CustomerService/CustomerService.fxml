@@ -7,55 +7,43 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.CustomerService.CustomerService">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.CustomerService.CustomerService">
     <children>
         <ImageView fitHeight="407.0" fitWidth="608.0" layoutX="-54.0" layoutY="-3.0">
             <image>
                 <Image url="@../../Assets/Images/campus.sommar.jpg" />
             </image>
         </ImageView>
-        <Polygon fill="#f8f8f8" layoutX="245.0" layoutY="49.0" points="68.0, 357.0, 385.0, -49.0, 78.0, -49.0" stroke="TRANSPARENT" strokeType="INSIDE" />
-        <AnchorPane layoutX="225.0" layoutY="28.0" prefHeight="378.0" prefWidth="376.0" style="-fx-background-color: #FFFFFF;">
+        <AnchorPane layoutX="173.0" layoutY="16.0" prefHeight="378.0" prefWidth="381.0" style="-fx-background-color: #FFFFFF;">
             <children>
-                <TextField fx:id="txtFldName" layoutX="22.0" layoutY="47.0" prefHeight="30.0" prefWidth="193.0" promptText="Full name" />
-                <TextField fx:id="txtFldEmailAddress" layoutX="22.0" layoutY="85.0" prefHeight="30.0" prefWidth="193.0" promptText="Email address" />
+                <TextField fx:id="txtFldName" layoutX="22.0" layoutY="54.0" prefHeight="30.0" prefWidth="193.0" promptText="Full name" />
+                <TextField fx:id="txtFldEmailAddress" layoutX="22.0" layoutY="98.0" prefHeight="30.0" prefWidth="193.0" promptText="Email address" />
                 <Button fx:id="btnSend" layoutX="271.0" layoutY="62.0" mnemonicParsing="false" onAction="#issueMessage" prefHeight="30.0" prefWidth="89.0" styleClass="highlighted-button" text="Send" />
                 <TextArea fx:id="txtAreaDescription" layoutX="17.0" layoutY="135.0" prefHeight="153.0" prefWidth="343.0" promptText="Description of the issue" styleClass="drop-shadow" />
-                <Label layoutX="62.0" layoutY="296.0" prefHeight="27.0" prefWidth="82.0" text="Uni-App">
-                    <font>
-                        <Font name="System Italic" size="21.0" />
-                    </font>
-                </Label>
-                <Label layoutX="74.0" layoutY="317.0" prefHeight="29.0" prefWidth="89.0" text="Högskolan ">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
-                <Label layoutX="67.0" layoutY="336.0" prefHeight="20.0" prefWidth="82.0" text="Kristianstad">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </Label>
                 <Label layoutX="40.0" layoutY="335.0" prefHeight="23.0" prefWidth="68.0">
                     <font>
                         <Font size="14.0" />
                     </font>
                 </Label>
-                <Label layoutX="115.0" layoutY="21.0" text="We will get back to you ASAP.">
+                <Label layoutX="70.0" layoutY="27.0" text="We will get back to you as soon as possible.">
                     <font>
                         <Font size="16.0" />
                     </font>
                 </Label>
-              <Label layoutX="103.0" layoutY="2.0" prefHeight="25.0" prefWidth="278.0" text="Don´t hesitate to contact us below.">
+              <Label layoutX="103.0" layoutY="4.0" prefHeight="23.0" prefWidth="278.0" text="Don´t hesitate to contact us below.">
                   <font>
                       <Font size="16.0" />
                   </font>
               </Label>
+            <ImageView fitHeight="89.0" fitWidth="193.0" layoutX="197.0" layoutY="291.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="MainMenu" alignment="BOTTOM_LEFT" layoutX="73.0" layoutY="319.0" mnemonicParsing="false" onAction="#pressMainMenu" prefHeight="30.0" prefWidth="81.0" text="Main Menu" />
             </children>
         </AnchorPane>
-      <Button fx:id="MainMenu" alignment="BOTTOM_LEFT" layoutY="-2.0" mnemonicParsing="false" onAction="#pressMainMenu" prefHeight="30.0" prefWidth="608.0" text="Main Menu" />
     </children>
 </AnchorPane>

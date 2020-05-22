@@ -11,15 +11,22 @@
     <children>
         <ImageView fitHeight="400.0" fitWidth="432.0">
             <image>
-                <Image url="@../../Assets/Images/executive-office-desk1-2.jpg" />
+                <Image url="@../../Assets/Images/campus.sommar.jpg" />
             </image>
         </ImageView>
-        <AnchorPane layoutX="246.0" prefHeight="400.0" prefWidth="354.0" style="-fx-background-color: #FFFF;" />
-        <Label fx:id="lblAreaInfo" layoutX="260.0" layoutY="73.0" text="Info" textAlignment="CENTER">
-            <font>
-                <Font size="16.0" />
-            </font>
-        </Label>
-      <Button fx:id="mainMenu" alignment="BOTTOM_LEFT" layoutY="-4.0" mnemonicParsing="false" onAction="#pressMainMenu" prefHeight="32.0" prefWidth="600.0" text="Main Menu" AnchorPane.leftAnchor="0.0" />
+        <AnchorPane layoutX="246.0" prefHeight="400.0" prefWidth="354.0" style="-fx-background-color: #FFFF;">
+         <children>
+            <Button fx:id="mainMenu" alignment="BOTTOM_LEFT" layoutX="247.0" layoutY="356.0" mnemonicParsing="false" onAction="#pressMainMenu" prefHeight="32.0" prefWidth="84.0" text="Main Menu" AnchorPane.leftAnchor="247.0" />
+              <Label fx:id="lblAreaInfo" layoutX="170.0" layoutY="24.0" text="Info" textAlignment="CENTER">
+                  <font>
+                      <Font size="16.0" />
+                  </font>
+              </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+               </image>
+            </ImageView>
+         </children></AnchorPane>
     </children>
 </AnchorPane>

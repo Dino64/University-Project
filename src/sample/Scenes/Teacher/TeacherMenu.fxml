@@ -7,14 +7,19 @@
 
 <AnchorPane prefHeight="386.0" prefWidth="523.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherMenu">
    <children>
-      <ImageView fitHeight="394.0" fitWidth="542.0" layoutX="-2.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="448.0" fitWidth="601.0" layoutX="-1.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/teacher.jpg" />
+            <Image url="@../../Assets/Images/Screen%20Shot%202020-04-16%20at%209.08.42%20PM.png" />
          </image>
       </ImageView>
 
-      <Button fx:id="roomMenu" layoutX="373.0" layoutY="42.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room Menu" />
-      <Button fx:id="studentMenu" layoutX="373.0" layoutY="130.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student Menu" />
-      <Button fx:id="logOut" layoutX="-2.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Logout" textFill="#1a24dd" />
+      <Button fx:id="roomMenu" layoutX="347.0" layoutY="223.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room menu" />
+      <Button fx:id="studentMenu" layoutX="93.0" layoutY="223.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student menu" />
+      <Button fx:id="logOut" layoutX="442.0" layoutY="350.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Log out" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

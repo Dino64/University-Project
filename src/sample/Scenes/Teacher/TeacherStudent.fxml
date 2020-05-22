@@ -7,23 +7,28 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anc" prefHeight="553.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
+<AnchorPane fx:id="anc" prefHeight="572.0" prefWidth="899.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
    <children>
-      <ImageView fitHeight="357.0" fitWidth="606.0" layoutX="-4.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="323.0" fitWidth="482.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/studentTeachers.jpg" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="firstNametxt" layoutY="181.0" promptText="FirstName" />
-      <TextField fx:id="setGrade" layoutX="602.0" layoutY="302.0" promptText="set grade" />
-      <Button fx:id="addGrade" layoutX="600.0" layoutY="328.0" mnemonicParsing="false" onAction="#addGrade" text="add Grade" />
-      <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
-      <Button fx:id="LoadStudentButton" layoutX="783.0" layoutY="273.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View All Students" />
+      <TextField fx:id="firstNametxt" layoutX="14.0" layoutY="180.0" prefHeight="27.0" prefWidth="107.0" promptText="FirstName" />
+      <TextField fx:id="setGrade" layoutX="503.0" layoutY="301.0" promptText="set grade" />
+      <Button fx:id="addGrade" layoutX="503.0" layoutY="344.0" mnemonicParsing="false" onAction="#addGrade" text="Add grade" />
+      <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
+      <Button fx:id="LoadStudentButton" layoutX="503.0" layoutY="259.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View all student" />
       <TextArea fx:id="StudentTableView" layoutX="401.0" layoutY="2.0" prefHeight="246.0" prefWidth="490.0" promptText="Student" />
-      <Button fx:id="searchStudentBtn" layoutX="3.0" layoutY="224.0" mnemonicParsing="false" onAction="#searchStudent" text="search" />
-      <Button fx:id="cancel" layoutX="210.0" layoutY="224.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
-      <TextField fx:id="lastNametxt" layoutX="149.0" layoutY="180.0" prefHeight="26.0" prefWidth="122.0" promptText="LastName" />
-      <TextField fx:id="subjectTxt" layoutX="271.0" layoutY="180.0" prefHeight="26.0" prefWidth="129.0" promptText="Subject" />
-      <TextField fx:id="idNr" layoutX="751.0" layoutY="301.0" prefHeight="26.0" prefWidth="50.0" promptText="IdNr" />
+      <Button fx:id="searchStudentBtn" layoutX="121.0" layoutY="221.0" mnemonicParsing="false" onAction="#searchStudent" text="Search" />
+      <Button fx:id="cancel" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
+      <TextField fx:id="lastNametxt" layoutX="134.0" layoutY="180.0" prefHeight="27.0" prefWidth="107.0" promptText="LastName" />
+      <TextField fx:id="subjectTxt" layoutX="252.0" layoutY="180.0" prefHeight="27.0" prefWidth="113.0" promptText="Subject" />
+      <TextField fx:id="idNr" layoutX="687.0" layoutY="301.0" prefHeight="26.0" prefWidth="50.0" promptText="IdNr" />
+      <ImageView fitHeight="195.0" fitWidth="368.0" layoutX="496.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -6,27 +6,30 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
 
 <AnchorPane prefHeight="409.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalAddStudentController">
    <children>
       <ImageView fitHeight="414.0" fitWidth="616.0" layoutX="-6.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/user.png" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="BackButton" layoutX="409.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="81.0" prefWidth="184.0" text="Back" />
-      <Button fx:id="AddStudentButton" layoutX="406.0" layoutY="82.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="66.0" prefWidth="184.0" text="Add Student" />
-      <TextField fx:id="NameTextField" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Name" />
-      <TextField fx:id="LastNameTextField" layoutX="14.0" layoutY="55.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students LastName" />
-      <TextField fx:id="SSNTextField" layoutX="14.0" layoutY="95.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students SSN" />
-      <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="134.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
-      <TextField fx:id="PasswordTextField" layoutX="223.0" layoutY="15.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
-      <Line endX="488.89288330078125" layoutX="103.0" layoutY="170.0" startX="-100.0" />
-      <TextArea fx:id="StudentsTextArea" layoutX="392.0" layoutY="172.0" prefHeight="177.0" prefWidth="198.0" promptText="Students" />
-      <Button fx:id="ShowButton" layoutX="392.0" layoutY="349.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="60.0" prefWidth="198.0" text="Show Students" />
-      <TextField fx:id="CourseTextField" layoutX="226.0" layoutY="56.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course name" />
-      <TextField fx:id="SubjectTextField" layoutX="228.0" layoutY="96.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course Subject" />
-      <TextField fx:id="gradeTextField" layoutX="223.0" layoutY="136.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter grade" />
+      <Button fx:id="BackButton" layoutX="491.0" layoutY="6.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="42.0" prefWidth="117.0" text="Back to menu" />
+      <Button fx:id="AddStudentButton" layoutX="230.0" layoutY="342.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="42.0" prefWidth="117.0" text="Add Student" />
+      <TextField fx:id="NameTextField" layoutX="14.0" layoutY="27.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Name" />
+      <TextField fx:id="LastNameTextField" layoutX="14.0" layoutY="68.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students LastName" />
+      <TextField fx:id="SSNTextField" layoutX="14.0" layoutY="115.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students SSN" />
+      <TextField fx:id="EmailTextField" layoutX="14.0" layoutY="159.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Email" />
+      <TextField fx:id="PasswordTextField" layoutX="14.0" layoutY="205.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
+      <TextArea fx:id="StudentsTextArea" layoutX="412.0" layoutY="159.0" prefHeight="177.0" prefWidth="198.0" promptText="Students" />
+      <Button fx:id="ShowButton" layoutX="479.0" layoutY="342.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="42.0" prefWidth="117.0" text="Show Students" />
+      <TextField fx:id="CourseTextField" layoutX="17.0" layoutY="247.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course name" />
+      <TextField fx:id="SubjectTextField" layoutX="17.0" layoutY="299.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course Subject" />
+      <TextField fx:id="gradeTextField" layoutX="17.0" layoutY="349.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter grade" />
+      <ImageView fitHeight="82.0" fitWidth="161.0" layoutX="447.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
