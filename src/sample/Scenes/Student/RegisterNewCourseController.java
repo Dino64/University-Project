@@ -21,7 +21,7 @@ public class RegisterNewCourseController implements Initializable {
     Button backButton, ShowCourseButton, registerCourseButton, UnregisterCourseButton;
 
     @FXML
-    TextField courseName, subject;
+    TextField courseName, subject , UserID;
 
     @FXML
     TextArea showCourse;
@@ -49,7 +49,7 @@ public class RegisterNewCourseController implements Initializable {
     public void pressRegisterCourse() throws SQLException {
         String CourseName = courseName.getText();
         String Subject = subject.getText();
-        int user_idUser = 1;
+        int user_idUser = Integer.parseInt(UserID.getText());
 
         if (courseName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -63,6 +63,12 @@ public class RegisterNewCourseController implements Initializable {
             alert.setHeaderText("Input the Subject");
             alert.setContentText("Try again again");
             alert.showAndWait();
+        }if (UserID.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Subject is empty");
+                alert.setHeaderText("Input the Subject");
+                alert.setContentText("Try again again");
+                alert.showAndWait();
 
         }else{
                 DBConnect.getInstance().registerCourse(CourseName,Subject,user_idUser);
