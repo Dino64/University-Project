@@ -13,12 +13,12 @@
       <TextField fx:id="bookRoom" layoutX="14.0" layoutY="348.0" promptText="enter the room you want to book" />
       <Button fx:id="backTeacher" layoutY="1.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
       <Button layoutX="210.0" layoutY="349.0" mnemonicParsing="false" text="Book" />
-      <ImageView fitHeight="293.0" fitWidth="408.0" layoutX="389.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="293.0" fitWidth="408.0" layoutX="386.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/teachClass.jpg" />
          </image>
       </ImageView>
       <Button fx:id="unBook" layoutX="273.0" layoutY="348.0" mnemonicParsing="false" text="unBook" />
-      <Button fx:id="viewroom" layoutX="89.0" layoutY="1.0" mnemonicParsing="false" onAction="#viewRooms" text="view rooms" />
+      <Button fx:id="viewroom" layoutX="58.0" layoutY="1.0" mnemonicParsing="false" onAction="#viewRooms" text="view rooms" />
    </children>
 </AnchorPane>
