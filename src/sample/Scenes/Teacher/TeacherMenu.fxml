@@ -13,8 +13,8 @@
          </image>
       </ImageView>
 
-      <Button fx:id="roomMenu" layoutX="178.0" layoutY="139.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room Menu" />
-      <Button fx:id="studentMenu" layoutX="178.0" layoutY="197.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student Menu" />
-      <Button fx:id="logOut" layoutX="178.0" layoutY="247.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Logout" textFill="#1a24dd" />
+      <Button fx:id="roomMenu" layoutX="373.0" layoutY="42.0" mnemonicParsing="false" onAction="#showRoomMenu" prefHeight="27.0" prefWidth="149.0" text="Room Menu" />
+      <Button fx:id="studentMenu" layoutX="373.0" layoutY="130.0" mnemonicParsing="false" onAction="#showStudentMenu" prefHeight="27.0" prefWidth="149.0" text="Student Menu" />
+      <Button fx:id="logOut" layoutX="-2.0" mnemonicParsing="false" onAction="#logOut" prefHeight="27.0" prefWidth="149.0" text="Logout" textFill="#1a24dd" />
    </children>
 </AnchorPane>

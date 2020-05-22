@@ -337,12 +337,13 @@ public class DBConnect {
 //
 //    }
 
-    public void registerCourse(String courseName, String subject) throws SQLException {
+    public void registerCourse(String courseName, String subject,int user_idUser) throws SQLException {
         connect();
-        String sql = "Insert into course(CourseName, Subject, user_idUser) VALUES (?,?,?)";;
+        String sql = "Insert into Course (courseName,Subject,user_idUser) Values (?,?,?)";
         prep = connection.prepareStatement(sql);
         prep.setString(1, courseName);
         prep.setString(2, subject);
+        prep.setInt(3,user_idUser);
         prep.execute();
         prep.close();
         System.out.println("Debug: Course has been registered");

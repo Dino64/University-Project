@@ -43,6 +43,7 @@ public class RegisterNewCourseController implements Initializable {
     public void pressRegisterCourse() throws SQLException {
         String CourseName = courseName.getText();
         String Subject = subject.getText();
+        int user_idUser = 1;
 
         if (courseName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -58,7 +59,7 @@ public class RegisterNewCourseController implements Initializable {
             alert.showAndWait();
 
         }else{
-                DBConnect.getInstance().registerCourse(CourseName,Subject);
+                DBConnect.getInstance().registerCourse(CourseName,Subject,user_idUser);
                 System.out.println("DEBUG course added!!");
 
             }

@@ -9,21 +9,21 @@
 
 <AnchorPane fx:id="anc" prefHeight="553.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherStudentMenu">
    <children>
-      <ImageView fitHeight="357.0" fitWidth="606.0" layoutX="-4.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="357.0" fitWidth="606.0" layoutX="-4.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Assets/Images/studentTeachers.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="firstNametxt" layoutX="14.0" layoutY="303.0" promptText="FirstName" />
-      <TextField fx:id="setGrade" layoutX="453.0" layoutY="303.0" promptText="set grade" />
-      <Button fx:id="addGrade" layoutX="530.0" layoutY="329.0" mnemonicParsing="false" onAction="#addGrade" text="add Grade" />
+      <TextField fx:id="firstNametxt" layoutY="181.0" promptText="FirstName" />
+      <TextField fx:id="setGrade" layoutX="602.0" layoutY="302.0" promptText="set grade" />
+      <Button fx:id="addGrade" layoutX="600.0" layoutY="328.0" mnemonicParsing="false" onAction="#addGrade" text="add Grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
       <Button fx:id="LoadStudentButton" layoutX="783.0" layoutY="273.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="View All Students" />
-      <TextArea fx:id="StudentTableView" layoutX="397.0" layoutY="2.0" prefHeight="271.0" prefWidth="478.0" promptText="Student" />
-      <Button fx:id="searchStudentBtn" layoutX="14.0" layoutY="329.0" mnemonicParsing="false" onAction="#searchStudent" text="search" />
-      <Button fx:id="cancel" layoutX="310.0" layoutY="329.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
-      <TextField fx:id="lastNametxt" layoutX="142.0" layoutY="303.0" prefHeight="26.0" prefWidth="122.0" promptText="LastName" />
-      <TextField fx:id="subjectTxt" layoutX="264.0" layoutY="303.0" promptText="Subject" />
-      <TextField fx:id="idNr" layoutX="602.0" layoutY="303.0" prefHeight="26.0" prefWidth="50.0" promptText="IdNr" />
+      <TextArea fx:id="StudentTableView" layoutX="401.0" layoutY="2.0" prefHeight="246.0" prefWidth="490.0" promptText="Student" />
+      <Button fx:id="searchStudentBtn" layoutX="3.0" layoutY="224.0" mnemonicParsing="false" onAction="#searchStudent" text="search" />
+      <Button fx:id="cancel" layoutX="210.0" layoutY="224.0" mnemonicParsing="false" onAction="#cancelButton" text="cancel" />
+      <TextField fx:id="lastNametxt" layoutX="149.0" layoutY="180.0" prefHeight="26.0" prefWidth="122.0" promptText="LastName" />
+      <TextField fx:id="subjectTxt" layoutX="271.0" layoutY="180.0" prefHeight="26.0" prefWidth="129.0" promptText="Subject" />
+      <TextField fx:id="idNr" layoutX="751.0" layoutY="301.0" prefHeight="26.0" prefWidth="50.0" promptText="IdNr" />
    </children>
 </AnchorPane>
