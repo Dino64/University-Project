@@ -18,5 +18,10 @@
       <Button fx:id="showExamButton" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressShowExam" prefHeight="27.0" prefWidth="109.0" text="Show Exam" />
       <Button fx:id="registerExamButton" layoutX="346.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressRegisterExam" prefHeight="27.0" prefWidth="109.0" text="Register Exam" />
       <Button fx:id="UnregisterExamButton" layoutX="469.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressUnregisterExam" prefHeight="27.0" prefWidth="109.0" text="Unregister Exam" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
