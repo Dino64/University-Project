@@ -201,7 +201,7 @@ public class DBConnect {
             while (resultSet.next()) {
                 Grade.add("\n------------\nCourse " + resultSet.getString(1));
                 Grade.add("\nID" + resultSet.getInt(2));
-                Grade.add("\n------------\ngrade " + resultSet.getString(3));
+                Grade.add("\ngrade " + resultSet.getString(3));
                 System.out.println("DEBUG:" + Grade);
             }
         } catch (SQLException e) {
@@ -336,6 +336,19 @@ public class DBConnect {
 //            System.out.println("Student deleted successfully");
 //
 //    }
+
+    public void registerCourse(String courseName, String subject) throws SQLException {
+        connect();
+        String sql = "Insert into course(CourseName, Subject, user_idUser) VALUES (?,?,?)";;
+        prep = connection.prepareStatement(sql);
+        prep.setString(1, courseName);
+        prep.setString(2, subject);
+        prep.execute();
+        prep.close();
+        System.out.println("Debug: Course has been registered");
+        connection.close();
+
+    }
 
 
 

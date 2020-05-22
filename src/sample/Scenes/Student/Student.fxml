@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Student.StudentController">
+<AnchorPane prefHeight="395.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Student.StudentController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,10 +18,5 @@
       <Button fx:id="RegisterExam" layoutX="28.0" layoutY="290.0" mnemonicParsing="false" onAction="#pressRegisterExam" prefHeight="27.0" prefWidth="160.0" text="Register Exam" />
       <Button fx:id="bookClassroomButton" layoutX="28.0" layoutY="89.0" mnemonicParsing="false" onAction="#pressBookClassroom" prefHeight="27.0" prefWidth="160.0" text="Book Classroom" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="367.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
