@@ -36,6 +36,13 @@ public class PrincipalController implements Initializable {
 
 
 }
+
+    @FXML
+    public void bookRoomButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalBookRoom.fxml");
+
+    }
+
 @FXML
     public void logOutButton (ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
