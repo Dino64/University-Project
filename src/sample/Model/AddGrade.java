@@ -1,11 +1,11 @@
 package sample.Model;
 
-public class addGrade {
+public class AddGrade {
 
     private int IdNr;
     private String firstName,lastName ,email,SSN,subject,grade;
 
-    public addGrade() {
+    public AddGrade() {
 
         this.IdNr = IdNr;
         this.firstName = firstName;

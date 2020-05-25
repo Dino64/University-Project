@@ -10,7 +10,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.paint.Color;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
-import sample.Model.addGrade;
+import sample.Model.AddGrade;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,21 +26,21 @@ public class TeacherStudentMenu implements Initializable {
     @FXML
     TextField firstNametxt, lastNametxt, subjectTxt, setGrade, idNr;
     @FXML
-    TableView<addGrade> StudentTableView;
+    TableView<AddGrade> StudentTableView;
     @FXML
-    TableColumn<addGrade, Integer> Id;
+    TableColumn<AddGrade, Integer> Id;
     @FXML
-    TableColumn<addGrade, String> firstNa;
+    TableColumn<AddGrade, String> firstNa;
     @FXML
-    TableColumn<addGrade, String> lastNa;
+    TableColumn<AddGrade, String> lastNa;
     @FXML
-    TableColumn<addGrade, String> SSN;
+    TableColumn<AddGrade, String> SSN;
     @FXML
-    TableColumn<addGrade, String> email;
+    TableColumn<AddGrade, String> email;
     @FXML
-    TableColumn<addGrade, String> subject;
+    TableColumn<AddGrade, String> subject;
     @FXML
-    TableColumn<addGrade, String> grade;
+    TableColumn<AddGrade, String> grade;
 
 
     @FXML
@@ -51,20 +51,21 @@ public class TeacherStudentMenu implements Initializable {
     }
 
     @FXML
-    private void LoadStudentButton() throws IOException {
+    private void LoadStudentButton(){
         System.out.println("Loading student");
         StudentTableView.getItems().clear();
         DBConnect.getInstance().connect();
         String firstname = firstNametxt.getText();
         String lastname = lastNametxt.getText();
         String sub = subjectTxt.getText();
-        ObservableList<addGrade> studentList = DBConnect.getInstance().searchStudent(firstname, lastname, sub);
+        ObservableList<AddGrade> studentList = DBConnect.getInstance().searchStudent(firstname, lastname, sub);
         firstNa.setCellValueFactory(new PropertyValueFactory("FirstName"));
         lastNa.setCellValueFactory(new PropertyValueFactory("LastName"));
         SSN.setCellValueFactory(new PropertyValueFactory("SSN"));
         email.setCellValueFactory(new PropertyValueFactory("Email"));
         subject.setCellValueFactory(new PropertyValueFactory("Subject"));
         grade.setCellValueFactory(new PropertyValueFactory("Grade"));
+        StudentTableView.setEditable(true);
         grade.setCellFactory(TextFieldTableCell.forTableColumn());
 
 
@@ -72,7 +73,7 @@ public class TeacherStudentMenu implements Initializable {
         System.out.println(studentList.toString());
 
 
-        // StudentTableView.setText(String.valueOf(DBConnect.getInstance().getStudent()));
+
 
     }
 
@@ -85,18 +86,14 @@ public class TeacherStudentMenu implements Initializable {
     @FXML
     private void cancelButton() {
         // StudentTableView.;
-
+        for ( int i = 0; i<StudentTableView.getItems().size(); i++) {
+            StudentTableView.getItems().clear();
+        }
     }
 
 
-   /* @FXML
-    private void searchStudent(){
-        String firstName = firstNametxt.getText();
-        String lastName = lastNametxt.getText();
-        String subject = subjectTxt.getText();
-     //   StudentTableView.setText(String.valueOf(DBConnect.getInstance().searchStudent(firstName,lastName,subject)));
 
-    }*/
+
    /* @FXML private void addGrade(){
 
         String grade = setGrade.getText();
@@ -129,14 +126,18 @@ public class TeacherStudentMenu implements Initializable {
 
 
     @FXML
-    private void gradeChange(TableColumn.CellEditEvent<addGrade, String> event) {
-        addGrade g = event.getRowValue();
+    private void gradeChange(TableColumn.CellEditEvent<AddGrade, String> event) {
+        AddGrade g = event.getRowValue();
         int i;
-        if (event.getNewValue() == null) {
-            // emptyMessage();
+        if (!event.getNewValue().matches("[3-5]|[f]?|d")) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Wrong input");
+            alert.setHeaderText("input correct value f,3,4 or 5");
+            alert.setContentText("Try again champ");
+            alert.showAndWait();
         } else {
 
-            i = DBConnect.getInstance().upDateCourseTable("course", "grade", event.getNewValue(),
+            i = DBConnect.getInstance().upDateGradeTable("course", "grade", event.getNewValue(),
                     String.valueOf(g.getIdNr()));
             if (i != 0) {
                 messageLabel.setTextFill(Color.GREEN);

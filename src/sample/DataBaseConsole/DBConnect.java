@@ -264,23 +264,23 @@ public class DBConnect {
 
     }
 
-    public ObservableList<addGrade> searchStudent(String firstName, String lastName, String sub) {
+    public ObservableList<AddGrade> searchStudent(String firstName, String lastName, String sub) {
 
-        ObservableList<addGrade> list = FXCollections.observableArrayList();
+        ObservableList<AddGrade> list = FXCollections.observableArrayList();
 
         try {
             //
-            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email, subject, grade " +
+            ResultSet resultSet = statement.executeQuery("Select idUser, FirstName,LastName,SSN,email, subject, grade " +
                     "from course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + sub + "%'" + " limit 1");
             while (resultSet.next()) {
-                addGrade grade = new addGrade();
+                AddGrade grade = new AddGrade();
                 grade.setIdNr(resultSet.getInt(1));
-                grade.setFirstName(resultSet.getString(1));
-                grade.setLastName(resultSet.getString(2));
-                grade.setSSN(resultSet.getString(3));
-                grade.setEmail(resultSet.getString(4));
-                grade.setSubject(resultSet.getString(5));
-                grade.setGrade(resultSet.getString(6));
+                grade.setFirstName(resultSet.getString(2));
+                grade.setLastName(resultSet.getString(3));
+                grade.setSSN(resultSet.getString(4));
+                grade.setEmail(resultSet.getString(5));
+                grade.setSubject(resultSet.getString(6));
+                grade.setGrade(resultSet.getString(7));
                 list.add(grade);
             }
             resultSet.close();
@@ -292,30 +292,20 @@ public class DBConnect {
         return list;
     }
 
-    public ObservableList<String> addGrade(String grade) {
-        System.out.println("DEBUG: Getting grades");
-
-        ObservableList result = FXCollections.observableArrayList();
-        result.clear();
 
 
-        return result;
+    public int upDateGradeTable(String course, String subject, String grade, String idUser) {
+        int i = 0;
+        if (course.equals("course")) {
+            try {
+                i = statement.executeUpdate("UPDATE " + course + " SET " + subject + " ='" + grade + "' WHERE user_IdUser = " + idUser + " ");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
+        }return i;
     }
 
-
-   /* public String addGrade(String grade, String nrId) {
-        String sqlGrade = "Update course Set grade = '" + grade + "' WHERE user_IdUser = '" + nrId + "'";
-        try {
-            prep = connection.prepareStatement(sqlGrade);
-            prep.executeUpdate();
-            prep.close();
-            System.out.println("DEBUG: Grade Updated");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return sqlGrade;
-    }*/
 
     public void addStudent(String name, String lastName, String SSN, String email, String password) throws SQLException {
         connect();
