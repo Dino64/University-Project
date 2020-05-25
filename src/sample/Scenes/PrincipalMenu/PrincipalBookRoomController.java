@@ -20,7 +20,7 @@ public class PrincipalBookRoomController implements Initializable {
     @FXML TextField daysTextField;
     SimpleDateFormat sdf = new SimpleDateFormat("E, dd-MM-yyyy HH:mm:ss z");
     Calendar cal = Calendar.getInstance();
-    private Date today = new Date(2020, Calendar.JUNE, 25,12, 0);
+    private Date today = new Date(2020, Calendar.JUNE, 25,12, 0,7);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -35,8 +35,11 @@ public class PrincipalBookRoomController implements Initializable {
     @FXML
     public void bookButton(){
         DBConnect.getInstance().connect();
-        String id = IdTextField.getText();
+        int id = Integer.parseInt(IdTextField.getText());
         String numberOfDays = daysTextField.getText();
+        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
+        String newDate = sdf.format(cal.getTime());
+        DBConnect.getInstance().bookRoom(1, id, newDate);
 
     }
 }

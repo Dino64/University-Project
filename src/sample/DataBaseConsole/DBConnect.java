@@ -181,21 +181,26 @@ public class DBConnect {
     }
 
     public ArrayList<String> ReadClassroom() {
-        ArrayList<String> Class = new ArrayList<>();
+        ArrayList<String> classroomList = new ArrayList<>();
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select NumberOfSeats, RoomNumber, isBooked from Classroom ");
             while (resultSet.next()) {
-                Class.add("\n------------\nNumberOfSeats: " + resultSet.getString(1));
-                Class.add("\nRoomNumber: " + resultSet.getString(2));
-                Class.add("\nisBooked:" + resultSet.getString(3));
-                System.out.println("DEBUG:" + Class);
+                classroomList.add("\n------------\nNumberOfSeats: " + resultSet.getString(1));
+                classroomList.add("\nRoomNumber: " + resultSet.getString(2));
+                boolean isBooked = resultSet.getString(3).equals("1");// to change name of print
+                if (isBooked) {
+                    classroomList.add("\nIs booked");
+                } else {
+                    classroomList.add("\nNot booked");
+                }
+                System.out.println("DEBUG:" + classroomList);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return Class;
+        return classroomList;
     }
     public ArrayList<String> ReadGrade() {
         ArrayList<String> Grade = new ArrayList<>();
@@ -376,20 +381,27 @@ public class DBConnect {
         return list;
     }
 
-    public void bookRoom(Boolean isBooked, int roomNumber, String numberOfDays){
+    public void bookRoom(int isBooked, int roomNumber, String numberOfDays){
       String stmt =  "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+      String stmt2 = "INSERT INTO classroom (date) Values (?)";
+
       try {
           prep = connection.prepareStatement(stmt);
           prep.executeUpdate();
-          prep.close();
-          String oldDate = sdf.format(cal.getTime());
-          cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
-          String newDate = sdf.format(cal.getTime());
           System.out.println("DEBUG: Room Booking Updated");
 
       }catch (SQLException ex){
           ex.printStackTrace();
       }
+
+        try {
+            prep = connection.prepareStatement(stmt2);
+            prep.setString(1,numberOfDays);
+            prep.execute();
+            prep.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 
 
