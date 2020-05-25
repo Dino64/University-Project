@@ -11,16 +11,27 @@
    <children>
       <ImageView fitHeight="401.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/Library.jpg" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-3.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutX="483.0" layoutY="8.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="103.0" text="Back to menu" />
       <TextArea fx:id="showCourse" layoutX="181.0" layoutY="60.0" prefHeight="228.0" prefWidth="385.0" />
       <Button fx:id="ShowCourseButton" layoutX="181.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressShowCourse" prefHeight="27.0" prefWidth="116.0" text="Show Course" />
       <Button fx:id="registerCourseButton" layoutX="316.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressRegisterCourse" prefHeight="27.0" prefWidth="116.0" text="Register Course" />
+<<<<<<< HEAD
       <Button fx:id="UnregisterCourseButton" layoutX="448.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressUnregisterCourse" prefHeight="27.0" prefWidth="116.0" text="Unregister Course" />
       <TextField fx:id="courseName" layoutX="181.0" layoutY="297.0" prefHeight="27.0" prefWidth="116.0" promptText="Course Name" />
       <TextField fx:id="subject" layoutX="316.0" layoutY="297.0" prefHeight="27.0" prefWidth="116.0" promptText="Subject" />
       <TextField fx:id="UserID" layoutX="448.0" layoutY="297.0" prefHeight="27.0" prefWidth="116.0" promptText="User ID" />
+=======
+      <Button fx:id="UnregisterCourseButton" layoutX="448.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressUnregisterCourse" prefHeight="27.0" prefWidth="126.0" text="Unregister Course" />
+      <TextField fx:id="courseName" layoutX="181.0" layoutY="297.0" prefHeight="27.0" prefWidth="179.0" promptText="Course Name" />
+      <TextField fx:id="subject" layoutX="390.0" layoutY="297.0" prefHeight="27.0" prefWidth="179.0" promptText="Subject" />
+      <ImageView fitHeight="89.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
+>>>>>>> 4ee3a37a6f42e644376c4520ec88b4589ac4c53a
    </children>
 </AnchorPane>

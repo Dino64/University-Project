@@ -6,18 +6,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="309.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalViewStudentsController">
+<AnchorPane prefHeight="392.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalViewStudentsController">
    <children>
-      <ImageView fitHeight="440.0" fitWidth="600.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="621.0" layoutX="-2.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/code.jpg" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="LoadButton" layoutX="257.0" layoutY="266.0" mnemonicParsing="false" onAction="#LoadButton" prefHeight="27.0" prefWidth="304.0" text="Load Students" />
-      <TextArea fx:id="StudentTextArea" layoutX="257.0" layoutY="16.0" prefHeight="237.0" prefWidth="304.0" promptText="Students" />
-      <Button fx:id="AddStudentButton" layoutX="29.0" layoutY="16.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="27.0" prefWidth="149.0" text="Add/Remove Students " />
+      <Button fx:id="LoadButton" layoutX="305.0" layoutY="358.0" mnemonicParsing="false" onAction="#LoadButton" prefHeight="27.0" prefWidth="304.0" text="Load Students" />
+      <TextArea fx:id="StudentTextArea" layoutX="305.0" layoutY="109.0" prefHeight="237.0" prefWidth="304.0" promptText="Students" />
+      <Button fx:id="AddStudentButton" layoutX="29.0" layoutY="16.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="27.0" prefWidth="149.0" text="Add Students " />
       <Button layoutX="29.0" layoutY="156.0" mnemonicParsing="false" onAction="#viewAllUsers" prefHeight="27.0" prefWidth="149.0" text="View all users" />
       <Button fx:id="RemovePageButton" layoutX="29.0" layoutY="82.0" mnemonicParsing="false" onAction="#RemovePageButton" prefHeight="27.0" prefWidth="149.0" text="Remove Students" />
-      <Button fx:id="BackButton" layoutX="29.0" layoutY="219.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="27.0" prefWidth="149.0" text="Back" />
+      <Button fx:id="BackButton" layoutX="29.0" layoutY="358.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="27.0" prefWidth="149.0" text="Back to menu" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="409.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

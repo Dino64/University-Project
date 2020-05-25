@@ -7,18 +7,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherRoomMenu">
+<AnchorPane prefHeight="336.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Teacher.TeacherRoomMenu">
    <children>
       <TextArea fx:id="roomArea" layoutX="-2.0" layoutY="27.0" prefHeight="322.0" prefWidth="388.0" />
       <TextField fx:id="bookRoom" layoutX="14.0" layoutY="348.0" promptText="enter the room you want to book" />
-      <Button fx:id="backTeacher" layoutY="1.0" mnemonicParsing="false" onAction="#backButton" text="&lt;&lt;back" />
-      <Button layoutX="210.0" layoutY="349.0" mnemonicParsing="false" text="Book" />
-      <ImageView fitHeight="293.0" fitWidth="408.0" layoutX="386.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="backTeacher" layoutY="1.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
+      <Button layoutX="175.0" layoutY="348.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="93.0" text="Book a room" />
+      <Button fx:id="unBook" layoutX="273.0" layoutY="348.0" mnemonicParsing="false" text="Unbook a room" />
+      <Button fx:id="viewroom" layoutX="306.0" layoutY="2.0" mnemonicParsing="false" onAction="#viewRooms" text="View rooms" />
+      <ImageView fitHeight="148.0" fitWidth="218.0" layoutX="386.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/teachClass.jpg" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="unBook" layoutX="273.0" layoutY="348.0" mnemonicParsing="false" text="unBook" />
-      <Button fx:id="viewroom" layoutX="58.0" layoutY="1.0" mnemonicParsing="false" onAction="#viewRooms" text="view rooms" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="395.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

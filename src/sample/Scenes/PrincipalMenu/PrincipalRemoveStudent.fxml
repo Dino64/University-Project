@@ -11,12 +11,17 @@
    <children>
       <ImageView fitHeight="402.0" fitWidth="608.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/user_delete.png" />
+            <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="removeTextField" layoutX="14.0" layoutY="294.0" prefHeight="27.0" prefWidth="212.0" promptText="Enter the SSN of the user you would like to remove" />
       <TextArea fx:id="studentsTextArea" layoutX="236.0" layoutY="33.0" prefHeight="288.0" prefWidth="341.0" promptText="Students" />
       <Button fx:id="removeButton" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="27.0" prefWidth="212.0" text="Remove User" />
       <Button fx:id="showButton" layoutX="234.0" layoutY="340.0" mnemonicParsing="false" onAction="#showButton" prefHeight="27.0" prefWidth="341.0" text="Show users" />
+      <ImageView fitHeight="114.0" fitWidth="212.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

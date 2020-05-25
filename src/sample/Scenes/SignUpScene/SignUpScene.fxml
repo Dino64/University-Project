@@ -10,9 +10,9 @@
 
 <AnchorPane prefHeight="308.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.SignUpScene.SignUpScene">
     <children>
-        <ImageView fitHeight="400.0" fitWidth="339.0" layoutX="-83.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="195.0" fitWidth="203.0" layoutX="7.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../../Assets/Images/Library.jpg" />
+                <Image url="@../../Assets/Images/campus.sommar.jpg" />
             </image>
         </ImageView>
         <AnchorPane layoutX="210.0" layoutY="-1.0" prefHeight="400.0" prefWidth="390.0" style="-fx-background-color: #fff;">
@@ -21,7 +21,7 @@
                 <TextField fx:id="txtFldEmail" layoutX="191.0" layoutY="87.0" prefHeight="27.0" prefWidth="159.0" promptText="Email" />
                 <TextField fx:id="txtFldLastName" layoutX="192.0" layoutY="122.0" prefHeight="27.0" prefWidth="159.0" promptText="Last name" />
                 <TextField fx:id="txtFldSsn" layoutX="25.0" layoutY="87.0" prefHeight="26.0" prefWidth="159.0" promptText="Social security number" />
-                <Button fx:id="btnJoin" layoutX="266.0" layoutY="309.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="27.0" prefWidth="84.0" styleClass="highlighted-button" text="Join" />
+                <Button fx:id="btnJoin" layoutX="27.0" layoutY="209.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="27.0" prefWidth="84.0" styleClass="highlighted-button" text="Join" />
                 <Label layoutX="27.0" layoutY="36.0" prefHeight="23.0" prefWidth="268.0" text="Fill in your information below:">
                     <font>
                         <Font size="18.0" />
@@ -34,5 +34,10 @@
       <Button fx:id="back" layoutY="-5.0" mnemonicParsing="false" onAction="#pressBack" prefHeight="33.0" prefWidth="72.0" text="Back" />
       <Button fx:id="aboutUs" layoutX="72.0" layoutY="-5.0" mnemonicParsing="false" onAction="#pressAboutUs" prefHeight="33.0" prefWidth="72.0" text="AboutUs" />
       <Button fx:id="help" layoutX="144.0" layoutY="-5.0" mnemonicParsing="false" onAction="#pressHelp" prefHeight="33.0" prefWidth="66.0" text="Help" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="9.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

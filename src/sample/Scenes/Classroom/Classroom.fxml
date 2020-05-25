@@ -3,18 +3,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.Classroom.ClassroomController">
    <children>
-      <Button fx:id="addRoomButton" layoutX="161.0" layoutY="333.0" mnemonicParsing="false" onAction="#pressAddRoom" prefHeight="27.0" prefWidth="106.0" text="Add Room" />
-      <TextField fx:id="roomNumber" layoutX="214.0" layoutY="280.0" prefHeight="27.0" prefWidth="167.0" promptText="Room Number" />
-      <TextField fx:id="numberOfSeats" layoutX="27.0" layoutY="280.0" prefHeight="27.0" prefWidth="167.0" promptText="Number Of Seats" />
-      <Button fx:id="removeRoomButton" layoutX="311.0" layoutY="333.0" mnemonicParsing="false" onAction="#removeRoomButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />
-      <Button fx:id="editRoomButton" layoutX="448.0" layoutY="333.0" mnemonicParsing="false" onAction="#editRoomButton" prefHeight="27.0" prefWidth="106.0" text="Edit Room" />
-      <TextArea fx:id="listOfRooms" layoutX="27.0" layoutY="51.0" prefHeight="200.0" prefWidth="534.0" />
-      <Button fx:id="BackButton" alignment="BOTTOM_LEFT" layoutY="-5.0" mnemonicParsing="false" onAction="#backButton" prefHeight="33.0" prefWidth="600.0" text="Back" />
-      <TextField fx:id="isBookedTextField" layoutX="393.0" layoutY="280.0" prefHeight="27.0" prefWidth="161.0" promptText="Is Booked" />
-      <Button fx:id="showroomButton" layoutX="27.0" layoutY="333.0" mnemonicParsing="false" onAction="#pressShowroom" prefHeight="27.0" prefWidth="106.0" text="Show Room" />
+      <Button fx:id="addRoomButton" layoutX="161.0" layoutY="347.0" mnemonicParsing="false" onAction="#pressAddRoom" prefHeight="27.0" prefWidth="106.0" text="Add Room" />
+      <TextField fx:id="roomNumber" layoutX="217.0" layoutY="294.0" prefHeight="27.0" prefWidth="167.0" promptText="Room Number" />
+      <TextField fx:id="numberOfSeats" layoutX="27.0" layoutY="294.0" prefHeight="27.0" prefWidth="167.0" promptText="Number Of Seats" />
+      <Button fx:id="removeRoomButton" layoutX="311.0" layoutY="347.0" mnemonicParsing="false" onAction="#removeRoomButton" prefHeight="27.0" prefWidth="106.0" text="Remove Room" />
+      <Button fx:id="editRoomButton" layoutX="448.0" layoutY="347.0" mnemonicParsing="false" onAction="#editRoomButton" prefHeight="27.0" prefWidth="106.0" text="Edit Room" />
+      <TextArea fx:id="listOfRooms" layoutX="66.0" layoutY="119.0" prefHeight="162.0" prefWidth="469.0" />
+      <Button fx:id="BackButton" alignment="BOTTOM_LEFT" layoutX="485.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" prefHeight="27.0" prefWidth="100.0" text="Back to menu" />
+      <TextField fx:id="isBookedTextField" layoutX="393.0" layoutY="294.0" prefHeight="27.0" prefWidth="161.0" promptText="Is Booked" />
+      <Button fx:id="showroomButton" layoutX="27.0" layoutY="347.0" mnemonicParsing="false" onAction="#pressShowroom" prefHeight="27.0" prefWidth="106.0" text="Show Room" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
