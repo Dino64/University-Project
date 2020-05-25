@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -16,8 +17,7 @@
          </image>
       </ImageView>
       <TextField fx:id="firstNametxt" layoutX="14.0" layoutY="180.0" prefHeight="27.0" prefWidth="107.0" promptText="FirstName" />
-      <TextField fx:id="setGrade" layoutX="503.0" layoutY="301.0" promptText="set grade" />
-      <Button fx:id="addGrade" layoutX="503.0" layoutY="344.0" mnemonicParsing="false" onAction="#addGrade" text="Add grade" />
+      <Button fx:id="addGrade" layoutX="503.0" layoutY="344.0" mnemonicParsing="false" text="Add grade" />
       <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
       <Button fx:id="LoadStudentButton" layoutX="11.0" layoutY="221.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Search for student" />
       <Button fx:id="cancel" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
@@ -35,8 +35,9 @@
             <TableColumn fx:id="SSN" prefWidth="69.5999755859375" text="SSN" />
             <TableColumn fx:id="email" prefWidth="95.1998291015625" text="Email" />
             <TableColumn fx:id="subject" prefWidth="96.8001708984375" text="Subject" />
-            <TableColumn fx:id="grade" prefWidth="76.800048828125" text="Grade" />
+            <TableColumn fx:id="grade" onEditCommit="#gradeChange" prefWidth="76.800048828125" text="Grade" />
         </columns>
       </TableView>
+      <Label fx:id="messageLabel" layoutX="600.0" layoutY="252.0" prefHeight="18.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

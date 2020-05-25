@@ -1,8 +1,8 @@
 package sample.Model;
 
-public class addGrade{
+public class addGrade {
 
-    private int  IdNr;
+    private int IdNr;
     private String firstName,lastName ,email,SSN,subject,grade;
 
     public addGrade() {
@@ -64,18 +64,18 @@ public class addGrade{
         this.subject = subject;
     }
 
-    public String getGrade() {
-        return grade;
-    }
-
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getGrade() {
+        return grade;
     }
 
     @Override
     public String toString() {
         return "addGrade{" +
-                "Id='" + IdNr + '\'' +
+                "IdNr=" + IdNr +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
@@ -84,4 +84,5 @@ public class addGrade{
                 ", grade='" + grade + '\'' +
                 '}';
     }
+
 }
