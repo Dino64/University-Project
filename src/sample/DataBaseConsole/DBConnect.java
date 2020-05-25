@@ -7,11 +7,15 @@ import sample.Model.Teacher;
 import sample.Model.User;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class DBConnect {
+    SimpleDateFormat sdf = new SimpleDateFormat("E, dd-MM-yyyy HH:mm:ss z");
+    Calendar cal = Calendar.getInstance();
     private static DBConnect single_instance;
     private User use;
     private Teacher t;
@@ -370,6 +374,22 @@ public class DBConnect {
         }
         System.out.println("Debug: " + list);
         return list;
+    }
+
+    public void bookRoom(Boolean isBooked, int roomNumber, String numberOfDays){
+      String stmt =  "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+      try {
+          prep = connection.prepareStatement(stmt);
+          prep.executeUpdate();
+          prep.close();
+          String oldDate = sdf.format(cal.getTime());
+          cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
+          String newDate = sdf.format(cal.getTime());
+          System.out.println("DEBUG: Room Booking Updated");
+
+      }catch (SQLException ex){
+          ex.printStackTrace();
+      }
     }
 
 
