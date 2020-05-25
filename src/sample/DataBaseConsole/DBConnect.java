@@ -1,10 +1,9 @@
 package sample.DataBaseConsole;
 
 
-import sample.Model.Classroom;
-import sample.Model.Member;
-import sample.Model.Teacher;
-import sample.Model.User;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import sample.Model.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -98,7 +97,7 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course where user.idUser = course.user_idUser ");
+            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course where user.idUser = course.user_idUser AND accesId like 3 ");
             while (resultSet.next()) {
 
                 p.add("FirstName: " + resultSet.getString(1));
@@ -256,21 +255,24 @@ public class DBConnect {
 
     }
 
-    public ArrayList<String> searchStudent(String firstName, String lastName, String subject) {
+    public ObservableList<addGrade> searchStudent(String firstName, String lastName, String sub) {
 
-        ArrayList<String> list = new ArrayList<>();
+        ObservableList<addGrade> list = FXCollections.observableArrayList();
+
         try {
-
-            ResultSet resultSet = statement.executeQuery("Select idUser,FirstName,LastName,SSN,email, subject, grade " +
-                    "from course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + subject + "%'" + " limit 1");
+           //
+            ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email, subject, grade " +
+                    "from course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'"+ "AND Subject LIKE '" + sub + "%'" + " limit 1");
             while (resultSet.next()) {
-                list.add("\nUserID: " + resultSet.getString(1));
-                list.add("\nFirstName: " + resultSet.getString(2));
-                list.add("\nLastName: " + resultSet.getString(3));
-                list.add("\nSSN: " + resultSet.getString(4));
-                list.add("\nEmail: " + resultSet.getString(5));
-                list.add("\nSubject: " + resultSet.getString(6));
-                list.add("\nGrade: " + resultSet.getString(7));
+                addGrade grade = new addGrade();
+                //grade.setId(resultSet.getInt(1));
+                grade.setFirstName(resultSet.getString(1));
+                grade.setLastName(resultSet.getString(2));
+                grade.setSSN(resultSet.getString(3));
+                grade.setEmail(resultSet.getString(4));
+                grade.setSubject(resultSet.getString(5));
+                grade.setGrade(resultSet.getString(6));
+                list.add(grade);
             }
             resultSet.close();
 
@@ -278,10 +280,19 @@ public class DBConnect {
             var3.printStackTrace();
         }
         System.out.println("Debug: " + list);
-        return list;
+       return list;
+    }
+    public ObservableList<String> addGrade(String grade){
+        System.out.println("DEBUG: Getting grades");
+
+        ObservableList result = FXCollections.observableArrayList();
+        result.clear();
+
+
+        return result;
     }
 
-    public String addGrade(String grade, String nrId) {
+   /* public String addGrade(String grade, String nrId) {
         String sqlGrade = "Update course Set grade = '" + grade + "' WHERE user_IdUser = '" + nrId + "'";
         try {
             prep = connection.prepareStatement(sqlGrade);
@@ -293,7 +304,7 @@ public class DBConnect {
         }
 
         return sqlGrade;
-    }
+    }*/
 
     public void addStudent(String name, String lastName, String SSN, String email, String password) throws SQLException {
         connect();

@@ -1,13 +1,13 @@
 package sample.Model;
 
 public class Grade {
-    double grade;
+    String grade;
 
-    public double getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(double grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 }

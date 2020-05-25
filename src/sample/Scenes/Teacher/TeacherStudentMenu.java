@@ -1,14 +1,14 @@
 package sample.Scenes.Teacher;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
+import sample.Model.addGrade;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,7 +23,21 @@ public class TeacherStudentMenu implements Initializable {
     @FXML
     TextField firstNametxt, lastNametxt, subjectTxt, setGrade, idNr;
     @FXML
-    TextArea StudentTableView;
+    TableView <addGrade>StudentTableView;
+    @FXML
+    TableColumn <addGrade, Integer>Id;
+    @FXML TableColumn<addGrade,String>firstNa;
+    @FXML
+    TableColumn<addGrade,String>lastNa;
+    @FXML
+    TableColumn<addGrade,String>SSN;
+    @FXML
+    TableColumn<addGrade,String>email;
+    @FXML
+    TableColumn<addGrade,String>subject;
+    @FXML
+    TableColumn<addGrade,String>grade;
+
 
     @FXML
 
@@ -34,8 +48,24 @@ public class TeacherStudentMenu implements Initializable {
 
     @FXML
     private void LoadStudentButton() {
+        System.out.println("Loading student");
+        StudentTableView.getItems().clear();
+        DBConnect.getInstance().connect();
+        String firstname =  firstNametxt.getText();
+        String lastname  = lastNametxt.getText();
+        String sub = subjectTxt.getText();
+        ObservableList<addGrade> studentList = DBConnect.getInstance().searchStudent(firstname,lastname,sub);
+        firstNa.setCellValueFactory(new PropertyValueFactory("FirstName"));
+        lastNa.setCellValueFactory(new PropertyValueFactory("LastName"));
+        SSN.setCellValueFactory(new PropertyValueFactory("SSN"));
+        email.setCellValueFactory(new PropertyValueFactory("Email"));
+        subject.setCellValueFactory(new PropertyValueFactory("Subject"));
+        grade.setCellValueFactory(new PropertyValueFactory("Grade"));
+        StudentTableView.setItems(studentList);
 
-        StudentTableView.setText(String.valueOf(DBConnect.getInstance().getStudent()));
+
+
+       // StudentTableView.setText(String.valueOf(DBConnect.getInstance().getStudent()));
 
 
     }
@@ -48,23 +78,22 @@ public class TeacherStudentMenu implements Initializable {
 
     @FXML
     private void cancelButton() {
-        StudentTableView.clear();
+       // StudentTableView.;
 
     }
 
 
-    @FXML
+   /* @FXML
     private void searchStudent(){
         String firstName = firstNametxt.getText();
         String lastName = lastNametxt.getText();
         String subject = subjectTxt.getText();
-        StudentTableView.setText(String.valueOf(DBConnect.getInstance().searchStudent(firstName,lastName,subject)));
+     //   StudentTableView.setText(String.valueOf(DBConnect.getInstance().searchStudent(firstName,lastName,subject)));
 
-    }
+    }*/
     @FXML private void addGrade(){
 
         String grade = setGrade.getText();
-        String nrId = idNr.getText();
 
         if (setGrade.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -87,7 +116,7 @@ public class TeacherStudentMenu implements Initializable {
             alert.showAndWait();
         }else{
 
-           DBConnect.getInstance().addGrade(grade, nrId);
+           DBConnect.getInstance().addGrade(grade);
             System.out.println("DEBUG:Grade added!!");
 
         }
