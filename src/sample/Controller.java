@@ -121,6 +121,9 @@ public class Controller implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+    @FXML private void forgotPassWord(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event,"/sample/Scenes/ChangePassWord/Changepassword.fxml");
+    }
     }
 
 

@@ -85,7 +85,7 @@ public class TeacherStudentMenu implements Initializable {
 
     @FXML
     private void cancelButton() {
-        // StudentTableView.;
+
         for ( int i = 0; i<StudentTableView.getItems().size(); i++) {
             StudentTableView.getItems().clear();
         }

@@ -3,6 +3,7 @@ package sample.DataBaseConsole;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
 import sample.Model.*;
 
 import java.sql.*;
@@ -252,6 +253,11 @@ public class DBConnect {
                 isVerified = true;
                 resultSet.close();
             } else {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("User not available");
+                alert.setHeaderText("Please sign up before Login");
+                alert.setContentText("Thank you");
+                alert.showAndWait();
                 System.out.println("No user excist please sign Up");
             }
 
@@ -269,7 +275,7 @@ public class DBConnect {
         ObservableList<AddGrade> list = FXCollections.observableArrayList();
 
         try {
-            //
+
             ResultSet resultSet = statement.executeQuery("Select idUser, FirstName,LastName,SSN,email, subject, grade " +
                     "from course,user where FirstName LIKE '" + firstName + "%'" + "AND LastName LIKE '" + lastName + "%'" + "AND Subject LIKE '" + sub + "%'" + " limit 1");
             while (resultSet.next()) {
@@ -325,10 +331,10 @@ public class DBConnect {
 
     public void addCourse(String courseName, String grade) throws SQLException {
         connect();
-        String statement = "INSERT INTO course_has_user (course_CourseName, grade, user_idUser ) VALUES (?, ?, ?)";
+        String statement = "INSERT INTO course (CourseName,subject, grade, user_idUser ) VALUES (?, ?, ?, ?)";
         prep = connection.prepareStatement(statement);
         prep.setString(1, courseName);
-//        prep.setString(2,courseSubject);
+//      prep.setString(2,courseSubject);
         prep.setString(2, grade);
         prep.setString(3, String.valueOf(3));
         prep.execute();
@@ -368,7 +374,7 @@ public class DBConnect {
         ArrayList<String> list = new ArrayList<>();
         try {
 
-            ResultSet resultSet = statement.executeQuery("select * from Classroom");
+            ResultSet resultSet = statement.executeQuery("select * from course");
             while (resultSet.next()) {
                 list.add("\nCourseName " + resultSet.getString(1));
                 list.add("\nsubject " + resultSet.getString(2));

@@ -32,9 +32,9 @@
       <TextField fx:id="PasswordTextField" layoutX="187.0" layoutY="216.0" prefHeight="27.0" prefWidth="242.0" promptText="Password" />
       <Button fx:id="SignUpButton" layoutX="22.0" layoutY="318.0" mnemonicParsing="false" onAction="#signUpButton" prefHeight="29.0" prefWidth="68.0" text="Sign Up" />
       <Button fx:id="LoginButton" layoutX="185.0" layoutY="318.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="29.0" prefWidth="110.0" text="Log in" />
-      <Button fx:id="ForgotPasswordButton" layoutX="319.0" layoutY="318.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="110.0" text="Forgot password" />
+      <Button fx:id="ForgotPasswordButton" layoutX="319.0" layoutY="318.0" mnemonicParsing="false" onAction="#forgotPassWord" prefHeight="27.0" prefWidth="110.0" text="Forgot password" />
       <CheckBox fx:id="rememberMe" layoutX="188.0" layoutY="256.0" mnemonicParsing="false" onAction="#rememberMe" text="Remember me" textFill="#e50404" />
-      <Label fx:id="labelStatus" layoutX="97.0" layoutY="151.0" prefHeight="18.0" prefWidth="158.0" textFill="#ff0404" />
+      <Label fx:id="labelStatus" layoutX="187.0" layoutY="285.0" prefHeight="18.0" prefWidth="158.0" textFill="#ff0404" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="208.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Assets/Images/KaosUniversity.png" />
