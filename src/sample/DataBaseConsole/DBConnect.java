@@ -425,14 +425,15 @@ public class DBConnect {
         }
     }
         public boolean checkEmailDB(String email) {
+        connect();
             String emailDB = "";
             boolean checked = false;
             try {
                 statement = connection.createStatement();
-                ResultSet checkEmailRes = statement.executeQuery("SELECT * FROM Account WHERE email = '" + email + "'");
+                ResultSet checkEmailRes = statement.executeQuery("SELECT * FROM user WHERE email = '" + email + "'");
 
                 if (checkEmailRes.next()) {
-                    emailDB = checkEmailRes.getString(2);
+                    emailDB = checkEmailRes.getString(4);
                 }
 
             } catch (Exception ex) {
@@ -445,6 +446,7 @@ public class DBConnect {
             return checked;
         }
         public void setNewCode(int newCode,String email){
+        connect();
             int idUser = 0;
             String queryAccID = "SELECT idUser FROM user WHERE email = '" + email + "'";
 
@@ -464,7 +466,47 @@ public class DBConnect {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
         }
+        public String getNewCode(String email){
+        connect();
+            String newCode = "";
+            String query = "SELECT newCode FROM User WHERE email = '" + email + "'";
+
+            try {
+                statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next()) {
+                    newCode = resultSet.getString(1);
+                    System.out.println(newCode + "   get newCode");
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return newCode;
+
+        }
+    public void setNewPassword(String hash, String email) {
+        int idUser = 0;
+        String sqlIdUser = "SELECT idUser FROM user WHERE email = '" + email + "'";
+        try {
+            statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(sqlIdUser);
+            if (resultSet.next()) {
+                idUser = resultSet.getInt(1);
+            }System.out.println(idUser + "   set newPassword");
+            statement.close();
+            resultSet.close();
+
+            String update = "UPDATE User SET password='" + hash + "' WHERE idUser='" + idUser + "'";
+            prep = connection.prepareStatement(update);
+            prep.executeUpdate();
+            prep.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     }
 

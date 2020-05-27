@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Member;
+import sample.Model.PasswordEncrypt;
 import sample.Model.SceneChanger;
 
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class SignUpScene {
 
     @FXML
     private void SignUp() {
+        String salt = PasswordEncrypt.generateSalt(6);
+        String hashedPassWord = PasswordEncrypt.hashPassWord(txtFldPassword.getText(), salt) + "-" + salt;
         if (txtFldFirstName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
@@ -72,8 +75,9 @@ public class SignUpScene {
             alert.showAndWait();
         }else
                 DBConnect.getInstance().connect();
-                DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), txtFldPassword.getText(),3));
+                DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(),hashedPassWord,3));
                 DBConnect.getInstance().saveAccount();
+
 
 
         }

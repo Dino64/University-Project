@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.PasswordEncrypt;
 import sample.Model.SceneChanger;
 
 import javax.mail.*;
@@ -19,15 +20,21 @@ import java.util.ResourceBundle;
 
 public class ChangePassWord implements Initializable {
     @FXML
-    TextField emailTxt, recText,newPassTxt;
+    TextField emailTxt, recText, newPassTxt;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }@FXML private void BackToLogin(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event,"/sample/LoginScene.fxml");
     }
-    @FXML private void generateButton(){
+
+    @FXML
+    private void BackToLogin(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
+    }
+
+    @FXML
+    private void generateButton() {
+        DBConnect.getInstance().connect();
         System.out.println("Begining to send Email");
 
         final String email = "dbuniversity13@gmail.com";
@@ -35,46 +42,68 @@ public class ChangePassWord implements Initializable {
 
         Properties p = new Properties();
         p.put("mail.smtp.host", "smtp.gmail.com");
-        p.put("mail.smtp.port", "587");
+        p.put("mail.smtp.port", "465");
         p.put("mail.smtp.auth", "true");
         p.put("mail.smtp.starttls.enable", "true");
-        p.put("mail.smtp.socketFactory.port", "587");
+        p.put("mail.smtp.socketFactory.port", "465");
         p.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
 
-        Session session = Session.getInstance(p, new javax.mail.Authenticator(){
+        Session session = Session.getInstance(p, new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(email, password);
             }
-        }); try{Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(email));
-        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailTxt.getText()));
-        message.setSubject("KAOS University - error in password mind");
+        });
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(email));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(emailTxt.getText()));
+            message.setSubject("KAOS University - error in password mind");
 
-        if (DBConnect.getInstance().checkEmailDB(emailTxt.getText())) {
-            Random random = new Random();
-            int randomNumber = random.nextInt(999999);
-            System.out.println("Random number : " + randomNumber);
-            message.setText("Your new code is = " + randomNumber);
+            if (DBConnect.getInstance().checkEmailDB(emailTxt.getText())) {
+                Random random = new Random();
+                int randomNumber = random.nextInt(999999);
+                System.out.println("Random number : " + randomNumber);
+                message.setText("Your new code is = " + randomNumber);
 
-            Transport.send(message);
-            System.out.println("Email sent!!!!");
+                Transport.send(message);
+                System.out.println("Email sent!!!!");
 
 
-            DBConnect.getInstance().setNewCode(randomNumber, emailTxt.getText());
+                DBConnect.getInstance().setNewCode(randomNumber, emailTxt.getText());
+            } else {
+                System.out.println("No Email like that");
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Email error");
+                alert.setContentText("Email is not correct");
+                alert.showAndWait();
+
+            }
+        } catch (MessagingException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void newPassButton() {
+        String newCode = DBConnect.getInstance().getNewCode(emailTxt.getText());
+        System.out.println(newCode);
+        if (!newPassTxt.getText().isEmpty() && recText.getText().equals(newCode)) {
+            String salt = PasswordEncrypt.generateSalt(6);
+            String hash = PasswordEncrypt.hashPassWord(newPassTxt.getText(), salt) + "-" + salt;
+            DBConnect.getInstance().setNewPassword(hash, emailTxt.getText());
+
         } else {
-            System.out.println("No Email like that");
+            System.out.println("Not correct");
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Email error");
-            alert.setContentText("Email is not correct");
+            alert.setHeaderText("Wrong Code");
+            alert.setContentText("The provided code == no match");
             alert.showAndWait();
 
         }
-    }catch (MessagingException ex){
-        ex.printStackTrace();}
     }
-    }
+}
 
 
 
