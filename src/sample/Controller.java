@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
@@ -35,6 +36,9 @@ public class Controller implements Initializable {
     private CheckBox rememberMe;
     @FXML
     private Label labelStatus;
+    @FXML
+    private MenuBar menuBar;
+
 
 
     @Override
@@ -124,6 +128,12 @@ public class Controller implements Initializable {
     @FXML private void forgotPassWord(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event,"/sample/Scenes/ChangePassWord/Changepassword.fxml");
     }
+    @FXML
+    private void contactUsButton (ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/contactUs.fxml");
+    }
+
+
     }
 
 
