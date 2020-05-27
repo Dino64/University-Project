@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
 
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,13 +19,13 @@ public class PrincipalBookRoomController implements Initializable {
     @FXML
     TextField IdTextField;
     @FXML TextField daysTextField;
-    SimpleDateFormat sdf = new SimpleDateFormat("E, dd-MM-yyyy HH:mm:ss z");
+    SimpleDateFormat sdf = new SimpleDateFormat(" yyyy-MM-dd ");
     Calendar cal = Calendar.getInstance();
     private Date today = new Date(2020, Calendar.JUNE, 25,12, 0,7);
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
+        }
 
     @FXML
     public void ShowRoomButton(){
@@ -35,11 +36,12 @@ public class PrincipalBookRoomController implements Initializable {
     @FXML
     public void bookButton(){
         DBConnect.getInstance().connect();
+        String dateString = sdf.format(new Date());
         int id = Integer.parseInt(IdTextField.getText());
         String numberOfDays = daysTextField.getText();
-        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
+        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
         String newDate = sdf.format(cal.getTime());
-        DBConnect.getInstance().bookRoom(1, id, newDate);
+        DBConnect.getInstance().bookRoom(1, id, dateString);
 
     }
 }
