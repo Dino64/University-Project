@@ -67,7 +67,7 @@ public class Controller implements Initializable {
         if (rememberMe.isSelected()) {
             try {
                 FileOutputStream fileOut =
-                        new FileOutputStream("../University-project/rememberme.bin");
+                        new FileOutputStream("../University-project/ReMemBerMe.bin");
                 ObjectOutputStream out = new ObjectOutputStream(fileOut);
                 if (DBConnect.getInstance().getUse() != null) {
                     out.writeObject(DBConnect.getInstance().getUse());
@@ -80,7 +80,7 @@ public class Controller implements Initializable {
             }
         } else {
             try {
-                File f = new File("../University-project/rememberme.bin");
+                File f = new File("../University-project/ReMemBerMe.bin");
                 f.delete();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -111,7 +111,7 @@ public class Controller implements Initializable {
         User tempUser = null;
         try {
             FileInputStream fileIn =
-                    new FileInputStream("../University-project/rememberme.bin");
+                    new FileInputStream("../University-project/ReMemBerMe.bin");
             ObjectInputStream in = new ObjectInputStream(fileIn);
             tempUser = (User) in.readObject();
             in.close();
