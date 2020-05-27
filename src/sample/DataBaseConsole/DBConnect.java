@@ -423,11 +423,35 @@ public class DBConnect {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+        public boolean checkEmailDB(String email) {
+            String emailDB = "";
+            boolean checked = false;
+            try {
+                statement = connection.createStatement();
+                ResultSet checkEmailRes = statement.executeQuery("SELECT * FROM Account WHERE email = '" + email + "'");
+
+                if (checkEmailRes.next()) {
+                    emailDB = checkEmailRes.getString(2);
+                }
+
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+
+            if (emailDB.matches(email)) {
+                checked = true;
+            }
+            return checked;
+        }
+        public void setNewCode(int newCode,String email){
+
+        }
 
     }
 
 
-}
+
 
 
 

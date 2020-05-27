@@ -108,7 +108,7 @@ public class Controller implements Initializable {
         }
     }
     private void checkRememberMe(){
-        User tempUser = null;
+        User tempUser;
         try {
             FileInputStream fileIn =
                     new FileInputStream("../University-project/ReMemBerMe.bin");
