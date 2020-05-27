@@ -445,7 +445,25 @@ public class DBConnect {
             return checked;
         }
         public void setNewCode(int newCode,String email){
+            int idUser = 0;
+            String queryAccID = "SELECT idUser FROM user WHERE email = '" + email + "'";
 
+            try {
+                statement = connection.createStatement();
+                ResultSet res = statement.executeQuery(queryAccID);
+                while (res.next()) {
+                    idUser = res.getInt(1);
+                    System.out.println(idUser + "   see newCode");
+                }
+                String query = "UPDATE user SET newCode= '" + newCode + "' WHERE idUser='" + idUser + "'";
+
+                prep = connection.prepareStatement(query);
+                prep.executeUpdate();
+                prep.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
     }
