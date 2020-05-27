@@ -12,7 +12,7 @@
             <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="RoomMenuButton" layoutX="66.0" layoutY="207.0" mnemonicParsing="false" onAction="#pressRoomMenu" prefHeight="31.0" prefWidth="100.0" text="Room Menu" />
+      <Button fx:id="RoomMenuButton" layoutX="65.0" layoutY="207.0" mnemonicParsing="false" onAction="#pressRoomMenu" prefHeight="31.0" prefWidth="100.0" text="Room Menu" />
       <Button fx:id="ViewTeachersButton" layoutX="198.0" layoutY="207.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="100.0" text="View Teachers" />
       <Button fx:id="ViewStudentButton" layoutX="326.0" layoutY="207.0" mnemonicParsing="false" onAction="#pressViewStudent" prefHeight="31.0" prefWidth="100.0" text="View Student " />
       <Button fx:id="logOutButton" layoutX="255.0" layoutY="360.0" mnemonicParsing="false" onAction="#logOutButton" prefHeight="20.0" prefWidth="93.0" text="Log Out" />
@@ -22,5 +22,6 @@
          </image>
       </ImageView>
       <Button fx:id="bookRoomButton" layoutX="445.0" layoutY="207.0" mnemonicParsing="false" onAction="#bookRoomButton" prefHeight="31.0" prefWidth="100.0" text="Book a room" />
+      <Button fx:id="removeBookButton" layoutX="127.0" layoutY="268.0" mnemonicParsing="false" onAction="#removeBookButton" prefHeight="31.0" prefWidth="110.0" text="View Bookings" />
    </children>
 </AnchorPane>

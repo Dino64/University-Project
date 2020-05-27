@@ -48,5 +48,8 @@ public class PrincipalController implements Initializable {
         SceneChanger.changeScene(event, "/sample/LoginScene.fxml");
     DBConnect.getInstance().disconnect();
 }
-
+ @FXML
+    public void removeBookButton (ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipleViewBooking.fxml");
+ }
 }

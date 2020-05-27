@@ -412,6 +412,19 @@ public class DBConnect {
             e.printStackTrace();
         }
     }
+    public void removeBook (int isBooked, int roomNumber){
+        String stmt = "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+    }
 
 
 }
