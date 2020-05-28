@@ -28,8 +28,9 @@
       <TextField fx:id="gradeTextField" layoutX="17.0" layoutY="349.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter grade" />
       <ImageView fitHeight="82.0" fitWidth="161.0" layoutX="447.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../Assets/Images/KaosUniversity.png" />
+            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
          </image>
       </ImageView>
+      <TextField fx:id="idTextField" layoutX="228.0" layoutY="28.0" promptText="Enter User id" />
    </children>
 </AnchorPane>

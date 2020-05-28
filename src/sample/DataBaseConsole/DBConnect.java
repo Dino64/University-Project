@@ -190,12 +190,15 @@ public class DBConnect {
             while (resultSet.next()) {
                 classroomList.add("\n------------\nNumberOfSeats: " + resultSet.getString(1));
                 classroomList.add("\nRoomNumber: " + resultSet.getString(2));
-                boolean isBooked = resultSet.getString(3).equals("1");// to change name of print
-                if (isBooked) {
-                    classroomList.add("\nIs booked");
-                } else {
-                    classroomList.add("\nNot booked");
-                }
+                classroomList.add("\nisBooked:" + resultSet.getString(3));
+                System.out.println("DEBUG:" + classroomList);
+//
+//                boolean isBooked = resultSet.getString(3).equals("1");// to change name of print
+//                if (isBooked) {
+//                    classroomList.add("\nIs booked");
+//                } else {
+//                    classroomList.add("\nNot booked");
+//                }
                 System.out.println("DEBUG:" + classroomList);
             }
 
@@ -331,14 +334,14 @@ public class DBConnect {
         connection.close();
     }
 
-    public void addCourse(String courseName, String grade, String courseSubject) throws SQLException {
+    public void addCourse(String courseName, String grade, String courseSubject, int userID) throws SQLException {
         connect();
         String statement = "INSERT INTO course (CourseName,subject, grade, user_idUser ) VALUES (?, ?, ?, ?)";
         prep = connection.prepareStatement(statement);
         prep.setString(1, courseName);
       prep.setString(2,courseSubject);
         prep.setString(3, grade);
-        prep.setString(4, String.valueOf(3));
+        prep.setString(4, String.valueOf(userID));
         prep.execute();
         prep.close();
         System.out.println("Debug : course has been added");

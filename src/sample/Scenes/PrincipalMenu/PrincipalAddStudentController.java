@@ -34,6 +34,7 @@ public class PrincipalAddStudentController implements Initializable {
     TextArea StudentsTextArea;
     @FXML TextField CourseTextField;
     @FXML TextField SubjectTextField;
+    @FXML TextField idTextField;
 
 
     @Override
@@ -54,6 +55,7 @@ public class PrincipalAddStudentController implements Initializable {
         course = CourseTextField.getText();
         subject = SubjectTextField.getText();
         grade = gradeTextField.getText();
+       int userID = Integer.parseInt(idTextField.getText());
 
         if (NameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -88,7 +90,7 @@ public class PrincipalAddStudentController implements Initializable {
         }else {
 
            DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
-           DBConnect.getInstance().addCourse(course,grade,subject);
+           DBConnect.getInstance().addCourse(course,grade,subject,userID);
         }
 
 
