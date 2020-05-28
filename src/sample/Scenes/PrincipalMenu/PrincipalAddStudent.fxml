@@ -14,7 +14,7 @@
             <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="BackButton" layoutX="491.0" layoutY="6.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="42.0" prefWidth="117.0" text="Back to menu" />
+      <Button fx:id="BackButton" layoutX="411.0" layoutY="6.0" mnemonicParsing="false" onAction="#BackButton" prefHeight="42.0" prefWidth="198.0" text="Back to menu" />
       <Button fx:id="AddStudentButton" layoutX="230.0" layoutY="342.0" mnemonicParsing="false" onAction="#AddStudentButton" prefHeight="42.0" prefWidth="117.0" text="Add Student" />
       <TextField fx:id="NameTextField" layoutX="14.0" layoutY="27.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students Name" />
       <TextField fx:id="LastNameTextField" layoutX="14.0" layoutY="68.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students LastName" />
@@ -32,5 +32,6 @@
          </image>
       </ImageView>
       <TextField fx:id="idTextField" layoutX="228.0" layoutY="28.0" promptText="Enter User id" />
+      <Button fx:id="courseButton" layoutX="411.0" layoutY="82.0" mnemonicParsing="false" onAction="#courseButton" prefHeight="42.0" prefWidth="198.0" text="Add course to existing student" />
    </children>
 </AnchorPane>

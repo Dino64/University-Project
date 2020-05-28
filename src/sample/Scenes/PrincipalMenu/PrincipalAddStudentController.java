@@ -43,7 +43,7 @@ public class PrincipalAddStudentController implements Initializable {
     }
 
     @FXML
-    public void AddStudentButton() throws SQLException {
+    public void AddStudentButton(ActionEvent event) throws SQLException, IOException {
         DBConnect.getInstance().connect();
         String name, lastName, SSN, email, passWord, course, subject,grade;
 
@@ -55,7 +55,7 @@ public class PrincipalAddStudentController implements Initializable {
         course = CourseTextField.getText();
         subject = SubjectTextField.getText();
         grade = gradeTextField.getText();
-       int userID = Integer.parseInt(idTextField.getText());
+//       int userID = Integer.parseInt(idTextField.getText());
 
         if (NameTextField.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -90,7 +90,7 @@ public class PrincipalAddStudentController implements Initializable {
         }else {
 
            DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
-           DBConnect.getInstance().addCourse(course,grade,subject,userID);
+           SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
         }
 
 
@@ -110,5 +110,10 @@ public class PrincipalAddStudentController implements Initializable {
     public void BackButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewStudents.fxml");
 
+    }
+
+    @FXML
+    public void courseButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
     }
 }
