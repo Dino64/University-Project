@@ -331,14 +331,14 @@ public class DBConnect {
         connection.close();
     }
 
-    public void addCourse(String courseName, String grade) throws SQLException {
+    public void addCourse(String courseName, String grade, String courseSubject) throws SQLException {
         connect();
         String statement = "INSERT INTO course (CourseName,subject, grade, user_idUser ) VALUES (?, ?, ?, ?)";
         prep = connection.prepareStatement(statement);
         prep.setString(1, courseName);
-//      prep.setString(2,courseSubject);
-        prep.setString(2, grade);
-        prep.setString(3, String.valueOf(3));
+      prep.setString(2,courseSubject);
+        prep.setString(3, grade);
+        prep.setString(4, String.valueOf(3));
         prep.execute();
         prep.close();
         System.out.println("Debug : course has been added");

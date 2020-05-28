@@ -86,20 +86,12 @@ public class PrincipalAddStudentController implements Initializable {
             alert.setContentText("Please enter a password");
             alert.showAndWait();
         }else {
-//            DBConnect.getInstance().setUse(new Member(name,lastName,SSN,email,passWord ,3));
+
            DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
-           DBConnect.getInstance().addCourse(course,grade);
+           DBConnect.getInstance().addCourse(course,grade,subject);
         }
 
 
-//            Student newStudent = new Student(name, lastName, SSN, email, passWord, accessID, idCounter++, course);
-//            listOfStudents.add(newStudent);
-//        Alert alert = new Alert(Alert.AlertType.WARNING);
-//        alert.setTitle("Yay!");
-//        alert.setHeaderText("Success");
-//        alert.setContentText("New Student added");
-//        alert.showAndWait();
-//
         }
 
 
