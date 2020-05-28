@@ -102,16 +102,16 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select firstname, lastname,SSN, email, CourseName, Subject, grade from user, course where user.idUser = course.user_idUser AND accesId like 3 ");
+            resultSet = statement.executeQuery("select idUser, firstname, lastname,SSN, email, CourseName, Subject, grade from user, course where user.idUser = course.user_idUser AND accesId like 3 ");
             while (resultSet.next()) {
-
-                p.add("FirstName: " + resultSet.getString(1));
-                p.add("\nLastName: " + resultSet.getString(2));
-                p.add("\nSSN: " + resultSet.getString(3));
-                p.add("\n Email: " + resultSet.getString(4));
-                p.add("\n CourseName: " + resultSet.getString(5));
-                p.add("\nSubject: " + resultSet.getString(6));
-                p.add("\nGrade: " + resultSet.getString(7));
+                p.add("IdUser: "+ resultSet.getInt(1));
+                p.add("FirstName: " + resultSet.getString(2));
+                p.add("\nLastName: " + resultSet.getString(3));
+                p.add("\nSSN: " + resultSet.getString(4));
+                p.add("\n Email: " + resultSet.getString(5));
+                p.add("\n CourseName: " + resultSet.getString(6));
+                p.add("\nSubject: " + resultSet.getString(7));
+                p.add("\nGrade: " + resultSet.getString(8));
                 p.add("\n------------\n");
                 System.out.println("DEBUG:" + p);
 
