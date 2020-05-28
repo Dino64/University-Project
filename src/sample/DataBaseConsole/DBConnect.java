@@ -111,8 +111,10 @@ public class DBConnect {
                 p.add("\n Email: " + resultSet.getString(4));
                 p.add("\n CourseName: " + resultSet.getString(5));
                 p.add("\nSubject: " + resultSet.getString(6));
-                p.add("Grade: " + resultSet.getString(7));
+                p.add("\nGrade: " + resultSet.getString(7));
+                p.add("\n------------\n");
                 System.out.println("DEBUG:" + p);
+
             }
 
 
