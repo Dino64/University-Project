@@ -90,9 +90,9 @@ public class ChangePassWord implements Initializable {
         String newCode = DBConnect.getInstance().getNewCode(emailTxt.getText());
         System.out.println(newCode);
         if (!newPassTxt.getText().isEmpty() && recText.getText().equals(newCode)) {
-            String salt = PasswordEncrypt.generateSalt(6);
-            String hash = PasswordEncrypt.hashPassWord(newPassTxt.getText(), salt) + "-" + salt;
-            DBConnect.getInstance().setNewPassword(hash, emailTxt.getText());
+           // String salt = PasswordEncrypt.generateSalt(5);
+           // String hash = PasswordEncrypt.hashPassWord(newPassTxt.getText(), salt) + "-" + salt;
+            DBConnect.getInstance().setNewPassword(newPassTxt.getText(), emailTxt.getText());
 
         } else {
             System.out.println("Not correct");

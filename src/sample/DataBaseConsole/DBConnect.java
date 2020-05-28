@@ -243,10 +243,10 @@ public class DBConnect {
     }
 
     public boolean verifyAccount(String email, String pass) {
+        connect();
         boolean isVerified = false;
         String queryLogin = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + pass + "'";
         try {
-            connect();
             statement = connection.createStatement();
             resultSet = statement.executeQuery(queryLogin);
 

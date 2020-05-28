@@ -35,7 +35,7 @@ public class SignUpScene {
 
     @FXML
     private void SignUp() {
-        String salt = PasswordEncrypt.generateSalt(6);
+        String salt = PasswordEncrypt.generateSalt(5);
         String hashedPassWord = PasswordEncrypt.hashPassWord(txtFldPassword.getText(), salt) + "-" + salt;
         if (txtFldFirstName.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
