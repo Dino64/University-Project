@@ -348,17 +348,16 @@ public class DBConnect {
         connection.close();
     }
 
-//    public void removeStudent(String textField){
-//
-//        String sql = "DELETE FROM user where SSN=";
-//
-//
-//
-//
-//            stmt.executeUpdate(sql);
-//            System.out.println("Student deleted successfully");
-//
-//    }
+    public void removeStudent(String textField){
+
+        String sql = "DELETE FROM user where SSN=";
+
+
+
+
+
+
+    }
 
     public void registerCourse(String courseName, String subject, int user_idUser) throws SQLException {
         connect();
