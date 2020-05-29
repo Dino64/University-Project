@@ -8,8 +8,10 @@ import sample.Model.*;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -225,8 +227,8 @@ public class DBConnect {
         return Grade;
     }
 
-
-    public ArrayList<Classroom> readClassroom() throws SQLException {
+    //Vad gör denna? var används den?
+   /* public ArrayList<Classroom> readClassroom() throws SQLException {
         ArrayList<Classroom> classList = new ArrayList<>();
         Statement stmt = connection.createStatement();
         stmt.executeQuery("use Classroom");
@@ -236,7 +238,7 @@ public class DBConnect {
             classList.add(classroom);
         }
         return classList;
-    }
+    }*/
 
     public User getUse() {
         return use;
@@ -315,6 +317,25 @@ public class DBConnect {
             }
 
         }return i;
+    }
+    public  ObservableList<Classroom> getRooms(){
+
+        ObservableList<Classroom> list = FXCollections.observableArrayList();
+        try {
+            ResultSet resultSet = statement.executeQuery("Select RoomNumber,NumberOfSeats,isBooked,date from classroom");
+
+            while (resultSet.next()) {
+                Classroom room = new Classroom();
+                room.setRoomNumber(resultSet.getInt(1));
+                room.setNumberOfSeats(resultSet.getInt(2));
+                room.setIsBooked(resultSet.getBoolean(3));
+                room.setDate(resultSet.getDate(4));
+                list.add(room);
+            }
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+        return list;
     }
 
 

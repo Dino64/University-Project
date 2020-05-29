@@ -1,16 +1,33 @@
 package sample.Model;
 
 
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Classroom extends Course {
     private Course course;
     private int NumberOfSeats;
     private int RoomNumber;
-    private String isBooked;
+    private boolean isBooked;
+   private Date date;
 
-    public Classroom(String numberOfSeats, String roomNumber, String isBooked) {
-        NumberOfSeats = Integer.parseInt(numberOfSeats);
-        RoomNumber = Integer.parseInt(roomNumber);
+    public Classroom(int numberOfSeats, int roomNumber, boolean isBooked, Date date) {
+        NumberOfSeats = numberOfSeats;
+        RoomNumber = roomNumber;
         this.isBooked = isBooked;
+
+    }
+
+    public Classroom() {
+
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public Course getCourse() {
@@ -37,11 +54,11 @@ public class Classroom extends Course {
         RoomNumber = roomNumber;
     }
 
-    public String getIsBooked() {
+    public boolean getIsBooked() {
         return isBooked;
     }
 
-    public void setIsBooked(String isBooked) {
+    public void setIsBooked(boolean isBooked) {
         this.isBooked = isBooked;
     }
 
@@ -51,15 +68,15 @@ public class Classroom extends Course {
                 "course=" + course +
                 ", NumberOfSeats=" + NumberOfSeats +
                 ", RoomNumber=" + RoomNumber +
-                ", isBooked=" + isBooked +
-                ", classroom01=" + classroom01 +
+                ", isBooked=" + isBooked + "date" + date +
+                /*", classroom01=" + classroom01 +
                 ", classroom02=" + classroom02 +
-                ", classroom03=" + classroom03 +
+                ", classroom03=" + classroom03 +*/
                 '}';
     }
 
-    Classroom classroom01 = new Classroom("20", "01", "false");
+    /*Classroom classroom01 = new Classroom("20", "01", "false");
     Classroom classroom02 = new Classroom("15", "02", "false");
-    Classroom classroom03 = new Classroom("25","03", "false");
+    Classroom classroom03 = new Classroom("25","03", "false");*/
 }
 

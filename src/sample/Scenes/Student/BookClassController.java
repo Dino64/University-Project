@@ -59,7 +59,7 @@ public class BookClassController implements Initializable {
 
                 stmt.executeUpdate(sql);
                 System.out.println("Class Booked successfully");
-                showClassRoom.setText(String.valueOf(DBConnect.getInstance().readClassroom()));
+                showClassRoom.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
             } catch (SQLException e) {
                 e.printStackTrace();
             }
