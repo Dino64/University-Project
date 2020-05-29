@@ -15,7 +15,11 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
+<<<<<<< HEAD
 import java.text.DateFormat;
+=======
+import java.sql.SQLException;
+>>>>>>> d9b367b6ca5db5c3d47cae45a6374d818aa0aa00
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -52,8 +56,13 @@ public class TeacherRoomMenu implements Initializable {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
     }@FXML
+<<<<<<< HEAD
     private void bookRoom(){
       /*  String dateString = sdf.format(new Date());
+=======
+    private void bookRoom() throws SQLException {
+        String dateString = sdf.format(new Date());
+>>>>>>> d9b367b6ca5db5c3d47cae45a6374d818aa0aa00
         int id = Integer.parseInt(roomNr.getText());
         String numberOfDays = daysTxt.getText();
         cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
