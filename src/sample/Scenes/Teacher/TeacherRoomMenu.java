@@ -11,6 +11,7 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -35,7 +36,7 @@ public class TeacherRoomMenu implements Initializable {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
     }@FXML
-    private void bookRoom(){
+    private void bookRoom() throws SQLException {
         String dateString = sdf.format(new Date());
         int id = Integer.parseInt(roomNr.getText());
         String numberOfDays = daysTxt.getText();

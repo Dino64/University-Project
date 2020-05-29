@@ -11,6 +11,7 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -40,7 +41,7 @@ public class PrincipalBookRoomController implements Initializable {
     }
 
     @FXML
-    public void bookButton() {
+    public void bookButton() throws SQLException {
         DBConnect.getInstance().connect();
         String dateString = sdf.format(new Date());
         int id = Integer.parseInt(IdTextField.getText());
@@ -58,12 +59,10 @@ public class PrincipalBookRoomController implements Initializable {
             alert.setContentText("Please enter Specified command");
             alert.showAndWait();
 
-
-            cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
-            String newDate = sdf.format(cal.getTime());
-            DBConnect.getInstance().bookRoom(1, id, newDate);
-
         }
+//        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
+        String newDate = sdf.format(cal.getTime());
+        DBConnect.getInstance().bookRoom(1, id, newDate);
     }
 
     @FXML
