@@ -350,9 +350,20 @@ public class DBConnect {
 
     public void removeStudent(String textField){
 
-        String sql = "DELETE FROM user where SSN=";
+        String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
+                "REFERENCES user (idUser) DELETE FROM user where idUser= '" + textField + "'";
 
 
+
+
+        try {
+            prep = connection.prepareStatement(sql);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Dude is GONE");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
 
 
