@@ -13,15 +13,9 @@
             <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutX="502.0" layoutY="6.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="98.0" text="Back to menu" />
-      <TextArea layoutX="223.0" layoutY="54.0" prefHeight="269.0" prefWidth="355.0" />
-      <Button fx:id="showExamButton" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressShowExam" prefHeight="27.0" prefWidth="109.0" text="Show Exam" />
-      <Button fx:id="registerExamButton" layoutX="346.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressRegisterExam" prefHeight="27.0" prefWidth="109.0" text="Register Exam" />
-      <Button fx:id="UnregisterExamButton" layoutX="469.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressUnregisterExam" prefHeight="27.0" prefWidth="109.0" text="Unregister Exam" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Assets/Images/KaosUniversity.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-1.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
+      <TextArea layoutX="223.0" layoutY="59.0" prefHeight="269.0" prefWidth="355.0" />
+      <Button fx:id="showExamButton" layoutX="223.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressShowExam" prefHeight="27.0" prefWidth="150.0" text="Show Exam" />
+      <Button fx:id="registerExamButton" layoutX="428.0" layoutY="349.0" mnemonicParsing="false" onAction="#pressRegisterExam" prefHeight="27.0" prefWidth="150.0" text="Register Exam" />
    </children>
 </AnchorPane>
