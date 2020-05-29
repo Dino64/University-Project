@@ -55,7 +55,7 @@ public class BookClassController implements Initializable {
             String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
             String username = "dbuni13";
             String password = "Gb4ESje~2BZ~";
-            String textField = unBookTextField.getText();
+            String textField = bookTextField.getText();
             String sql = "delete from Classroom where RoomNumber=" + "\""+textField+"\"";
 
 

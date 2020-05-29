@@ -13,13 +13,8 @@
             <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutX="477.0" layoutY="14.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="109.0" text="Back to menu" />
-      <TextArea fx:id="ShowGradesTextArea" layoutX="192.0" layoutY="74.0" prefHeight="252.0" prefWidth="366.0" />
+      <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-1.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
+      <TextArea fx:id="ShowGradesTextArea" layoutX="192.0" layoutY="50.0" prefHeight="276.0" prefWidth="366.0" />
       <Button fx:id="checkMyGrade" layoutX="192.0" layoutY="344.0" mnemonicParsing="false" onAction="#pressCheckGrade" prefHeight="27.0" prefWidth="366.0" text="Check My Grade" />
-      <ImageView fitHeight="97.0" fitWidth="185.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../Desktop/KaosUniversity.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
