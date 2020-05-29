@@ -17,9 +17,8 @@
          </image>
       </ImageView>
       <TextField fx:id="firstNametxt" layoutX="14.0" layoutY="180.0" prefHeight="27.0" prefWidth="107.0" promptText="FirstName" />
-      <Button fx:id="addGrade" layoutX="503.0" layoutY="344.0" mnemonicParsing="false" text="Add grade" />
-      <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
-      <Button fx:id="LoadStudentButton" layoutX="11.0" layoutY="221.0" mnemonicParsing="false" onAction="#LoadStudentButton" text="Search for student" />
+      <Button fx:id="backTeach" layoutY="2.0" mnemonicParsing="false" onAction="#backToTeacher" text="Back to menu" />
+      <Button fx:id="searchStudentButton" layoutX="11.0" layoutY="221.0" mnemonicParsing="false" onAction="#searchStudentButton" text="Search for student" />
       <Button fx:id="cancel" layoutX="195.0" layoutY="221.0" mnemonicParsing="false" onAction="#cancelButton" text="Cancel" />
       <TextField fx:id="lastNametxt" layoutX="134.0" layoutY="180.0" prefHeight="27.0" prefWidth="107.0" promptText="LastName" />
       <TextField fx:id="subjectTxt" layoutX="252.0" layoutY="180.0" prefHeight="27.0" prefWidth="113.0" promptText="Subject" />

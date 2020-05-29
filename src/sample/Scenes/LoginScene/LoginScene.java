@@ -25,8 +25,8 @@ public class LoginScene implements Initializable {
     Principal principalMagnus = new Principal("Magnus","Rot","435908671243","Magnus.jehova@yahoo.RU",
             "SloopyJoe",1,"Head office");
 
-    Teacher teacherBerdyl = new Teacher("Berdyl","Ingvarsson","378912058342","Berdyl.kol@bing.se",
-            "JansonsFrestelse",2,"Biologi","Null" );
+    //Teacher teacherBerdyl = new Teacher("Berdyl","Ingvarsson","378912058342","Berdyl.kol@bing.se",
+      //      "JansonsFrestelse",2,"Biologi","Null" );
 
 
     @FXML private TextField UsernameTextField, PasswordTextField;

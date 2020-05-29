@@ -21,14 +21,12 @@ public class TeacherStudentMenu implements Initializable {
 
     @FXML
     Label messageLabel;
+
     @FXML
-    Button backTeach, addGrade, cancel;
-    @FXML
-    TextField firstNametxt, lastNametxt, subjectTxt, setGrade, idNr;
+    TextField firstNametxt, lastNametxt, subjectTxt;
     @FXML
     TableView<AddGrade> StudentTableView;
-    @FXML
-    TableColumn<AddGrade, Integer> Id;
+
     @FXML
     TableColumn<AddGrade, String> firstNa;
     @FXML
@@ -51,8 +49,7 @@ public class TeacherStudentMenu implements Initializable {
     }
 
     @FXML
-    private void LoadStudentButton(){
-        System.out.println("Loading student");
+    private void searchStudentButton() {
         StudentTableView.getItems().clear();
         DBConnect.getInstance().connect();
         String firstname = firstNametxt.getText();
@@ -73,20 +70,13 @@ public class TeacherStudentMenu implements Initializable {
         System.out.println(studentList.toString());
 
 
-
-
     }
 
-    @FXML
-    private void backButton(ActionEvent be) throws IOException {
-        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
-
-    }
 
     @FXML
     private void cancelButton() {
 
-        for ( int i = 0; i<StudentTableView.getItems().size(); i++) {
+        for (int i = 0; i < StudentTableView.getItems().size(); i++) {
             StudentTableView.getItems().clear();
         }
     }
@@ -144,9 +134,14 @@ public class TeacherStudentMenu implements Initializable {
                 messageLabel.setText("Grade updated.");
             } else {
                 messageLabel.setTextFill(Color.RED);
-                messageLabel.setText("The grade was not updated. \nPlease contact an admin.");
+                messageLabel.setText("The grade was not updated. \nPlease contact principal.");
             }
         }
+    }
+
+    @FXML
+    private void backToTeacher(ActionEvent be) throws IOException {
+        SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
     }
 }
 
