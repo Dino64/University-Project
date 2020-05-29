@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,13 +16,7 @@
                 <Image url="@../../Assets/Images/campus.sommar.jpg" />
             </image>
         </ImageView>
-        <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutX="487.0" layoutY="6.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="98.0" text="Back to menu" />
-        <TextArea fx:id="ShowClassTextArea" layoutX="169.0" layoutY="82.0" prefHeight="249.0" prefWidth="416.0" />
-      <Label fx:id="Label1" layoutX="274.0" layoutY="82.0" text="List Of Classrooms" textFill="#212220">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
+        <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-1.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back" />
       <Button fx:id="bookButton" layoutX="14.0" layoutY="193.0" mnemonicParsing="false" onAction="#pressBookButton" prefHeight="27.0" prefWidth="132.0" text="Book Classroom">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -34,10 +28,13 @@
          </font></Button>
       <TextField fx:id="bookTextField" layoutX="14.0" layoutY="143.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
       <TextField fx:id="unBookTextField" layoutX="14.0" layoutY="268.0" prefHeight="27.0" prefWidth="132.0" promptText="Enter Class Number" />
-      <ImageView fitHeight="101.0" fitWidth="151.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Assets/Images/KaosUniversity.png" />
-         </image>
-      </ImageView>
+      <TableView layoutX="170.0" layoutY="50.0" prefHeight="289.0" prefWidth="416.0">
+        <columns>
+          <TableColumn fx:id="roomNumber" prefWidth="118.0" text="Room  Number" />
+          <TableColumn fx:id="numberOfSeats" minWidth="0.0" prefWidth="112.0" text="Number Of Seats" />
+            <TableColumn fx:id="isBooked" minWidth="0.0" prefWidth="93.0" text="Booking" />
+            <TableColumn fx:id="roomNumber1" prefWidth="92.0" text="Date" />
+        </columns>
+      </TableView>
     </children>
 </AnchorPane>

@@ -3,9 +3,7 @@ package sample.Scenes.Student;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
 import sample.Model.SceneChanger;
@@ -19,6 +17,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class BookClassController implements Initializable {
@@ -31,6 +30,22 @@ public class BookClassController implements Initializable {
 
     @FXML
     TextField bookTextField, unBookTextField;
+
+    @FXML
+    TableView <Classroom> ShowTable;
+
+    @FXML
+    TableColumn<Classroom, Integer> roomNumber;
+    @FXML
+    TableColumn<Classroom,Integer> numberOfSeats;
+    @FXML
+    TableColumn<Classroom, Boolean> isBooked;
+    @FXML
+    TableColumn<Classroom, Date> dateBook;
+
+
+
+
 
     private ArrayList<Classroom> classroom;
 
