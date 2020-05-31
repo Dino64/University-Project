@@ -7,10 +7,10 @@ public class Classroom extends Course {
     private Course course;
     private int NumberOfSeats;
     private int RoomNumber;
-    private String isBooked;
+    private boolean isBooked;
     private Date date;
 
-    public Classroom(int numberOfSeats, int roomNumber, String isBooked, Date date) {
+    public Classroom(int numberOfSeats, int roomNumber, boolean isBooked, Date date) {
         NumberOfSeats = numberOfSeats;
         RoomNumber = roomNumber;
         this.isBooked = isBooked;
@@ -53,11 +53,11 @@ public class Classroom extends Course {
         RoomNumber = roomNumber;
     }
 
-    public String getIsBooked() {
+    public boolean getIsBooked() {
         return isBooked;
     }
 
-    public void setIsBooked(String isBooked) {
+    public void setIsBooked(boolean isBooked) {
         this.isBooked = isBooked;
     }
 

@@ -327,7 +327,7 @@ public class DBConnect {
                 Classroom room = new Classroom();
                 room.setRoomNumber(resultSet.getInt(1));
                 room.setNumberOfSeats(resultSet.getInt(2));
-                room.setIsBooked(resultSet.getString(3));
+                room.setIsBooked(resultSet.getBoolean(3));
                 room.setDate(resultSet.getDate(4));
                 list.add(room);
             }

@@ -1,5 +1,5 @@
 package sample.Scenes.Teacher;
-
+import javafx.util.Callback;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,14 +16,9 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
-<<<<<<< HEAD
 
 
 
-=======
-import java.text.DateFormat;
-import java.sql.SQLException;
->>>>>>> 17d0356f14015843b45c6241da5e25b8dff04d1b
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -42,7 +37,7 @@ public class TeacherRoomMenu implements Initializable {
     @FXML
     TableColumn<Classroom,Integer> seatNrCol;
     @FXML
-    TableColumn<Classroom, String>isBooked;
+    TableColumn<Classroom, Boolean>isBooked;
     @FXML
     TableColumn<Classroom, Date>dateBook;
     @FXML Label messageLabel;
@@ -59,24 +54,6 @@ public class TeacherRoomMenu implements Initializable {
     private void backButton(ActionEvent be) throws IOException {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
-<<<<<<< HEAD
-    }@FXML
-
-=======
-    }
-    @FXML
->>>>>>> 17d0356f14015843b45c6241da5e25b8dff04d1b
-    private void bookRoom(){
-      /*  String dateString = sdf.format(new Date());
-        private void bookRoom() throws SQLException {
-        String dateString = sdf.format(new Date());
-        int id = Integer.parseInt(roomNr.getText());
-        String numberOfDays = daysTxt.getText();
-        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
-        String newDate = sdf.format(cal.getTime());
-        DBConnect.getInstance().bookRoom(1, id, newDate);
-
-*/
     }
     @FXML private void viewRooms(){
         bookTable.getItems();
@@ -115,11 +92,11 @@ public class TeacherRoomMenu implements Initializable {
     }
     @FXML
     public void isBookedUpdate(TableColumn.CellEditEvent<Classroom,Boolean>event){
-        Classroom isbooked = event.getRowValue();
+        Classroom isBooked = event.getRowValue();
         int i;
-        i = DBConnect.getInstance().updateIsBooked(event.getNewValue(), isbooked.getRoomNumber());
+        i = DBConnect.getInstance().updateIsBooked(event.getNewValue(),isBooked.getRoomNumber());
         if (i !=0){
-            messageLabel.setTextFill(Color.LIGHTBLUE);
+            messageLabel.setTextFill(Color.CORNFLOWERBLUE);
             messageLabel.setText("isBooked upDated");
 
         }else {
