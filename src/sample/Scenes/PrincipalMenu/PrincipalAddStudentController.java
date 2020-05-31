@@ -1,5 +1,7 @@
 package sample.Scenes.PrincipalMenu;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,41 +59,51 @@ public class PrincipalAddStudentController implements Initializable {
         grade = gradeTextField.getText();
 //       int userID = Integer.parseInt(idTextField.getText());
 
-        if (NameTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter student first name");
-            alert.showAndWait();
-        }else if (LastNameTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter student last name");
-            alert.showAndWait();
-        }else if (SSNTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter student ssn");
-            alert.showAndWait();
-        }else if (EmailTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter student email-adress");
-            alert.showAndWait();
-        }else if (PasswordTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a password");
-            alert.showAndWait();
-        }else {
+        try {
+            if (NameTextField.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter student first name");
+                alert.showAndWait();
 
-           DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
-           SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
+            }else if (LastNameTextField.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter student last name");
+                alert.showAndWait();
+            }else if (SSNTextField.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter student ssn");
+                alert.showAndWait();
+            }else if (EmailTextField.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter student email-adress");
+                alert.showAndWait();
+            }else if (PasswordTextField.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter a password");
+                alert.showAndWait();
+            }else {
+
+                DBConnect.getInstance().addStudent(name,lastName,SSN,email,passWord);
+                SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
+            }
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText("Please make sure you entered everything correctly");
+            alert.showAndWait();
         }
+
 
 
         }
