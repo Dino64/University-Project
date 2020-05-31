@@ -372,7 +372,7 @@ public class DBConnect {
     public void removeStudent(String textField){
 
         String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
-                "REFERENCES user (idUser) DELETE FROM user where idUser= '" + textField + "'";
+                "REFERENCES user (idUser) DELETE FROM user where idUser = '" + textField + "'";
 
 
 
