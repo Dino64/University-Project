@@ -1,17 +1,16 @@
 package sample.Model;
 
 
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Classroom extends Course {
     private Course course;
     private int NumberOfSeats;
     private int RoomNumber;
-    private boolean isBooked;
-   private Date date;
+    private String isBooked;
+    private Date date;
 
-    public Classroom(int numberOfSeats, int roomNumber, boolean isBooked, Date date) {
+    public Classroom(int numberOfSeats, int roomNumber, String isBooked, Date date) {
         NumberOfSeats = numberOfSeats;
         RoomNumber = roomNumber;
         this.isBooked = isBooked;
@@ -54,11 +53,11 @@ public class Classroom extends Course {
         RoomNumber = roomNumber;
     }
 
-    public boolean getIsBooked() {
+    public String getIsBooked() {
         return isBooked;
     }
 
-    public void setIsBooked(boolean isBooked) {
+    public void setIsBooked(String isBooked) {
         this.isBooked = isBooked;
     }
 

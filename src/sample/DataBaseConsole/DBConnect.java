@@ -328,7 +328,7 @@ public class DBConnect {
                 Classroom room = new Classroom();
                 room.setRoomNumber(resultSet.getInt(1));
                 room.setNumberOfSeats(resultSet.getInt(2));
-                room.setIsBooked(resultSet.getBoolean(3));
+                room.setIsBooked(resultSet.getString(3));
                 room.setDate(resultSet.getDate(4));
                 list.add(room);
             }
@@ -449,7 +449,7 @@ public class DBConnect {
         }
     }
     public void removeBook (int isBooked, int roomNumber){
-        String stmt = "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+        String stmt = "Update Classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
 
         try {
             prep = connection.prepareStatement(stmt);
@@ -541,6 +541,20 @@ public class DBConnect {
             prep.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void UnBookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '0' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
