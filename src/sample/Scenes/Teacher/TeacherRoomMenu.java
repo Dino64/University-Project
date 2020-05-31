@@ -35,7 +35,7 @@ public class TeacherRoomMenu implements Initializable {
     @FXML
     TableColumn<Classroom,Integer> seatNrCol;
     @FXML
-    TableColumn<Classroom, Boolean>isBooked;
+    TableColumn<Classroom, String>isBooked;
     @FXML
     TableColumn<Classroom, Date>dateBook;
 

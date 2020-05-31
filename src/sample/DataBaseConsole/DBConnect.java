@@ -226,19 +226,7 @@ public class DBConnect {
         }
         return Grade;
     }
-
-    //Vad gör denna? var används den?
-   /* public ArrayList<Classroom> readClassroom() throws SQLException {
-        ArrayList<Classroom> classList = new ArrayList<>();
-        Statement stmt = connection.createStatement();
-        stmt.executeQuery("use Classroom");
-        ResultSet rs = stmt.executeQuery("select * from Classroom");
-        while (rs.next()) {
-            Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getString(3));
-            classList.add(classroom);
-        }
-        return classList;
-    }*/
+    
 
     public User getUse() {
         return use;
