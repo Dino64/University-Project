@@ -8,10 +8,8 @@ import sample.Model.*;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -318,6 +316,19 @@ public class DBConnect {
 
         }return i;
     }
+    public int updateIsBooked(boolean isBooked, int RoomNumber) {
+      int i = 0;
+        try {
+           i = statement.executeUpdate("Update classroom Set isBooked = " + isBooked  +  " WHERE RoomNumber = " + RoomNumber + " ");
+        } catch (SQLException e) {
+            System.out.println("DEBUG: ERROR IN UPDATE");
+            e.printStackTrace();
+        }
+
+
+        return i;
+    }
+
     public  ObservableList<Classroom> getRooms(){
 
         ObservableList<Classroom> list = FXCollections.observableArrayList();
