@@ -11,17 +11,8 @@ import javafx.util.StringConverter;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
 import sample.Model.SceneChanger;
-
 import java.io.IOException;
 import java.net.URL;
-import sample.DataBaseConsole.*;
-
-import javax.swing.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -52,43 +43,7 @@ public class BookClassController implements Initializable {
         SceneChanger.changeScene(event, "/sample/Scenes/Student/Student.fxml");
     }
 
-//    @FXML
-//    public void pressBookButton() {
-//            String jdbcUrl = "jdbc:mysql://%s/%s?user=%s&password=%s&serverTimezone=UTC&useSSL=false";
-//            String username = "dbuni13";
-//            String password = "Gb4ESje~2BZ~";
-//            String textField = bookTextField.getText();
-//            String sql = "delete from Classroom where RoomNumber=" + "\""+textField+"\"";
-//
-//
-//            try (Connection conn = DriverManager.getConnection(jdbcUrl, username, password);
-//                 Statement stmt = conn.createStatement()) {
-//
-//                stmt.executeUpdate(sql);
-//                System.out.println("Class Booked successfully");
-//                showClassRoom.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
 
-//    @FXML
-//    public void pressBookButton() {
-//        try {
-//            DBConnect.getInstance().connect();
-//            String TextFiled = bookTextField.getText();
-//            String sql = "update Classroom set IsBooked= isTrue where roomNumber is= "+ TextFiled;
-//            prep = conn.prepareStatement(sql);
-//            prep.execute();
-//            JOptionPane.showMessageDialog(null,"Updated" );
-//
-//        } catch (Exception e){
-//
-//            JOptionPane.showMessageDialog(null, "Something is wrong" );
-//
-//        }
-//
-//    }
 
     @FXML private void pressShowClassroom(){
         ShowTable.getItems();
@@ -114,7 +69,6 @@ public class BookClassController implements Initializable {
         System.out.println("Debug: correct working yeyeyeyeye");
         //      roomArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
     }
-
 
 
     @FXML
