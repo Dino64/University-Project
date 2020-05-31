@@ -126,9 +126,9 @@ public class BookClassController implements Initializable {
 
 
     @FXML
-    public void pressBookButton() {
-        {
-        }
+    public void pressBookButton(ActionEvent event) throws Exception {
+        DBConnect.getInstance().connect();
+        DBConnect.getInstance().BookRoom(String.valueOf(bookTextField.getText()));
 
     }
 }

@@ -558,6 +558,19 @@ public class DBConnect {
         }
     }
 
+    public void BookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '1' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     }
 
 
