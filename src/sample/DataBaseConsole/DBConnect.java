@@ -212,31 +212,19 @@ public class DBConnect {
         ArrayList<String> Grade = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select courseName, user_idUser, subject, grade from course ");
+            resultSet = statement.executeQuery("select courseName, user_idUser, subject grade from course ");
             while (resultSet.next()) {
-                Grade.add("\n------------\nCourse " + resultSet.getString(1));
-                Grade.add("\nID" + resultSet.getInt(2));
-                Grade.add("\ngrade " + resultSet.getString(3));
-                System.out.println("DEBUG:" + Grade);
+                Grade.add("\n------------\nCourse: " + resultSet.getString(1));
+                Grade.add("\nID:            " + resultSet.getInt(2));
+                Grade.add("\ngrade:    " + resultSet.getString(3));
+                System.out.println("DEBUG: " + Grade);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return Grade;
     }
-
-    //Vad gör denna? var används den?
-   /* public ArrayList<Classroom> readClassroom() throws SQLException {
-        ArrayList<Classroom> classList = new ArrayList<>();
-        Statement stmt = connection.createStatement();
-        stmt.executeQuery("use Classroom");
-        ResultSet rs = stmt.executeQuery("select * from Classroom");
-        while (rs.next()) {
-            Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getString(3));
-            classList.add(classroom);
-        }
-        return classList;
-    }*/
+    
 
     public User getUse() {
         return use;
@@ -339,7 +327,7 @@ public class DBConnect {
                 Classroom room = new Classroom();
                 room.setRoomNumber(resultSet.getInt(1));
                 room.setNumberOfSeats(resultSet.getInt(2));
-                room.setIsBooked(resultSet.getBoolean(3));
+                room.setIsBooked(resultSet.getString(3));
                 room.setDate(resultSet.getDate(4));
                 list.add(room);
             }
@@ -382,9 +370,20 @@ public class DBConnect {
 
     public void removeStudent(String textField){
 
-        String sql = "DELETE FROM user where SSN=";
+        String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
+                "REFERENCES user (idUser) DELETE FROM user where idUser = '" + textField + "'";
 
 
+
+
+        try {
+            prep = connection.prepareStatement(sql);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Dude is GONE");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
 
 
 
@@ -449,7 +448,7 @@ public class DBConnect {
         }
     }
     public void removeBook (int isBooked, int roomNumber){
-        String stmt = "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+        String stmt = "Update Classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
 
         try {
             prep = connection.prepareStatement(stmt);
@@ -541,6 +540,33 @@ public class DBConnect {
             prep.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void UnBookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '0' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void BookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '1' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 
