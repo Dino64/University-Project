@@ -85,7 +85,7 @@ public class SignUpScene {
 
     @FXML
     private void pressAboutUs(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/SignUpScene/SignUpScene.fxml");
+        SceneChanger.changeScene(event, "/sample/aboutUs.fxml");
 
 
 

@@ -13,23 +13,6 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.ResourceBundle;
 
-;
-
-import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.Initializable;
-        import javafx.scene.control.TextArea;
-        import sample.Model.SceneChanger;
-
-
-        import java.io.*;
-        import java.net.URL;
-
-        import java.nio.file.Files;
-        import java.nio.file.Path;
-        import java.util.List;
-        import java.util.ResourceBundle;
-
 
 public class aboutUsController implements Initializable {
 
