@@ -16,7 +16,7 @@
       </ImageView>
       <TextArea fx:id="teacherTextArea" layoutX="397.0" prefHeight="200.0" prefWidth="200.0" promptText="Teachers" />
       <TextField fx:id="removeTextField" layoutX="84.0" layoutY="171.0" prefHeight="26.0" prefWidth="263.0" promptText="Enter the teacher id that you would like to fire" />
-      <Button fx:id="addTeacherPageButton" layoutX="150.0" layoutY="225.0" mnemonicParsing="false" onAction="#addTeacherPageButton" prefHeight="50.0" prefWidth="130.0" text="Add teacher page" />
+      <Button fx:id="addTeacherPageButton" layoutY="347.0" mnemonicParsing="false" onAction="#addTeacherPageButton" prefHeight="50.0" prefWidth="130.0" text="Add teacher page" />
       <Button fx:id="ShowButton" layoutX="466.0" layoutY="225.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="50.0" prefWidth="121.0" text="Show Teachers" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,5 +24,6 @@
          </image>
       </ImageView>
       <Button fx:id="backButton" layoutX="466.0" layoutY="312.0" mnemonicParsing="false" onAction="#backButton" prefHeight="50.0" prefWidth="121.0" text="Back to menu" />
+      <Button fx:id="removeButton" layoutX="174.0" layoutY="250.0" mnemonicParsing="false" onAction="#removeButton" text="Remove" />
    </children>
 </AnchorPane>
