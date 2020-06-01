@@ -1,5 +1,5 @@
 package sample.Scenes.Teacher;
-import javafx.util.Callback;
+
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
-import javafx.scene.paint.Color;
+
 import javafx.util.StringConverter;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
@@ -17,10 +17,6 @@ import sample.Model.SceneChanger;
 import java.io.IOException;
 import java.net.URL;
 
-
-
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 
