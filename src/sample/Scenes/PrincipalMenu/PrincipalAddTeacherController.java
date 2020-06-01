@@ -25,7 +25,8 @@ public class PrincipalAddTeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DBConnect.getInstance().connect();
+        teacherTextArea.setText(String.valueOf(DBConnect.getInstance().getTeacher()));
     }
 
     public void addButton(){
@@ -73,6 +74,8 @@ public class PrincipalAddTeacherController implements Initializable {
             }else {
 
                 DBConnect.getInstance().addTeacher(name,lastName,SSN,email,passWord);
+                DBConnect.getInstance().connect();
+                teacherTextArea.setText(String.valueOf(DBConnect.getInstance().getTeacher()));
             }
         }catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING);

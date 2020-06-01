@@ -24,7 +24,8 @@ public class PrincipalViewTeacherController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DBConnect.getInstance().connect();
+        teacherTextArea.setText(String.valueOf(DBConnect.getInstance().getTeacher()));
     }
 
     @FXML
@@ -39,6 +40,7 @@ public class PrincipalViewTeacherController implements Initializable {
             alert.showAndWait();
         } else {
             DBConnect.getInstance().removeStudent(userId);
+            teacherTextArea.setText(String.valueOf(DBConnect.getInstance().getTeacher()));
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("YAY!");
             alert.setHeaderText("Student removed Bye Bye Mate");
