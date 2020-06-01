@@ -1,18 +1,22 @@
 package sample.Scenes.Student;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.StringConverter;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.Classroom;
+import sample.Model.Course;
 import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class RegisterNewCourseController implements Initializable {
@@ -20,16 +24,21 @@ public class RegisterNewCourseController implements Initializable {
     @FXML
     Button backButton, ShowCourseButton, registerCourseButton, UnregisterCourseButton;
 
-    @FXML
-    TextField courseName, subject , UserID;
 
     @FXML
-    TextArea showCourse;
+    TableView<Course> showCourse;
+    @FXML
+    TableColumn<Course, String> courseName;
+    @FXML
+    TableColumn<Course, String> subject;
+    @FXML
+    TableColumn<Course, Integer> Grade;
+    @FXML
+    TableColumn<Course, String> isRegistered;
+
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    public void initialize(URL url, ResourceBundle resourceBundle) {DBConnect.getInstance().connect();}
 
     @FXML
     public void pressBackButton (ActionEvent event) throws IOException {
@@ -40,50 +49,21 @@ public class RegisterNewCourseController implements Initializable {
 
     @FXML
     public void pressShowCourse() throws Exception{
-        DBConnect.getInstance().connect();
-        showCourse.setText(String.valueOf(DBConnect.getInstance().findCourse()));
-
-    }
-
-    @FXML
-    public void pressRegisterCourse() throws SQLException {
-        String CourseName = courseName.getText();
-        String Subject = subject.getText();
-        int user_idUser = Integer.parseInt(UserID.getText());
-
-        if (courseName.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Course name is empty");
-            alert.setHeaderText("Input the course Name");
-            alert.setContentText("Try again Again");
-            alert.showAndWait();
-        }if (subject.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Subject is empty");
-            alert.setHeaderText("Input the Subject");
-            alert.setContentText("Try again again");
-            alert.showAndWait();
-        }if (UserID.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Subject is empty");
-                alert.setHeaderText("Input the Subject");
-                alert.setContentText("Try again again");
-                alert.showAndWait();
-
-        }else{
-                DBConnect.getInstance().registerCourse(CourseName,Subject,user_idUser);
-                System.out.println("DEBUG course added!!");
-
-            }
-
-    }
-
-    @FXML
-    public void pressUnregisterCourse(){
+        showCourse.getItems();
+        ObservableList<Course> courseList = DBConnect.getInstance().getCourse();
+        courseName.setCellValueFactory(new PropertyValueFactory("courseName"));
+        subject.setCellValueFactory(new PropertyValueFactory("subject"));
+        Grade.setCellValueFactory(new PropertyValueFactory("grade"));
+        isRegistered.setCellValueFactory(new PropertyValueFactory("user_idUser"));
+        showCourse.setEditable(true);
+        showCourse.setItems(courseList);
+        System.out.println(courseList.toString());
+        System.out.println("DataBase Updated");
 
     }
 
 
 }
+
 
 
