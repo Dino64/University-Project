@@ -68,8 +68,14 @@ public class TeacherStudentMenu implements Initializable {
 
         StudentTableView.setItems(studentList);
         System.out.println(studentList.toString());
+        firstNametxt.clear();
+        lastNametxt.clear();
+        subjectTxt.clear();
 
+    }
 
+    public void viewStudents(){
+       
     }
 
 

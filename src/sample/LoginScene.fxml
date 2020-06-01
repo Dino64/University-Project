@@ -16,7 +16,7 @@
                 <Image url="@Assets/Images/1925188_658528300870060_605326070_n.jpg" />
             </image>
         </ImageView>
-      <TextField fx:id="UsernameTextField" layoutX="187.0" layoutY="177.0" prefHeight="27.0" prefWidth="242.0" promptText="Username" />
+      <TextField fx:id="UsernameTextField" layoutX="187.0" layoutY="177.0" onMouseClicked="#mouseClicked" prefHeight="27.0" prefWidth="242.0" promptText="Username" />
       <Button fx:id="SignUpButton" layoutX="22.0" layoutY="227.0" mnemonicParsing="false" onAction="#signUpButton" prefHeight="29.0" prefWidth="87.0" text="Sign Up" />
       <Button fx:id="LoginButton" layoutX="185.0" layoutY="318.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="29.0" prefWidth="110.0" text="Log in" />
       <Button fx:id="ForgotPasswordButton" layoutX="319.0" layoutY="318.0" mnemonicParsing="false" onAction="#forgotPassWord" prefHeight="27.0" prefWidth="110.0" text="Forgot password" />
