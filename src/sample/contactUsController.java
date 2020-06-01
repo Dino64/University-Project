@@ -6,16 +6,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 
 
-import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
+
 
 public class contactUsController implements Initializable {
 
@@ -26,15 +24,6 @@ public class contactUsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-            Path path = Path.of("ContactUs.txt");
-            List<String> readline = null;
-            try {
-                readline = Files.readAllLines(path);
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
-            readline.forEach(line -> TextAreaContactUs.appendText(line + "\n"));
-
         }
 
 
@@ -42,10 +31,12 @@ public class contactUsController implements Initializable {
 
 
     @FXML
-    private void viewText (ActionEvent event) throws IOException {
-
+    private void viewText () throws IOException {
+        Path path = Path.of("../University-Project/ContactUs");
+        TextAreaContactUs.clear();
+        List<String> readAll = Files.readAllLines(path);
+        readAll.forEach(line -> TextAreaContactUs.appendText(line + "\n"));
     }
-
     }
 
 
