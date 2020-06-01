@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalAddTeacherController">
+   <children>
+      <ImageView fitHeight="392.0" fitWidth="608.0" layoutX="-2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="addButton" layoutX="498.0" layoutY="201.0" mnemonicParsing="false" onAction="#addButton" text="Add New Teacher" />
+      <Button fx:id="backButton" layoutX="565.0" layoutY="367.0" mnemonicParsing="false" onAction="#backButton" text="Back" />
+      <TextArea fx:id="teacherTextArea" layoutX="406.0" layoutY="1.0" prefHeight="200.0" prefWidth="200.0" promptText="Teachers" />
+      <TextField fx:id="nameTextField" layoutX="48.0" layoutY="43.0" promptText="Please enter first name" />
+      <TextField fx:id="lastNameTextField" layoutX="48.0" layoutY="115.0" promptText="Please enter last name" />
+      <TextField fx:id="SSNTextField" layoutX="48.0" layoutY="175.0" promptText="please enter SSN" />
+      <TextField fx:id="emailTextField" layoutX="48.0" layoutY="243.0" promptText="Please enter Email" />
+      <TextField fx:id="passWordTextField" layoutX="48.0" layoutY="303.0" promptText="Please enter password" />
+      <Button fx:id="showButton" layoutX="406.0" layoutY="201.0" mnemonicParsing="false" onAction="#showButton" text="Show Teachers" />
+   </children>
+</AnchorPane>

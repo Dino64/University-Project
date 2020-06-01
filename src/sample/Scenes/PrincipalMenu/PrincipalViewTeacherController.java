@@ -27,8 +27,8 @@ public class PrincipalViewTeacherController implements Initializable {
         teacherTextArea.setText(String.valueOf(DBConnect.getInstance().getTeacher()));
     }
 
-    public void addTeacherPageButton() {
-
+    public void addTeacherPageButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalAddTeacher.fxml");
     }
 
     @FXML
