@@ -10,6 +10,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -311,11 +312,15 @@ public class DBConnect {
         } catch (SQLException e) {
             System.out.println("DEBUG: ERROR IN UPDATE");
             e.printStackTrace();
+
         }
 
 
         return i;
     }
+
+
+
 
     public  ObservableList<Classroom> getRooms(){
 
