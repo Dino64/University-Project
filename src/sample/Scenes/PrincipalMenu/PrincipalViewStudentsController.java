@@ -17,7 +17,8 @@ public class PrincipalViewStudentsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DBConnect.getInstance().connect();
+        StudentTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
     }
 
     @FXML
