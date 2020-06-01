@@ -1,5 +1,6 @@
 package sample.Scenes.Teacher;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import sample.Model.AddGrade;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -74,8 +76,14 @@ public class TeacherStudentMenu implements Initializable {
 
     }
 
-    public void viewStudents(){
-       
+    public void viewStudents() throws SQLException {
+    ObservableList<AddGrade> students = DBConnect.getInstance().viewStudent();
+        firstNa.setCellValueFactory(new PropertyValueFactory("FirstName"));
+        lastNa.setCellValueFactory(new PropertyValueFactory("LastName"));
+        SSN.setCellValueFactory(new PropertyValueFactory("SSN"));
+        email.setCellValueFactory(new PropertyValueFactory("Email"));
+        grade.setCellValueFactory(new PropertyValueFactory("Grade"));
+        StudentTableView.setItems(students);
     }
 
 
