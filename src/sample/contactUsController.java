@@ -24,22 +24,31 @@ public class contactUsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-    }
+
+
+            Path path = Path.of("ContactUs.txt");
+            List<String> readline = null;
+            try {
+                readline = Files.readAllLines(path);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            readline.forEach(line -> TextAreaContactUs.appendText(line + "\n"));
+
+        }
+
+
+
 
 
     @FXML
     private void viewText (ActionEvent event) throws IOException {
-        Path path = Path.of("ContactUs.txt");
-        List<String> readline = null;
-        try {
-            readline = Files.readAllLines(path);
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        readline.forEach(line -> TextAreaContactUs.appendText(line + "\n"));
+
     }
 
     }
+
+
 
 
 

@@ -34,7 +34,7 @@ public class PrincipalRemoveStudentsController implements Initializable {
     }
 
     @FXML
-    public void removeButton(){
+    public void removeButton() throws SQLException {
         DBConnect.getInstance().connect();
         String userId = removeTextField.getText();
         if (removeTextField.getText().isEmpty()) {

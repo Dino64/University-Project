@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalAddCourseController">
    <children>
       <ImageView fitHeight="407.0" fitWidth="602.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
@@ -24,5 +23,6 @@
       <Label layoutX="163.0" layoutY="5.0" prefHeight="18.0" prefWidth="192.0" text="Course creation and assigning" />
       <Button fx:id="addButton" layoutX="149.0" layoutY="340.0" mnemonicParsing="false" onAction="#addButton" text="Add" />
       <Button fx:id="showButton" layoutX="506.0" layoutY="248.0" mnemonicParsing="false" onAction="#showButton" text="Show Students" />
+      <Button fx:id="backButton" layoutX="506.0" layoutY="352.0" mnemonicParsing="false" onAction="#backButton" prefHeight="53.0" prefWidth="95.0" text="Back" />
    </children>
 </AnchorPane>

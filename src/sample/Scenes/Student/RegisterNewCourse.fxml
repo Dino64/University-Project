@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,8 +15,15 @@
          </image>
       </ImageView>
       <Button fx:id="backButton" alignment="BOTTOM_LEFT" layoutY="-1.0" mnemonicParsing="false" onAction="#pressBackButton" prefHeight="31.0" prefWidth="600.0" text="Back " />
-      <TextArea fx:id="showCourse" layoutX="181.0" layoutY="50.0" prefHeight="267.0" prefWidth="385.0" />
-      <Button fx:id="ShowCourseButton" layoutX="181.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressShowCourse" prefHeight="27.0" prefWidth="180.0" text="Show Course" />
-      <Button fx:id="registerCourseButton" layoutX="384.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressRegisterCourse" prefHeight="27.0" prefWidth="180.0" text="Register Course" />
+      <Button fx:id="ShowCourseButton" layoutX="116.0" layoutY="337.0" mnemonicParsing="false" onAction="#pressShowCourse" prefHeight="27.0" prefWidth="207.0" text="Show Course" />
+      <Button fx:id="registerCourseButton" layoutX="357.0" layoutY="337.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="207.0" text="Register Course" />
+      <TableView fx:id="showCourse" layoutX="116.0" layoutY="48.0" prefHeight="264.0" prefWidth="444.0">
+        <columns>
+          <TableColumn fx:id="courseName" prefWidth="125.0" text=" Course Name" />
+          <TableColumn fx:id="subject" minWidth="8.0" prefWidth="104.0" text="Subject" />
+            <TableColumn fx:id="Grade" prefWidth="114.0" text="Grade" />
+            <TableColumn fx:id="isRegistered" prefWidth="100.0" text="Registered" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

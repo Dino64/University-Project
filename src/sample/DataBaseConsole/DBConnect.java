@@ -342,6 +342,26 @@ public class DBConnect {
         return list;
     }
 
+    public  ObservableList<Course> getCourse(){
+
+        ObservableList<Course> list = FXCollections.observableArrayList();
+        try {
+            ResultSet resultSet = statement.executeQuery("Select courseName,subject,grade, user_idUser from Course");
+
+            while (resultSet.next()) {
+                Course course = new Course();
+                course.setCourseName(resultSet.getString(1));
+                course.setSubject(resultSet.getString(2));
+                course.setGrade(resultSet.getInt(3));
+                course.setIsRegistered(resultSet.getString(4));
+                list.add(course);
+            }
+        } catch (SQLException var3) {
+            var3.printStackTrace();
+        }
+        return list;
+    }
+
 
     public void addStudent(String name, String lastName, String SSN, String email, String password) throws SQLException {
         connect();
@@ -364,7 +384,7 @@ public class DBConnect {
         String statement = "INSERT INTO course (CourseName,subject, grade, user_idUser ) VALUES (?, ?, ?, ?)";
         prep = connection.prepareStatement(statement);
         prep.setString(1, courseName);
-      prep.setString(2,courseSubject);
+        prep.setString(2,courseSubject);
         prep.setString(3, grade);
         prep.setString(4, String.valueOf(userID));
         prep.execute();
@@ -373,14 +393,15 @@ public class DBConnect {
         connection.close();
     }
 
-    public void removeStudent(String textField){
+    public void removeStudent(String textField) throws SQLException {
 
-        String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
-                "REFERENCES user (idUser) DELETE FROM user where idUser = '" + textField + "'";
-
-
+        String sql = " DELETE FROM user where idUser = '" + textField + "'";
+        String sql2 = "Delete from course where user_idUser  = '" + textField + "'";
 
 
+
+        prep = connection.prepareStatement(sql2);
+        prep.executeUpdate();
         try {
             prep = connection.prepareStatement(sql);
             prep.executeUpdate();
@@ -573,6 +594,28 @@ public class DBConnect {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
+    }
+    public ArrayList<String> findStudent() {
+        ArrayList<String> p = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select idUser,FirstName,LastName,SSN,email from user where accesID like 3");
+            while (resultSet.next()) {
+                p.add("IdUser: "+ resultSet.getInt(1));
+                p.add("FirstName: " + resultSet.getString(2));
+                p.add("\nLastName: " + resultSet.getString(3));
+                p.add("\nSSN: " + resultSet.getString(4));
+                p.add("\n Email: " + resultSet.getString(5));
+                p.add("\n------------\n");
+                System.out.println("DEBUG:" + p);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
     }
 
     }
