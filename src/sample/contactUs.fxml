@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.contactUsController">
    <children>
       <ImageView fitHeight="401.0" fitWidth="610.0" pickOnBounds="true" preserveRatio="true">
@@ -21,5 +20,6 @@
          </image>
       </ImageView>
       <Button fx:id="ViewText" layoutX="64.0" layoutY="142.0" mnemonicParsing="false" onAction="#viewText" prefHeight="36.0" prefWidth="91.0" text="View Text" />
+      <Button fx:id="backButton" layoutY="-4.0" mnemonicParsing="false" onAction="#backButton" prefHeight="36.0" prefWidth="91.0" text="Back" />
    </children>
 </AnchorPane>

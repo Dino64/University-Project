@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import sample.Model.SceneChanger;
 
 
 import java.io.*;
@@ -24,20 +25,21 @@ public class contactUsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 
-        }
-
-
-
-
+    }
 
     @FXML
-    private void viewText () throws IOException {
+    private void viewText() throws IOException {
         Path path = Path.of("../University-Project/ContactUs");
         TextAreaContactUs.clear();
         List<String> readAll = Files.readAllLines(path);
         readAll.forEach(line -> TextAreaContactUs.appendText(line + "\n"));
     }
+
+    @FXML
+    private void backButton(ActionEvent be) throws IOException {
+        SceneChanger.changeScene(be, "/sample/LoginScene.fxml");
     }
+}
 
 
 
