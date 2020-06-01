@@ -52,4 +52,9 @@ public class PrincipalController implements Initializable {
     public void removeBookButton (ActionEvent event) throws IOException {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipleViewBooking.fxml");
  }
+
+ @FXML
+    public void ViewTeachersButton(ActionEvent event) throws IOException {
+        SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalViewTeacher.fxml");
+ }
 }
