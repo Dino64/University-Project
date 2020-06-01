@@ -38,5 +38,6 @@
         </columns>
       </TableView>
       <Label fx:id="messageLabel" layoutX="600.0" layoutY="252.0" prefHeight="18.0" prefWidth="150.0" />
+      <Button fx:id="viewStud" layoutX="262.0" layoutY="221.0" mnemonicParsing="false" onAction="#viewStudents" text="View all Students" />
    </children>
 </AnchorPane>

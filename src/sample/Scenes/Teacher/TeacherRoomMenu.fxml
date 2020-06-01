@@ -30,9 +30,9 @@
             <TableColumn fx:id="dateBook" prefWidth="88.800048828125" text="Date" />
         </columns>
       </TableView>
-      <TextField fx:id="roomNr" layoutX="7.0" layoutY="281.0" prefHeight="26.0" prefWidth="97.0" promptText="Enter RoomNr" />
+      <TextField fx:id="roomNr" layoutX="7.0" layoutY="281.0" onAction="#mousClicked" prefHeight="26.0" prefWidth="97.0" promptText="Enter RoomNr" />
       <Button fx:id="bookRoom" layoutX="7.0" layoutY="307.0" mnemonicParsing="false" onAction="#bookButton" text="book" />
       <Button fx:id="unBook" layoutX="238.0" layoutY="307.0" mnemonicParsing="false" onAction="#unBookButton" prefHeight="26.0" prefWidth="58.0" text="unBook" />
-      <TextField fx:id="unBookTxt" layoutX="208.0" layoutY="282.0" prefHeight="26.0" prefWidth="98.0" promptText="Enter RoomNr" />
+      <TextField fx:id="unBookTxt" layoutX="208.0" layoutY="282.0" onAction="#mouseClicked" prefHeight="26.0" prefWidth="98.0" promptText="Enter RoomNr" />
    </children>
 </AnchorPane>

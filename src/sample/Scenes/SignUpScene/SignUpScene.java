@@ -11,8 +11,7 @@ import sample.Model.PasswordEncrypt;
 import sample.Model.SceneChanger;
 
 import java.io.IOException;
-
-
+import java.sql.SQLException;
 
 
 public class SignUpScene {
@@ -23,8 +22,7 @@ public class SignUpScene {
             txtFldLastName,
             txtFldSsn,
             txtFldEmail,
-            txtFldPassword,
-            txtFieldPhoneNr;
+            txtFldPassword;
 
     @FXML
     Button back, aboutUs, help;
@@ -37,49 +35,51 @@ public class SignUpScene {
     private void SignUp() {
         String salt = PasswordEncrypt.generateSalt(5);
         String hashedPassWord = PasswordEncrypt.hashPassWord(txtFldPassword.getText(), salt) + "-" + salt;
-        if (txtFldFirstName.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Wrong Input");
-            alert.setContentText("Please enter your first name");
-            alert.showAndWait();
-        } else if (txtFldLastName.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Wrong input");
-            alert.setContentText("Please enter your last name");
-            alert.showAndWait();
-        } else if (txtFldSsn.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter your ssn");
-            alert.showAndWait();
-        } else if (txtFldEmail.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter your email-adress");
-            alert.showAndWait();
-        } else if (txtFldPassword.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("wrong input");
-            alert.setContentText("Please enter a password");
-            alert.showAndWait();
-        } else if (txtFieldPhoneNr.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a phone number");
-            alert.showAndWait();
-        }else
-                DBConnect.getInstance().connect();
-                DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(),hashedPassWord,3));
-                DBConnect.getInstance().saveAccount();
+       try {
+           if (txtFldFirstName.getText().isEmpty() || txtFldLastName.getText().isEmpty() || txtFldSsn.getText().isEmpty() || txtFldEmail.getText().isEmpty() || txtFldPassword.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.WARNING);
+               alert.setTitle("Warning");
+               alert.setHeaderText("Wrong Input");
+               alert.setContentText("Please enter your first name");
+               alert.showAndWait();
+           } else if (txtFldLastName.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.WARNING);
+               alert.setTitle("Warning");
+               alert.setHeaderText("Wrong input");
+               alert.setContentText("Please enter your last name");
+               alert.showAndWait();
+           } else if (txtFldSsn.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.WARNING);
+               alert.setTitle("Warning");
+               alert.setHeaderText("Not good");
+               alert.setContentText("Please enter your ssn");
+               alert.showAndWait();
+           } else if (txtFldEmail.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.WARNING);
+               alert.setTitle("Warning");
+               alert.setHeaderText("Not good");
+               alert.setContentText("Please enter your email-adress");
+               alert.showAndWait();
+           } else if (txtFldPassword.getText().isEmpty()) {
+               Alert alert = new Alert(Alert.AlertType.WARNING);
+               alert.setTitle("Warning");
+               alert.setHeaderText("wrong input");
+               alert.setContentText("Please enter a password");
+               alert.showAndWait();
+           } else
+               DBConnect.getInstance().connect();
+           DBConnect.getInstance().setUse(new Member(txtFldFirstName.getText(), txtFldLastName.getText(), txtFldSsn.getText(), txtFldEmail.getText(), hashedPassWord, 3));
+           DBConnect.getInstance().saveAccount();
 
 
+       }catch (Exception e){
 
+           Alert alert = new Alert(Alert.AlertType.WARNING);
+           alert.setTitle("Warning");
+           alert.setHeaderText("Something went wrong");
+           alert.setContentText("Please make sure you entered everything correctly");
+           alert.showAndWait();
+       }
         }
 
 
