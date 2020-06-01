@@ -7,7 +7,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Scenes.PrincipalMenu.PrincipalViewTeacherController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="607.0" layoutX="-3.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
@@ -16,8 +15,14 @@
          </image>
       </ImageView>
       <TextArea fx:id="teacherTextArea" layoutX="397.0" prefHeight="200.0" prefWidth="200.0" promptText="Teachers" />
-      <TextField fx:id="removeTextField" layoutX="23.0" layoutY="34.0" prefHeight="26.0" prefWidth="263.0" promptText="Enter the teacher id that you would like to fire" />
-      <Button fx:id="addTeacherPageButton" layoutY="360.0" mnemonicParsing="false" onAction="#addTeacherPageButton" prefHeight="39.0" prefWidth="129.0" text="Add teacher page" />
-      <Button fx:id="ShowButton" layoutX="480.0" layoutY="200.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="50.0" prefWidth="121.0" text="Show Teachers" />
+      <TextField fx:id="removeTextField" layoutX="84.0" layoutY="171.0" prefHeight="26.0" prefWidth="263.0" promptText="Enter the teacher id that you would like to fire" />
+      <Button fx:id="addTeacherPageButton" layoutX="150.0" layoutY="225.0" mnemonicParsing="false" onAction="#addTeacherPageButton" prefHeight="50.0" prefWidth="130.0" text="Add teacher page" />
+      <Button fx:id="ShowButton" layoutX="466.0" layoutY="225.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="50.0" prefWidth="121.0" text="Show Teachers" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="backButton" layoutX="466.0" layoutY="312.0" mnemonicParsing="false" onAction="#backButton" prefHeight="50.0" prefWidth="121.0" text="Back to menu" />
    </children>
 </AnchorPane>
