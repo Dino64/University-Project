@@ -46,25 +46,33 @@ public class PrincipalBookRoomController implements Initializable {
         DBConnect.getInstance().connect();
         int id = Integer.parseInt(IdTextField.getText());
         String numberOfDays = daysTextField.getText();
-        if (IdTextField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter the specified command");
-            alert.showAndWait();
-        } else if (daysTextField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter Specified command");
-            alert.showAndWait();
+        try {
+            if (IdTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter the specified command");
+                alert.showAndWait();
+            } else if (daysTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter Specified command");
+                alert.showAndWait();
 
+            }
+            String oldDate = sdf.format(cal.getTime());
+            cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
+            String newDate = sdf.format(cal.getTime());
+
+            DBConnect.getInstance().bookRoom(1, id, newDate);
+        }catch (Exception ex){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Warning");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText("Please enter the commands as instructed");
+            alert.showAndWait();
         }
-        String oldDate = sdf.format(cal.getTime());
-        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(numberOfDays));
-        String newDate = sdf.format(cal.getTime());
-
-        DBConnect.getInstance().bookRoom(1, id, newDate);
     }
 
     @FXML
