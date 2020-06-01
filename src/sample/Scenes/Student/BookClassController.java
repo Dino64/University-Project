@@ -16,6 +16,12 @@ import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+
+
+
+
+
+
 public class BookClassController implements Initializable {
 
     @FXML
@@ -45,8 +51,34 @@ public class BookClassController implements Initializable {
 
 
 
-    @FXML
-    private void pressShowClassroom(){
+
+//    @FXML
+//    private void pressShowClassroom(){
+//        ShowTable.getItems();
+//        ObservableList<Classroom> roomList = DBConnect.getInstance().getRooms();
+//        roomNumber.setCellValueFactory(new PropertyValueFactory("RoomNumber"));
+//        numberOfSeats.setCellValueFactory(new PropertyValueFactory("NumberOfSeats"));
+//        isBooked.setCellValueFactory(new PropertyValueFactory("IsBooked"));
+//        Date.setCellValueFactory(new PropertyValueFactory("Date"));
+//        ShowTable.setEditable(true);
+//        Date.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Date>() {
+//            @Override
+//            public String toString(Date date) {
+//                return null;
+//            }
+//
+//            @Override
+//            public Date fromString(String s) {
+//                return null;
+//            }
+//        }));
+//        ShowTable.setItems(roomList);
+//        System.out.println(roomList.toString());
+//        System.out.println("Debug: correct working yeyeyeyeye");
+//
+//    }
+
+    @FXML private void pressShowClassroom(){
         ShowTable.getItems();
         ObservableList<Classroom> roomList = DBConnect.getInstance().getRooms();
         roomNumber.setCellValueFactory(new PropertyValueFactory("RoomNumber"));
@@ -54,15 +86,26 @@ public class BookClassController implements Initializable {
         isBooked.setCellValueFactory(new PropertyValueFactory("IsBooked"));
         Date.setCellValueFactory(new PropertyValueFactory("Date"));
         ShowTable.setEditable(true);
+        isBooked.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Boolean>() {
+            @Override
+            public String toString(Boolean aBoolean) {
+                return aBoolean ? "Booked" : "Available";
+            }
+
+            @Override
+            public Boolean fromString(String s) {
+                return Boolean.valueOf(s);
+            }
+        }));
         Date.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Date>() {
             @Override
             public String toString(Date date) {
-                return null;
+                return String.valueOf(date);
             }
 
             @Override
             public Date fromString(String s) {
-                return null;
+                return java.sql.Date.valueOf(s);
             }
         }));
         ShowTable.setItems(roomList);
@@ -70,7 +113,6 @@ public class BookClassController implements Initializable {
         System.out.println("Debug: correct working yeyeyeyeye");
 
     }
-
 
     @FXML
    public void pressUnBookButton(ActionEvent event) throws Exception {
