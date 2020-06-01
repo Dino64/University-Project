@@ -24,7 +24,8 @@ public class PrincipalAddCourseController implements Initializable {
 @FXML TextField gradeTextField;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DBConnect.getInstance().connect();
+        studentsTextArea.setText(String.valueOf(DBConnect.getInstance().findStudent()));
     }
 
     @FXML
@@ -63,6 +64,8 @@ public class PrincipalAddCourseController implements Initializable {
                 alert.showAndWait();
             } else {
                 DBConnect.getInstance().addCourse(course, grade, subject, userID);
+                DBConnect.getInstance().connect();
+                studentsTextArea.setText(String.valueOf(DBConnect.getInstance().findStudent()));
             }
         }catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
