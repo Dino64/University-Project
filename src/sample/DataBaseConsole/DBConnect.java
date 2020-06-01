@@ -368,14 +368,15 @@ public class DBConnect {
         connection.close();
     }
 
-    public void removeStudent(String textField){
+    public void removeStudent(String textField) throws SQLException {
 
-        String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
-                "REFERENCES user (idUser) DELETE FROM user where idUser = '" + textField + "'";
-
-
+        String sql = " DELETE FROM user where idUser = '" + textField + "'";
+        String sql2 = "Delete from course where user_idUser  = '" + textField + "'";
 
 
+
+        prep = connection.prepareStatement(sql2);
+        prep.executeUpdate();
         try {
             prep = connection.prepareStatement(sql);
             prep.executeUpdate();
