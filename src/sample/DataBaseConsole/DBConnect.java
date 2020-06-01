@@ -643,6 +643,24 @@ public class DBConnect {
         connection.close();
     }
 
+    public void removeTeacher(String textField) throws SQLException {
+        String sql = " DELETE FROM user where idUser = '" + textField + "'";
+//        String sql2 = "Delete from course where user_idUser  = '" + textField + "'";
+
+
+
+//        prep = connection.prepareStatement(sql2);
+//        prep.executeUpdate();
+        try {
+            prep = connection.prepareStatement(sql);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Dude is GONE");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     }
 
 

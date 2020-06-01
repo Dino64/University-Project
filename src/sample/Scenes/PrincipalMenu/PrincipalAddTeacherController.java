@@ -28,7 +28,7 @@ public class PrincipalAddTeacherController implements Initializable {
 
     }
 
-    public void addButton(ActionEvent event){
+    public void addButton(){
     DBConnect.getInstance().connect();
     String name, lastName, SSN, email, passWord;
 
@@ -73,7 +73,6 @@ public class PrincipalAddTeacherController implements Initializable {
             }else {
 
                 DBConnect.getInstance().addTeacher(name,lastName,SSN,email,passWord);
-//                SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
             }
         }catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING);
