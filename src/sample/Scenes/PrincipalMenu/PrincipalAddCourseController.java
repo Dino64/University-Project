@@ -1,12 +1,15 @@
 package sample.Scenes.PrincipalMenu;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import sample.DataBaseConsole.DBConnect;
+import sample.Model.SceneChanger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -76,5 +79,12 @@ public class PrincipalAddCourseController implements Initializable {
     public void showButton(){
         DBConnect.getInstance().connect();
         studentsTextArea.setText(String.valueOf(DBConnect.getInstance().findStudent()));
+    }
+
+    @FXML
+    public void backButton(ActionEvent event) throws IOException {
+        DBConnect.getInstance().connect();
+        SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddStudent.fxml");
+
     }
 }
