@@ -569,6 +569,28 @@ public class DBConnect {
             ex.printStackTrace();
         }
     }
+    public ArrayList<String> findStudent() {
+        ArrayList<String> p = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select idUser,FirstName,LastName,SSN,email from user where accesID like 3");
+            while (resultSet.next()) {
+                p.add("IdUser: "+ resultSet.getInt(1));
+                p.add("FirstName: " + resultSet.getString(2));
+                p.add("\nLastName: " + resultSet.getString(3));
+                p.add("\nSSN: " + resultSet.getString(4));
+                p.add("\n Email: " + resultSet.getString(5));
+                p.add("\n------------\n");
+                System.out.println("DEBUG:" + p);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
 
     }
 

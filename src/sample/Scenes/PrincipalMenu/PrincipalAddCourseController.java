@@ -28,11 +28,12 @@ public class PrincipalAddCourseController implements Initializable {
     public void addButton() throws SQLException {
         String course,subject,grade;
         int userID;
+        try{
         course = courseTextField.getText();
         subject = subjectTextField.getText();
         grade = gradeTextField.getText();
         userID = Integer.parseInt(idTextField.getText());
-        try {
+
             if (courseTextField.getText().isEmpty()) {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Warning");
@@ -74,6 +75,6 @@ public class PrincipalAddCourseController implements Initializable {
     @FXML
     public void showButton(){
         DBConnect.getInstance().connect();
-        studentsTextArea.setText(String.valueOf(DBConnect.getInstance().getStudent()));
+        studentsTextArea.setText(String.valueOf(DBConnect.getInstance().findStudent()));
     }
 }
