@@ -580,6 +580,19 @@ public class DBConnect {
             ex.printStackTrace();
         }
     }
+
+    public void registerCourse (String courseName){
+        String stmt = "UPDATE course SET CourseName  = '" + courseName + "' ' Registered'  WHERE courseName = '" + courseName + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
     public ArrayList<String> findStudent() {
         ArrayList<String> p = new ArrayList<>();
         try {

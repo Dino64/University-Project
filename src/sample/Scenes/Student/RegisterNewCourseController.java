@@ -22,9 +22,10 @@ import java.util.ResourceBundle;
 public class RegisterNewCourseController implements Initializable {
 
     @FXML
-    Button backButton, ShowCourseButton, registerCourseButton, UnregisterCourseButton;
+    Button backButton, ShowCourseButton, registerCourseButton;
 
-
+    @FXML
+    TextField CourseName;
     @FXML
     TableView<Course> showCourse;
     @FXML
@@ -54,11 +55,18 @@ public class RegisterNewCourseController implements Initializable {
         courseName.setCellValueFactory(new PropertyValueFactory("courseName"));
         subject.setCellValueFactory(new PropertyValueFactory("subject"));
         Grade.setCellValueFactory(new PropertyValueFactory("grade"));
-        isRegistered.setCellValueFactory(new PropertyValueFactory("user_idUser"));
+        isRegistered.setCellValueFactory(new PropertyValueFactory("isRegistered"));
         showCourse.setEditable(true);
         showCourse.setItems(courseList);
         System.out.println(courseList.toString());
         System.out.println("DataBase Updated");
+
+    }
+
+    @FXML
+    public void pressRegisterCourse(){
+        DBConnect.getInstance().connect();
+        DBConnect.getInstance().registerCourse(CourseName.getText());
 
     }
 
