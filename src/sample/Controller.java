@@ -136,7 +136,7 @@ public class Controller implements Initializable {
         } catch (NumberFormatException e) {
             Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
             errorAlert.setHeaderText("Information");
-            errorAlert.setContentText("Hello and welcome to Kaos University. \nTo progress, you need to register and create an account.\nIf you forget your password, press forget password.");
+            errorAlert.setContentText("Hello and welcome to Kaos University. \nTo progress, you need to register and create an account.\nIf you forget your password, press forgot password.");
             errorAlert.showAndWait();
         }
     }
