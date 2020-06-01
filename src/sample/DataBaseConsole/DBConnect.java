@@ -8,10 +8,8 @@ import sample.Model.*;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -226,19 +224,7 @@ public class DBConnect {
         }
         return Grade;
     }
-
-    //Vad gör denna? var används den?
-   /* public ArrayList<Classroom> readClassroom() throws SQLException {
-        ArrayList<Classroom> classList = new ArrayList<>();
-        Statement stmt = connection.createStatement();
-        stmt.executeQuery("use Classroom");
-        ResultSet rs = stmt.executeQuery("select * from Classroom");
-        while (rs.next()) {
-            Classroom classroom = new Classroom(rs.getString(1), rs.getString(2), rs.getString(3));
-            classList.add(classroom);
-        }
-        return classList;
-    }*/
+    
 
     public User getUse() {
         return use;
@@ -318,6 +304,19 @@ public class DBConnect {
 
         }return i;
     }
+    public int updateIsBooked(boolean isBooked, int RoomNumber) {
+      int i = 0;
+        try {
+           i = statement.executeUpdate("Update classroom Set isBooked = " + isBooked  +  " WHERE RoomNumber = " + RoomNumber + " ");
+        } catch (SQLException e) {
+            System.out.println("DEBUG: ERROR IN UPDATE");
+            e.printStackTrace();
+        }
+
+
+        return i;
+    }
+
     public  ObservableList<Classroom> getRooms(){
 
         ObservableList<Classroom> list = FXCollections.observableArrayList();
@@ -449,7 +448,7 @@ public class DBConnect {
         }
     }
     public void removeBook (int isBooked, int roomNumber){
-        String stmt = "Update classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
+        String stmt = "Update Classroom Set isBooked = '" + isBooked + "' WHERE RoomNumber = '" + roomNumber + "'";
 
         try {
             prep = connection.prepareStatement(stmt);
@@ -541,6 +540,33 @@ public class DBConnect {
             prep.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void UnBookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '0' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void BookRoom (String roomNumber){
+        String stmt = "UPDATE Classroom SET isBooked = '1' WHERE roomNumber = '" + roomNumber + "'";
+
+        try {
+            prep = connection.prepareStatement(stmt);
+            prep.executeUpdate();
+            System.out.println("DEBUG: Room Booking Updated");
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }
 

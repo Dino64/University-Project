@@ -1,5 +1,5 @@
 package sample.Scenes.Teacher;
-
+import javafx.util.Callback;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.util.Callback;
+
+import javafx.scene.paint.Color;
 import javafx.util.StringConverter;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.Classroom;
@@ -15,8 +16,9 @@ import sample.Model.SceneChanger;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
-import java.sql.SQLException;
+
+
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,7 +40,7 @@ public class TeacherRoomMenu implements Initializable {
     TableColumn<Classroom, Boolean>isBooked;
     @FXML
     TableColumn<Classroom, Date>dateBook;
-
+    @FXML Label messageLabel;
 
     // @FXML
     //TextField roomNr,daysTxt;
@@ -53,19 +55,6 @@ public class TeacherRoomMenu implements Initializable {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");
 
     }
-    @FXML
-    private void bookRoom(){
-      /*  String dateString = sdf.format(new Date());
-        private void bookRoom() throws SQLException {
-        String dateString = sdf.format(new Date());
-        int id = Integer.parseInt(roomNr.getText());
-        String numberOfDays = daysTxt.getText();
-        cal.add(Calendar.DAY_OF_MONTH, Integer.parseInt(dateString));
-        String newDate = sdf.format(cal.getTime());
-        DBConnect.getInstance().bookRoom(1, id, newDate);
-
-*/
-    }
     @FXML private void viewRooms(){
         bookTable.getItems();
         ObservableList<Classroom> roomList = DBConnect.getInstance().getRooms();
@@ -74,10 +63,21 @@ public class TeacherRoomMenu implements Initializable {
         isBooked.setCellValueFactory(new PropertyValueFactory("IsBooked"));
         dateBook.setCellValueFactory(new PropertyValueFactory("Date"));
         bookTable.setEditable(true);
+        isBooked.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Boolean>() {
+            @Override
+            public String toString(Boolean aBoolean) {
+                return aBoolean ? "Booked" : "Available";
+            }
+
+            @Override
+            public Boolean fromString(String s) {
+                return Boolean.valueOf(s);
+            }
+        }));
         dateBook.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Date>() {
             @Override
             public String toString(Date date) {
-                return null;
+                return String.valueOf(date);
             }
 
             @Override
@@ -89,6 +89,23 @@ public class TeacherRoomMenu implements Initializable {
         System.out.println(roomList.toString());
         System.out.println("Debug: correct working yeyeyeyeye");
   //      roomArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
+    }
+    @FXML
+    public void isBookedUpdate(TableColumn.CellEditEvent<Classroom,Boolean>event){
+        Classroom isBooked = event.getRowValue();
+        int i;
+        i = DBConnect.getInstance().updateIsBooked(event.getNewValue(),isBooked.getRoomNumber());
+        if (i !=0){
+            messageLabel.setTextFill(Color.CORNFLOWERBLUE);
+            messageLabel.setText("isBooked upDated");
+
+        }else {
+            messageLabel.setTextFill(Color.RED);
+            messageLabel.setText("Something went Wrong");
+        }
+
+
+
     }
 
 }

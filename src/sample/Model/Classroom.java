@@ -1,7 +1,6 @@
 package sample.Model;
 
 
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class Classroom extends Course {
@@ -9,7 +8,7 @@ public class Classroom extends Course {
     private int NumberOfSeats;
     private int RoomNumber;
     private boolean isBooked;
-   private Date date;
+    private Date date;
 
     public Classroom(int numberOfSeats, int roomNumber, boolean isBooked, Date date) {
         NumberOfSeats = numberOfSeats;
