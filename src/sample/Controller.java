@@ -3,10 +3,7 @@ package sample;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import sample.DataBaseConsole.DBConnect;
 import sample.Model.SceneChanger;
 import sample.Model.User;
@@ -130,9 +127,19 @@ public class Controller implements Initializable {
     }
     @FXML
     private void contactUsButton (ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/contactUs.fxml");
+        SceneChanger.changeScene(event, "/sample/Scenes/contactUs.fxml");
     }
-
+    @FXML
+    private void helpButtonOnAction(ActionEvent event)  {
+        try {
+            throw new NumberFormatException();
+        } catch (NumberFormatException e) {
+            Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+            errorAlert.setHeaderText("Information");
+            errorAlert.setContentText("Hello and welcome to Kaos University. \nTo progress, you need to register and create an account.\nWhen you register you will receive a password sent to you.");
+            errorAlert.showAndWait();
+        }
+    }
 
     }
 
