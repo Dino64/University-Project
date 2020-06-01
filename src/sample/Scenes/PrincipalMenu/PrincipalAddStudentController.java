@@ -54,10 +54,10 @@ public class PrincipalAddStudentController implements Initializable {
         SSN = SSNTextField.getText();
         email = EmailTextField.getText();
         passWord = PasswordTextField.getText();
-        course = CourseTextField.getText();
-        subject = SubjectTextField.getText();
-        grade = gradeTextField.getText();
-//       int userID = Integer.parseInt(idTextField.getText());
+//        course = CourseTextField.getText();
+//        subject = SubjectTextField.getText();
+//        grade = gradeTextField.getText();
+////       int userID = Integer.parseInt(idTextField.getText());
 
         try {
             if (NameTextField.getText().isEmpty()){

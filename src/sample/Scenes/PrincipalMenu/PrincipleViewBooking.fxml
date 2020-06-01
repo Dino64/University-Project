@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <Button fx:id="removeBooking" layoutX="302.0" layoutY="316.0" mnemonicParsing="false" onAction="#removeBooking" text="Remove Booking" />
-      <TextField fx:id="roomTextField" layoutX="307.0" layoutY="38.0" prefHeight="27.0" prefWidth="240.0" promptText="Enter Roomnumber you want to remove" />
+      <TextField fx:id="roomTextField" layoutX="273.0" layoutY="38.0" prefHeight="27.0" prefWidth="294.0" promptText="Enter Roomnumber of booking you want to remove" />
       <TextArea fx:id="roomTextArea" layoutX="320.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" promptText="Rooms" />
       <Button fx:id="backButton" layoutX="448.0" layoutY="316.0" mnemonicParsing="false" onAction="#backButton" prefHeight="27.0" prefWidth="99.0" text="Back to menu" />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
