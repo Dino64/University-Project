@@ -127,7 +127,7 @@ public class Controller implements Initializable {
     }
     @FXML
     private void contactUsButton (ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/contactUs.fxml");
+        SceneChanger.changeScene(event, "/sample/contactUs.fxml");
     }
     @FXML
     private void helpButtonOnAction(ActionEvent event)  {
@@ -136,7 +136,7 @@ public class Controller implements Initializable {
         } catch (NumberFormatException e) {
             Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
             errorAlert.setHeaderText("Information");
-            errorAlert.setContentText("Hello and welcome to Kaos University. \nTo progress, you need to register and create an account.\nWhen you register you will receive a password sent to you.");
+            errorAlert.setContentText("Hello and welcome to Kaos University. \nTo progress, you need to register and create an account.\nIf you forget your password, press forget password.");
             errorAlert.showAndWait();
         }
     }
