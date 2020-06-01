@@ -27,7 +27,7 @@ public class aboutUsController implements Initializable {
 
     @FXML
     private void aboutUs() throws IOException {
-        Path path = Path.of("../University-Project/AboutUs");
+        Path path = Path.of("../University-Project/src/sample/AboutUs");
         TextAreaAboutUs.clear();
         List<String> readAll = Files.readAllLines(path);
         readAll.forEach(line -> TextAreaAboutUs.appendText(line + "\n"));
