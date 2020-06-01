@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AboutUs">
+   <children>
+      <ImageView fitHeight="403.0" fitWidth="601.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/Images/campus.sommar.jpg" />
+         </image>
+      </ImageView>
+      <TextArea fx:id="TextAreaAboutUs" layoutX="284.0" layoutY="55.0" prefHeight="332.0" prefWidth="303.0" />
+      <Button fx:id="aboutUs" layoutX="201.0" layoutY="107.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="78.0" text="About us" />
+      <Button layoutX="201.0" layoutY="283.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="78.0" text="Back" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="-8.0" layoutY="-43.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Assets/Images/KaosUniversity.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

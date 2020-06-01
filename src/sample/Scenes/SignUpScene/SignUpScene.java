@@ -85,17 +85,25 @@ public class SignUpScene {
 
     @FXML
     private void pressAboutUs(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/CompanyInformation/CompanyInformation.fxml");
+        SceneChanger.changeScene(event, "/sample/Scenes/SignUpScene/SignUpScene.fxml");
 
 
 
 
     }
 
-    @FXML
-    private void pressHelp(ActionEvent event) throws IOException {
-        SceneChanger.changeScene(event, "/sample/Scenes/CustomerService/CustomerService.fxml");
-    }
+        @FXML
+        private void pressHelp(ActionEvent event)  {
+            try {
+                throw new NumberFormatException();
+            } catch (NumberFormatException e) {
+                Alert errorAlert = new Alert(Alert.AlertType.INFORMATION);
+                errorAlert.setHeaderText("Information regarding signup");
+                errorAlert.setContentText("Hello and welcome to Kaos University. \nTo signup, please enter all the fields that we ask for.\nIf you have further question\nplease go to contacts us in main menu");
+                errorAlert.showAndWait();
+            }
+        }
+
 
     @FXML
     private void pressBack(ActionEvent event) throws IOException{
