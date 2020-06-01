@@ -260,6 +260,22 @@ public class DBConnect {
         return isVerified;
 
     }
+    public ObservableList<AddGrade> viewStudent() throws SQLException {
+        ObservableList<AddGrade> list = FXCollections.observableArrayList();
+        ResultSet resultSet = statement.executeQuery("Select FirstName,LastName,SSN,email,grade from course,user where accesID like 3");
+        while(resultSet.next()){
+            AddGrade stud = new AddGrade();
+            stud.setFirstName(resultSet.getString(1));
+            stud.setLastName(resultSet.getString(2));
+            stud.setSSN(resultSet.getString(3));
+            stud.setEmail(resultSet.getString(4));
+            stud.setGrade(resultSet.getString(5));
+            list.add(stud);
+
+        }
+        resultSet.close();
+        return list;
+    }
 
     public ObservableList<AddGrade> searchStudent(String firstName, String lastName, String sub) {
 
