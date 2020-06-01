@@ -23,15 +23,11 @@
       <TextField fx:id="PasswordTextField" layoutX="14.0" layoutY="205.0" prefHeight="26.0" prefWidth="184.0" promptText="Enter New Students PassWord" />
       <TextArea fx:id="StudentsTextArea" layoutX="412.0" layoutY="159.0" prefHeight="177.0" prefWidth="198.0" promptText="Students" />
       <Button fx:id="ShowButton" layoutX="479.0" layoutY="342.0" mnemonicParsing="false" onAction="#ShowButton" prefHeight="42.0" prefWidth="117.0" text="Show Students" />
-      <TextField fx:id="CourseTextField" layoutX="17.0" layoutY="247.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course name" />
-      <TextField fx:id="SubjectTextField" layoutX="17.0" layoutY="299.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter Course Subject" />
-      <TextField fx:id="gradeTextField" layoutX="17.0" layoutY="349.0" prefHeight="26.0" prefWidth="178.0" promptText="Enter grade" />
       <ImageView fitHeight="82.0" fitWidth="161.0" layoutX="447.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../../Desktop/KaosUniversity.png" />
          </image>
       </ImageView>
-      <TextField fx:id="idTextField" layoutX="228.0" layoutY="28.0" promptText="Enter User id" />
       <Button fx:id="courseButton" layoutX="411.0" layoutY="82.0" mnemonicParsing="false" onAction="#courseButton" prefHeight="42.0" prefWidth="198.0" text="Add course to existing student" />
    </children>
 </AnchorPane>

@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -16,7 +17,6 @@
             </image>
         </ImageView>
       <TextField fx:id="UsernameTextField" layoutX="187.0" layoutY="177.0" prefHeight="27.0" prefWidth="242.0" promptText="Username" />
-      <TextField fx:id="PasswordTextField" layoutX="187.0" layoutY="216.0" prefHeight="27.0" prefWidth="242.0" promptText="Password" />
       <Button fx:id="SignUpButton" layoutX="22.0" layoutY="227.0" mnemonicParsing="false" onAction="#signUpButton" prefHeight="29.0" prefWidth="87.0" text="Sign Up" />
       <Button fx:id="LoginButton" layoutX="185.0" layoutY="318.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="29.0" prefWidth="110.0" text="Log in" />
       <Button fx:id="ForgotPasswordButton" layoutX="319.0" layoutY="318.0" mnemonicParsing="false" onAction="#forgotPassWord" prefHeight="27.0" prefWidth="110.0" text="Forgot password" />
@@ -29,5 +29,6 @@
       </ImageView>
       <Button fx:id="contactUsButton" layoutX="22.0" layoutY="280.0" mnemonicParsing="false" onAction="#contactUsButton" prefHeight="29.0" prefWidth="87.0" text="Contact Us" />
       <Button layoutX="22.0" layoutY="333.0" mnemonicParsing="false" onAction="#helpButtonOnAction" prefHeight="29.0" prefWidth="87.0" text="Help" />
+      <PasswordField fx:id="PasswordTextField" layoutX="185.0" layoutY="214.0" prefHeight="26.0" prefWidth="242.0" promptText="Password" />
     </children>
 </AnchorPane>

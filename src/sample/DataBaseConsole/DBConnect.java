@@ -10,6 +10,7 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -311,11 +312,15 @@ public class DBConnect {
         } catch (SQLException e) {
             System.out.println("DEBUG: ERROR IN UPDATE");
             e.printStackTrace();
+
         }
 
 
         return i;
     }
+
+
+
 
     public  ObservableList<Classroom> getRooms(){
 
@@ -388,14 +393,15 @@ public class DBConnect {
         connection.close();
     }
 
-    public void removeStudent(String textField){
+    public void removeStudent(String textField) throws SQLException {
 
-        String sql = "ALTER TABLE user ADD CONSTRAINT fk_course_user1 FOREIGN KEY (user_idUser) " +
-                "REFERENCES user (idUser) DELETE FROM user where idUser = '" + textField + "'";
-
-
+        String sql = " DELETE FROM user where idUser = '" + textField + "'";
+        String sql2 = "Delete from course where user_idUser  = '" + textField + "'";
 
 
+
+        prep = connection.prepareStatement(sql2);
+        prep.executeUpdate();
         try {
             prep = connection.prepareStatement(sql);
             prep.executeUpdate();
