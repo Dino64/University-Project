@@ -68,7 +68,7 @@ public class BookClassController implements Initializable {
         ShowTable.setItems(roomList);
         System.out.println(roomList.toString());
         System.out.println("Debug: correct working yeyeyeyeye");
-        //      roomArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
+
     }
 
 

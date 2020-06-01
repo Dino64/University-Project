@@ -180,7 +180,7 @@ public class DBConnect {
         prep.close();
         System.out.println("Debug: room Added");
         connection.close();
-        // statement.executeUpdate("INSERT INTO Classroom(RoomNumber,NumberOfSeats) values('"+ classRoom.getRoomNumber()+"','"+ classRoom.getNumberOfSeats());
+
     }
 
     public ArrayList<String> ReadClassroom() {
@@ -193,13 +193,6 @@ public class DBConnect {
                 classroomList.add("\nRoomNumber: " + resultSet.getString(2));
                 classroomList.add("\nisBooked:" + resultSet.getString(3));
                 System.out.println("DEBUG:" + classroomList);
-//
-//                boolean isBooked = resultSet.getString(3).equals("1");// to change name of print
-//                if (isBooked) {
-//                    classroomList.add("\nIs booked");
-//                } else {
-//                    classroomList.add("\nNot booked");
-//                }
                 System.out.println("DEBUG:" + classroomList);
             }
 
@@ -232,12 +225,14 @@ public class DBConnect {
     }
 
     public boolean verifyAccount(String email, String pass) {
+
         connect();
         boolean isVerified = false;
         String queryLogin = "SELECT * FROM User WHERE email = '" + email + "' AND password = '" + pass + "'";
         try {
             statement = connection.createStatement();
             resultSet = statement.executeQuery(queryLogin);
+
 
 
             if (resultSet.next()) {
@@ -248,12 +243,14 @@ public class DBConnect {
                 resultSet.close();
             } else {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("User not available");
-                alert.setHeaderText("Please sign up before Login");
-                alert.setContentText("Thank you");
+                alert.setTitle("Wrong input");
+                alert.setHeaderText("Sign up or press forget password!");
+                alert.setContentText("Try again!");
                 alert.showAndWait();
                 System.out.println("No user excist please sign Up");
             }
+
+            
 
             disconnect();
         } catch (SQLException e) {
@@ -305,19 +302,7 @@ public class DBConnect {
 
         }return i;
     }
-    public int updateIsBooked(boolean isBooked, int RoomNumber) {
-      int i = 0;
-        try {
-           i = statement.executeUpdate("Update classroom Set isBooked = " + isBooked  +  " WHERE RoomNumber = " + RoomNumber + " ");
-        } catch (SQLException e) {
-            System.out.println("DEBUG: ERROR IN UPDATE");
-            e.printStackTrace();
 
-        }
-
-
-        return i;
-    }
 
 
 

@@ -43,6 +43,7 @@ public class TeacherRoomMenu implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     DBConnect.getInstance().connect();
     }
+
     @FXML
     private void backButton(ActionEvent be) throws IOException {
         SceneChanger.changeScene(be, "/sample/Scenes/Teacher/TeacherMenu.fxml");

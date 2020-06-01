@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Controller implements Initializable {
+public class LoginController implements Initializable {
 
 
     // Student studentUlf = new Student("Ulf", "Ulfson", "199612214285", "Ulf.Ulffson@myspace.net"
@@ -55,6 +55,7 @@ public class Controller implements Initializable {
 
         String email = UsernameTextField.getText();
         String password = PasswordTextField.getText();
+
         DBConnect.getInstance().verifyAccount(email, password);
         logedin(event);
     }
