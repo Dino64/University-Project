@@ -32,32 +32,41 @@ public class PrincipalAddCourseController implements Initializable {
         subject = subjectTextField.getText();
         grade = gradeTextField.getText();
         userID = Integer.parseInt(idTextField.getText());
-        if (courseTextField.getText().isEmpty()){
+        try {
+            if (courseTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter a course");
+                alert.showAndWait();
+            } else if (subjectTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter a subject");
+                alert.showAndWait();
+            } else if (gradeTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter a grade");
+                alert.showAndWait();
+            } else if (idTextField.getText().isEmpty()) {
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setTitle("Warning");
+                alert.setHeaderText("Not good");
+                alert.setContentText("Please enter an id");
+                alert.showAndWait();
+            } else {
+                DBConnect.getInstance().addCourse(course, grade, subject, userID);
+            }
+        }catch (Exception ex) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a course");
+            alert.setHeaderText("Something went wrong");
+            alert.setContentText("Please make sure you followed the instructions");
             alert.showAndWait();
-        }else if (subjectTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a subject");
-            alert.showAndWait();
-        }else if (gradeTextField.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter a grade");
-            alert.showAndWait();
-        }else if (idTextField.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Warning");
-            alert.setHeaderText("Not good");
-            alert.setContentText("Please enter an id");
-            alert.showAndWait();
-        }else {
-            DBConnect.getInstance().addCourse(course,grade,subject,userID);
+
         }
 
     }
