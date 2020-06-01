@@ -89,12 +89,18 @@ public class TeacherRoomMenu implements Initializable {
         DBConnect.getInstance().UnBookRoom(unBookTxt.getText());
 
     }
+    @FXML public void mouseClicked(){
+        unBookTxt.clear();
+    }
 
 
     @FXML
     public void bookButton() {
         DBConnect.getInstance().BookRoom(String.valueOf(roomNr.getText()));
 
+    }
+    @FXML public void mousClicked(){
+        roomNr.clear();
     }
    /* @FXML
     public void isBookedUpdate(TableColumn.CellEditEvent<Classroom,Boolean>event){

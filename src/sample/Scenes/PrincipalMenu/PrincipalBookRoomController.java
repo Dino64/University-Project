@@ -32,7 +32,8 @@ public class PrincipalBookRoomController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        DBConnect.getInstance().connect();
+        RoomsTextArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
     }
 
     @FXML
@@ -66,6 +67,8 @@ public class PrincipalBookRoomController implements Initializable {
             String newDate = sdf.format(cal.getTime());
 
             DBConnect.getInstance().bookRoom(1, id, newDate);
+            DBConnect.getInstance().connect();
+            RoomsTextArea.setText(String.valueOf(DBConnect.getInstance().ReadClassroom()));
         }catch (Exception ex){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Warning");

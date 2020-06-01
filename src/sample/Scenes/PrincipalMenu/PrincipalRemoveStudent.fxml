@@ -14,7 +14,7 @@
             <Image url="@../../Assets/Images/campus.sommar.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="removeTextField" layoutX="14.0" layoutY="294.0" prefHeight="27.0" prefWidth="212.0" promptText="Enter the SSN of the user you would like to remove" />
+      <TextField fx:id="removeTextField" layoutX="14.0" layoutY="294.0" prefHeight="27.0" prefWidth="212.0" promptText="Enter the id of the user you would like to remove" />
       <TextArea fx:id="studentsTextArea" layoutX="236.0" layoutY="33.0" prefHeight="288.0" prefWidth="341.0" promptText="Students" />
       <Button fx:id="removeButton" layoutX="14.0" layoutY="340.0" mnemonicParsing="false" onAction="#removeButton" prefHeight="27.0" prefWidth="212.0" text="Remove User" />
       <Button fx:id="showButton" layoutX="234.0" layoutY="340.0" mnemonicParsing="false" onAction="#showButton" prefHeight="27.0" prefWidth="341.0" text="Show users" />

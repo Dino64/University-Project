@@ -59,6 +59,9 @@ public class LoginController implements Initializable {
         DBConnect.getInstance().verifyAccount(email, password);
         logedin(event);
     }
+    @FXML public void mouseClicked(){
+        UsernameTextField.clear();
+    }
 
 
     public void logedin(ActionEvent event) throws IOException {
