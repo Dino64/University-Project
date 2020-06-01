@@ -623,7 +623,7 @@ public class DBConnect {
         ArrayList<String> p = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select idUser, firstname, lastname,SSN, email, from user, course where user.idUser = course.user_idUser AND accesId like 2 ");
+            resultSet = statement.executeQuery("select iduser,firstname,lastname,ssn,email from user where accesID like 2 ");
             while (resultSet.next()) {
                 p.add("IdUser: "+ resultSet.getInt(1));
                 p.add("FirstName: " + resultSet.getString(2));
@@ -640,6 +640,22 @@ public class DBConnect {
             e.printStackTrace();
         }
         return p;
+    }
+
+    public void addTeacher(String name, String lastName, String SSN, String email, String password) throws SQLException {
+        connect();
+        String sql = "INSERT INTO user (Firstname, Lastname, SSN, email, password, accesID) VALUES (?, ?, ?, ?, ?, ?)";
+        prep = connection.prepareStatement(sql);
+        prep.setString(1, name);
+        prep.setString(2, lastName);
+        prep.setString(3, SSN);
+        prep.setString(4, email);
+        prep.setString(5, password);
+        prep.setString(6, String.valueOf(2));
+        prep.execute();
+        prep.close();
+        System.out.println("Debug: Teacher has been added");
+        connection.close();
     }
 
     }
