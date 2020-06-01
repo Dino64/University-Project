@@ -82,39 +82,6 @@ public class TeacherStudentMenu implements Initializable {
     }
 
 
-
-
-   /* @FXML private void addGrade(){
-
-        String grade = setGrade.getText();
-
-        if (setGrade.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Miss match in Grade");
-            alert.setHeaderText("input correct value f,3,4 or 5");
-            alert.setContentText("Try again Champ");
-            alert.showAndWait();
-        }if (idNr.getText().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Empty field");
-            alert.setHeaderText("input correct idNr");
-            alert.setContentText("Try again champ");
-            alert.showAndWait();
-        }
-        if (!setGrade.getText().matches("[3-5]|[f]?|d")){
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Miss match in Grade");
-            alert.setHeaderText("input correct value f,3,4 or 5");
-            alert.setHeaderText("Try again Champ");
-            alert.showAndWait();
-        }else{
-
-           DBConnect.getInstance().addGrade(grade);
-            System.out.println("DEBUG:Grade added!!");
-
-        }*/
-
-
     @FXML
     private void gradeChange(TableColumn.CellEditEvent<AddGrade, String> event) {
         AddGrade g = event.getRowValue();
