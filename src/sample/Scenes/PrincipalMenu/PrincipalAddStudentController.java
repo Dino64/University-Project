@@ -127,5 +127,6 @@ public class PrincipalAddStudentController implements Initializable {
     @FXML
     public void courseButton(ActionEvent event) throws IOException {
         SceneChanger.changeScene(event,"/sample/Scenes/PrincipalMenu/PrincipalAddCourse.fxml");
+
     }
 }
