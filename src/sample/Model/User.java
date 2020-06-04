@@ -1,6 +1,6 @@
 package sample.Model;
 
-public  class User implements Model  {
+public  abstract class User implements Model  {
 
     private String firstName;
     private String lastName;

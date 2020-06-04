@@ -235,7 +235,7 @@ public class DBConnect {
 
 
             if (resultSet.next()) {
-                User user = new User((resultSet.getString(2)), resultSet.getString(3), resultSet.getString(5), resultSet.getString(4), resultSet.getString(6), resultSet.getInt(9));
+                User user = new Member((resultSet.getString(2)), resultSet.getString(3), resultSet.getString(5), resultSet.getString(4), resultSet.getString(6), resultSet.getInt(9));
                 System.out.println(user);
                 setUse(user);
                 isVerified = true;
