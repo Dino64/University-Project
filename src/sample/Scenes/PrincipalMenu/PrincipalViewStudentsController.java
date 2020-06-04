@@ -47,4 +47,15 @@ public class PrincipalViewStudentsController implements Initializable {
         SceneChanger.changeScene(event, "/sample/Scenes/PrincipalMenu/PrincipalMenu.fxml");
     }
 
+    @FXML
+    public void sortButton(){
+        DBConnect.getInstance().connect();
+        StudentTextArea.setText(String.valueOf(DBConnect.getInstance().sortGradeHighest()));
+    }
+
+    public void lowestButton(){
+        DBConnect.getInstance().connect();
+        StudentTextArea.setText(String.valueOf(DBConnect.getInstance().sortGradeLowest()));
+    }
+
 }

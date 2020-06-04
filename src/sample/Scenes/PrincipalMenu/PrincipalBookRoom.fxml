@@ -17,7 +17,6 @@
       <TextArea fx:id="RoomsTextArea" layoutX="378.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0" promptText="Rooms" />
       <Button fx:id="ShowRoomButton" layoutX="433.0" layoutY="325.0" mnemonicParsing="false" onAction="#ShowRoomButton" text="Show Rooms" />
       <TextField fx:id="IdTextField" layoutX="14.0" layoutY="141.0" prefHeight="26.0" prefWidth="287.0" promptText="Enter the room number you would like to book" />
-      <TextField fx:id="daysTextField" layoutX="14.0" layoutY="200.0" prefHeight="26.0" prefWidth="287.0" promptText="How many days from now would you want to book" />
       <Button fx:id="bookButton" layoutX="99.0" layoutY="260.0" mnemonicParsing="false" onAction="#bookButton" prefHeight="48.0" prefWidth="117.0" text="Book Room " />
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -25,5 +24,6 @@
          </image>
       </ImageView>
       <Button fx:id="backButton" layoutX="503.0" layoutY="14.0" mnemonicParsing="false" onAction="#backButton" text="Back to menu" />
+      <TextField fx:id="daysTextField" layoutX="14.0" layoutY="202.0" prefHeight="26.0" prefWidth="287.0" />
    </children>
 </AnchorPane>

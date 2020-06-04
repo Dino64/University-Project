@@ -10,7 +10,6 @@ import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -689,6 +688,53 @@ public class DBConnect {
             ex.printStackTrace();
         }
     }
+
+    public ArrayList<String> sortGradeHighest(){
+        ArrayList<String> p = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select idUser, firstname, lastname, course_CourseName, grade from user, course_has_user where user.idUser = course_has_user.user_idUser AND accesId like 3 ORDER BY grade DESC ");
+            while (resultSet.next()) {
+                p.add("IdUser: "+ resultSet.getInt(1));
+                p.add("FirstName: " + resultSet.getString(2));
+                p.add("\nLastName: " + resultSet.getString(3));
+                p.add("\n CourseName: " + resultSet.getString(4));
+                p.add("\nGrade: " + resultSet.getString(5));
+                p.add("\n------------\n");
+                System.out.println("DEBUG:" + p);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
+
+    public ArrayList<String> sortGradeLowest(){
+        ArrayList<String> p = new ArrayList<>();
+        try {
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery("select idUser, firstname, lastname, course_CourseName, grade from user, course_has_user where user.idUser = course_has_user.user_idUser AND accesId like 3 ORDER BY grade ASC ");
+            while (resultSet.next()) {
+                p.add("IdUser: "+ resultSet.getInt(1));
+                p.add("FirstName: " + resultSet.getString(2));
+                p.add("\nLastName: " + resultSet.getString(3));
+                p.add("\n CourseName: " + resultSet.getString(4));
+                p.add("\nGrade: " + resultSet.getString(5));
+                p.add("\n------------\n");
+                System.out.println("DEBUG:" + p);
+
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return p;
+    }
+
 
     }
 
