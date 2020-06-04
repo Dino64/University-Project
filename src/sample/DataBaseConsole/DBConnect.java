@@ -205,11 +205,11 @@ public class DBConnect {
         ArrayList<String> Grade = new ArrayList<>();
         try {
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("select courseName, user_idUser, subject grade from course ");
+            resultSet = statement.executeQuery("select courseName, user_idUser, grade from course ");
             while (resultSet.next()) {
                 Grade.add("\n------------\nCourse: " + resultSet.getString(1));
                 Grade.add("\nID:            " + resultSet.getInt(2));
-                Grade.add("\ngrade:    " + resultSet.getString(3));
+                Grade.add("\ngrade:    " + resultSet.getInt(3));
                 System.out.println("DEBUG: " + Grade);
             }
         } catch (SQLException e) {
